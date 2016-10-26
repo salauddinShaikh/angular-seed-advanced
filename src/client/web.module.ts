@@ -25,15 +25,6 @@ import { MultilingualModule, translateFactory } from './app/frameworks/i18n/mult
 import { SampleModule } from './app/frameworks/sample/sample.module';
 import { nameListReducer, NameListEffects } from './app/frameworks/sample/index';
 
-//Layout
-import { FooterComponent } from './app/components/layout/footer/footer.component';
-import { QuickSidebarComponent } from './app/components/layout/quick-sidebar/quick-sidebar.component';
-import { SidebarComponent } from './app/components/layout/sidebar/sidebar.component';
-import { TopNavigationBarComponent } from './app/components/layout/top-navigation-bar/top-navigation-bar.component';
-
-//RMS
-import { DashboardComponent } from './app/components/dashboard/dashboard.component';
-
 // config
 import { Config, WindowService, ConsoleService } from './app/frameworks/core/index';
 Config.PLATFORM_TARGET = Config.PLATFORMS.WEB;
@@ -47,6 +38,15 @@ import { AppConfig } from './app/frameworks/sample/services/app-config';
 import { MultilingualService } from './app/frameworks/i18n/services/multilingual.service';
 // custom i18n language support
 MultilingualService.SUPPORTED_LANGUAGES = AppConfig.SUPPORTED_LANGUAGES;
+
+//Layout
+import { FooterComponent } from './app/components/layout/footer/footer.component';
+import { QuickSidebarComponent } from './app/components/layout/quick-sidebar/quick-sidebar.component';
+import { SidebarComponent } from './app/components/layout/sidebar/sidebar.component';
+import { TopNavigationBarComponent } from './app/components/layout/top-navigation-bar/top-navigation-bar.component';
+
+//RMS
+import { DashboardComponent } from './app/components/dashboard/dashboard.component';
 
 let routerModule = RouterModule.forRoot(routes);
 
