@@ -1,8 +1,12 @@
-import { Injector, OnInit } from '@angular/core';
+import { Injector } from '@angular/core';
 import { BaseComponent, Config } from '../../frameworks/core/index';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { NameListService } from '../../frameworks/sample/services/name-list.service';
+import { TimeSheetService } from '../../shared/services/timesheet.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../domain/appState';
+import { ITimeSheetDay } from '../../domain/timesheet/ITimesheet';
 
 @BaseComponent({
   moduleId: module.id,
@@ -10,7 +14,7 @@ import { NameListService } from '../../frameworks/sample/services/name-list.serv
   templateUrl: 'about.component.html',
   styleUrls: ['about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
   private heroesUrl = 'http://localhost:4000/ping';
   // Just one way you could handle the {N} `ui/page` Page class
   // in a shared component...
@@ -25,7 +29,11 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  constructor(private injector: Injector, private http: Http, private nameListService : NameListService) {
+  constructor(private store: Store<AppState>, private injector: Injector, private http: Http, private timesheetService : TimeSheetService, private timesheetServie : TimeSheetService) {
+    //this.names$ = store.select<ITimeSheetDay[]>('timesheet');
+    let outputTest = this.store;
+    console.log('Timesheets1 = ', outputTest.select('timesheet'));
+    console.log('Timesheets2 = ', this.store.select('timesheet'));
     // This is here as an example
     // if (this.page) {
     //   this.page.actionBarHidden = true;
@@ -33,7 +41,9 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getDataFromServer();
+    //this.getDataFromServer();
+    let records = this.timesheetService.getTimesheets();
+    console.log('YYYYYYYYYYYYYYYY',records);
   }
 
   getDataFromServer() {

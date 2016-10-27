@@ -4,6 +4,7 @@ export interface ITimeSheetDay {
   date: string;
   billableHours: string;
   nonBillableHours: string;
+  name : string
 }
 
 export interface ITimeSheetWeek {
