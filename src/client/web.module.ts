@@ -44,9 +44,22 @@ import { FooterComponent } from './app/components/layout/footer/footer.component
 import { QuickSidebarComponent } from './app/components/layout/quick-sidebar/quick-sidebar.component';
 import { SidebarComponent } from './app/components/layout/sidebar/sidebar.component';
 import { TopNavigationBarComponent } from './app/components/layout/top-navigation-bar/top-navigation-bar.component';
+import { IfAuthorize } from './app/components/shared/directives/ifAuthorize.directive';
 
 //RMS
 import { DashboardComponent } from './app/components/dashboard/dashboard.component';
+import { ScheduleModule, DataTableModule,SharedModule,ButtonModule,InputTextareaModule,CalendarModule,DropdownModule} from 'primeng/primeng';
+import { LmsHolidaysComponent } from './app/components/lms/lms-holidays/lms-holidays.component';
+import { LmsLeavesComponent } from './app/components/lms/lms-myleaves/lms-leaves.component';
+import { LmsApproveLeavesComponent } from './app/components/lms/lms-approveleave/lms-approveleave.component';
+import { LmsApplyLeavesComponent } from './app/components/lms/lms-applyleave/lms-applyleave.component';
+
+import { MyTimesheetComponent } from './app/components/timesheet/my-timesheet/my-timesheet.component';
+import { AddEditTimesheetComponent } from './app/components/timesheet/add-edit-timesheet/add-edit-timesheet.component';
+import { ApproveTimesheetComponent } from './app/components/timesheet/approve-timesheet/approve-timesheet.component';
+import { ApprovedTimesheetComponent } from './app/components/timesheet/approved-timesheet/approved-timesheet.component';
+import { ReportTimesheetComponent } from './app/components/timesheet/report-timesheet/report-timesheet.component';
+
 
 let routerModule = RouterModule.forRoot(routes);
 
@@ -86,7 +99,14 @@ export function cons() {
       names: nameListReducer
     }),
     EffectsModule.run(MultilingualEffects),
-    EffectsModule.run(NameListEffects)
+    EffectsModule.run(NameListEffects),
+    ScheduleModule,
+    DataTableModule,
+    SharedModule,
+    ButtonModule,
+    InputTextareaModule,
+    CalendarModule,
+    DropdownModule
   ],
   declarations: [
     AppComponent,
@@ -98,7 +118,17 @@ export function cons() {
     SidebarComponent,
     TopNavigationBarComponent,
     //RMS
-    DashboardComponent
+    DashboardComponent,
+    LmsLeavesComponent,
+    LmsHolidaysComponent,
+    LmsApplyLeavesComponent,
+    LmsApproveLeavesComponent,
+    MyTimesheetComponent,
+    AddEditTimesheetComponent,
+    ApproveTimesheetComponent,
+    ApprovedTimesheetComponent,
+    ReportTimesheetComponent,
+    IfAuthorize
   ],
   providers: [
     {

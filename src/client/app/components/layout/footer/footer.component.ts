@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 
 @Component({
   moduleId: module.id,
-  selector: 'footer',
+  selector: 'layout-footer',
   templateUrl: 'footer.component.html',
   styleUrls: ['footer.component.css'],
 })
