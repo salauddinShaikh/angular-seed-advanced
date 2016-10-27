@@ -401,6 +401,9 @@ export class SeedConfig {
 
       'app/*': '/app/*',
       'primeng': `${this.APP_BASE}node_modules/primeng`,
+      'fullcalender': `${this.APP_BASE}node_modules/fullcalender`,
+      'moment': `${this.APP_BASE}node_modules/moment`,
+      'font-awesome': `${this.APP_BASE}node_modules/font-awesome`,
       // For test config
       'dist/dev/*': '/base/dist/dev/*',
       '*': 'node_modules/*'
