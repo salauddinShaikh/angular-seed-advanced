@@ -1,4 +1,4 @@
-import { Injector } from '@angular/core';
+import { Injector, OnInit } from '@angular/core';
 import { BaseComponent, Config } from '../../frameworks/core/index';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
@@ -10,7 +10,7 @@ import { NameListService } from '../../frameworks/sample/services/name-list.serv
   templateUrl: 'about.component.html',
   styleUrls: ['about.component.css']
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
   private heroesUrl = 'http://localhost:4000/ping';
   // Just one way you could handle the {N} `ui/page` Page class
   // in a shared component...
