@@ -54,6 +54,8 @@ import { LmsHolidaysComponent } from './app/components/lms/lms-holidays/lms-holi
 import { LmsLeavesComponent } from './app/components/lms/lms-myleaves/lms-leaves.component';
 import { LmsApproveLeavesComponent } from './app/components/lms/lms-approveleave/lms-approveleave.component';
 import { LmsApplyLeavesComponent } from './app/components/lms/lms-applyleave/lms-applyleave.component';
+import { LmsUpdateLeavesComponent } from './app/components/lms/lms-updateleave/lms-updateleave.component';
+import { LmsBulkApproveComponent } from './app/components/lms/lms-bulkapproval/lms-bulkapproval.component';
 
 import { MyTimesheetComponent } from './app/components/timesheet/my-timesheet/my-timesheet.component';
 import { AddEditTimesheetComponent } from './app/components/timesheet/add-edit-timesheet/add-edit-timesheet.component';
@@ -126,6 +128,8 @@ export function cons() {
     LmsHolidaysComponent,
     LmsApplyLeavesComponent,
     LmsApproveLeavesComponent,
+    LmsUpdateLeavesComponent,
+    LmsBulkApproveComponent,
     MyTimesheetComponent,
     AddEditTimesheetComponent,
     ApproveTimesheetComponent,
