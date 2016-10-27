@@ -40,9 +40,10 @@ export class ReportTimesheetComponent implements OnInit {
       billableHours: 8,
       nonBillableHours: 2,
       status: 'Submitted',
-      totalHours: 10
-    },
-      {
+      totalHours: 10,
+      noteBillableHours: 'note Billable Hours1',
+      noteNonBillableHours: 'note NonBillable Hours1'
+    }, {
         id: 2,
         employeeName: 'abc',
         project: 'project1',
@@ -51,7 +52,9 @@ export class ReportTimesheetComponent implements OnInit {
         billableHours: 6,
         nonBillableHours: 2,
         status: 'Submitted',
-        totalHours: 8
+        totalHours: 8,
+        noteBillableHours: 'note Billable Hours2',
+        noteNonBillableHours: 'note NonBillable Hours2'
       }, {
         id: 3,
         employeeName: 'abc',
@@ -61,7 +64,9 @@ export class ReportTimesheetComponent implements OnInit {
         billableHours: 8,
         nonBillableHours: 2,
         status: 'Submitted',
-        totalHours: 10
+        totalHours: 10,
+        noteBillableHours: 'note Billable Hours3',
+        noteNonBillableHours: 'note NonBillable Hours3'
       }, {
         id: 4,
         employeeName: 'abc',
@@ -71,7 +76,9 @@ export class ReportTimesheetComponent implements OnInit {
         billableHours: 7,
         nonBillableHours: 2,
         status: 'Submitted',
-        totalHours: 9
+        totalHours: 9,
+        noteBillableHours: 'note Billable Hours4',
+        noteNonBillableHours: 'note NonBillable Hours4'
       }, {
         id: 5,
         employeeName: 'abc',
@@ -81,7 +88,9 @@ export class ReportTimesheetComponent implements OnInit {
         billableHours: 8,
         nonBillableHours: 2,
         status: 'Submitted',
-        totalHours: 10
+        totalHours: 10,
+        noteBillableHours: 'note Billable Hours5',
+        noteNonBillableHours: 'note NonBillable Hours5'
       }, {
         id: 6,
         employeeName: 'abc',
@@ -91,7 +100,9 @@ export class ReportTimesheetComponent implements OnInit {
         billableHours: 8,
         nonBillableHours: 0,
         status: 'Submitted',
-        totalHours: 8
+        totalHours: 8,
+        noteBillableHours: 'note Billable Hours6',
+        noteNonBillableHours: 'note NonBillable Hours6'
       },
     ];
   }

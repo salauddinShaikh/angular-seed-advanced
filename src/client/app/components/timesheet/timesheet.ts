@@ -8,4 +8,6 @@ export interface Timesheet {
     nonBillableHours;
     status;
     totalHours;
+    noteBillableHours;
+    noteNonBillableHours;
 }

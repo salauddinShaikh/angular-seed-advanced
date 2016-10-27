@@ -84,7 +84,7 @@ export class ApproveTimesheetComponent implements OnInit {
   }
 
   selectEmployee(employee: Employee) {
-    console.log('employee');
+    this.router.navigate(['/view-approve-timesheet']);
   }
 
 }

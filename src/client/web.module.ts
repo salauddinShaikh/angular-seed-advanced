@@ -60,6 +60,7 @@ import { LmsBulkApproveComponent } from './app/components/lms/lms-bulkapproval/l
 import { MyTimesheetComponent } from './app/components/timesheet/my-timesheet/my-timesheet.component';
 import { AddEditTimesheetComponent } from './app/components/timesheet/add-edit-timesheet/add-edit-timesheet.component';
 import { ApproveTimesheetComponent } from './app/components/timesheet/approve-timesheet/approve-timesheet.component';
+import { ViewApproveTimesheetComponent } from './app/components/timesheet/approve-timesheet/view-approve-timesheet.component';
 import { ApprovedTimesheetComponent } from './app/components/timesheet/approved-timesheet/approved-timesheet.component';
 import { ReportTimesheetComponent } from './app/components/timesheet/report-timesheet/report-timesheet.component';
 
@@ -133,6 +134,7 @@ export function cons() {
     MyTimesheetComponent,
     AddEditTimesheetComponent,
     ApproveTimesheetComponent,
+    ViewApproveTimesheetComponent,
     ApprovedTimesheetComponent,
     ReportTimesheetComponent,
     IfAuthorize

@@ -4,6 +4,7 @@ import { AddEditTimesheetComponent } from './add-edit-timesheet/add-edit-timeshe
 import { ApproveTimesheetComponent } from './approve-timesheet/approve-timesheet.component';
 import { ApprovedTimesheetComponent } from './approved-timesheet/approved-timesheet.component';
 import { ReportTimesheetComponent } from './report-timesheet/report-timesheet.component';
+import { ViewApproveTimesheetComponent } from './approve-timesheet/view-approve-timesheet.component';
 
 export const TimesheetRoutes: Route[] = [
   {
@@ -21,5 +22,8 @@ export const TimesheetRoutes: Route[] = [
   },{
     path: 'report-timesheet',
     component: ReportTimesheetComponent
+  },{
+    path: 'view-approve-timesheet',
+    component: ViewApproveTimesheetComponent
   }
 ];
