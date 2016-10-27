@@ -24,6 +24,7 @@ import { multilingualReducer, MultilingualEffects } from './app/frameworks/i18n/
 import { MultilingualModule, translateFactory } from './app/frameworks/i18n/multilingual.module';
 import { SampleModule } from './app/frameworks/sample/sample.module';
 import { nameListReducer, NameListEffects } from './app/frameworks/sample/index';
+import { timeSheetReducer, TimeSheetEffects, TimeSheetService } from './app/shared/services/timesheet.service';
 
 // config
 import { Config, WindowService, ConsoleService } from './app/frameworks/core/index';
@@ -96,9 +97,11 @@ export function cons() {
     SampleModule,
     StoreModule.provideStore({
       i18n: multilingualReducer,
-      names: nameListReducer
+      names: nameListReducer,
+      timesheet: timeSheetReducer
     }),
     EffectsModule.run(MultilingualEffects),
+    EffectsModule.run(TimeSheetEffects),    
     EffectsModule.run(NameListEffects),
     ScheduleModule,
     DataTableModule,
@@ -134,7 +137,8 @@ export function cons() {
     {
       provide: APP_BASE_HREF,
       useValue: '<%= APP_BASE %>'
-    }
+    },
+    TimeSheetService
   ],
   bootstrap: [AppComponent]
 })
