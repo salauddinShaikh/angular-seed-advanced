@@ -1,0 +1,106 @@
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+        <div class="page-head">
+            <!-- BEGIN PAGE TITLE -->
+            <div class="page-title">
+                <h4>Leaves</h4>
+            </div>
+            <!-- END PAGE TITLE -->
+        </div>
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <span>LINK UP</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span> Leaves</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span> Apply Leave</span>
+            </li>
+        </ul>
+        <div class="row">
+            <!-- START HOLIDAY PARTICULARS COMPONENT -->
+            <div class="col-lg-4 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-body">
+                        <h4>Requestor Details</h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td> Employee ID </td>
+                                        <td> 24568 </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Employee Name </td>
+                                        <td> Person1 LName </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Department </td>
+                                        <td> EBS </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>Active on Projects</h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Project</th>
+                                        <th>Manager</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> RMS </td>
+                                        <td> Sagar Shelar </td>
+                                    </tr>
+                                    <tr>
+                                        <td> PLSV 1 </td>
+                                        <td> Some Person </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END HOLIDAY PARTICULARS COMPONENT  -->
+
+            <!-- START HOLIDAY LIST COMPONENT BY PRIMENG -->
+            <div class="col-lg-8 col-xs-12 col-sm-12">
+                <div class="portlet light bordered">
+                    <h4>Update Leave</h4>
+                    <div class="row">
+                        <p-dataTable [value]="leaves" [responsive]="true">
+                            <p-column field="type" header="Type"></p-column>
+                            <p-column field="numberofleaves" header="No. of Leaves"></p-column>
+                            <p-column field="reason" header="Reason"></p-column>
+                            <p-column field="start" header="Start Date"></p-column>
+                            <p-column field="end" header="End Date"></p-column>
+                            <p-column field="action" header="Action"></p-column>
+                        </p-dataTable>
+                    </div>
+                </div>
+                <div class="portlet light bordered">
+                    <div class="row">
+                        <p-dataTable [value]="managers" [responsive]="true">
+                            <p-column field="project" header="Project"></p-column>
+                            <p-column field="manager" header="Manager"></p-column>
+                            <p-column field="status" header="Status"></p-column>
+                            <p-column field="comments" header="Comments"></p-column>
+                        </p-dataTable>
+                    </div>
+                </div>
+            </div>
+            <!-- END HOLIDAY LIST COMPONENT BY PRIMENG -->
+        </div>
+    </div>
+    <!-- END CONTENT BODY -->
+</div>
+<!-- END CONTENT -->

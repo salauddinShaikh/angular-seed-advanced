@@ -14,66 +14,54 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="portlet light ">
-                    <div class="portlet-title">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <span>Projects </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p-dropdown [options]="projects"></p-dropdown>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <span>Employee </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p-dropdown [options]="employee"></p-dropdown>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <span>Timesheet Status </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p-dropdown [options]="status"></p-dropdown>
-                                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Projects</label>
+                                <div class="col-md-9">
+                                    <p-dropdown [options]="projects"></p-dropdown>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <span>From </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p-calendar [showIcon]="true"></p-calendar>
-                                    </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Employee</label>
+                                <div class="col-md-9">
+                                    <p-dropdown [options]="employee"></p-dropdown>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <span>To </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p-calendar [showIcon]="true"></p-calendar>
-                                    </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Timesheet Status</label>
+                                <div class="col-md-8">
+                                    <p-dropdown [options]="status"></p-dropdown>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button pButton type="button" label="Show Report"></button>
-                                    </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">From</label>
+                                <div class="col-md-9">
+                                    <p-calendar [showIcon]="true"></p-calendar>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">To</label>
+                                <div class="col-md-9">
+                                    <p-calendar [showIcon]="true"></p-calendar>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-body">
+                                <label class="col-md-3 control-label"></label>
+                                <div class="col-md-9">
+                                    <button pButton type="button" label="Show Report"></button>
                                 </div>
                             </div>
                         </div>
