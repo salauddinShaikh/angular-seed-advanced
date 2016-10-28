@@ -56,6 +56,7 @@ import { LmsApproveLeavesComponent } from './app/components/lms/lms-approveleave
 import { LmsApplyLeavesComponent } from './app/components/lms/lms-applyleave/lms-applyleave.component';
 import { LmsUpdateLeavesComponent } from './app/components/lms/lms-updateleave/lms-updateleave.component';
 import { LmsBulkApproveComponent } from './app/components/lms/lms-bulkapproval/lms-bulkapproval.component';
+import { LmsSingleApprovalComponent } from './app/components/lms/lms-singleapproval/lms-singleapproval.component';
 
 import { MyTimesheetComponent } from './app/components/timesheet/my-timesheet/my-timesheet.component';
 import { AddEditTimesheetComponent } from './app/components/timesheet/add-edit-timesheet/add-edit-timesheet.component';
@@ -131,6 +132,7 @@ export function cons() {
     LmsApproveLeavesComponent,
     LmsUpdateLeavesComponent,
     LmsBulkApproveComponent,
+    LmsSingleApprovalComponent,
     MyTimesheetComponent,
     AddEditTimesheetComponent,
     ApproveTimesheetComponent,
