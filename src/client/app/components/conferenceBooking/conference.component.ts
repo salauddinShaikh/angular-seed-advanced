@@ -20,6 +20,7 @@ events: any[];
     conferenceRooms: any[];
     constructor(private router: Router) { }
     ngOnInit() {
+        let todayDate=new Date();
         this.minTime = "07:00:00";
         this.maxTime = "20:00:00";
         this.headerConfig = {
@@ -29,32 +30,52 @@ events: any[];
         };
         this.events = [
             {
-                "title": "All Day Event",
-                "start": "2016-10-25",
-                "end": "2016-10-25",
-                'color': '#E7C5F5'
+                "title": "Inteview",
+                "start": moment().add(2, 'hours'),
+                "end": moment().add(4, 'hours'),
+                'color': '#8877A9'
             },
             {
-                "title": "Long Event",
-                "start": "2016-10-26",
-                "end": "2016-10-26",
+                "title": "Jenzabar Client call",
+                "start":moment(),
+                "end": moment().add(3, 'hours'),
                  'color': '#3FABA4'
             },
             {
-                "title": "Repeating Event",
-                "start": "2016-10-23T16:00:00",
-                 'color': '#35AA47'
+                "title": "Product Meeting",
+                "start": moment().subtract(3, 'hours'),
+                "end": moment().subtract(1, 'hours'),
+                'color': '#FF9655'
             },
             {
-                "title": "Repeating Event",
-                "start": "2016-10-27T16:00:00",
-                  'color': '#FF9655'
+                "title": "Tccc client call",
+                "start": moment().subtract(3, 'hours'),
+                "end": moment().subtract(2, 'hours'),
+                'color': '#3FABA4'
+            },
+            {
+                "title": "Standup Meeting",
+                "start": moment().add(1,'d').subtract(3, 'hours'),
+                "end": moment().add(1,'d').subtract(1, 'hours'),
+                'color': '#E7C5F5'
+            },
+            {
+                "title": "NGO/NPO Meeting",
+                "start": moment().add(1,'d').subtract(3, 'hours'),
+                "end": moment().add(1,'d').subtract(2, 'hours'),
+                'color': '#8877A9'
             },
             {
                 "title": "Conference",
-                "start": "2016-10-24",
-                "end": "2016-10-25",
-                'color': '#428BCA'
+                "start": moment().subtract(1,'d').subtract(3, 'hours'),
+                "end": moment().subtract(1,'d').subtract(2, 'hours'),
+                'color': '#D05454'
+            },
+            {
+                "title": "Interview",
+                "start": moment().subtract(1,'d'),
+                "end": moment().subtract(1,'d').add(3, 'hours'),
+                'color': '#DFBA49'
             }
         ];
         this.conferenceRooms = [{
