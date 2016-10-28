@@ -1,7 +1,8 @@
 // libs
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-
+import { OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 // app
 import { BaseComponent, RouterExtensions } from '../../frameworks/core/index';
 import { NAME_LIST_ACTIONS } from '../../frameworks/sample/index';
@@ -12,14 +13,19 @@ import { NAME_LIST_ACTIONS } from '../../frameworks/sample/index';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent  implements OnInit{
   public names$: Observable<any>;
   public newName: string = '';
 
-  constructor(private store: Store<any>, public routerext: RouterExtensions) {
+  constructor(private store: Store<any>, public routerext: RouterExtensions, private _router: Router) {
     this.names$ = store.select('names');
   }
 
+  ngOnInit() {
+    if (localStorage.getItem('accessToken')===null) {
+     this._router.navigate(['/login']);
+    }
+  }
   /*
    * @param newname  any text as input.
    * @returns return false to prevent default form submit behavior to refresh the page.

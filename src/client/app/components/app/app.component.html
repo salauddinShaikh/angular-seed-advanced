@@ -1,4 +1,4 @@
-<div class="page-header navbar navbar-fixed-top">
+<div class="page-header navbar navbar-fixed-top" [hidden]="!isAuthenticated()">
   <!-- BEGIN HEADER INNER -->
   <div class="page-header-inner ">
     <!-- BEGIN LOGO -->
@@ -64,11 +64,11 @@
 <!-- END HEADER & CONTENT DIVIDER -->
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
-  <sidebar></sidebar>
+  <sidebar [hidden]="!isAuthenticated()"></sidebar>
   <!-- BEGIN CONTENT -->
   <router-outlet></router-outlet>
   <!-- END CONTENT -->
-  <quick-sidebar></quick-sidebar>
+  <quick-sidebar [hidden]="!isAuthenticated()"></quick-sidebar>
 </div>
 <!-- END CONTAINER -->
 

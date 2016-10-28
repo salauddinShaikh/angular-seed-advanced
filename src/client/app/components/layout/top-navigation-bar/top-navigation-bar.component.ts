@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 
 @Component({
   moduleId: module.id,
@@ -11,9 +9,15 @@ import { Subject } from 'rxjs/Subject';
 })
 export class TopNavigationBarComponent implements OnInit {
 
-  constructor(
-    private router: Router) { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    if(localStorage.removeItem("accessToken")!==null){
+        localStorage.removeItem("accessToken");
+        this._router.navigate(['/login']);
+    }
   }
 }
