@@ -5,6 +5,7 @@ import { LmsApplyLeavesComponent } from './lms-applyleave/lms-applyleave.compone
 import { LmsApproveLeavesComponent } from './lms-approveleave/lms-approveleave.component';
 import { LmsUpdateLeavesComponent } from './lms-updateleave/lms-updateleave.component';
 import { LmsBulkApproveComponent } from './lms-bulkapproval/lms-bulkapproval.component';
+import { LmsSingleApprovalComponent } from './lms-singleapproval/lms-singleapproval.component';
 
 export const LmsRoutes: Route[] = [
   {
@@ -27,4 +28,12 @@ export const LmsRoutes: Route[] = [
     path: 'bulkapproval',
     component: LmsBulkApproveComponent
   },
+  {
+    path: 'updateleave',
+    component: LmsUpdateLeavesComponent
+  },
+  {
+    path: 'singleapproval',
+    component: LmsSingleApprovalComponent
+  }
 ];

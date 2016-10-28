@@ -70,7 +70,7 @@
             <!-- START HOLIDAY LIST COMPONENT BY PRIMENG -->
             <div class="col-lg-9 col-xs-12 col-sm-12">
                 <div class="portlet light bordered">
-                    <p-dataTable [value]="leaves" selectionMode="single" [paginator]="true" [rows]=(servRows) [responsive]="true">
+                    <p-dataTable [value]="leaves" [paginator]="true" [rows]=(servRows) [responsive]="true">
                         <p-column field="employee" header="Employee" [sortable]="true"></p-column>
                         <p-column field="startdate" header="Start Date" [sortable]="true"></p-column>
                         <p-column field="enddate" header="End Date" [sortable]="true"></p-column>
@@ -78,7 +78,7 @@
                         <p-column field="status" header="Status" [sortable]="true"></p-column>
                         <p-column styleClass="col-button" field="color">
                             <template let-car="rowData" pTemplate type="body">
-                                <button type="button" pButton [routerLink]="['/about']" icon="fa-edit"></button>
+                                <button type="button" pButton [routerLink]="['/updateleave']" icon="fa-edit"></button>
                             </template>
                         </p-column>
                     </p-dataTable>
