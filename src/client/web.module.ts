@@ -68,6 +68,9 @@ import { ReportTimesheetComponent } from './app/components/timesheet/report-time
 import { ConferenceComponent } from './app/components/conferenceBooking/conference.component';
 import { BookComponent } from './app/components/conferenceBooking/bookConference.component';
 import { MyBookingComponent } from './app/components/conferenceBooking/myBooking.component';
+import { LoginComponent } from './app/components/login/login.component';
+
+import { LoginService } from './app/shared/services/login.service';
 
 let routerModule = RouterModule.forRoot(routes);
 
@@ -145,14 +148,16 @@ export function cons() {
     IfAuthorize,
     ConferenceComponent,
     BookComponent,
-    MyBookingComponent
+    MyBookingComponent,
+    LoginComponent
   ],
   providers: [
     {
       provide: APP_BASE_HREF,
       useValue: '<%= APP_BASE %>'
     },
-    TimeSheetService
+    TimeSheetService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

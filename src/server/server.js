@@ -4,6 +4,7 @@ var express = require('express'),
 
 var path = require('path');
 var bodyParser = require('body-parser');
+var utils = require('./utils');
 
 var allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:5555');
@@ -13,7 +14,7 @@ var allowCrossDomain = function (req, res, next) {
 
     // intercept OPTIONS method
     if ('OPTIONS' == req.method) {
-        res.send(200);
+        res.sendStatus(200);
     }
     else {
         next();
@@ -55,6 +56,17 @@ app.get('/getHolidays', function (req, res) {
         { id: '3333', date: '33/33/1111', title: 'Christmas', type: 'Fixed' },
         { id: '4444', date: '44/44/1111', title: 'New Year', type: 'Floating' },
     ]);
+});
+
+app.post('/api/Authentication/GetToken', function (req, res) {
+    var userName = req.body.UserName;
+    var password = req.body.Password;
+    if (userName === 'admin' && password==="password") {
+        var token = utils.CreateJWT({userName:'admin',id:1});
+        res.send({ token: token });
+    } else {
+        res.status(500).end('Invalid credentials.');
+    }
 });
 
 server.listen(process.env.PORT || 4000, function () {
