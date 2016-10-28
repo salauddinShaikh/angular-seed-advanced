@@ -19,6 +19,7 @@ export class AboutComponent {
   // Just one way you could handle the {N} `ui/page` Page class
   // in a shared component...
   private _page: any;
+  private timesheetRecords;
   private get page() {
     if (Config.PageClass) {
       if (!this._page) {
@@ -29,21 +30,15 @@ export class AboutComponent {
     }
   }
 
-  constructor(private store: Store<AppState>, private injector: Injector, private http: Http, private timesheetService : TimeSheetService, private timesheetServie : TimeSheetService) {
-    //this.names$ = store.select<ITimeSheetDay[]>('timesheet');
-    let outputTest = this.store;
-    console.log('Timesheets1 = ', outputTest.select('timesheet'));
-    console.log('Timesheets2 = ', this.store.select('timesheet'));
-    // This is here as an example
-    // if (this.page) {
-    //   this.page.actionBarHidden = true;
-    // }
+  constructor(private store: Store<AppState>, private injector: Injector, private http: Http, private timesheetService: TimeSheetService, private timesheetServie: TimeSheetService) {
+    store.select('timesheet')
+      .subscribe(test => {
+        this.timesheetRecords = test;
+      });
   }
 
   ngOnInit() {
-    //this.getDataFromServer();
-    let records = this.timesheetService.getTimesheets();
-    console.log('YYYYYYYYYYYYYYYY',records);
+    console.log('Init', this.timesheetRecords);
   }
 
   getDataFromServer() {

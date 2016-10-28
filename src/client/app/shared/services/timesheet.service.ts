@@ -37,7 +37,7 @@ export function timeSheetReducerFn(state: ITimeSheetDay[] = [], action: Action) 
             console.warn('DDDDDDDDDDDDDDDDDDDDDDATATTTTTTTTT', action.payload);
             // console.log('STATEEEEEEEEEEE',state);
             return [...action.payload];
-            // return state;
+        // return state;
         default:
             return state;
     }
@@ -55,17 +55,12 @@ export class TimeSheetService extends Analytics {
         this.category = CATEGORY;
         this.store.dispatch({ type: TIME_SHEET_ACTIONS.INIT });
     }
-
-    getTimesheets(): Observable<ITimeSheetDay[]> {
-        return this.store.select<ITimeSheetDay[]>('timesheet');
-    }
 }
 
 @Injectable()
 export class TimeSheetEffects {
     @Effect() getTimesheets$: Observable<Action> = this.actions$
-        //.ofType(TIME_SHEET_ACTIONS.INIT)
-        .ofType('TimeSheet_INIT')
+        .ofType(TIME_SHEET_ACTIONS.INIT)
         .switchMap(action1 => {
             return this.http.get('http://localhost:4000/getTimesheets')
         })
