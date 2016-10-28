@@ -9,6 +9,10 @@ import { Effect, Actions } from '@ngrx/effects';
 // app
 import { Analytics, AnalyticsService } from '../../frameworks/analytics/index';
 
+import { AppState } from '../../domain/appState';
+import { ITimeSheetDay } from '../../domain/timesheet/ITimesheet';
+
+
 // analytics
 const CATEGORY: string = 'TimeSheet';
 
@@ -19,39 +23,34 @@ interface ITimeSheetActions {
     INIT: string;
     INITIALIZED: string;
     INIT_FAILED: string;
-    ADD: string;
-    NAME_ADDED: string;
 }
 
 export const TIME_SHEET_ACTIONS: ITimeSheetActions = {
     INIT: `${CATEGORY}_INIT`,
     INITIALIZED: `${CATEGORY}_INITIALIZED`,
     INIT_FAILED: `${CATEGORY}_INIT_FAILED`,
-    ADD: `${CATEGORY}_ADD`,
-    NAME_ADDED: `${CATEGORY}_NAME_ADDED`
 };
 
-export function timeSheetReducerFn(state: number = 0, action: Action) {
+export function timeSheetReducerFn(state: ITimeSheetDay[] = [], action: Action) {
     switch (action.type) {
         case TIME_SHEET_ACTIONS.INITIALIZED:
-            console.warn('DDDDDDDDDDDDDDDDDDDDDDATATTTTTTTTT',action.payload);
-            //return [...action.payload];
-            return 1;
-        // case TIME_SHEET_ACTIONS.NAME_ADDED:
-        //     return [...state, action.payload];
+            console.warn('DDDDDDDDDDDDDDDDDDDDDDATATTTTTTTTT', action.payload);
+            // console.log('STATEEEEEEEEEEE',state);
+            return [...action.payload];
+        // return state;
         default:
             return state;
     }
 };
 
-export const timeSheetReducer: ActionReducer<number> = timeSheetReducerFn;
+export const timeSheetReducer: ActionReducer<ITimeSheetDay[]> = timeSheetReducerFn;
 /**
  * ngrx end --
  */
 
 @Injectable()
 export class TimeSheetService extends Analytics {
-    constructor(public analytics: AnalyticsService, private store: Store<any>) {
+    constructor(public analytics: AnalyticsService, private store: Store<AppState>) {
         super(analytics);
         this.category = CATEGORY;
         this.store.dispatch({ type: TIME_SHEET_ACTIONS.INIT });
@@ -60,10 +59,11 @@ export class TimeSheetService extends Analytics {
 
 @Injectable()
 export class TimeSheetEffects {
-    @Effect() init$ = this.actions$
-        //.ofType(TIME_SHEET_ACTIONS.INIT)
-        .ofType('TimeSheet_INIT')
-        .switchMap(action => this.http.get('http://localhost:4000/getTimesheets'))
+    @Effect() getTimesheets$: Observable<Action> = this.actions$
+        .ofType(TIME_SHEET_ACTIONS.INIT)
+        .switchMap(action1 => {
+            return this.http.get('http://localhost:4000/getTimesheets')
+        })
         .map(res => ({ type: TIME_SHEET_ACTIONS.INITIALIZED, payload: res.json() }))
         // nothing reacting to failure at moment but you could if you want (here for example)
         .catch(() => Observable.of({ type: TIME_SHEET_ACTIONS.INIT_FAILED }));
@@ -77,7 +77,7 @@ export class TimeSheetEffects {
     //         return ({ type: TIME_SHEET_ACTIONS.NAME_ADDED, payload: name });
     //     });
 
-    constructor(private store: Store<any>, private actions$: Actions, private timeSheets: TimeSheetService, private http: Http) { 
+    constructor(private actions$: Actions, private timeSheets: TimeSheetService, private http: Http) {
         console.log('init TSF');
     }
 }
