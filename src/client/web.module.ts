@@ -45,7 +45,7 @@ import { FooterComponent } from './app/components/layout/footer/footer.component
 import { QuickSidebarComponent } from './app/components/layout/quick-sidebar/quick-sidebar.component';
 import { SidebarComponent } from './app/components/layout/sidebar/sidebar.component';
 import { TopNavigationBarComponent } from './app/components/layout/top-navigation-bar/top-navigation-bar.component';
-import { IfAuthorize } from './app/components/shared/directives/ifAuthorize.directive';
+import { IfAuthorize } from './app/shared/directives/ifAuthorize.directive';
 
 //RMS
 import { DashboardComponent } from './app/components/dashboard/dashboard.component';
