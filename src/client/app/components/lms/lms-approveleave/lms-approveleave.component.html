@@ -2,38 +2,40 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
-    <ul class="page-breadcrumb breadcrumb">
-        <li>
-            <span >LINK UP</span>           
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span>Approve Leaves</span>
-             <i class="fa fa-circle"></i>
-        </li>
-    </ul>
-    <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <div class="portlet light ">
-                <div class="portlet-body">
-                     <p-dataTable [value]="approveleaves" selectionMode="single" [paginator]="true" [rows]=(servRows) [responsive]="true">
-                        <p-column field="employee" header="Employee" [sortable]="true"></p-column>
-                        <p-column field="dateemployeeid" header="Employee ID" [sortable]="true"></p-column>
-                        <p-column field="numberofleaves" header="Number of Leaves" [sortable]="true"></p-column>
-                        <p-column field="status" header="Status" [sortable]="true"></p-column>
-                        <p-column field="startdate" header="Start Date" [sortable]="true"></p-column>
-                        <p-column field="enddate" header="End Date" [sortable]="true"></p-column>
-                        <p-column field="approvers" header="Approvers" [sortable]="true"></p-column>
-                        <p-column field="pendingapprovers" header="Pending Approvers" [sortable]="true"></p-column>
-                        <p-column styleClass="col-button" field="color">
-                            <template let-car="rowData" pTemplate type="body">
-                                <button type="button" pButton [routerLink]="['/about']" icon="fa-edit"></button>
-                            </template>
-                        </p-column>
-                    </p-dataTable>
+        <div class="hidden-xs">
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <span>LINK UP</span>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <span>Approve Leaves</span>
+                    <i class="fa fa-circle"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet light ">
+                    <div class="portlet-body">
+                        <p-dataTable [value]="approveleaves" selectionMode="single" [paginator]="true" [rows]=(servRows) [responsive]="true">
+                            <p-column field="employee" header="Employee" [sortable]="true"></p-column>
+                            <p-column field="dateemployeeid" header="Employee ID" [sortable]="true"></p-column>
+                            <p-column field="numberofleaves" header="Number of Leaves" [sortable]="true"></p-column>
+                            <p-column field="status" header="Status" [sortable]="true"></p-column>
+                            <p-column field="startdate" header="Start Date" [sortable]="true"></p-column>
+                            <p-column field="enddate" header="End Date" [sortable]="true"></p-column>
+                            <p-column field="approvers" header="Approvers" [sortable]="true"></p-column>
+                            <p-column field="pendingapprovers" header="Pending Approvers" [sortable]="true"></p-column>
+                            <p-column styleClass="col-button" field="color">
+                                <template let-car="rowData" pTemplate type="body">
+                                    <button type="button" pButton [routerLink]="['/about']" icon="fa-edit"></button>
+                                </template>
+                            </p-column>
+                        </p-dataTable>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
