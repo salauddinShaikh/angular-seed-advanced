@@ -34,10 +34,8 @@ export const TIME_SHEET_ACTIONS: ITimeSheetActions = {
 export function timeSheetReducerFn(state: ITimeSheetDay[] = [], action: Action) {
     switch (action.type) {
         case TIME_SHEET_ACTIONS.INITIALIZED:
-            console.warn('DDDDDDDDDDDDDDDDDDDDDDATATTTTTTTTT', action.payload);
-            // console.log('STATEEEEEEEEEEE',state);
+            console.log('Initalized TimeSheet');
             return [...action.payload];
-        // return state;
         default:
             return state;
     }
@@ -65,17 +63,7 @@ export class TimeSheetEffects {
             return this.http.get('http://localhost:4000/getTimesheets')
         })
         .map(res => ({ type: TIME_SHEET_ACTIONS.INITIALIZED, payload: res.json() }))
-        // nothing reacting to failure at moment but you could if you want (here for example)
         .catch(() => Observable.of({ type: TIME_SHEET_ACTIONS.INIT_FAILED }));
-
-    // @Effect() add$ = this.actions$
-    //     .ofType(TIME_SHEET_ACTIONS.ADD)
-    //     .map(action => {
-    //         let name = action.payload;
-    //         // analytics
-    //         this.timeSheets.track(TIME_SHEET_ACTIONS.NAME_ADDED, { label: name });
-    //         return ({ type: TIME_SHEET_ACTIONS.NAME_ADDED, payload: name });
-    //     });
 
     constructor(private actions$: Actions, private timeSheets: TimeSheetService, private http: Http) {
         console.log('init TSF');
