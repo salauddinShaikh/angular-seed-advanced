@@ -4,21 +4,20 @@
     <div class="page-content">
         <div class="page-head">
             <!-- BEGIN PAGE TITLE -->
-            <div class="page-title">
-                <h4>Bulk Approval</h4>
-            </div>
             <!-- END PAGE TITLE -->
         </div>
-        <ul class="page-breadcrumb breadcrumb">
-            <li>
-                <span>LINK UP</span>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <span>Bulk Approval</span>
-                <i class="fa fa-circle"></i>
-            </li>
-        </ul>
+        <div class="hidden-xs">
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <span>LINK UP</span>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <span>Bulk Approval</span>
+                    <i class="fa fa-circle"></i>
+                </li>
+            </ul>
+        </div>
         <div class="row">
             <!-- START BULK APPROVAL LIST COMPONENT BY PRIMENG -->
             <div class="col-lg-12 col-xs-12 col-sm-12">
@@ -36,12 +35,10 @@
                     </p-dataTable>
 
                     <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                            <textarea rows="5" cols="70" pInputTextarea autoResize="autoResize"></textarea>
-                        </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                            <a class="btn green btn-outline"> Approve </a>
-                            <a class="btn red btn-outline"> Reject </a>
+                        <textarea rows="5" cols="70" class="form-control"></textarea>
+                        <div class="pull-right">
+                            <button class="btn green btn-outline"> Approve </button>
+                            <button class="btn red btn-outline"> Reject </button>
                         </div>
                     </div>
                 </div>

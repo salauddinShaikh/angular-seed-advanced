@@ -45,23 +45,33 @@
                                 </tbody>
                             </table>
                         </div>
-                        <h4>Active on Projects</h4>
+                        <h4>Leave Details</h4>
                         <div class="table-responsive">
                             <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Project</th>
-                                        <th>Manager</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td> RMS </td>
-                                        <td> Sagar Shelar </td>
+                                        <td> Leave Type </td>
+                                        <td> Leave </td>
                                     </tr>
                                     <tr>
-                                        <td> PLSV 1 </td>
-                                        <td> Some Person </td>
+                                        <td> No. of Leaves </td>
+                                        <td> 3 </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Reason </td>
+                                        <td> Personal </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Start Date </td>
+                                        <td> 01-10-2016 </td>
+                                    </tr>
+                                    <tr>
+                                        <td> End Date </td>
+                                        <td> 10-10-2016 </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Action </td>
+                                        <td> - </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -74,36 +84,35 @@
             <!-- START HOLIDAY LIST COMPONENT BY PRIMENG -->
             <div class="col-lg-8 col-xs-12 col-sm-12">
                 <div class="portlet light bordered">
-                    <h4>Update Leave</h4>
-                    <div class="row">
-                        <div class="pull-right">
-                            <h5 class="font-blue">Leave Approved</h5>
+                    <div class="portlet-body">
+                        <h4>Requestor Details</h4>
+                        <p-dataTable [value]="requests" [responsive]="true">
+                            <p-column field="project" header="Project" [sortable]="true"></p-column>
+                            <p-column field="manager" header="Manager" [sortable]="true"></p-column>
+                            <p-column field="status" header="Status" [sortable]="true"></p-column>
+                            <p-column field="comments" header="Comments" [sortable]="true"></p-column>
+                        </p-dataTable>
+
+                        <div class="form-group">
+                            <label class="control-label">Comments</label>
+                            <textarea autoresize="autoResize" cols="30" rows="3" class="form-control"></textarea>
                         </div>
-                        <p-dataTable [value]="leaves" [responsive]="true">
-                            <p-column field="type" header="Type"></p-column>
-                            <p-column field="numberofleaves" header="No. of Leaves"></p-column>
-                            <p-column field="reason" header="Reason"></p-column>
-                            <p-column field="start" header="Start Date"></p-column>
-                            <p-column field="end" header="End Date"></p-column>
-                            <p-column field="action" header="Action"></p-column>
-                        </p-dataTable>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-right">
+                                    <button class="btn btn-outline"> Approve </button>
+                                    <button class="btn btn-outline"> Reject </button>
+                                    <button class="btn btn-outline"> Close </button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-                <div class="portlet light bordered">
-                    <div class="row">
-                        <p-dataTable [value]="managers" [responsive]="true">
-                            <p-column field="project" header="Project"></p-column>
-                            <p-column field="manager" header="Manager"></p-column>
-                            <p-column field="status" header="Status"></p-column>
-                            <p-column field="comments" header="Comments"></p-column>
-                        </p-dataTable>
-                    </div>
-                    <a class="btn blue btn-outline" [routerLink]="['/myleaves']"> Close </a>
                 </div>
             </div>
             <!-- END HOLIDAY LIST COMPONENT BY PRIMENG -->
+
         </div>
+        <!-- END CONTENT BODY -->
     </div>
-    <!-- END CONTENT BODY -->
-</div>
-<!-- END CONTENT -->
+    <!-- END CONTENT -->
