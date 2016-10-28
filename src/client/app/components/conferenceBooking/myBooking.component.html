@@ -1,0 +1,57 @@
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+        <!-- BEGIN PAGE HEAD-->
+        <div class="page-head">
+            <!-- BEGIN PAGE TITLE -->
+            <div class="page-title">
+                <h1>My Bookings
+                </h1>
+            </div>
+            <!-- END PAGE TITLE -->
+        </div>
+        <!-- END PAGE HEAD-->
+        <!-- BEGIN PAGE BREADCRUMB -->
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <a href="index.html">Linkup</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="active">Conference Booking</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="active">My Bookings</span>
+            </li>
+        </ul>
+        <!-- END PAGE BREADCRUMB -->
+        <!-- BEGIN PAGE BASE CONTENT -->
+        <div class="portlet light bordered legends-portlet">
+            <div class="portlet-title">
+                <div class="caption">
+                    <a class="">Conference Room Booking</a>&nbsp;&nbsp;
+                    <a class="">All Events</a>&nbsp;&nbsp;
+                    <a class="">MyBookings</a>
+                </div>
+                <div class="actions">
+                    <a routerLink="/newBooking" class="btn green"><i class="fa fa-plus"></i> New Event</a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <p-dataTable [value]="bookings" [responsive]="true" [stacked]="stacked">
+                    <p-column field="title" header="Title"></p-column>
+                    <p-column field="startTime" header="Start Time"></p-column>
+                    <p-column field="endTime" header="End Time"></p-column>
+                    <p-column field="attendees" header="Attendees"></p-column>
+                    <p-column field="room" header="Conference Rooms"></p-column>
+                    <p-column field="delete" header="Delete"></p-column>
+                </p-dataTable>
+            </div>
+            <!-- END PAGE BASE CONTENT -->
+        </div>
+    </div>
+    <!-- END CONTENT BODY -->
+</div>
+<!-- END CONTENT -->

@@ -1,0 +1,173 @@
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+  <!-- BEGIN CONTENT BODY -->
+  <div class="page-content">
+    <!-- BEGIN PAGE HEAD-->
+    <div class="page-head">
+      <!-- BEGIN PAGE TITLE -->
+      <div class="page-title">
+        <h1>Conference Booking
+        </h1>
+      </div>
+      <!-- END PAGE TITLE -->
+    </div>
+    <!-- END PAGE HEAD-->
+    <!-- BEGIN PAGE BREADCRUMB -->
+    <ul class="page-breadcrumb breadcrumb">
+      <li>
+        <a href="index.html">Linkup</a>
+        <i class="fa fa-circle"></i>
+      </li>
+      <li>
+        <span class="active">Conference Booking</span>
+      </li>
+      <li>
+        <span class="active">New Booking</span>
+      </li>
+    </ul>
+    <!-- END PAGE BREADCRUMB -->
+    <!-- BEGIN PAGE BASE CONTENT -->
+  <div class="portlet light bordered legends-portlet">
+      <div class="portlet-body">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="title">Title:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="startTime">Start Time *</label>
+          <div class="col-sm-10">
+            <p-calendar [(ngModel)]="startTime" [showTime]="true" name="startTime"></p-calendar>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="endTime">End Time *</label>
+          <div class="col-sm-10">
+            <p-calendar [(ngModel)]="endTime" [showTime]="true" name="endTime"></p-calendar>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="attendees">Attendees</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="attendees">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="room"> Conference Rooms *</label>
+          <div class="col-sm-10">
+            <p-dropdown [options]="conferenceRooms" [(ngModel)]="selectedRoom" name="rooms" [styleClass]="form-control"></p-dropdown>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="description">Description</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="description"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="description"> All Day Event</label>
+          <div class="col-sm-10">
+            <p><input type="checkbox"> Make this an all-day activity that doesn't start or end at a specific hour.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="description">Recurrence</label>
+          <div class="col-sm-10">
+            <p><input type="checkbox" [(ngModel)]="recurrance" name="recurrance"> Make this a repeating event.</p>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="recurrance">
+          <div class="col-sm-12">
+            <label class="radio-inline">
+      <input type="radio" [(ngModel)]="recurranceType" value="daily" name="optradio">Daily
+    </label>
+            <label class="radio-inline">
+      <input type="radio" [(ngModel)]="recurranceType" value="weekly"  name="optradio">Weekly
+    </label>
+            <label class="radio-inline">
+      <input type="radio" [(ngModel)]="recurranceType" value="monthly" name="optradio">Monthly
+    </label>
+            <label class="radio-inline">
+      <input type="radio" [(ngModel)]="recurranceType" value="yearly" name="optradio">Yearly
+    </label>
+          </div>
+        </div>
+        <div class="form-group" [ngSwitch]="recurranceType"  *ngIf="recurrance">
+          <label class="control-label col-sm-2" for="recurranceType">Pattern</label>
+          <div class="col-sm-10" *ngSwitchCase="'daily'">
+            <p><input type="checkbox"> daily</p>
+          </div>
+          <div class="col-sm-10" *ngSwitchCase="'weekly'">
+            <p><input type="checkbox"> weekly</p>
+          </div>
+          <div class="col-sm-10" *ngSwitchCase="'monthly'">
+            <p>monthly</p>
+          </div>
+          <div class="col-sm-10" *ngSwitchCase="'yearly'">
+            <p> yearly</p>
+          </div>
+        </div>
+
+        <label class="control-label col-sm-2 col-sm-2" *ngIf="recurrance" for="description">Date Range</label>
+        <div class="form-group" *ngIf="recurrance">
+          <label class="col-sm-12 col-xs-12" for="startTime">Start Date <p-calendar [(ngModel)]="recurranceStartDate" name="recurranceStartDate"></p-calendar></label>
+        </div>
+        <div class="form-group" *ngIf="recurrance">
+          <div class="col-sm-12">
+            <label class="radio-inline">
+               <input type="radio" [(ngModel)]="recurrancePattern" value="1" name="recurrancePattern">No end date
+            </label>
+            <label class="radio-inline">
+               <input type="radio" [(ngModel)]="recurrancePattern" value="2"  name="recurrancePattern">End after: 10 occurrence(s)
+            </label>
+            <label class="radio-inline">
+               <input type="radio" [(ngModel)]="recurrancePattern" value="3" name="recurrancePattern">End by: <p-calendar [(ngModel)]="recurranceEndDate" name="recurranceEndDate"></p-calendar>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="description">Special Treatment</label>
+          <div class="col-sm-10">
+            <p><input type="checkbox"> Water</p>
+            <p><input type="checkbox"> Tea </p>
+            <p><input type="checkbox"> Coffee</p>
+            <p><input type="checkbox"> Juice</p>
+            <p><input type="checkbox"> Snacks</p>
+            <p><input type="checkbox"> Breakfast</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="description">Special Comments</label>
+          <div class="col-sm-10">
+            <textarea class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="description">Number of Guests</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="description">IsDeleted</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Save</button>
+            <button class="btn btn-default">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- END PAGE BASE CONTENT -->
+  </div>
+  </div>
+  <!-- END CONTENT BODY -->
+</div>
+<!-- END CONTENT -->

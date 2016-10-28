@@ -5,6 +5,7 @@ import { DashboardRoutes } from './dashboard/dashboard.routes';
 import { AppRoutes } from './app/app.routes';
 import { LmsRoutes } from './lms/lms.routes';
 import { TimesheetRoutes } from './timesheet/timesheet.routes';
+import { ConferenceRoutes } from './conferenceBooking/conference.routes';
 
 export const routes: Array<any> = [
   ...HomeRoutes,
@@ -12,5 +13,6 @@ export const routes: Array<any> = [
   ...AboutRoutes,
   ...DashboardRoutes,
   ...LmsRoutes,
-  ...TimesheetRoutes
+  ...TimesheetRoutes,
+  ...ConferenceRoutes
 ];
