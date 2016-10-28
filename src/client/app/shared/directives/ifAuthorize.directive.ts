@@ -12,23 +12,23 @@ export class IfAuthorize implements OnInit {
     }
 
     ngOnInit() {
-        let userHasPermissions = false
-        if (localStorage.getItem('loggedInUserPermission') != null) {
+        let userHasPermissions = false;
+        if (localStorage.getItem('loggedInUserPermission') !== null) {
             let loggedInUserPermission = JSON.parse(localStorage.getItem('loggedInUserPermission'))
             for (var i = 0; i < this.permissions.length; i++) {
-                if (loggedInUserPermission.indexOf(this.permissions[i]) == -1) {
+                if (loggedInUserPermission.indexOf(this.permissions[i]) === -1) {
                     userHasPermissions = false;
                 }
                 else {
-                    userHasPermissions = true
+                    userHasPermissions = true;
                 }
             }
             if (!userHasPermissions) {
-                this._element.style.display = 'none'
+                this._element.style.display = 'none';
             }
         }
-        else{
-            this._element.style.display = 'none'
+        else {
+            this._element.style.display = 'none';
         }
     }
 }
