@@ -63,6 +63,9 @@ import { ApproveTimesheetComponent } from './app/components/timesheet/approve-ti
 import { ApprovedTimesheetComponent } from './app/components/timesheet/approved-timesheet/approved-timesheet.component';
 import { ReportTimesheetComponent } from './app/components/timesheet/report-timesheet/report-timesheet.component';
 
+import { ConferenceComponent } from './app/components/conferenceBooking/conference.component';
+import { BookComponent } from './app/components/conferenceBooking/bookConference.component';
+import { MyBookingComponent } from './app/components/conferenceBooking/myBooking.component';
 
 let routerModule = RouterModule.forRoot(routes);
 
@@ -135,7 +138,10 @@ export function cons() {
     ApproveTimesheetComponent,
     ApprovedTimesheetComponent,
     ReportTimesheetComponent,
-    IfAuthorize
+    IfAuthorize,
+    ConferenceComponent,
+    BookComponent,
+    MyBookingComponent
   ],
   providers: [
     {

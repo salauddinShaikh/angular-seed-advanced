@@ -1,0 +1,56 @@
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+  <!-- BEGIN CONTENT BODY -->
+  <div class="page-content">
+    <!-- BEGIN PAGE HEAD-->
+    <div class="page-head">
+      <!-- BEGIN PAGE TITLE -->
+      <div class="page-title">
+        <h1>Conference Booking
+        </h1>
+      </div>
+      <!-- END PAGE TITLE -->
+    </div>
+    <!-- END PAGE HEAD-->
+    <!-- BEGIN PAGE BREADCRUMB -->
+    <ul class="page-breadcrumb breadcrumb">
+      <li>
+        <a href="index.html">Linkup</a>
+        <i class="fa fa-circle"></i>
+      </li>
+      <li>
+        <span class="active">Conference Booking</span>
+      </li>
+    </ul>
+    <!-- END PAGE BREADCRUMB -->
+    <!-- BEGIN PAGE BASE CONTENT -->
+    <div class="portlet light bordered">
+      <div class="portlet-body">
+        <div class="row">
+          <div class="col-sm-5">
+              <button class="btn btn-default col-sm-6"  routerLink="/myBookings" >Manage My Booking</button>
+              <button class="btn btn-default col-sm-6">All Conference Rooms</button>
+          </div>
+          <div class="col-sm-7">
+            <ul class="legend">
+              <li *ngFor="let item of conferenceRooms; let i = index; trackBy: trackByFn">
+                <span class="color-list" [style.backgroundColor]="item.color"></span> {{item.name}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portlet light bordered">
+      <div class="portlet-body">
+        <p-schedule [events]="events" [header]="headerConfig" (onDayClick)="handleDayClick($event)" [defaultView]="'agendaDay'" [minTime]="minTime"
+          [maxTime]="maxTime">
+        </p-schedule>
+      </div>
+    </div>
+    <!-- END PAGE BASE CONTENT -->
+  </div>
+  <!-- END CONTENT BODY -->
+</div>
+<!-- END CONTENT -->
