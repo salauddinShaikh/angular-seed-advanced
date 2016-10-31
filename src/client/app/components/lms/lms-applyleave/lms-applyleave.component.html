@@ -76,6 +76,13 @@
                 <div class="portlet light bordered">
                     <!--FORM GOES HERE-->
                     <div class="form-horizontal">
+                        <div class="row"> 
+                            <h4>Apply Leave</h4>
+                            <div class="pull-right">
+                                <h5>Alerts go here...</h5>
+                            </div>
+                        </div>
+                        
                         <div class="form-body">
                             <div class="form-group">
                                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
@@ -83,7 +90,7 @@
                                     <p-dropdown [options]="leaves" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                                    <label class="control-label">Leave Type</label>
+                                    <label class="control-label">Number of Days</label>
                                     <input type="text" pInputText [(ngModel)]="numberofdays" [disabled]="true" />
                                 </div>
                             </div>
@@ -92,18 +99,32 @@
                                     <label class="control-label">Start Date</label>
                                     <p-calendar [(ngModel)]="start" [showIcon]="false"></p-calendar>
                                 </div>
-                            </div>
-                            <div class="form-group">
+                            <!--</div>
+                            <div class="form-group">-->
                                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                                     <label class="control-label">End Date</label>
                                     <p-calendar [(ngModel)]="end" [showIcon]="false"></p-calendar>
                                 </div>
                             </div>
                             <div class="form-group">
+                                <p-dataTable [value]="finalLeaveData" [responsive]="true" [hidden]="false">
+                                    <p-column field="leave" header="Leave Type" [sortable]="false"></p-column>
+                                    <p-column field="numDays" header="No. of Leaves" [sortable]="false"></p-column>
+                                    <p-column field="reason" header="Reasons" [sortable]="false"></p-column>
+                                    <p-column field="start" header="Start Date" [sortable]="false"></p-column>
+                                    <p-column field="end" header="End date" [sortable]="false"></p-column>
+                                    <p-column styleClass="col-button" field="color">
+                                        <template let-car="rowData" pTemplate type="body">
+                                            <button type="button" (click)="delLeaveRec(ID)" pButton icon="fa-edit"></button>
+                                        </template>
+                                    </p-column>
+                                </p-dataTable>
+                            </div>
+                            <div class="form-group">
                                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                                    <textarea rows="5" cols="70" class="form-control"></textarea>
+                                    <textarea rows="5" cols="70" class="form-control" [(ngModel)]="reason"></textarea>
                                     <div class="pull-right">
-                                        <button class="btn btn-outline"> Add Leave </button>
+                                        <button class="btn btn-outline" (click)="addLeaves($event)"> Add Leave </button>
                                         <button class="btn btn-outline"> Submit </button>
                                         <button class="btn btn-outline"> Cancel </button>
                                     </div>
@@ -112,6 +133,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
             <!-- END HOLIDAY LIST COMPONENT BY PRIMENG -->
         </div>
