@@ -29,7 +29,7 @@ import { timeSheetReducer, TimeSheetEffects, TimeSheetService } from './app/shar
 // config
 import { Config, WindowService, ConsoleService } from './app/frameworks/core/index';
 Config.PLATFORM_TARGET = Config.PLATFORMS.WEB;
-if (String('<%= ENV %>') === 'dev') {
+if (String('<%= BUILD_TYPE %>') === 'dev') {
   // only output console logging in dev mode
   Config.DEBUG.LEVEL_4 = true;
 }
