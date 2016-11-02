@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 // app
 import { BaseComponent, RouterExtensions } from '../../frameworks/core/index';
 import { NAME_LIST_ACTIONS } from '../../frameworks/sample/index';
+import { LoginService } from '../../shared/services/login.service';
 
 @BaseComponent({
   moduleId: module.id,
@@ -17,12 +18,12 @@ export class HomeComponent  implements OnInit{
   public names$: Observable<any>;
   public newName: string = '';
 
-  constructor(private store: Store<any>, public routerext: RouterExtensions, private _router: Router) {
+  constructor(private loginService: LoginService,private store: Store<any>, public routerext: RouterExtensions, private _router: Router) {
     this.names$ = store.select('names');
   }
 
   ngOnInit() {
-    if (localStorage.getItem('accessToken')===null) {
+    if (!this.loginService.isAuthenticated()) {
      this._router.navigate(['/login']);
     }
   }

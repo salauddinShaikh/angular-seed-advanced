@@ -28,22 +28,38 @@ export class LoginService {
         return this.http.get(url, options)
             .map((res: Response) => {
                 this.setLoggedInUserPermission(res);
+                this.emitAuthEvent(true);
             })
             .catch(this.handleError);
     }
 
+    getAuthEmitter() {
+        return this.onAuthStatusChange;
+    }
+
+    emitAuthEvent(value: boolean) {
+        this.onAuthStatusChange.emit(value);
+    }
 
     logout() {
         localStorage.clear();
+        this.emitAuthEvent(false);
     }
-
+    
+    isAuthenticated() {
+        if (localStorage.getItem('accessToken')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     setLoggedInUserPermission(res: Response) {
         if (res.status < 200 || res.status >= 300) {
             throw new Error('Bad response status: ' + res.status);
         }
         let body = res.json();
-        localStorage.setItem('loggedInUserPermission',JSON.stringify(body));
+        localStorage.setItem('loggedInUserPermission', JSON.stringify(body));
         return body || {};
     }
 
