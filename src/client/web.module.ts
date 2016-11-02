@@ -112,7 +112,7 @@ export function cons() {
     }),
     EffectsModule.run(MultilingualEffects),
     EffectsModule.run(TimeSheetEffects),    
-    //EffectsModule.run(NameListEffects),
+    EffectsModule.run(NameListEffects),
     ScheduleModule,
     DataTableModule,
     SharedModule,
