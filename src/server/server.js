@@ -1,10 +1,11 @@
 var express = require('express'),
     app = express(),
     server = require('http').createServer(app);
-
+var _ = require('lodash');
 var path = require('path');
 var bodyParser = require('body-parser');
 var utils = require('./utils');
+var users = require('./userData');
 
 var allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:5555');
@@ -60,15 +61,19 @@ app.get('/getHolidays', function (req, res) {
 
 app.post('/api/Authentication/GetToken', function (req, res) {
     var userName = req.body.UserName;
-    var password = req.body.Password;
-    if (userName === 'admin' && password==="password") {
-        var token = utils.CreateJWT({userName:'admin',id:1});
+    var password = req.body.Password
+    var userIndex = _.findIndex(users, { UserName: userName, Password: password });
+    if (userIndex != '-1') {
+        var token = utils.CreateJWT(users[userIndex]);
         res.send({ token: token });
     } else {
         res.status(500).end('Invalid credentials.');
     }
 });
-
+ app.get('/api/GetLoggedInUserPermission', utils.EnsureAuthenticated,function (req, res) {
+    var userIndex = _.findIndex(users, { Id: req.userID });
+    res.json(users[userIndex].Permissions);
+});
 server.listen(process.env.PORT || 4000, function () {
     console.log('RMS APP listening on port 4000!');
 });

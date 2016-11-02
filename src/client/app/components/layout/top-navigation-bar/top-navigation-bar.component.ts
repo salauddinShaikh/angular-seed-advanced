@@ -17,6 +17,7 @@ export class TopNavigationBarComponent implements OnInit {
   logout() {
     if(localStorage.removeItem("accessToken")!==null){
         localStorage.removeItem("accessToken");
+        localStorage.removeItem('loggedInUserPermission');
         this._router.navigate(['/login']);
     }
   }
