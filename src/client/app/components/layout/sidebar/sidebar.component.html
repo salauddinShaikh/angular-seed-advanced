@@ -76,22 +76,22 @@
 							<span class="title">Holidays</span>
 						</a>
 					</li>
-					<li class="nav-item  ">
+					<li class="nav-item  " [ifAuthorize]="['Leave.READ']">
 						<a routerLink="/myleaves" routerLinkActive="active" >
 							<span class="title">My Leaves</span>
 						</a>
 					</li>
-					<li class="nav-item  ">
+					<li class="nav-item  " [ifAuthorize]="['Leave.CREATE']">
 						<a routerLink="/applyleave" routerLinkActive="active" >
 							<span class="title">Apply For Leave</span>
 						</a>
 					</li>
-					<li class="nav-item  ">
+					<li class="nav-item  " [ifAuthorize]="['ApprovalLeave.READ']">
 						<a routerLink="/approveleave" routerLinkActive="active" >
 							<span class="title">Leave Approval</span>
 						</a>
 					</li>
-					<li class="nav-item  ">
+					<li class="nav-item  " [ifAuthorize]="['BulkApprovalLeave.READ']">
 						<a routerLink="/bulkapproval" routerLinkActive="active" >
 							<span class="title">Bulk Leave Approval</span>
 						</a>
