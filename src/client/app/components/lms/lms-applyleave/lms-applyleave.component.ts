@@ -68,7 +68,7 @@ export class LmsApplyLeavesComponent {
     console.log(JSON.stringify(this.finalLeaveData));
   }
 
-  delLeaveRec(event){
-    console.log("delete record clicked ==> "+JSON.stringify(event));
+  delLeaveRec(event) {
+    console.log('delete record clicked ==> '+JSON.stringify(event));
   }
 }
