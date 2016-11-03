@@ -2,11 +2,9 @@ import { Injector } from '@angular/core';
 import { BaseComponent, Config } from '../../frameworks/core/index';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { NameListService } from '../../frameworks/sample/services/name-list.service';
 import { TimeSheetService } from '../../shared/services/timesheet.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../domain/appState';
-import { ITimeSheetDay } from '../../domain/timesheet/ITimesheet';
 
 @BaseComponent({
   moduleId: module.id,
