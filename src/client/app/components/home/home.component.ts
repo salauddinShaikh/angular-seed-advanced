@@ -14,7 +14,7 @@ import { LoginService } from '../../shared/services/login.service';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css']
 })
-export class HomeComponent  implements OnInit{
+export class HomeComponent  implements OnInit {
   public names$: Observable<any>;
   public newName: string = '';
 

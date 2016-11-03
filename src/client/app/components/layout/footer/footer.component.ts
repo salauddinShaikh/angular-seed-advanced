@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 
 @Component({
   moduleId: module.id,
@@ -9,11 +7,9 @@ import { Subject } from 'rxjs/Subject';
   templateUrl: 'footer.component.html',
   styleUrls: ['footer.component.css'],
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
   constructor(
     private router: Router) { }
 
-  ngOnInit(): void {
-  }
 }
