@@ -13,7 +13,7 @@ export class IfAuthorize implements OnInit {
     }
 
     ngOnInit() {
-        this.checkPermission()
+        this.checkPermission();
         this.subscription = this.loginService.getAuthEmitter()
             .subscribe((value: boolean) => {
                 if (value) {
