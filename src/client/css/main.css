@@ -3,8 +3,13 @@
      border: none !important;
      border-top: 1px solid #ddd !important;
      font-weight: bold;
- }  
- @media only screen and (max-width: 767px){
+ } 
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 17px 0px 0 !important;
+}
+
+@media only screen and (max-width: 767px){
     .page-header.navbar .top-menu .navbar-nav>li.dropdown-notification .dropdown-menu{
             margin-right: -165px !important;
     }
@@ -15,6 +20,7 @@
         margin-right: -35px !important;
     }
 }
+
 @media only screen and (max-width: 370px){
     .page-header.navbar .page-logo{
         width:90px !important;
