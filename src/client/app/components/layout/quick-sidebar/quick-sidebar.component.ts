@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: 'quick-sidebar.component.html',
   styleUrls: ['quick-sidebar.component.css'],
 })
-export class QuickSidebarComponent implements OnInit {
+export class QuickSidebarComponent {
 
   constructor(
     private router: Router) { }

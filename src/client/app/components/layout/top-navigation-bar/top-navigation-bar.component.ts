@@ -8,7 +8,7 @@ import { LoginService } from '../../../shared/services/login.service';
   templateUrl: 'top-navigation-bar.component.html',
   styleUrls: ['top-navigation-bar.component.css'],
 })
-export class TopNavigationBarComponent implements OnInit {
+export class TopNavigationBarComponent {
 
   constructor(private loginService: LoginService,private _router: Router) { }
 
