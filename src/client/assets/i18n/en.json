@@ -29,6 +29,7 @@
   "END_DATE":"End Date",
   "TASK":"Task",
   "COMMENTS":"Comments",
+  "PROJECTS":"Projects",
 
   "TIMESHEET":"Timesheet",
   "NEW_ITEMS":"New Items",
@@ -40,6 +41,8 @@
   "NOTE_NON_BILLABLE":"Note for Non-Billable Hours",
   "APPROVER_USER":"Approver User",
   "PENDING_APPROVER":"Pending Approver",
+  "TIMESHEET_REPORT":"Timesheet Report",
+  "TIMESHEET_STATUS":"Timesheet Status",
 
   "HOLIDAYS":"Holidays",
   "BULK_APPROVAL":"Bulk Approval",
