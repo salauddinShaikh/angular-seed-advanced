@@ -60,7 +60,7 @@ export class TimeSheetEffects {
     @Effect() getTimesheets$: Observable<Action> = this.actions$
         .ofType(TIME_SHEET_ACTIONS.INIT)
         .switchMap(action1 => {
-            return this.http.get('http://localhost:4000/getTimesheets')
+            return this.http.get('http://localhost:4000/getTimesheets');
         })
         .map(res => ({ type: TIME_SHEET_ACTIONS.INITIALIZED, payload: res.json() }))
         .catch(() => Observable.of({ type: TIME_SHEET_ACTIONS.INIT_FAILED }));
