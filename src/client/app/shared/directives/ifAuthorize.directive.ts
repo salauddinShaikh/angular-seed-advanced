@@ -31,19 +31,16 @@ export class IfAuthorize implements OnInit {
                 if (loggedInUserPermission.indexOf(this.permissions[i]) === -1) {
                     userHasPermissions = false;
                     break;
-                }
-                else {
+                } else {
                     userHasPermissions = true;
                 }
             }
             if (!userHasPermissions) {
                 this._element.style.display = 'none';
-            }
-            else {
+            } else {
                 this._element.style.display = 'block';
             }
-        }
-        else {
+        } else {
             this._element.style.display = 'none';
         }
     }
