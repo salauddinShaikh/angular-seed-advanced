@@ -1,15 +1,17 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Response, Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-
+import { CustomAnalytics, AnalyticsService } from '../../frameworks/analytics/index';
 
 @Injectable()
-export class LoginService {
+export class LoginService extends CustomAnalytics  {
     onAuthStatusChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-    constructor(private http: Http) { }
+    constructor(public analytics: AnalyticsService,public http: Http) { 
+        super(analytics, http);
+    }
 
     authenticate(credentials: any) {
-        let authenticateUrl = 'http://localhost:4000/api/Authentication/GetToken';
+        let authenticateUrl =  this.toURL('api/Authentication/GetToken');
         let headers = new Headers();
         let body = JSON.stringify(credentials);
         headers.append('Content-Type', 'application/json');
@@ -21,7 +23,7 @@ export class LoginService {
 
 
     getLoggedInUserPermission() {
-        let url = 'http://localhost:4000/api/GetLoggedInUserPermission';
+        let url = this.toURL('api/GetLoggedInUserPermission');
         let headers = new Headers();
         headers.append('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
         let options = new RequestOptions({ headers: headers });
@@ -63,6 +65,11 @@ export class LoginService {
         return body || {};
     }
 
+     public handleError(error: Response) {
+        console.error(error);
+        return Observable.throw(error.json().error || 'Server error');
+    }
+    
     private setToken(res: Response) {
         if (res.status < 200 || res.status >= 300) {
             throw new Error('Bad response status: ' + res.status);
@@ -72,8 +79,5 @@ export class LoginService {
         return body || {};
     }
 
-    private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
-    }
+   
 }

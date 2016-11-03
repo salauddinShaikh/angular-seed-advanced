@@ -6,14 +6,23 @@ import { MyBookingComponent } from './myBooking.component';
 export const ConferenceRoutes: Route[] = [
   {
     path: 'conferenceBooking',
-    component: ConferenceComponent
+    component: ConferenceComponent,
+    data: {
+      permissions: ['ConferenceBook.READ']
+    }
   },
-   {
+  {
     path: 'newBooking',
-    component: BookComponent
+    component: BookComponent,
+    data: {
+      permissions: ['ConferenceBook.CREATE']
+    }
   },
   {
     path: 'myBookings',
-    component: MyBookingComponent
+    component: MyBookingComponent,
+     data: {
+      permissions: ['ConferenceBook.DELETE']
+    }
   }
 ];

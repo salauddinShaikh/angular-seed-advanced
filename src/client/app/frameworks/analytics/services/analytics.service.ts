@@ -1,4 +1,6 @@
 // angular
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import { Injectable, Inject } from '@angular/core';
 
 // libs
@@ -29,7 +31,7 @@ export class AnalyticsService implements IAnalytics {
     // angulartics2.excludeRoutes(routes: Array<string>);
     // angulartics2.firstPageview(value: boolean);
     // angulartics2.withBase(value: string);
- 
+
     this.devMode(false);
   }
 
@@ -39,7 +41,7 @@ export class AnalyticsService implements IAnalytics {
   public track(action: string, properties: IAnalyticsProperties): void {
     if (!this.devMode()) {
       this.segment.eventTrack(action, properties);
-    } 
+    }
   }
 
   /**
@@ -69,9 +71,9 @@ export class AnalyticsService implements IAnalytics {
   public devMode(enable?: boolean): boolean {
     if (typeof enable !== 'undefined') {
       this.angulartics2.developerMode(enable);
-    } 
+    }
     return this.angulartics2.settings.developerMode;
-  }   
+  }
 }
 
 /**
@@ -91,5 +93,39 @@ export class Analytics implements IAnalytics {
    **/
   track(action: string, properties: IAnalyticsProperties): void {
     this.analytics.track(action, _.extend(properties, { category: this.category }));
-  }     
+  }
+}
+
+export class CustomAnalytics extends Analytics {
+  public baseURL: string;
+
+  constructor( @Inject(AnalyticsService) public analytics: AnalyticsService, public http: Http) {
+    super(analytics);
+    this.baseURL = 'http://localhost:4000/';
+  }
+
+  protected toURL(apiURL: string): string {
+    return this.baseURL + apiURL;
+  }
+
+  protected httpGet(url: string, callback: Function): void {
+    this.http.get(this.toURL(url))
+      .toPromise()
+      .then(res => { callback(res.json() || {}); })
+      .catch(this.handleError);
+  }
+
+  protected handleError(error: Response | any) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
+  }
 }
