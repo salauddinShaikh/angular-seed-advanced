@@ -16,6 +16,7 @@
   "TITLE":"Title",
   "SUBMIT":"Submit",
   "CANCEL":"Cancel",
+  "STATUS":"Status",
 
   "HOLIDAYS":"Holidays",
   "APPLY_LEAVES":"Apply Leave",
@@ -28,5 +29,13 @@
   "START_DATE":"Start Date",
   "END_DATE":"End Date",
   "REASON":"Reason",
-  "ADD_LEAVE":"Add Leave"
+  "ADD_LEAVE":"Add Leave",
+  "EMPLOYEE":"Employee",
+  "BALANCE":"Balance",
+  "TAKEN":"Taken",
+  "LEAVE":"Leave",
+  "HALF_DAY_LEAVE":"Half Day Leave",
+  "ABSENT":"Absent",
+  "HALF_DAY_ABSENT":"Half Day Absent",
+  "MY_LEAVES":"My Leaves"
 }
