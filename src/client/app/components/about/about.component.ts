@@ -36,7 +36,7 @@ export class AboutComponent {
   }
 
   ngOnInit() {
-    console.log('Init', this.timesheetRecords);
+    this.timesheetService.getCurrentUserTimesheets();
   }
 
   getDataFromServer() {
