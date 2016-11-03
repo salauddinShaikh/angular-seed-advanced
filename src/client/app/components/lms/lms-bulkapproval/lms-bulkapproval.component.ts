@@ -11,21 +11,21 @@ export class LmsBulkApproveComponent {
     requests :any[];
     selectedEmployees :any[];
 
-    ngOnInit(){
+    ngOnInit() {
       this.requests = [
-          {eid:23123, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23124, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23125, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23126, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23127, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23128, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23129, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23130, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23131, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23132, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23133, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23134, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
-          {eid:23135, employee:"Employee", numberofleaves:4, status:"Approved", start:"01-10-2016", end:"10-10-2016", approvers:"Manager, Manager, Manager, Manager", pending: ""},
+          {eid:23123, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23124, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23125, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23126, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23127, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23128, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23129, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23130, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23131, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23132, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23133, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23134, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
+          {eid:23135, employee:'Employee', numberofleaves:4, status:'Approved', start:'01-10-2016', end:'10-10-2016', approvers:'Manager, Manager, Manager, Manager', pending: ''},
       ];
     }
 
