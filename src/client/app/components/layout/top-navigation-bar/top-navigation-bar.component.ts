@@ -12,9 +12,6 @@ export class TopNavigationBarComponent implements OnInit {
 
   constructor(private loginService: LoginService,private _router: Router) { }
 
-  ngOnInit(): void {
-  }
-
   logout() {
     this.loginService.logout();
     this._router.navigate(['/login']);
