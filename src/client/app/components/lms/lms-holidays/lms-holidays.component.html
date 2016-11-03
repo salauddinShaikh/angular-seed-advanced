@@ -9,11 +9,11 @@
         <div class="hidden-xs">
             <ul class="page-breadcrumb breadcrumb">
                 <li>
-                    <span>LINK UP</span>
+                    <span>{{ 'LINK_UP' | translate }}</span>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Holidays</span>
+                    <span>{{ 'HOLIDAYS' | translate }}</span>
                     <i class="fa fa-circle"></i>
                 </li>
             </ul>
@@ -31,10 +31,10 @@
             <div class="col-lg-6 col-xs-12 col-sm-12">
                 <div class="portlet light bordered">
                     <p-dataTable [value]="holidays" selectionMode="single" [paginator]="true" [rows]=(servRows) [responsive]="true">
-                        <p-column field="title" header="Title" [sortable]="true"></p-column>
-                        <p-column field="date" header="Date" [sortable]="true"></p-column>
-                        <p-column field="day" header="Day" [sortable]="true"></p-column>
-                        <p-column field="type" header="Type" [sortable]="true"></p-column>
+                        <p-column field="title" header="{{ 'TITLE' | translate }}" [sortable]="true"></p-column>
+                        <p-column field="date" header="{{ 'DATE' | translate }}" [sortable]="true"></p-column>
+                        <p-column field="day" header="{{ 'DAY' | translate }}" [sortable]="true"></p-column>
+                        <p-column field="type" header="{{ 'TYPE' | translate }}" [sortable]="true"></p-column>
                         <p-column styleClass="col-button" field="color">
                             <template let-car="rowData" pTemplate type="body">
                                 <button type="button" pButton [routerLink]="['/about']" icon="fa-edit"></button>
