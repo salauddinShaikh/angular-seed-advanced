@@ -4,11 +4,11 @@
     <div class="page-content">
         <ul class="page-breadcrumb breadcrumb hidden-xs">
             <li>
-                <span>LINK UP</span>
+                <span>LINK UP {{ 'LINK_UP' | translate }}</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span class="active">Employee Timesheet</span>
+                <span class="active">{{ 'EMPLOYEE_TIMESHEET' | translate }}</span>
             </li>
         </ul>
         <div class="row">
@@ -21,14 +21,14 @@
                                     <button type="button" pButton (click)="selectEmployee(employee)" icon="fa fa-pencil-square-o"></button>
                                 </template>
                             </p-column>
-                            <p-column field="employee" header="Employee" [sortable]="true" [filter]="true"></p-column>
-                            <p-column field="startDate" header="Start Date" [sortable]="true" [filter]="true"></p-column>
-                            <p-column field="endDate" header="End Date" [sortable]="true" [filter]="true"></p-column>
-                            <p-column field="billableHours" header="Billable Hours" [sortable]="true" [filter]="true"></p-column>
-                            <p-column field="nonBillableHours" header="Non-Billable Hours" [sortable]="true" [filter]="true"></p-column>
-                            <p-column field="approverUser" header="Approver User" [sortable]="true" [filter]="true"></p-column>
-                            <p-column field="status" header="Status" [sortable]="true" [filter]="true"></p-column>
-                            <p-column field="pendingApprover" header="Pending Approver" [sortable]="true" [filter]="true"></p-column>
+                            <p-column field="employee" header="{{ 'EMPLOYEE' | translate }}" [sortable]="true" [filter]="true"></p-column>
+                            <p-column field="startDate" header="{{ 'START_DATE' | translate }}" [sortable]="true" [filter]="true"></p-column>
+                            <p-column field="endDate" header="{{ 'END_DATE' | translate }}" [sortable]="true" [filter]="true"></p-column>
+                            <p-column field="billableHours" header="{{ 'BILLABLE_HOURS' | translate }}" [sortable]="true" [filter]="true"></p-column>
+                            <p-column field="nonBillableHours" header="{{ 'NON_BILLABLE_HOURS' | translate }}" [sortable]="true" [filter]="true"></p-column>
+                            <p-column field="approverUser" header="{{ 'APPROVER_USER' | translate }}" [sortable]="true" [filter]="true"></p-column>
+                            <p-column field="status" header="{{ 'STATUS' | translate }}" [sortable]="true" [filter]="true"></p-column>
+                            <p-column field="pendingApprover" header=" {{ 'PENDING_APPROVER' | translate }}" [sortable]="true" [filter]="true"></p-column>
                         </p-dataTable>
                     </div>
                 </div>
