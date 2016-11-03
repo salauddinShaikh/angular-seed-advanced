@@ -64,7 +64,7 @@ export class HolidayEffects {
     @Effect() initHolidays$: Observable<Action> = this.actions$
         .ofType(HOLIDAY_ACTIONS.INIT)
         .switchMap(action1 => {
-            return this.http.get('http://localhost:4000/getHolidays')
+            return this.http.get('http://localhost:4000/getHolidays');
         })
         .map(res => ({ type: HOLIDAY_ACTIONS.INITIALIZED, payload: res.json() }))
         .catch(() => Observable.of({ type: HOLIDAY_ACTIONS.INIT_FAILED }));
