@@ -6,7 +6,6 @@ var users = [
         Password: 'password',
         Permissions: [
             'Timesheet.READ','Timesheet.CREATE','Timesheet.UPDATE','Timesheet.DELETE',
-            
             'ConferenceBook.READ','ConferenceBook.CREATE','ConferenceBook.UPDATE','ConferenceBook.DELETE',
             'Leave.READ','Leave.CREATE','Leave.UPDATE','Leave.DELETE',
             'Holiday.READ','Holiday.CREATE','Holiday.UPDATE','Holiday.DELETE',
