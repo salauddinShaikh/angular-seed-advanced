@@ -22,15 +22,21 @@
   "EMPLOYEE":"Employee",
   "EMPLOYEE_ID":"Employee ID",
   "REJECT":"Reject",
+  "APPROVE":"Approve",
   "CLOSE":"Close",
   "START_DATE":"Start Date",
   "END_DATE":"End Date",
+  "TASK":"Task",
+  "COMMENTS":"Comments",
 
   "TIMESHEET":"Timesheet",
   "NEW_ITEMS":"New Items",
   "EMPLOYEE_TIMESHEET":"Employee Timesheet",
   "BILLABLE_HOURS":"Billable Hours",
   "NON_BILLABLE_HOURS":"Non-Billable Hours",
+  "TOTAL_HOURS":"Total Hours",
+  "NOTE_BILLABLE":"Note for Billable Hours",
+  "NOTE_NON_BILLABLE":"Note for Non-Billable Hours",
   "APPROVER_USER":"Approver User",
   "PENDING_APPROVER":"Pending Approver",
 
@@ -56,6 +62,6 @@
   "HALF_DAY_LEAVE":"Half Day Leave",
   "ABSENT":"Absent",
   "HALF_DAY_ABSENT":"Half Day Absent",
-  "MY_LEAVES":"My Leaves",
-  "COMMENTS":"Comments"
+  "MY_LEAVES":"My Leaves"
+  
 }
