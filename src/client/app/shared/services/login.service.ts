@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class LoginService {
     onAuthStatusChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-    constructor( private http: Http ) { }
+    constructor(private http: Http) { }
 
     authenticate(credentials: any) {
         let authenticateUrl = 'http://localhost:4000/api/Authentication/GetToken';
@@ -15,32 +15,51 @@ export class LoginService {
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({ headers: headers });
         return this.http.post(authenticateUrl, body, options)
-            .map((res: Response) => { this.setToken(res);})
+            .map((res: Response) => { this.setToken(res); })
             .catch(this.handleError);
     }
 
 
     getLoggedInUserPermission() {
-       // let url = Config.GetURL('/api/authentication/GetPermissionbyRole');
-        return this.authHttp.get(url)
+        let url = 'http://localhost:4000/api/GetLoggedInUserPermission';
+        let headers = new Headers();
+        headers.append('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
+        let options = new RequestOptions({ headers: headers });
+        return this.http.get(url, options)
             .map((res: Response) => {
-                this.commonService.setLoggedInUserPermission(res.json());
-                this.extractData(res);
+                this.setLoggedInUserPermission(res);
+                this.emitAuthEvent(true);
             })
             .catch(this.handleError);
     }
 
+    getAuthEmitter() {
+        return this.onAuthStatusChange;
+    }
+
+    emitAuthEvent(value: boolean) {
+        this.onAuthStatusChange.emit(value);
+    }
 
     logout() {
         localStorage.clear();
+        this.emitAuthEvent(false);
+    }
+    
+    isAuthenticated() {
+        if (localStorage.getItem('accessToken')) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-
-    extractData(res: Response) {
+    setLoggedInUserPermission(res: Response) {
         if (res.status < 200 || res.status >= 300) {
             throw new Error('Bad response status: ' + res.status);
         }
         let body = res.json();
+        localStorage.setItem('loggedInUserPermission', JSON.stringify(body));
         return body || {};
     }
 
