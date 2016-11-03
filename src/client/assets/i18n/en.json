@@ -22,6 +22,7 @@
   "EMPLOYEE":"Employee",
   "EMPLOYEE_ID":"Employee ID",
   "REJECT":"Reject",
+  "EDIT":"Edit",
   "APPROVE":"Approve",
   "CLOSE":"Close",
   "START_DATE":"Start Date",
