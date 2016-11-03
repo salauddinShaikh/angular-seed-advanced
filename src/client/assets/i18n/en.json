@@ -20,6 +20,7 @@
   "PROJECT":"Project",
   "MANAGER":"Manager",
   "EMPLOYEE":"Employee",
+  "EMPLOYEE_NAME":"Employee Name",
   "EMPLOYEE_ID":"Employee ID",
   "REJECT":"Reject",
   "EDIT":"Edit",
@@ -30,6 +31,8 @@
   "TASK":"Task",
   "COMMENTS":"Comments",
   "PROJECTS":"Projects",
+  "FROM":"From",
+  "TO":"To",
 
   "TIMESHEET":"Timesheet",
   "NEW_ITEMS":"New Items",
@@ -43,6 +46,7 @@
   "PENDING_APPROVER":"Pending Approver",
   "TIMESHEET_REPORT":"Timesheet Report",
   "TIMESHEET_STATUS":"Timesheet Status",
+  "SHOW_REPORT":"Show Report",
 
   "HOLIDAYS":"Holidays",
   "BULK_APPROVAL":"Bulk Approval",
