@@ -9,15 +9,12 @@
         <div class="hidden-xs">
             <ul class="page-breadcrumb breadcrumb ">
                 <li>
-                    <span>LINK UP</span>
+                    <span>{{ 'LINK_UP' | translate }}</span>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span> Leaves</span>
+                    <span> {{ 'APPLY_LEAVES' | translate }}</span>
                     <i class="fa fa-circle"></i>
-                </li>
-                <li>
-                    <span> Apply Leave</span>
                 </li>
             </ul>
         </div>
@@ -26,7 +23,7 @@
             <div class="col-lg-4 col-xs-12 col-sm-12">
                 <div class="portlet light bordered">
                     <div class="portlet-body">
-                        <h4>Requestor Details</h4>
+                        <h4> {{ 'REQUESTOR_DETAILS' | translate }} </h4>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <tbody>
@@ -45,7 +42,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <h4>Active on Projects</h4>
+                        <h4> {{ 'ACTIVE_ON_PROJECTS' | translate }} </h4>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
@@ -77,7 +74,7 @@
                     <!--FORM GOES HERE-->
                     <div class="form-horizontal">
                         <div class="row"> 
-                            <h4>Apply Leave</h4>
+                            <h4> {{ 'APPLY_LEAVE' | translate }} </h4>
                             <div class="pull-right">
                                 <h5>Alerts go here...</h5>
                             </div>
@@ -86,33 +83,33 @@
                         <div class="form-body">
                             <div class="form-group">
                                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                                    <label class="control-label">Leave Type</label>
+                                    <label class="control-label"> {{ 'LEAVE_TYPE' | translate }} </label>
                                     <p-dropdown [options]="leaves" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                                    <label class="control-label">Number of Days</label>
+                                    <label class="control-label"> {{ 'NUMBER_LEAVES' | translate }} </label>
                                     <input type="text" pInputText [(ngModel)]="numberofdays" [disabled]="true" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                                    <label class="control-label">Start Date</label>
+                                    <label class="control-label"> {{ 'START_DATE' | translate }} </label>
                                     <p-calendar [(ngModel)]="start" [showIcon]="false"></p-calendar>
                                 </div>
                             <!--</div>
                             <div class="form-group">-->
                                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                                    <label class="control-label">End Date</label>
+                                    <label class="control-label"> {{ 'END_DATE' | translate }} </label>
                                     <p-calendar [(ngModel)]="end" [showIcon]="false"></p-calendar>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <p-dataTable [value]="finalLeaveData" [responsive]="true" [hidden]="false">
-                                    <p-column field="leave" header="Leave Type" [sortable]="false"></p-column>
-                                    <p-column field="numDays" header="No. of Leaves" [sortable]="false"></p-column>
-                                    <p-column field="reason" header="Reasons" [sortable]="false"></p-column>
-                                    <p-column field="start" header="Start Date" [sortable]="false"></p-column>
-                                    <p-column field="end" header="End date" [sortable]="false"></p-column>
+                                    <p-column field="leave" header=" {{ 'LEAVE_TYPE' | translate }} " [sortable]="false"></p-column>
+                                    <p-column field="numDays" header=" {{ 'NO_LEAVES' | translate }} " [sortable]="false"></p-column>
+                                    <p-column field="reason" header=" {{ 'REASON' | translate }} " [sortable]="false"></p-column>
+                                    <p-column field="start" header=" {{ 'START_DATE' | translate }} " [sortable]="false"></p-column>
+                                    <p-column field="end" header=" {{ 'END_DATE' | translate }} " [sortable]="false"></p-column>
                                     <p-column styleClass="col-button" field="color">
                                         <template let-car="rowData" pTemplate type="body">
                                             <button type="button" (click)="delLeaveRec(ID)" pButton icon="fa-edit"></button>
@@ -121,12 +118,12 @@
                                 </p-dataTable>
                             </div>
                             <div class="form-group">
-                                <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+                                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                     <textarea rows="5" cols="70" class="form-control" [(ngModel)]="reason"></textarea>
                                     <div class="pull-right">
-                                        <button class="btn btn-outline" (click)="addLeaves($event)"> Add Leave </button>
-                                        <button class="btn btn-outline"> Submit </button>
-                                        <button class="btn btn-outline"> Cancel </button>
+                                        <button class="btn btn-outline" (click)="addLeaves($event)"> {{ 'ADD_LEAVE' | translate }} </button>
+                                        <button class="btn btn-outline"> {{ 'SUBMIT' | translate }} </button>
+                                        <button class="btn btn-outline"> {{ 'CANCEL' | translate }} </button>
                                     </div>
                                 </div>
                             </div>

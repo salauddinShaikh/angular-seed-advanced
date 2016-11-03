@@ -7,5 +7,26 @@
   "ABOUT_REWARD": "For reward, here is a list of awesome computer scientists:",
   "INPUT_HINT": "Enter a new computer scientist...",
   "ADD_BTN_TEXT": "Add",
-  "SUCCESS_MSG": "Your deployment of Angular Seed Advanced worked perfectly."
+  "SUCCESS_MSG": "Your deployment of Angular Seed Advanced worked perfectly.",
+
+  "LINK_UP":"LINK UP",
+
+  "DAY":"Day",
+  "DATE":"Date",
+  "TITLE":"Title",
+  "SUBMIT":"Submit",
+  "CANCEL":"Cancel",
+
+  "HOLIDAYS":"Holidays",
+  "APPLY_LEAVES":"Apply Leave",
+  "REQUESTOR_DETAILS":"Requestor Details",
+  "ACTIVE_ON_PROJECTS":"Active on Projects",
+  "APPLY_LEAVE":"Apply Leave",
+  "LEAVE_TYPE":"Leave Type",
+  "NUMBER_LEAVES":"Number of Leaves",
+  "NO_LEAVES":"No. of Leaves",
+  "START_DATE":"Start Date",
+  "END_DATE":"End Date",
+  "REASON":"Reason",
+  "ADD_LEAVE":"Add Leave"
 }
