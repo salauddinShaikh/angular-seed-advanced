@@ -11,10 +11,10 @@ export class LmsSingleApprovalComponent {
   requests :any[];
   servRows = 6;
 
-  ngOnInit(){
+  ngOnInit() {
     this.requests = [
-      {project:"RMS", manager:"Sagar Shelar", status: "Pending", comments:"Comment1 here..."},
-      {project:"PLSV 2", manager:"Manager Name", status: "Approved", comments:"Comment2 here..."},
+      {project:'RMS', manager:'Sagar Shelar', status: 'Pending', comments:'Comment1 here...'},
+      {project:'PLSV 2', manager:'Manager Name', status: 'Approved', comments:'Comment2 here...'},
     ];
   }
 }
