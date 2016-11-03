@@ -1,15 +1,16 @@
 import { BaseComponent } from '../../frameworks/core/index';
 import { OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import * as moment from 'moment/moment';
 
 @BaseComponent({
-  moduleId: module.id,
-  selector: 'conference-booking',
-  templateUrl: 'conference.component.html',
-  styleUrls: ['conference.component.css']
+    moduleId: module.id,
+    selector: 'conference-booking',
+    templateUrl: 'conference.component.html',
+    styleUrls: ['conference.component.css']
 })
-export class ConferenceComponent implements OnInit  {
-events: any[];
+export class ConferenceComponent implements OnInit {
+    events: any[];
     header: any;
     event: MyEvent;
     dialogVisible: boolean = false;
@@ -20,7 +21,7 @@ events: any[];
     conferenceRooms: any[];
     constructor(private router: Router) { }
     ngOnInit() {
-        let todayDate=new Date();
+        let todayDate = new Date();
         this.minTime = "07:00:00";
         this.maxTime = "20:00:00";
         this.headerConfig = {
@@ -37,9 +38,9 @@ events: any[];
             },
             {
                 "title": "Jenzabar Client call",
-                "start":moment(),
+                "start": moment(),
                 "end": moment().add(3, 'hours'),
-                 'color': '#3FABA4'
+                'color': '#3FABA4'
             },
             {
                 "title": "Product Meeting",
@@ -55,26 +56,26 @@ events: any[];
             },
             {
                 "title": "Standup Meeting",
-                "start": moment().add(1,'d').subtract(3, 'hours'),
-                "end": moment().add(1,'d').subtract(1, 'hours'),
+                "start": moment().add(1, 'd').subtract(3, 'hours'),
+                "end": moment().add(1, 'd').subtract(1, 'hours'),
                 'color': '#E7C5F5'
             },
             {
                 "title": "NGO/NPO Meeting",
-                "start": moment().add(1,'d').subtract(3, 'hours'),
-                "end": moment().add(1,'d').subtract(2, 'hours'),
+                "start": moment().add(1, 'd').subtract(3, 'hours'),
+                "end": moment().add(1, 'd').subtract(2, 'hours'),
                 'color': '#8877A9'
             },
             {
                 "title": "Conference",
-                "start": moment().subtract(1,'d').subtract(3, 'hours'),
-                "end": moment().subtract(1,'d').subtract(2, 'hours'),
+                "start": moment().subtract(1, 'd').subtract(3, 'hours'),
+                "end": moment().subtract(1, 'd').subtract(2, 'hours'),
                 'color': '#D05454'
             },
             {
                 "title": "Interview",
-                "start": moment().subtract(1,'d'),
-                "end": moment().subtract(1,'d').add(3, 'hours'),
+                "start": moment().subtract(1, 'd'),
+                "end": moment().subtract(1, 'd').add(3, 'hours'),
                 'color': '#DFBA49'
             }
         ];
@@ -82,33 +83,33 @@ events: any[];
             name: 'Bahamas',
             color: '#E7C5F5'
         },
-        {
-            name: 'Dubai',
-            color: '#3FABA4'
-        },{
-            name: 'Cape Town',
-            color: '#35AA47'
-        },{
-            name: 'Hong Kong',
-            color: '#FF9655'
-        },{
-            name: 'Caribbean',
-            color: '#8877A9'
-        },{
-            name: 'Houston	',
-            color: '#428BCA'
-        },{
-            name: 'Barcelona',
-            color: '#D05454'
-        },{
-            name: 'Trainning Room',
-            color: '#DFBA49'
-        },
+            {
+                name: 'Dubai',
+                color: '#3FABA4'
+            }, {
+                name: 'Cape Town',
+                color: '#35AA47'
+            }, {
+                name: 'Hong Kong',
+                color: '#FF9655'
+            }, {
+                name: 'Caribbean',
+                color: '#8877A9'
+            }, {
+                name: 'Houston	',
+                color: '#428BCA'
+            }, {
+                name: 'Barcelona',
+                color: '#D05454'
+            }, {
+                name: 'Trainning Room',
+                color: '#DFBA49'
+            },
         ]
     }
 
     handleDayClick(event: any) {
-       this.router.navigate(['/newBooking']);
+        this.router.navigate(['/newBooking']);
         this.event = new MyEvent();
         this.event.start = event.date.format();
         this.dialogVisible = true;

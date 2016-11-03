@@ -485,6 +485,11 @@ export class SeedConfig {
       'rxjs': {
         main: 'Rx.js',
         defaultExtension: 'js'
+      },
+      moment: {
+        map: 'moment.js',
+        type: 'cjs',
+        defaultExtension: 'js'
       }
     }
   };
