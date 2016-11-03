@@ -1,4 +1,3 @@
-import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../frameworks/core/index';
 import {SelectItem} from 'primeng/primeng';
 

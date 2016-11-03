@@ -1,6 +1,6 @@
 import { BaseComponent } from '../../frameworks/core/index';
 import { OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router} from '@angular/router';
 import * as moment from 'moment/moment';
 
 @BaseComponent({
@@ -21,9 +21,8 @@ export class ConferenceComponent implements OnInit {
     conferenceRooms: any[];
     constructor(private router: Router) { }
     ngOnInit() {
-        let todayDate = new Date();
-        this.minTime = "07:00:00";
-        this.maxTime = "20:00:00";
+        this.minTime = '07:00:00';
+        this.maxTime = '20:00:00';
         this.headerConfig = {
             left: 'prev,next today',
             center: 'title',
@@ -31,51 +30,51 @@ export class ConferenceComponent implements OnInit {
         };
         this.events = [
             {
-                "title": "Inteview",
-                "start": moment().add(2, 'hours'),
-                "end": moment().add(4, 'hours'),
+                'title': 'Inteview',
+                'start': moment().add(2, 'hours'),
+                'end': moment().add(4, 'hours'),
                 'color': '#8877A9'
             },
             {
-                "title": "Jenzabar Client call",
-                "start": moment(),
-                "end": moment().add(3, 'hours'),
+                'title': 'Jenzabar Client call',
+                'start': moment(),
+                'end': moment().add(3, 'hours'),
                 'color': '#3FABA4'
             },
             {
-                "title": "Product Meeting",
-                "start": moment().subtract(3, 'hours'),
-                "end": moment().subtract(1, 'hours'),
+                'title': 'Product Meeting',
+                'start': moment().subtract(3, 'hours'),
+                'end': moment().subtract(1, 'hours'),
                 'color': '#FF9655'
             },
             {
-                "title": "Tccc client call",
-                "start": moment().subtract(3, 'hours'),
-                "end": moment().subtract(2, 'hours'),
+                'title': 'Tccc client call',
+                'start': moment().subtract(3, 'hours'),
+                'end': moment().subtract(2, 'hours'),
                 'color': '#3FABA4'
             },
             {
-                "title": "Standup Meeting",
-                "start": moment().add(1, 'd').subtract(3, 'hours'),
-                "end": moment().add(1, 'd').subtract(1, 'hours'),
+                'title': 'Standup Meeting',
+                'start': moment().add(1, 'd').subtract(3, 'hours'),
+                'end': moment().add(1, 'd').subtract(1, 'hours'),
                 'color': '#E7C5F5'
             },
             {
-                "title": "NGO/NPO Meeting",
-                "start": moment().add(1, 'd').subtract(3, 'hours'),
-                "end": moment().add(1, 'd').subtract(2, 'hours'),
+                'title': 'NGO/NPO Meeting',
+                'start': moment().add(1, 'd').subtract(3, 'hours'),
+                'end': moment().add(1, 'd').subtract(2, 'hours'),
                 'color': '#8877A9'
             },
             {
-                "title": "Conference",
-                "start": moment().subtract(1, 'd').subtract(3, 'hours'),
-                "end": moment().subtract(1, 'd').subtract(2, 'hours'),
+                'title': 'Conference',
+                'start': moment().subtract(1, 'd').subtract(3, 'hours'),
+                'end': moment().subtract(1, 'd').subtract(2, 'hours'),
                 'color': '#D05454'
             },
             {
-                "title": "Interview",
-                "start": moment().subtract(1, 'd'),
-                "end": moment().subtract(1, 'd').add(3, 'hours'),
+                'title': 'Interview',
+                'start': moment().subtract(1, 'd'),
+                'end': moment().subtract(1, 'd').add(3, 'hours'),
                 'color': '#DFBA49'
             }
         ];
@@ -105,8 +104,8 @@ export class ConferenceComponent implements OnInit {
                 name: 'Trainning Room',
                 color: '#DFBA49'
             },
-        ]
-    }
+        ];
+    };
 
     handleDayClick(event: any) {
         this.router.navigate(['/newBooking']);
