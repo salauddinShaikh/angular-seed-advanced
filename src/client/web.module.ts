@@ -24,7 +24,7 @@ import { multilingualReducer, MultilingualEffects } from './app/frameworks/i18n/
 import { MultilingualModule, translateFactory } from './app/frameworks/i18n/multilingual.module';
 import { SampleModule } from './app/frameworks/sample/sample.module';
 import { nameListReducer, NameListEffects } from './app/frameworks/sample/index';
-import { timeSheetReducer, TimeSheetEffects, TimeSheetService } from './app/shared/services/timesheet.service';
+import { timeSheetReducer, TimeSheetService } from './app/shared/services/timesheet.service';
 
 // config
 import { Config, WindowService, ConsoleService } from './app/frameworks/core/index';
@@ -111,7 +111,6 @@ export function cons() {
       timesheet: timeSheetReducer
     }),
     EffectsModule.run(MultilingualEffects),
-    EffectsModule.run(TimeSheetEffects),    
     EffectsModule.run(NameListEffects),
     ScheduleModule,
     DataTableModule,
