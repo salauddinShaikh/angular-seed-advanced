@@ -9,21 +9,39 @@ import { ViewApproveTimesheetComponent } from './approve-timesheet/view-approve-
 export const TimesheetRoutes: Route[] = [
   {
     path: 'my-timesheet',
-    component: MyTimesheetComponent
-  },{
+    component: MyTimesheetComponent,
+    data: {
+      permissions: ['Timesheet.READ']
+    }
+  }, {
     path: 'add-edit-timesheet',
-    component: AddEditTimesheetComponent
-  },{
+    component: AddEditTimesheetComponent,
+    data: {
+      permissions: ['Timesheet.CREATE','Timesheet.UPDATE']
+    }
+  }, {
     path: 'approve-timesheet',
-    component: ApproveTimesheetComponent
-  },{
+    component: ApproveTimesheetComponent,
+    data: {
+      permissions: ['Timesheet.READ']
+    }
+  }, {
     path: 'approved-timesheet',
-    component: ApprovedTimesheetComponent
-  },{
+    component: ApprovedTimesheetComponent,
+    data: {
+      permissions: ['Timesheet.READ']
+    }
+  }, {
     path: 'report-timesheet',
-    component: ReportTimesheetComponent
-  },{
+    component: ReportTimesheetComponent,
+    data: {
+      permissions: ['Timesheet.READ']
+    }
+  }, {
     path: 'view-approve-timesheet',
-    component: ViewApproveTimesheetComponent
+    component: ViewApproveTimesheetComponent,
+    data: {
+      permissions: ['Timesheet.READ']
+    }
   }
 ];

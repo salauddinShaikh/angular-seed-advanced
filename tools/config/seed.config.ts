@@ -486,7 +486,11 @@ export class SeedConfig {
         main: 'Rx.js',
         defaultExtension: 'js'
       },
-      moment: {
+      'lodash': {
+        main: 'lodash.js',
+        defaultExtension: 'js'
+      },
+      'moment': {
         map: 'moment.js',
         type: 'cjs',
         defaultExtension: 'js'

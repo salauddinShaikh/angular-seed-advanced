@@ -4,8 +4,9 @@ import { ChangeDetectionStrategy, OnInit, EventEmitter } from '@angular/core';
 // app
 import { AnalyticsService } from '../../frameworks/analytics/index';
 import { BaseComponent, Config, LogService } from '../../frameworks/core/index';
-import { Router } from '@angular/router';
+import { Router,RoutesRecognized } from '@angular/router';
 import { LoginService } from '../../shared/services/login.service';
+import * as _ from 'lodash';
 /**
  * This class represents the main application component.
  */
@@ -18,8 +19,26 @@ import { LoginService } from '../../shared/services/login.service';
 export class AppComponent implements OnInit {
   isAuthenticated: boolean;
   subscription: EventEmitter<boolean> = new EventEmitter<boolean>();
-  constructor(private loginService: LoginService, public analytics: AnalyticsService, public logger: LogService, private _router: Router) {
+  constructor(private router: Router,private loginService: LoginService, public analytics: AnalyticsService, public logger: LogService, private _router: Router) {
     logger.debug(`Config env: ${Config.ENVIRONMENT().ENV}`);
+    
+    router.events.subscribe((route) => {
+         if(route instanceof RoutesRecognized) {
+           if(route.state.root.firstChild.data['permissions']) {
+               if (localStorage.getItem('loggedInUserPermission') !== null) {
+                    var logggedInUserPermission =JSON.parse(localStorage.getItem('loggedInUserPermission'));
+                    _.forEach(route.state.root.firstChild.data['permissions'], function (permission) {
+                        if (logggedInUserPermission.indexOf(permission) === -1) {
+                            alert('Unauthorized Request');
+                            router.navigate(['/']);
+                            return;
+                        }
+                    });
+                }
+           }
+        }
+    });
+    
   }
 
   ngOnInit() {
@@ -31,4 +50,5 @@ export class AppComponent implements OnInit {
     this.subscription = this.loginService.getAuthEmitter()
       .subscribe((value: boolean) => { this.isAuthenticated = value; });
   }
+  
 }
