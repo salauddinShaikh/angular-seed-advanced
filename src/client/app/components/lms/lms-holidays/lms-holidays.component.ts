@@ -1,16 +1,27 @@
 import { BaseComponent } from '../../../frameworks/core/index';
 
+export class MyEvent {
+    id: number;
+    title: string;
+    start: string;
+    end: string;
+    allDay: boolean = true;
+}
+
 @BaseComponent({
   moduleId: module.id,
   selector: 'view-holidays',
   templateUrl: 'lms-holidays.component.html',
   styleUrls: ['lms-holidays.component.css']
 })
+
 export class LmsHolidaysComponent {
 
     servRows = 5;
     holidays :any[];
+    eventDay : MyEvent;
     events :any[];
+    dialogVisible: boolean = false;
 
     ngOnInit() {
       this.holidays = [
@@ -34,5 +45,15 @@ export class LmsHolidaysComponent {
       ];
     }
 
+    handleEventClicked(event){
+      let show = true;
+      this.eventDay = new MyEvent();
+      this.eventDay.title = event.calEvent.title;
+      let start = event.calEvent.start;
+      start.stripTime();
+      this.eventDay.id = event.calEvent.id;
+      this.eventDay.start = start.format();
+      this.dialogVisible = true;
+    }
 
 }

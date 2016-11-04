@@ -49,7 +49,7 @@ import { IfAuthorize } from './app/shared/directives/ifAuthorize.directive';
 
 //RMS
 import { DashboardComponent } from './app/components/dashboard/dashboard.component';
-import { ScheduleModule, DataTableModule,SharedModule,ButtonModule,InputTextareaModule,CalendarModule,DropdownModule} from 'primeng/primeng';
+import { ScheduleModule, DataTableModule,SharedModule,ButtonModule,InputTextareaModule,CalendarModule,DropdownModule,DialogModule} from 'primeng/primeng';
 import { LmsHolidaysComponent } from './app/components/lms/lms-holidays/lms-holidays.component';
 import { LmsLeavesComponent } from './app/components/lms/lms-myleaves/lms-leaves.component';
 import { LmsApproveLeavesComponent } from './app/components/lms/lms-approveleave/lms-approveleave.component';
@@ -118,7 +118,8 @@ export function cons() {
     ButtonModule,
     InputTextareaModule,
     CalendarModule,
-    DropdownModule
+    DropdownModule,
+    DialogModule
   ],
   declarations: [
     AppComponent,
