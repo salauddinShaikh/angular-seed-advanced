@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 
 // libs
 import { Store, ActionReducer, Action } from '@ngrx/store';
@@ -7,8 +7,9 @@ import { Store, ActionReducer, Action } from '@ngrx/store';
 // app
 import { AnalyticsService, CustomAnalytics } from '../../frameworks/analytics/index';
 
-import { IHoliday } from '../../domain/holiday/IHoliday';
+import { IHoliday, Holiday } from '../../domain/holiday/IHoliday';
 import { AppState } from '../../domain/appState';
+import { Observable } from 'rxjs/Rx';
 
 // analytics
 const CATEGORY: string = 'Holiday';
@@ -25,7 +26,7 @@ export const HOLIDAY_ACTIONS: IHolidayActions = {
     INIT_FAILED: `${CATEGORY}_INIT_FAILED`,
 };
 
-export function holidayReducerFn(state: IHoliday[] = [], action: Action) {
+export function holidayReducerFn(state: Holiday[] = [], action: Action) {
     switch (action.type) {
         case HOLIDAY_ACTIONS.INITIALIZED:
             return [...action.payload];
@@ -34,7 +35,7 @@ export function holidayReducerFn(state: IHoliday[] = [], action: Action) {
     }
 };
 
-export const holidayReducer: ActionReducer<IHoliday[]> = holidayReducerFn;
+export const holidayReducer: ActionReducer<Holiday[]> = holidayReducerFn;
 
 @Injectable()
 export class HolidayService extends CustomAnalytics {
@@ -46,8 +47,22 @@ export class HolidayService extends CustomAnalytics {
 
     getHolidays(): void {
         let store = this.store;
-        this.httpGet('api/getHolidays', function (data: any) {
-            store.dispatch({ type: HOLIDAY_ACTIONS.INITIALIZED, payload: data });
-        });
+        // this.httpGet('api/getHolidays', function (data: any) {
+        //     store.dispatch({ type: HOLIDAY_ACTIONS.INITIALIZED, payload: data });
+        // });
+        console.log('calling method');
+
+        // this.getComments()
+        //     .subscribe(
+        //     data => { console.log('Data=', data); store.dispatch({ type: HOLIDAY_ACTIONS.INITIALIZED, payload: data }); }, //Bind to view
+        //     err => {
+        //         console.log(err);
+        //     });
+    }
+
+    getComments() {
+        return this.http.get(this.toURL('api/getHolidays'))
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 }
