@@ -1,11 +1,14 @@
 import { BaseComponent } from '../../../frameworks/core/index';
+import { HolidayService } from '../../../shared/index';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../domain/appState';
 
 export class MyEvent {
-    id: number;
-    title: string;
-    start: string;
-    end: string;
-    allDay: boolean = true;
+  id: number;
+  title: string;
+  start: string;
+  end: string;
+  allDay: boolean = true;
 }
 
 export class Holiday {
@@ -38,7 +41,19 @@ export class LmsHolidaysComponent {
     holidayDate :string;
     holidayType :string;
 
+private holidayRecords;
+  private subscription;
 
+  constructor(private store: Store<AppState>, private holidayService: HolidayService) {
+    let holidayRecords = this.holidayRecords;
+    this.subscription = store.select('holidays')
+      .subscribe(holidays => {
+        holidayRecords = holidays;
+        if (holidayRecords.length === 0) {
+          holidayService.getHolidays();
+        }
+      });
+  }
 
     ngOnInit() {
       this.holidays = [
@@ -61,7 +76,9 @@ export class LmsHolidaysComponent {
         {'title':'Holi', 'start':'2017-03-13'},
       ];
     }
-
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
     handleEventClicked(event){
       let show = true;
       this.eventDay = new MyEvent();
