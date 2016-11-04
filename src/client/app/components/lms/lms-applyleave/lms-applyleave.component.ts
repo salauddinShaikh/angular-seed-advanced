@@ -13,7 +13,8 @@ interface  FinalLeaveData {
 @BaseComponent({
   moduleId: module.id,
   selector: 'apply-leave',
-  templateUrl: 'lms-applyleave.component.html'
+  templateUrl: 'lms-applyleave.component.html',
+  styleUrls: ['lms-applyleave.component.css']
 })
 export class LmsApplyLeavesComponent {
 
