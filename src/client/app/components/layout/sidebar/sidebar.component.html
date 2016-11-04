@@ -11,6 +11,47 @@
 		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
 		<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
 		<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<div class="profile hidden-lg hidden-sm hidden-md">
+			<div class="profile-image"></div>
+			<a id="profile-options" (click)="toggleUserMenu()">
+				<span class="profile-name">Jane Williams</span>
+				<i *ngIf="isUserMenuOpen" class="fa fa-chevron-up" aria-hidden="true"></i>
+				<i *ngIf="!isUserMenuOpen" class="fa fa-chevron-down" aria-hidden="true"></i>
+			</a>
+		</div>
+		<ul class="user-menu" [hidden]="!isUserMenuOpen" >
+			<br/>
+			<li>
+				<a href="page_user_profile_1.html">
+					<i class="icon-user"></i> &nbsp;&nbsp; My Profile </a>
+			</li>
+			<li>
+				<a href="app_calendar.html">
+					<i class="icon-calendar"></i> &nbsp;&nbsp; My Calendar </a>
+			</li>
+			<li>
+				<a href="app_inbox.html">
+					<i class="icon-envelope-open"></i> &nbsp;&nbsp; My Inbox
+					<span class="badge badge-danger"> 3 </span>
+				</a>
+			</li>
+			<li>
+				<a href="app_todo_2.html">
+					<i class="icon-rocket"></i> &nbsp;&nbsp; My Tasks
+					<span class="badge badge-success"> 7 </span>
+				</a>
+			</li>
+			<li class="divider"> </li>
+			<li>
+				<a href="page_user_lock_1.html">
+					<i class="icon-lock"></i> &nbsp;&nbsp; Lock Screen </a>
+			</li>
+			<li>
+				<a (click)="logout()">
+					<i class="icon-key"></i> &nbsp;&nbsp; Log Out </a>
+			</li>
+			<br/>
+		</ul>
 		<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 			<li class="nav-item start ">
 				<a href="javascript:;" class="nav-link nav-toggle">
@@ -20,7 +61,7 @@
 				</a>
 				<ul class="sub-menu">
 					<li class="nav-item start ">
-						<a  routerLink="/" class="nav-link ">
+						<a routerLink="/" class="nav-link ">
 							<i class="icon-bar-chart"></i>
 							<span class="title">Dashboard 1</span>
 						</a>
@@ -30,34 +71,34 @@
 			<li class="heading">
 				<h3 class="uppercase">Features</h3>
 			</li>
-			<li class="nav-item " [ifAuthorize]="['Timesheet.READ']" >
+			<li class="nav-item " [ifAuthorize]="['Timesheet.READ']">
 				<a href="javascript:;" class="nav-link nav-toggle">
 					<i class="fa fa-clock-o"></i>
 					<span class="title">Timesheet</span>
 					<span class="arrow"></span>
 				</a>
 				<ul class="sub-menu">
-					<li class="nav-item  "  [ifAuthorize]="['Timesheet.READ']">
+					<li class="nav-item  " [ifAuthorize]="['Timesheet.READ']">
 						<a routerLink="/my-timesheet" routerLinkActive="active">
 							<span class="title">My Timesheets</span>
 						</a>
 					</li>
-					<li class="nav-item  "  [ifAuthorize]="['Timesheet.CREATE']">
+					<li class="nav-item  " [ifAuthorize]="['Timesheet.CREATE']">
 						<a routerLink="/add-edit-timesheet" routerLinkActive="active">
 							<span class="title">Enter Timesheets</span>
 						</a>
 					</li>
-					<li class="nav-item  "  [ifAuthorize]="['Timesheet.UPDATE','Timesheet.READ']">
+					<li class="nav-item  " [ifAuthorize]="['Timesheet.UPDATE','Timesheet.READ']">
 						<a routerLink="/approve-timesheet" routerLinkActive="active">
 							<span class="title">Approve Timesheets</span>
 						</a>
 					</li>
-					<li class="nav-item  "  [ifAuthorize]="['Timesheet.READ']">
+					<li class="nav-item  " [ifAuthorize]="['Timesheet.READ']">
 						<a routerLink="/approved-timesheet" routerLinkActive="active">
 							<span class="title">Approved Timesheets</span>
 						</a>
 					</li>
-					<li class="nav-item  "  [ifAuthorize]="['Timesheet.READ']">
+					<li class="nav-item  " [ifAuthorize]="['Timesheet.READ']">
 						<a routerLink="/report-timesheet" routerLinkActive="active">
 							<span class="title">Timesheet Report</span>
 						</a>
@@ -72,27 +113,27 @@
 				</a>
 				<ul class="sub-menu">
 					<li class="nav-item  " [ifAuthorize]="['Holiday.READ']">
-						<a routerLink="/holidays" routerLinkActive="active" >
+						<a routerLink="/holidays" routerLinkActive="active">
 							<span class="title">Holidays</span>
 						</a>
 					</li>
 					<li class="nav-item  " [ifAuthorize]="['Leave.READ']">
-						<a routerLink="/myleaves" routerLinkActive="active" >
+						<a routerLink="/myleaves" routerLinkActive="active">
 							<span class="title">My Leaves</span>
 						</a>
 					</li>
 					<li class="nav-item  " [ifAuthorize]="['Leave.CREATE']">
-						<a routerLink="/applyleave" routerLinkActive="active" >
+						<a routerLink="/applyleave" routerLinkActive="active">
 							<span class="title">Apply For Leave</span>
 						</a>
 					</li>
 					<li class="nav-item  " [ifAuthorize]="['LeaveApproval.READ']">
-						<a routerLink="/approveleave" routerLinkActive="active" >
+						<a routerLink="/approveleave" routerLinkActive="active">
 							<span class="title">Leave Approval</span>
 						</a>
 					</li>
 					<li class="nav-item  " [ifAuthorize]="['BulkLeaveApproval.UPDATE','BulkLeaveApproval.READ']">
-						<a routerLink="/bulkapproval" routerLinkActive="active" >
+						<a routerLink="/bulkapproval" routerLinkActive="active">
 							<span class="title">Bulk Leave Approval</span>
 						</a>
 					</li>
@@ -105,8 +146,8 @@
 					<span class="arrow"></span>
 				</a>
 				<ul class="sub-menu">
-					<li class="nav-item  " >
-						<a routerLink="/conferenceBooking"  routerLinkActive="active">
+					<li class="nav-item  ">
+						<a routerLink="/conferenceBooking" routerLinkActive="active">
 							<span class="title">Conference Booking</span>
 						</a>
 					</li>
