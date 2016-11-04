@@ -46,13 +46,13 @@ private holidayRecords;
 
   constructor(private store: Store<AppState>, private holidayService: HolidayService) {
     let holidayRecords = this.holidayRecords;
-    this.subscription = store.select('holidays')
-      .subscribe(holidays => {
-        holidayRecords = holidays;
-        if (holidayRecords.length === 0) {
-          holidayService.getHolidays();
-        }
-      });
+    // this.subscription = store.select('holidays')
+    //   .subscribe(holidays => {
+    //     holidayRecords = holidays;
+    //     if (holidayRecords.length === 0) {
+    //       holidayService.getHolidays();
+    //     }
+    //   });
   }
 
     ngOnInit() {
@@ -77,7 +77,7 @@ private holidayRecords;
       ];
     }
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
     handleEventClicked(event){
       let show = true;
