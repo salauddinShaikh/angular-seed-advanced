@@ -21,6 +21,9 @@ export class AppComponent implements OnInit {
   subscription: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(private router: Router,private loginService: LoginService, public analytics: AnalyticsService, public logger: LogService, private _router: Router) {
     logger.debug(`Config env: ${Config.ENVIRONMENT().ENV}`);
+
+    //window.addEventListener('online', function(){alert('Online');});
+    //window.addEventListener('offline',function(){alert('offline');});
     
     router.events.subscribe((route) => {
          if(route instanceof RoutesRecognized) {
@@ -29,8 +32,7 @@ export class AppComponent implements OnInit {
                     var logggedInUserPermission =JSON.parse(localStorage.getItem('loggedInUserPermission'));
                     _.forEach(route.state.root.firstChild.data['permissions'], function (permission) {
                         if (logggedInUserPermission.indexOf(permission) === -1) {
-                            alert('Unauthorized Request');
-                            router.navigate(['/']);
+                            router.navigate(['/forbidden']);
                             return;
                         }
                     });
