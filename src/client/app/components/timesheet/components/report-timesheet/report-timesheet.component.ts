@@ -1,8 +1,16 @@
-import { BaseComponent } from '../../../frameworks/core/index';
+/** Angular Dependencies */
 import { OnInit } from '@angular/core';
-import { Timesheet } from '../timesheet';
+
+/** Framework Dependencies */
+import {BaseComponent} from '../views/base-component';
+
+/** Third Party Dependencies */
 import {SelectItem} from 'primeng/primeng';
 
+/** Module Level Dependencies */
+import { Timesheet } from '../../entity/timesheet';
+
+/** Component Declaration */
 @BaseComponent({
   moduleId: module.id,
   selector: 'report-timesheet',

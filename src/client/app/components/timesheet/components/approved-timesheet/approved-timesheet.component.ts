@@ -1,7 +1,13 @@
-import { BaseComponent } from '../../../frameworks/core/index';
+/** Angular Dependencies */
 import { OnInit } from '@angular/core';
-import { Employee } from '../employee';
 
+/** Framework Dependencies */
+import {BaseComponent} from '../views/base-component';
+
+/** Module Level Dependencies */
+import { Employee } from '../../entity/employee';
+
+/** Component Declaration */
 @BaseComponent({
   moduleId: module.id,
   selector: 'approved-timesheet',

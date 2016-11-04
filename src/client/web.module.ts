@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { Http } from '@angular/http';
+
 
 // libs
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { TranslateLoader } from 'ng2-translate';
+
 
 // app
 //import { AppComponent } from './app/components/app.component';
@@ -19,13 +19,12 @@ import { routes } from './app/components/app.routes';
 
 // feature modules
 import { CoreModule } from './app/frameworks/core/core.module';
+import { CommonModule } from './app/shared/index';
 import { AnalyticsModule } from './app/frameworks/analytics/analytics.module';
 import { multilingualReducer, MultilingualEffects } from './app/frameworks/i18n/index';
-import { MultilingualModule, translateFactory } from './app/frameworks/i18n/multilingual.module';
 import { SampleModule } from './app/frameworks/sample/sample.module';
 import { nameListReducer, NameListEffects } from './app/frameworks/sample/index';
-import { timeSheetReducer, TimeSheetService } from './app/shared/services/timesheet.service';
-import { holidayReducer, HolidayService } from './app/shared/index';
+
 
 // config
 import { Config, WindowService, ConsoleService } from './app/frameworks/core/index';
@@ -46,11 +45,10 @@ import { FooterComponent } from './app/components/layout/footer/footer.component
 import { QuickSidebarComponent } from './app/components/layout/quick-sidebar/quick-sidebar.component';
 import { SidebarComponent } from './app/components/layout/sidebar/sidebar.component';
 import { TopNavigationBarComponent } from './app/components/layout/top-navigation-bar/top-navigation-bar.component';
-import { IfAuthorize } from './app/shared/directives/ifAuthorize.directive';
 
 //RMS
 import { DashboardComponent } from './app/components/dashboard/dashboard.component';
-import { ScheduleModule, DataTableModule,SharedModule,ButtonModule,InputTextareaModule,CalendarModule,DropdownModule,DialogModule} from 'primeng/primeng';
+
 import { LmsHolidaysComponent } from './app/components/lms/lms-holidays/lms-holidays.component';
 import { LmsLeavesComponent } from './app/components/lms/lms-myleaves/lms-leaves.component';
 import { LmsApproveLeavesComponent } from './app/components/lms/lms-approveleave/lms-approveleave.component';
@@ -59,19 +57,12 @@ import { LmsUpdateLeavesComponent } from './app/components/lms/lms-updateleave/l
 import { LmsBulkApproveComponent } from './app/components/lms/lms-bulkapproval/lms-bulkapproval.component';
 import { LmsSingleApprovalComponent } from './app/components/lms/lms-singleapproval/lms-singleapproval.component';
 
-import { MyTimesheetComponent } from './app/components/timesheet/my-timesheet/my-timesheet.component';
-import { AddEditTimesheetComponent } from './app/components/timesheet/add-edit-timesheet/add-edit-timesheet.component';
-import { ApproveTimesheetComponent } from './app/components/timesheet/approve-timesheet/approve-timesheet.component';
-import { ViewApproveTimesheetComponent } from './app/components/timesheet/approve-timesheet/view-approve-timesheet.component';
-import { ApprovedTimesheetComponent } from './app/components/timesheet/approved-timesheet/approved-timesheet.component';
-import { ReportTimesheetComponent } from './app/components/timesheet/report-timesheet/report-timesheet.component';
+import {TimesheetModule} from './app/components/timesheet/index';
 
 import { ConferenceComponent } from './app/components/conferenceBooking/conference.component';
 import { BookComponent } from './app/components/conferenceBooking/bookConference.component';
 import { MyBookingComponent } from './app/components/conferenceBooking/myBooking.component';
 import { LoginComponent } from './app/components/login/login.component';
-
-import { LoginService } from './app/shared/services/login.service';
 
 let routerModule = RouterModule.forRoot(routes);
 
@@ -98,30 +89,17 @@ export function cons() {
       { provide: WindowService, useFactory: (win) },
       { provide: ConsoleService, useFactory: (cons) }
     ]),
+    CommonModule,
     routerModule,
     AnalyticsModule,
-    MultilingualModule.forRoot([{
-      provide: TranslateLoader,
-      deps: [Http],
-      useFactory: (translateFactory)
-    }]),
     SampleModule,
     StoreModule.provideStore({
       i18n: multilingualReducer,
       names: nameListReducer,
-      timesheet: timeSheetReducer,
-      holidays : holidayReducer
     }),
     EffectsModule.run(MultilingualEffects),
     EffectsModule.run(NameListEffects),
-    ScheduleModule,
-    DataTableModule,
-    SharedModule,
-    ButtonModule,
-    InputTextareaModule,
-    CalendarModule,
-    DropdownModule,
-    DialogModule
+    TimesheetModule
   ],
   declarations: [
     AppComponent,
@@ -141,13 +119,6 @@ export function cons() {
     LmsUpdateLeavesComponent,
     LmsBulkApproveComponent,
     LmsSingleApprovalComponent,
-    MyTimesheetComponent,
-    AddEditTimesheetComponent,
-    ApproveTimesheetComponent,
-    ViewApproveTimesheetComponent,
-    ApprovedTimesheetComponent,
-    ReportTimesheetComponent,
-    IfAuthorize,
     ConferenceComponent,
     BookComponent,
     MyBookingComponent,
@@ -158,9 +129,6 @@ export function cons() {
       provide: APP_BASE_HREF,
       useValue: '<%= APP_BASE %>'
     },
-    TimeSheetService,
-    LoginService,
-    HolidayService
   ],
   bootstrap: [AppComponent]
 })

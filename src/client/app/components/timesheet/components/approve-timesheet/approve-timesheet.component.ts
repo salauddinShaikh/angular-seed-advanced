@@ -1,15 +1,20 @@
-import { BaseComponent } from '../../../frameworks/core/index';
+/** Angular Declarations */
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Employee } from '../employee';
 
+/** Framework Component */
+import {BaseComponent} from '../views/base-component';
+
+/** Entity Objects */
+import { Employee } from '../../entity/employee';
+
+/** Component Declarations */
 @BaseComponent({
   moduleId: module.id,
   selector: 'approve-timesheet',
   templateUrl: 'approve-timesheet.component.html'
 })
 export class ApproveTimesheetComponent implements OnInit {
-
   approveEmployee: Employee[];
 
   constructor(
@@ -86,5 +91,4 @@ export class ApproveTimesheetComponent implements OnInit {
   selectEmployee(employee: Employee) {
     this.router.navigate(['/view-approve-timesheet']);
   }
-
 }
