@@ -7,6 +7,7 @@ import { LmsRoutes } from './lms/lms.routes';
 import { TimesheetRoutes } from './timesheet/timesheet.routes';
 import { ConferenceRoutes } from './conferenceBooking/conference.routes';
 import { LoginRoutes } from './login/login.routes';
+import { ErrorPagesRoutes } from './errorPages/errorPages.routes';
 
 export const routes: Array<any> = [
   ...HomeRoutes,
@@ -16,5 +17,6 @@ export const routes: Array<any> = [
   ...LmsRoutes,
   ...TimesheetRoutes,
   ...ConferenceRoutes,
-  ...LoginRoutes
+  ...LoginRoutes,
+  ...ErrorPagesRoutes
 ];
