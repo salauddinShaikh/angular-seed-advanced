@@ -8,6 +8,13 @@ export class MyEvent {
     allDay: boolean = true;
 }
 
+export class Holiday {
+  title: string;
+  date: string;
+  day: string;
+  type: string;
+}
+
 @BaseComponent({
   moduleId: module.id,
   selector: 'view-holidays',
@@ -17,21 +24,31 @@ export class MyEvent {
 
 export class LmsHolidaysComponent {
 
-    servRows = 5;
+    servRows = 7;
+
     holidays :any[];
-    eventDay : MyEvent;
     events :any[];
+
+    eventDay : MyEvent;
     dialogVisible: boolean = false;
+
+    holidayDetails: boolean = false;
+    holidayTitle :string;
+    holidayDay :string;
+    holidayDate :string;
+    holidayType :string;
+
+
 
     ngOnInit() {
       this.holidays = [
-        {title:'Lakshmi Puja',date:'30-10-2016',day:'Sunday',type:'fixed'},
-        {title:'Bhai Duj',date:'01-11-2016',day:'Tuesday',type:'fixed'},
-        {title:'Christmas',date:'25-12-2016',day:'Sunday',type:'fixed'},
-        {title:'New Year',date:'01-01-2017',day:'Sunday',type:'fixed'},
-        {title:'Makar Sankaranti',date:'14-01-2017',day:'Saturday',type:'fixed'},
-        {title:'Republic Day',date:'26-01-2017',day:'Thursday',type:'fixed'},
-        {title:'Holi',date:'13-03-2017',day:'Monday',type:'fixed'},
+        {title:'Lakshmi Puja',date:'30-10-2016',day:'Sunday',type:'Fixed'},
+        {title:'Bhai Duj',date:'01-11-2016',day:'Tuesday',type:'Fixed'},
+        {title:'Christmas',date:'25-12-2016',day:'Sunday',type:'Fixed'},
+        {title:'New Year',date:'01-01-2017',day:'Sunday',type:'Fixed'},
+        {title:'Makar Sankaranti',date:'14-01-2017',day:'Saturday',type:'Fixed'},
+        {title:'Republic Day',date:'26-01-2017',day:'Thursday',type:'Fixed'},
+        {title:'Holi',date:'13-03-2017',day:'Monday',type:'Fixed'},
       ];
 
       this.events = [
@@ -54,6 +71,15 @@ export class LmsHolidaysComponent {
       this.eventDay.id = event.calEvent.id;
       this.eventDay.start = start.format();
       this.dialogVisible = true;
+    }
+
+    clicked(holiday) {
+      this.holidayDate = holiday.date;
+      this.holidayDay = holiday.day;
+      this.holidayTitle = holiday.title;
+      this.holidayType = holiday.type;
+      this.holidayDetails = true;
+      
     }
 
 }
