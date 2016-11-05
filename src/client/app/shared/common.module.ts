@@ -5,7 +5,7 @@ import { TranslateLoader } from 'ng2-translate';
 
 /** Third party Dependencies */
 import { StoreModule } from '@ngrx/store';
-import { ScheduleModule, DataTableModule, SharedModule, ButtonModule, InputTextareaModule, CalendarModule, DropdownModule, DialogModule } from 'primeng/primeng';
+import { ScheduleModule, DataTableModule, SharedModule, ButtonModule, InputTextareaModule, CalendarModule, DropdownModule, DialogModule, ConfirmDialogModule, GrowlModule, ConfirmationService } from 'primeng/primeng';
 
 /** Framework Dependencies */
 import { MultilingualModule, translateFactory } from '../frameworks/i18n/multilingual.module';
@@ -31,16 +31,18 @@ let primeNgComponents = [
     InputTextareaModule,
     CalendarModule,
     DropdownModule,
-    DialogModule
-    ];
+    DialogModule,
+    ConfirmDialogModule,
+    GrowlModule
+];
 
 /**
  * Imports Declaration
  */
 let imports = [StoreModule.provideStore({
-        timesheet: timeSheetReducer,
-        holidays: holidayReducer
-    }),
+    timesheet: timeSheetReducer,
+    holidays: holidayReducer
+}),
     translate];
 
 /**  Exported components declaration   */
@@ -59,7 +61,7 @@ let declarations = [
 /**
  * Providers Declaration
  */
-let providers = [TimeSheetService, HolidayService, LoginService];
+let providers = [TimeSheetService, HolidayService, LoginService, ConfirmationService];
 
 /** Module Definition */
 @NgModule({
@@ -72,7 +74,7 @@ export class CommonModule { }
 
 /** Export Translation Module */
 export var TranslateModule = MultilingualModule.forRoot([{
-      provide: TranslateLoader,
-      deps: [Http],
-      useFactory: (translateFactory)    
-  }]);
+    provide: TranslateLoader,
+    deps: [Http],
+    useFactory: (translateFactory)
+}]);

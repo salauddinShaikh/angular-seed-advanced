@@ -1,4 +1,6 @@
 import { BaseComponent } from '../../frameworks/core/index';
+import { ConfirmationService } from 'primeng/primeng';
+import { Message } from 'primeng/primeng';
 
 @BaseComponent({
     moduleId: module.id,
@@ -8,8 +10,9 @@ import { BaseComponent } from '../../frameworks/core/index';
 
 export class MyBookingComponent {
     bookings: Array<Object>;
+    msgs: Message[] = [];
 
-    constructor() {
+    constructor(private confirmationService: ConfirmationService) {
         this.bookings = [{
             'title': 'Inteview',
             'startTime': '24/10/2016 10:00',
@@ -17,48 +20,60 @@ export class MyBookingComponent {
             'attendees': 'xyz',
             'room': 'Hongkong',
         },
-            {
-                'title': 'Jenzabar Client call',
-                'startTime': '25/10/2016 10:00',
-                'endTime': '25/10/2016 12:00',
-                'attendees': 'xyz',
-                'room': 'Bahamas',
-            },
-            {
-                'title': 'Product Meeting',
-                'startTime': '26/10/2016 10:00',
-                'endTime': '26/10/2016 12:00',
-                'attendees': 'xyz',
-                'room': 'Barcelona',
-            },
-            {
-                'title': 'Tccc client call',
-                'startTime': '27/10/2016 10:00',
-                'endTime': '28/10/2016 12:00',
-                'attendees': 'xyz',
-                'room': 'Hongkong',
-            },
-            {
-                'title': 'NGO/NPO Meeting',
-                'startTime': '29/10/2016 10:00',
-                'endTime': '29/10/2016 12:00',
-                'attendees': 'xyz',
-                'room': 'Training Room',
-            },
-            {
-                'title': 'Standup Meeting',
-                'startTime': '22/10/2016 10:00',
-                'endTime': '22/10/2016 12:00',
-                'attendees': 'xyz',
-                'room': 'Cape Town',
-            },
-            {
-                'title': 'Inteview',
-                'startTime': '25/10/2016 10:00',
-                'endTime': '25/10/2016 12:00',
-                'attendees': 'xyz',
-                'room': 'Houston',
-            }
+        {
+            'title': 'Jenzabar Client call',
+            'startTime': '25/10/2016 10:00',
+            'endTime': '25/10/2016 12:00',
+            'attendees': 'xyz',
+            'room': 'Bahamas',
+        },
+        {
+            'title': 'Product Meeting',
+            'startTime': '26/10/2016 10:00',
+            'endTime': '26/10/2016 12:00',
+            'attendees': 'xyz',
+            'room': 'Barcelona',
+        },
+        {
+            'title': 'Tccc client call',
+            'startTime': '27/10/2016 10:00',
+            'endTime': '28/10/2016 12:00',
+            'attendees': 'xyz',
+            'room': 'Hongkong',
+        },
+        {
+            'title': 'NGO/NPO Meeting',
+            'startTime': '29/10/2016 10:00',
+            'endTime': '29/10/2016 12:00',
+            'attendees': 'xyz',
+            'room': 'Training Room',
+        },
+        {
+            'title': 'Standup Meeting',
+            'startTime': '22/10/2016 10:00',
+            'endTime': '22/10/2016 12:00',
+            'attendees': 'xyz',
+            'room': 'Cape Town',
+        },
+        {
+            'title': 'Inteview',
+            'startTime': '25/10/2016 10:00',
+            'endTime': '25/10/2016 12:00',
+            'attendees': 'xyz',
+            'room': 'Houston',
+        }
         ];
+    }
+
+    confirm() {
+        this.confirmationService.confirm({
+            message: 'Do you want to delete this record?',
+            header: 'Delete Confirmation',
+            icon: 'fa fa-trash',
+            accept: () => {
+                this.msgs = [];
+                this.msgs.push({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+            }
+        });
     }
 }
