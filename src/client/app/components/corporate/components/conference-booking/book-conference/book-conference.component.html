@@ -5,158 +5,160 @@
     <!-- BEGIN PAGE BREADCRUMB -->
     <ul class="page-breadcrumb breadcrumb hidden-xs">
       <li>
-        <a href="index.html">Linkup</a>
+        <a href="index.html">{{"LINK_UP" | translate }}</a>
         <i class="fa fa-circle"></i>
       </li>
       <li>
-        <span class="active">Conference Booking</span>
+        <span class="active">{{"CONFERENCE_BOOKING_TITLE" | translate }}</span>
+         <i class="fa fa-circle"></i>
       </li>
       <li>
-        <span class="active">New Booking</span>
+        <span class="active">{{"NEW_BOOKING" | translate }}</span>
       </li>
     </ul>
     <!-- END PAGE BREADCRUMB -->
     <!-- BEGIN PAGE BASE CONTENT -->
-  <div class="portlet light bordered legends-portlet">
+    <div class="portlet light bordered legends-portlet">
       <div class="portlet-body">
-      <form class="form-horizontal">
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="title">Title:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="title">
+        <p-growl [value]="msgs"></p-growl>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="title">{{'NEW_BOOKING_LABEL_TITLE' | translate}}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="title">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="startTime">Start Time *</label>
-          <div class="col-sm-10">
-            <p-calendar [(ngModel)]="startTime" [showTime]="true" name="startTime"></p-calendar>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="startTime">{{'NEW_BOOKING_LABEL_START_TIME' | translate}} *</label>
+            <div class="col-sm-10">
+              <p-calendar [(ngModel)]="startTime" [showTime]="true" name="startTime"></p-calendar>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="endTime">End Time *</label>
-          <div class="col-sm-10">
-            <p-calendar [(ngModel)]="endTime" [showTime]="true" name="endTime"></p-calendar>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="endTime">{{'NEW_BOOKING_LABEL_END_TIME' | translate}} *</label>
+            <div class="col-sm-10">
+              <p-calendar [(ngModel)]="endTime" [showTime]="true" name="endTime"></p-calendar>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="attendees">Attendees</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="attendees">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="attendees">{{'NEW_BOOKING_LABEL_ATTENDEES' | translate}}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="attendees">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="room"> Conference Rooms *</label>
-          <div class="col-sm-10">
-            <p-dropdown [options]="conferenceRooms" [(ngModel)]="selectedRoom" name="rooms" [styleClass]="form-control"></p-dropdown>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="room">{{'NEW_BOOKING_LABEL_CONFERENCE_ROOMS' | translate}} *</label>
+            <div class="col-sm-10">
+              <p-dropdown [options]="conferenceRooms" [(ngModel)]="selectedRoom" name="rooms" [styleClass]="form-control"></p-dropdown>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="description">Description</label>
-          <div class="col-sm-10">
-            <textarea class="form-control" id="description"></textarea>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="description">{{'NEW_BOOKING_LABEL_DESCRIPTION' | translate}}</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" id="description"></textarea>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="description"> All Day Event</label>
-          <div class="col-sm-10">
-            <p><input type="checkbox"> Make this an all-day activity that doesn't start or end at a specific hour.</p>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="description">{{'NEW_BOOKING_LABEL_ALL_DAY_EVENT' | translate}}</label>
+            <div class="col-sm-10">
+              <p><input type="checkbox"> {{'NEW_BOOKING_LABEL_ALL_DAY_EVENT_TEXT' | translate}}</p>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="description">Recurrence</label>
-          <div class="col-sm-10">
-            <p><input type="checkbox" [(ngModel)]="recurrance" name="recurrance"> Make this a repeating event.</p>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="description"> {{'NEW_BOOKING_LABEL_RECURRENCE' | translate}}</label>
+            <div class="col-sm-10">
+              <p><input type="checkbox" [(ngModel)]="recurrance" name="recurrance"> {{'NEW_BOOKING_LABEL_RECURRENCE_TEXT' | translate}}</p>
+            </div>
           </div>
-        </div>
-        <div class="form-group" *ngIf="recurrance">
-          <div class="col-sm-12">
-            <label class="radio-inline">
-      <input type="radio" [(ngModel)]="recurranceType" value="daily" name="optradio">Daily
+          <div class="form-group" *ngIf="recurrance">
+            <div class="col-sm-12">
+              <label class="radio-inline">
+      <input type="radio" [(ngModel)]="recurranceType" value="daily" name="optradio">{{'NEW_BOOKING_LABEL_DAILY' | translate}} 
     </label>
-            <label class="radio-inline">
-      <input type="radio" [(ngModel)]="recurranceType" value="weekly"  name="optradio">Weekly
+              <label class="radio-inline">
+      <input type="radio" [(ngModel)]="recurranceType" value="weekly"  name="optradio">{{'NEW_BOOKING_LABEL_WEEKLY' | translate}}
     </label>
-            <label class="radio-inline">
-      <input type="radio" [(ngModel)]="recurranceType" value="monthly" name="optradio">Monthly
+              <label class="radio-inline">
+      <input type="radio" [(ngModel)]="recurranceType" value="monthly" name="optradio">{{'NEW_BOOKING_LABEL_MONTHLY' | translate}} 
     </label>
-            <label class="radio-inline">
-      <input type="radio" [(ngModel)]="recurranceType" value="yearly" name="optradio">Yearly
+              <label class="radio-inline">
+      <input type="radio" [(ngModel)]="recurranceType" value="yearly" name="optradio">{{'NEW_BOOKING_LABEL_YEARLY' | translate}}
     </label>
+            </div>
           </div>
-        </div>
-        <div class="form-group" [ngSwitch]="recurranceType"  *ngIf="recurrance">
-          <label class="control-label col-sm-2" for="recurranceType">Pattern</label>
-          <div class="col-sm-10" *ngSwitchCase="'daily'">
-            <p><input type="checkbox"> daily</p>
+          <div class="form-group" [ngSwitch]="recurranceType" *ngIf="recurrance">
+            <label class="control-label col-sm-2" for="recurranceType">{{'NEW_BOOKING_LABEL_PATTERN' | translate}}</label>
+            <div class="col-sm-10" *ngSwitchCase="'daily'">
+              <p><input type="checkbox"> {{'NEW_BOOKING_LABEL_DAILY' | translate}} </p>
+            </div>
+            <div class="col-sm-10" *ngSwitchCase="'weekly'">
+              <p><input type="checkbox"> {{'NEW_BOOKING_LABEL_WEEKLY' | translate}}</p>
+            </div>
+            <div class="col-sm-10" *ngSwitchCase="'monthly'">
+              <p>{{'NEW_BOOKING_LABEL_MONTHLY' | translate}} </p>
+            </div>
+            <div class="col-sm-10" *ngSwitchCase="'yearly'">
+              <p> {{'NEW_BOOKING_LABEL_YEARLY' | translate}}</p>
+            </div>
           </div>
-          <div class="col-sm-10" *ngSwitchCase="'weekly'">
-            <p><input type="checkbox"> weekly</p>
-          </div>
-          <div class="col-sm-10" *ngSwitchCase="'monthly'">
-            <p>monthly</p>
-          </div>
-          <div class="col-sm-10" *ngSwitchCase="'yearly'">
-            <p> yearly</p>
-          </div>
-        </div>
 
-        <label class="control-label col-sm-2 col-sm-2" *ngIf="recurrance" for="description">Date Range</label>
-        <div class="form-group" *ngIf="recurrance">
-          <label class="col-sm-12 col-xs-12" for="startTime">Start Date <p-calendar [(ngModel)]="recurranceStartDate" name="recurranceStartDate"></p-calendar></label>
-        </div>
-        <div class="form-group" *ngIf="recurrance">
-          <div class="col-sm-12">
-            <label class="radio-inline">
-               <input type="radio" [(ngModel)]="recurrancePattern" value="1" name="recurrancePattern">No end date
+          <label class="control-label col-sm-2 col-sm-2" *ngIf="recurrance" for="description">{{'NEW_BOOKING_LABEL_DATE_RANGE' | translate}}</label>
+          <div class="form-group" *ngIf="recurrance">
+            <label class="col-sm-12 col-xs-12" for="startTime">{{'NEW_BOOKING_LABEL_START_DATE' | translate}}<p-calendar [(ngModel)]="recurranceStartDate" name="recurranceStartDate"></p-calendar></label>
+          </div>
+          <div class="form-group" *ngIf="recurrance">
+            <div class="col-sm-12">
+              <label class="radio-inline">
+               <input type="radio" [(ngModel)]="recurrancePattern" value="1" name="recurrancePattern">{{'NEW_BOOKING_LABEL_NO_END_DATE' | translate}}
             </label>
-            <label class="radio-inline">
-               <input type="radio" [(ngModel)]="recurrancePattern" value="2"  name="recurrancePattern">End after: 10 occurrence(s)
+              <label class="radio-inline">
+               <input type="radio" [(ngModel)]="recurrancePattern" value="2"  name="recurrancePattern">{{'NEW_BOOKING_LABEL_END_AFTER' | translate}} End after: 10 occurrence(s)
             </label>
-            <label class="radio-inline">
-               <input type="radio" [(ngModel)]="recurrancePattern" value="3" name="recurrancePattern">End by: <p-calendar [(ngModel)]="recurranceEndDate" name="recurranceEndDate"></p-calendar>
+              <label class="radio-inline">
+               <input type="radio" [(ngModel)]="recurrancePattern" value="3" name="recurrancePattern">{{'NEW_BOOKING_LABEL_END_BY' | translate}}: <p-calendar [(ngModel)]="recurranceEndDate" name="recurranceEndDate"></p-calendar>
             </label>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="description">Special Treatment</label>
-          <div class="col-sm-10">
-            <p><input type="checkbox"> Water</p>
-            <p><input type="checkbox"> Tea </p>
-            <p><input type="checkbox"> Coffee</p>
-            <p><input type="checkbox"> Juice</p>
-            <p><input type="checkbox"> Snacks</p>
-            <p><input type="checkbox"> Breakfast</p>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="description">{{'NEW_BOOKING_LABEL_SPECIAL_TREATMENT' | translate}} </label>
+            <div class="col-sm-10">
+              <p><input type="checkbox"> Water</p>
+              <p><input type="checkbox"> Tea </p>
+              <p><input type="checkbox"> Coffee</p>
+              <p><input type="checkbox"> Juice</p>
+              <p><input type="checkbox"> Snacks</p>
+              <p><input type="checkbox"> Breakfast</p>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="description">Special Comments</label>
-          <div class="col-sm-10">
-            <textarea class="form-control"></textarea>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="description">{{'NEW_BOOKING_LABEL_SPECIAL_COMMENTS' | translate}}</label>
+            <div class="col-sm-10">
+              <textarea class="form-control"></textarea>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="description">Number of Guests</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="description">{{'NEW_BOOKING_LABEL_NO_OF_GUEST' | translate}}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="description">IsDeleted</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="description">{{'NEW_BOOKING_LABEL_ISDELETED' | translate}}</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control">
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button routerLink="/conferenceBooking"  class="btn btn-default">Save</button>
-            <button class="btn btn-default" routerLink="/conferenceBooking" >Cancel</button>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button (click)="save()" class="btn btn-default">{{'NEW_BOOKING_BTN_SAVE' | translate}}</button>
+              <button class="btn btn-default" routerLink="/conferenceBooking">{{'NEW_BOOKING_BTN_CANCEL' | translate}}</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      <!-- END PAGE BASE CONTENT -->
     </div>
-    <!-- END PAGE BASE CONTENT -->
-  </div>
   </div>
   <!-- END CONTENT BODY -->
 </div>
