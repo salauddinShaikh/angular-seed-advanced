@@ -16,26 +16,28 @@ class FinalLeaveData {
   templateUrl: 'lms-applyleave.component.html',
   styleUrls: ['lms-applyleave.component.css']
 })
-export class LmsApplyLeavesComponent{
+export class LmsApplyLeavesComponent {
 
   leaves: SelectItem[];
   finalLeaveData: FinalLeaveData[] = [];
 
   selectedLeave: any;
-  showNumDays : number;
+  showNumDays: number;
   numberofdays: number;
   start: any;
-  end: Date;
+  end: any;
   reason: string;
+  minEndDate: Date;
 
   initCalDate: any;
-  warning: any;
+  warning: string = "";
 
   showWarning: boolean = false;
   startDateDisabled: boolean;
   endDateDisabled: boolean;
   isHalfDay: boolean;
   leaveVisible = false;
+  formIsClean: boolean = false;
 
   constructor() {
     this.leaves = [];
@@ -51,32 +53,39 @@ export class LmsApplyLeavesComponent{
     let today = new Date();
     this.end = today;
     this.start = today;
-}
+  }
 
 
   addLeaves(event) {
-    console.log(JSON.stringify(this.start));
-    this.numberofdays = this.dayDiffCalc(this.start, this.end);
-    this.showNumDays = this.numberofdays + 1;
-    
+    if (!this.isHalfDay) {
+      this.numberofdays = this.dayDiffCalc(this.start, this.end);
+      this.showNumDays = this.numberofdays + 1;
+    }
+    else if(this.isHalfDay){
+      this.numberofdays = this.showNumDays = 1;
+    }
+
     if (this.numberofdays < 0) {
-
+      this.warning = "Check the Start Date and End Date!";
+      this.formIsClean = false;
+    }
+    else {
+      if (!this.reason) {
+        this.warning = "Reason cannot be left blank!";
+        this.formIsClean = false;
+      }
+      else if (this.reason) {
+        this.warning = '';
+        this.formIsClean = true;
+      }
     }
 
-    console.log('selectedLeave : ' + JSON.stringify(this.selectedLeave) + ' num of days : ' + JSON.stringify(this.numberofdays) + ' reason : ' + this.reason);
     this.fillFinalLeaveData();
-
-    if (this.reason == '') {
-
-    }
-    else if (this.reason != '') {
-
-    }
   }
 
   dayDiffCalc(first, second) {
     var dayCount = Math.round((second - first) / (1000 * 60 * 60 * 24));
-    
+    debugger;
     return dayCount+1;
   }
 
@@ -84,16 +93,32 @@ export class LmsApplyLeavesComponent{
     this.finalLeaveData = [];
     let buffData: any = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
     let bufDate: number = this.start.getDate();
-    for (var i = 0; i <= this.numberofdays; i++) {
-      buffData.ID = i;
-      buffData.start = new Date(this.start.getFullYear(), this.start.getMonth(), (bufDate + i));
-      buffData.end = new Date(this.start.getFullYear(), this.start.getMonth(), (bufDate + i));
-      buffData.numDays = 1;
-      buffData.leave = this.selectedLeave.name;
-      buffData.reason = this.reason;
-      this.finalLeaveData.push(buffData);
-      buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
-      console.log(JSON.stringify(this.finalLeaveData[this.finalLeaveData.length - 1]));
+    debugger;
+    if (this.formIsClean) {
+      if (!this.isHalfDay) {
+        for (var i = 0; i <= this.numberofdays; i++) {
+          buffData.ID = i;
+          buffData.start = (bufDate + i) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
+          buffData.end = (bufDate + i) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
+          buffData.numDays = 1;
+          buffData.leave = this.selectedLeave.name;
+          buffData.reason = this.reason;
+          this.finalLeaveData.push(buffData);
+          buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
+        }
+      }
+      else if (this.isHalfDay) {
+        this.numberofdays = 1;
+        debugger;
+        buffData.ID = 0;
+        buffData.start = (bufDate) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
+        buffData.end = (bufDate) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
+        buffData.numDays = 1;
+        buffData.leave = this.selectedLeave.name;
+        buffData.reason = this.reason;
+        this.finalLeaveData.push(buffData);
+        buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
+      }
     }
     this.showNumDays = this.numberofdays = this.finalLeaveData.length;
     this.leaveVisible = true;
@@ -101,7 +126,6 @@ export class LmsApplyLeavesComponent{
   }
 
   delLeaveRec(event) {
-    console.log('delete record clicked ==> ' + JSON.stringify(event));
     let deleteId: number;
     for (var i = 0; i < this.finalLeaveData.length; i++) {
       if (this.finalLeaveData[i].ID == event.ID) {
@@ -119,13 +143,14 @@ export class LmsApplyLeavesComponent{
   }
 
   leaveTypeChanged(event) {
+    debugger;
     switch (event.value.id) {
       case 1:
         {
           this.showNumDays = this.numberofdays = 1;
           this.startDateDisabled = false;
           this.endDateDisabled = false;
-          this.isHalfDay = true;
+          this.isHalfDay = false;
         }
         break;
       case 2:
@@ -142,7 +167,7 @@ export class LmsApplyLeavesComponent{
           this.showNumDays = this.numberofdays = 1;
           this.startDateDisabled = false;
           this.endDateDisabled = false;
-          this.isHalfDay = true;
+          this.isHalfDay = false;
         }
         break;
       case 4:
@@ -166,10 +191,9 @@ export class LmsApplyLeavesComponent{
   }
 
 
-  updateEndDate(event){
+  updateEndDate(event) {
     if (this.isHalfDay) {
       this.end = this.start;
     }
-    this.isHalfDay = false;
   }
 }

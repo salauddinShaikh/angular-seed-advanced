@@ -74,10 +74,10 @@
                     <div class="portlet light">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Apply Leave</h4>
+                                <h4 >Apply Leave</h4>
                                 <div class="pull-right">
-                                    <h5 class="help-block">
-                                        <span>Warnings!</span>
+                                    <h5 class="warning">
+                                        <span>{{warning}}</span>
                                     </h5>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'END_DATE' | translate }} </label>
                                     <div>
-                                        <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="end" [disabled]="endDateDisabled" [showIcon]="true"></p-calendar>
+                                        <p-calendar dateFormat="dd/mm/yy" [minDate]="start" [(ngModel)]="end" [disabled]="endDateDisabled" [showIcon]="true"></p-calendar>
                                     </div>
                                 </div>
                             </div>
