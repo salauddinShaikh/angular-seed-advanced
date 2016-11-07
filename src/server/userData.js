@@ -10,7 +10,7 @@ var users = [
             'Leave.READ','Leave.CREATE','Leave.UPDATE','Leave.DELETE',
             'Holiday.READ','Holiday.CREATE','Holiday.UPDATE','Holiday.DELETE',
             'LeaveApproval.READ','LeaveApproval.CREATE','LeaveApproval.UPDATE','LeaveApproval.DELETE',
-            'BulkLeaveApproval.READ','BulkLeaveApproval.CREATE','BulkLeaveApproval.UPDATE','BulkLeaveApproval.DELETE',
+            'BulkLeaveApproval.READ','BulkLeaveApproval.CREATE','BulkLeaveApproval.UPDATE','BulkLeaveApproval.DELETE', 'Ticket.READ'
              ]
     },
     {
