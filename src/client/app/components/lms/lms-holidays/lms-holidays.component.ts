@@ -21,8 +21,7 @@ export class Holiday {
 @BaseComponent({
   moduleId: module.id,
   selector: 'view-holidays',
-  templateUrl: 'lms-holidays.component.html',
-  styleUrls: ['lms-holidays.component.css']
+  templateUrl: 'lms-holidays.component.html'
 })
 
 export class LmsHolidaysComponent {
