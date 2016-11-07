@@ -30,7 +30,7 @@ export class LmsApplyLeavesComponent {
   minEndDate: Date;
 
   initCalDate: any;
-  warning: string = "";
+  warning: string = '';
 
   showWarning: boolean = false;
   startDateDisabled: boolean;
@@ -60,23 +60,24 @@ export class LmsApplyLeavesComponent {
     if (!this.isHalfDay) {
       this.numberofdays = this.dayDiffCalc(this.start, this.end);
       this.showNumDays = this.numberofdays + 1;
-    }
-    else if (this.isHalfDay) {
-      this.numberofdays = this.showNumDays = 1;
+    } else {
+      if (this.isHalfDay) {
+        this.numberofdays = this.showNumDays = 1;
+      }
     }
 
     if (this.numberofdays < 0) {
-      this.warning = "Check the Start Date and End Date!";
+      this.warning = 'Check the Start Date and End Date!';
       this.formIsClean = false;
-    }
-    else {
+    } else {
       if (!this.reason) {
-        this.warning = "Reason cannot be left blank!";
+        this.warning = 'Reason cannot be left blank!';
         this.formIsClean = false;
-      }
-      else if (this.reason) {
-        this.warning = '';
-        this.formIsClean = true;
+      } else {
+        if (this.reason) {
+          this.warning = '';
+          this.formIsClean = true;
+        }
       }
     }
 
@@ -98,26 +99,27 @@ export class LmsApplyLeavesComponent {
       if (!this.isHalfDay) {
         for (var i = 0; i <= this.numberofdays; i++) {
           buffData.ID = i;
-          buffData.start = (bufDate + i) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
-          buffData.end = (bufDate + i) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
+          buffData.start = (bufDate + i) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
+          buffData.end = (bufDate + i) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
           buffData.numDays = 1;
           buffData.leave = this.selectedLeave.name;
           buffData.reason = this.reason;
           this.finalLeaveData.push(buffData);
           buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
         }
-      }
-      else if (this.isHalfDay) {
-        this.numberofdays = 1;
+      } else {
+        if (this.isHalfDay) {
+          this.numberofdays = 1;
 
-        buffData.ID = 0;
-        buffData.start = (bufDate) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
-        buffData.end = (bufDate) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
-        buffData.numDays = 1;
-        buffData.leave = this.selectedLeave.name;
-        buffData.reason = this.reason;
-        this.finalLeaveData.push(buffData);
-        buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
+          buffData.ID = 0;
+          buffData.start = (bufDate) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
+          buffData.end = (bufDate) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
+          buffData.numDays = 1;
+          buffData.leave = this.selectedLeave.name;
+          buffData.reason = this.reason;
+          this.finalLeaveData.push(buffData);
+          buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
+        }
       }
     }
     this.showNumDays = this.numberofdays = this.finalLeaveData.length;
@@ -128,7 +130,7 @@ export class LmsApplyLeavesComponent {
   delLeaveRec(event) {
     let deleteId: number;
     for (var i = 0; i < this.finalLeaveData.length; i++) {
-      if (this.finalLeaveData[i].ID == event.ID) {
+      if (this.finalLeaveData[i].ID === event.ID) {
         deleteId = i;
         break;
       }
@@ -158,7 +160,7 @@ export class LmsApplyLeavesComponent {
           this.showNumDays = this.numberofdays = 0.5;
           this.startDateDisabled = false;
           this.endDateDisabled = true;
-          this.end = this.start
+          this.end = this.start;
           this.isHalfDay = true;
         }
         break;
@@ -175,7 +177,7 @@ export class LmsApplyLeavesComponent {
           this.showNumDays = this.numberofdays = 0.5;
           this.startDateDisabled = false;
           this.endDateDisabled = true;
-          this.end = this.start
+          this.end = this.start;
           this.isHalfDay = true;
         }
         break;
