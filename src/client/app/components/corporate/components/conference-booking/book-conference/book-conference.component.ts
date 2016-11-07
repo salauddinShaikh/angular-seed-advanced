@@ -1,10 +1,14 @@
-import { BaseComponent } from '../../frameworks/core/index';
+/** Framework Dependencies */
+import {BaseComponent} from '../../views/base-component';
+
+/** Other Module Dependencies */
 import {SelectItem} from 'primeng/primeng';
 
+/** Component Declaration */
 @BaseComponent({
   moduleId: module.id,
   selector: 'book-conference',
-  templateUrl: 'bookConference.component.html',
+  templateUrl: 'book-conference.component.html'
 })
 
 export class BookComponent {

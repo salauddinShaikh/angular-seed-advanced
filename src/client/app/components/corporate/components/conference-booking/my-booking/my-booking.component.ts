@@ -1,11 +1,15 @@
-import { BaseComponent } from '../../frameworks/core/index';
+/** Other Module Dependencies */
 import { ConfirmationService } from 'primeng/primeng';
 import { Message } from 'primeng/primeng';
 
+/** Framework Dependencies */
+import {BaseComponent} from '../../views/base-component';
+
+/** Component Declaration */
 @BaseComponent({
     moduleId: module.id,
     selector: 'my-booking',
-    templateUrl: 'myBooking.component.html',
+    templateUrl: 'my-booking.component.html',
 })
 
 export class MyBookingComponent {

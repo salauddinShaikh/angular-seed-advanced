@@ -4,7 +4,6 @@ import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
-
 // libs
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -59,9 +58,8 @@ import { LmsSingleApprovalComponent } from './app/components/lms/lms-singleappro
 
 import {TimesheetModule} from './app/components/timesheet/index';
 
-import { ConferenceComponent } from './app/components/conferenceBooking/conference.component';
-import { BookComponent } from './app/components/conferenceBooking/bookConference.component';
-import { MyBookingComponent } from './app/components/conferenceBooking/myBooking.component';
+import { CorporateModule } from './app/components/corporate/index';
+
 import { LoginComponent } from './app/components/login/login.component';
 import { UnauthorizedAccessComponent } from './app/components/errorPages/unauthorizedAccess/unauthorizedAccess.component';
 
@@ -100,7 +98,8 @@ export function cons() {
     }),
     EffectsModule.run(MultilingualEffects),
     EffectsModule.run(NameListEffects),
-    TimesheetModule
+    TimesheetModule,
+    CorporateModule
   ],
   declarations: [
     AppComponent,
@@ -120,9 +119,6 @@ export function cons() {
     LmsUpdateLeavesComponent,
     LmsBulkApproveComponent,
     LmsSingleApprovalComponent,
-    ConferenceComponent,
-    BookComponent,
-    MyBookingComponent,
     LoginComponent,
     UnauthorizedAccessComponent
   ],
