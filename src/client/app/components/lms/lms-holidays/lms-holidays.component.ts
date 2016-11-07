@@ -83,12 +83,10 @@ export class LmsHolidaysComponent {
   }
   handleEventClicked(event) {
     let show = true;
-    this.eventDay = new MyEvent();
-    this.eventDay.title = event.calEvent.title;
     let start = event.calEvent.start;
     start.stripTime();
-    this.eventDay.id = event.calEvent.id;
-    this.eventDay.start = start.format();
+    this.holidayTitle = event.calEvent.title;
+    this.holidayDate = start.format();
     this.dialogVisible = true;
   }
 
