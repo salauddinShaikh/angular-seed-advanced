@@ -1,8 +1,14 @@
-import { BaseComponent } from '../../frameworks/core/index';
+/** Angular Dependencies */
 import { OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+
+/** Framework Dependencies */
+import {BaseComponent} from '../../views/base-component';
+
+/** Other Module Dependencies */
 import * as moment from 'moment/moment';
 
+/** Component Declaration */
 @BaseComponent({
     moduleId: module.id,
     selector: 'conference-booking',

@@ -23,7 +23,7 @@
           </div>
           <div class="col-sm-7">
             <ul class="legend">
-              <li *ngFor="let item of conferenceRooms; let i = index; trackBy: trackByFn">
+              <li *ngFor="let item of conferenceRooms">
                 <span class="color-list" [style.backgroundColor]="item.color"></span> {{item.name}}
               </li>
             </ul>

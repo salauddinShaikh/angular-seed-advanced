@@ -1,9 +1,9 @@
 import { Route } from '@angular/router';
-import { ConferenceComponent } from './conference.component';
-import { BookComponent } from './bookConference.component';
-import { MyBookingComponent } from './myBooking.component';
+import { ConferenceComponent } from './components/conference-booking/conference/conference.component';
+import { BookComponent } from './components/conference-booking/book-conference/book-conference.component';
+import { MyBookingComponent } from './components/conference-booking/my-booking/my-booking.component';
 
-export const ConferenceRoutes: Route[] = [
+export const CorporateRoutes: Route[] = [
   {
     path: 'conferenceBooking',
     component: ConferenceComponent,
