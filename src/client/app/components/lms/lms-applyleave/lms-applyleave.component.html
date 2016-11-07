@@ -74,38 +74,38 @@
                     <div class="portlet light">
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label"> {{ 'LEAVE_TYPE' | translate }} </label>
-                                        <div>
-                                            <p-dropdown [options]="leaves" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
-                                        </div>
+                                <div class="form-group">
+                                    <label class="control-label"> {{ 'LEAVE_TYPE' | translate }} </label>
+                                    <div>
+                                        <p-dropdown [options]="leaves" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
                                     </div>
+                                </div>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label"> {{ 'NUMBER_LEAVES' | translate }} </label>
-                                        <div>
-                                            <input type="text" pInputText [(ngModel)]="numberofdays" [disabled]="true" styleClass="styleForm" />
-                                        </div>
+                                <div class="form-group">
+                                    <label class="control-label"> {{ 'NUMBER_LEAVES' | translate }} </label>
+                                    <div>
+                                        <input type="text" pInputText [(ngModel)]="numberofdays" [disabled]="true" styleClass="styleForm" />
                                     </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label"> {{ 'START_DATE' | translate }} </label>
-                                        <div>
-                                            <p-calendar [(ngModel)]="start" [showIcon]="false" styleClass="styleForm"></p-calendar>
-                                        </div>
+                                <div class="form-group">
+                                    <label class="control-label"> {{ 'START_DATE' | translate }} </label>
+                                    <div>
+                                        <p-calendar [(ngModel)]="start" [showIcon]="false" styleClass="styleForm"></p-calendar>
                                     </div>
+                                </div>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label"> {{ 'END_DATE' | translate }} </label>
-                                        <div>
-                                            <p-calendar [(ngModel)]="end" [showIcon]="false" styleClass="styleForm"></p-calendar>
-                                        </div>
+                                <div class="form-group">
+                                    <label class="control-label"> {{ 'END_DATE' | translate }} </label>
+                                    <div>
+                                        <p-calendar [(ngModel)]="end" [showIcon]="false" styleClass="styleForm"></p-calendar>
                                     </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -127,15 +127,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label class="control-label"> {{ 'COMMENTS' | translate }} </label>
-                                    <textarea rows="5" cols="70" class="form-control" [(ngModel)]="reason"></textarea>
-                                    <div class="pull-right">
-                                        <button class="btn btn-outline" (click)="addLeaves($event)"> {{ 'ADD_LEAVE' | translate }} </button>
-                                        <button class="btn btn-outline"> {{ 'SUBMIT' | translate }} </button>
-                                        <button class="btn btn-outline"> {{ 'CANCEL' | translate }} </button>
-                                    </div>
+                            <div class="col-md-12">
+                                <div class="pull-right">
+                                    <button class="btn btn-outline" (click)="addLeaves($event)"> {{ 'ADD_LEAVE' | translate }} </button>
+                                    <button class="btn btn-outline"> {{ 'SUBMIT' | translate }} </button>
+                                    <button class="btn btn-outline"> {{ 'CANCEL' | translate }} </button>
                                 </div>
                             </div>
                         </div>
