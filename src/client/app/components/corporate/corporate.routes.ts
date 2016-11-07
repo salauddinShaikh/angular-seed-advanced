@@ -2,8 +2,8 @@ import { Route } from '@angular/router';
 import { ConferenceComponent } from './components/conference-booking/conference/conference.component';
 import { BookComponent } from './components/conference-booking/book-conference/book-conference.component';
 import { MyBookingComponent } from './components/conference-booking/my-booking/my-booking.component';
-import { LogTicketComponent } from './components/log-ticket/log-ticket.component';
-import { ManageTicketComponent } from './components/manage-ticket/manage-ticket.component';
+import { LogTicketComponent } from './components/ticket/log-ticket/log-ticket.component';
+import { ManageTicketComponent } from './components/ticket/manage-ticket/manage-ticket.component';
 
 export const CorporateRoutes: Route[] = [
   {

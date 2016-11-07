@@ -3,10 +3,10 @@ import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 /** Framework Dependencies */
-import { BaseComponent } from '../views/base-component';
+import { BaseComponent } from '../../views/base-component';
 
 /** Module Level Dependencies */
-import { Ticket } from '../../entity/ticket';
+import { Ticket } from '../../../entity/ticket';
 
 /** Component Declaration */
 @BaseComponent({
