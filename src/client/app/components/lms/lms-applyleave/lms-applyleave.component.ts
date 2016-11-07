@@ -61,7 +61,7 @@ export class LmsApplyLeavesComponent {
       this.numberofdays = this.dayDiffCalc(this.start, this.end);
       this.showNumDays = this.numberofdays + 1;
     }
-    else if(this.isHalfDay){
+    else if (this.isHalfDay) {
       this.numberofdays = this.showNumDays = 1;
     }
 
@@ -85,15 +85,15 @@ export class LmsApplyLeavesComponent {
 
   dayDiffCalc(first, second) {
     var dayCount = Math.round((second - first) / (1000 * 60 * 60 * 24));
-    debugger;
-    return dayCount+1;
+
+    return dayCount + 1;
   }
 
   fillFinalLeaveData() {
     this.finalLeaveData = [];
     let buffData: any = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
     let bufDate: number = this.start.getDate();
-    debugger;
+
     if (this.formIsClean) {
       if (!this.isHalfDay) {
         for (var i = 0; i <= this.numberofdays; i++) {
@@ -109,7 +109,7 @@ export class LmsApplyLeavesComponent {
       }
       else if (this.isHalfDay) {
         this.numberofdays = 1;
-        debugger;
+
         buffData.ID = 0;
         buffData.start = (bufDate) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
         buffData.end = (bufDate) + "/" + this.start.getMonth() + "/" + this.start.getFullYear();
@@ -143,7 +143,7 @@ export class LmsApplyLeavesComponent {
   }
 
   leaveTypeChanged(event) {
-    debugger;
+
     switch (event.value.id) {
       case 1:
         {
