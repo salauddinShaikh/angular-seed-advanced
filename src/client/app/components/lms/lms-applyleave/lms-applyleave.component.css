@@ -4,3 +4,7 @@
     height: 100% !important;
     border-radius: 0px !important;
 }
+
+.fullWidth{
+    width: 100%;
+}

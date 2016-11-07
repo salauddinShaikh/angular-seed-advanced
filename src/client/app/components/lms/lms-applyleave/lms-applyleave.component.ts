@@ -1,7 +1,7 @@
 import { BaseComponent } from '../../../frameworks/core/index';
 import { SelectItem } from 'primeng/primeng';
 
-interface FinalLeaveData {
+class FinalLeaveData {
   ID: number;
   start: Date;
   end: Date;
@@ -24,6 +24,7 @@ export class LmsApplyLeavesComponent implements OnInit{
   start: any;
   end: Date;
   reason: string;
+  calenderDisabled :boolean;
   finalLeaveData: FinalLeaveData[] = [];
   leaveVisible = false;
 
@@ -38,6 +39,7 @@ export class LmsApplyLeavesComponent implements OnInit{
   }
 
   ngOnInit(){
+    this.calenderDisabled = true;
     let today = new Date();
     //this.start = today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear();
   }
@@ -68,7 +70,6 @@ export class LmsApplyLeavesComponent implements OnInit{
       this.finalLeaveData.push(buffData);
       buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
       console.log(JSON.stringify(this.finalLeaveData[this.finalLeaveData.length - 1]));
-
     }
     this.leaveVisible = true;
     console.log(JSON.stringify(this.finalLeaveData));
@@ -76,11 +77,20 @@ export class LmsApplyLeavesComponent implements OnInit{
 
   delLeaveRec(event) {
     console.log('delete record clicked ==> ' + JSON.stringify(event));
-    this.finalLeaveData.forEach((element, event)=> {
-      if (element.ID == event.ID) {
-        console.log(true);
+    let deleteId :number;
+    for (var i = 0; i < this.finalLeaveData.length; i++) {
+      if (this.finalLeaveData[i].ID == event.ID) {
+        deleteId = i;
+        break;
       }
-    });
+    }
+    for (var i = deleteId; i < this.finalLeaveData.length; i++) {
+      if ( i+1 < this.finalLeaveData.length ) {
+        this.finalLeaveData[i] = this.finalLeaveData[i+1];
+      }
+    }
+    this.finalLeaveData.pop();
+    this.numberofdays = this.finalLeaveData.length;
   }
 
   leaveTypeChenged(event) {
@@ -88,27 +98,32 @@ export class LmsApplyLeavesComponent implements OnInit{
       case 1:
       {
         this.numberofdays = 1;
+        this.calenderDisabled = false;
       }
         break;
       case 2:
       {
         this.numberofdays = 0.5;
+        this.calenderDisabled = false;
       }
         break;
       case 3:
       {
         this.numberofdays = 1;
+        this.calenderDisabled = false;
       }
         break;
       case 4:
       {
         this.numberofdays = 0.5;
+        this.calenderDisabled = false;
       }
         break;
 
       default:
       {
         this.numberofdays = 0;
+        this.calenderDisabled = true;
       }
         break;
     }

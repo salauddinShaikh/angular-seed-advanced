@@ -95,7 +95,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'START_DATE' | translate }} </label>
                                     <div>
-                                        <p-calendar [(ngModel)]="start" [showIcon]="true" ></p-calendar>
+                                        <p-calendar [(ngModel)]="start" [disabled]="calenderDisabled" [showIcon]="true" ></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,15 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'END_DATE' | translate }} </label>
                                     <div>
-                                        <p-calendar [(ngModel)]="end" [showIcon]="true" ></p-calendar>
+                                        <p-calendar [(ngModel)]="end" [disabled]="calenderDisabled" [showIcon]="true" ></p-calendar>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label"> {{ 'REASON' | translate }} </label>
+                                    <div>
+                                        <textarea [(ngModel)]="reason" class="fullWidth"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +125,7 @@
                                         <p-column field="reason" header=" {{ 'REASON' | translate }} " [sortable]="false"></p-column>
                                         <p-column field="start" header=" {{ 'START_DATE' | translate }} " [sortable]="false"></p-column>
                                         <p-column field="end" header=" {{ 'END_DATE' | translate }} " [sortable]="false"></p-column>
-                                        <p-column styleClass="col-button" field="color">
+                                        <p-column header=" {{ 'DELETE' | translate }} " styleClass="col-button" field="color">
                                             <template let-day="rowData" pTemplate type="body">
                                                 <button type="button" (click)="delLeaveRec(day)" pButton icon="fa-edit"></button>
                                             </template>
