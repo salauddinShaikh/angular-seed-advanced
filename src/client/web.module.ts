@@ -25,6 +25,7 @@ import { MultilingualModule, translateFactory } from './app/frameworks/i18n/mult
 import { SampleModule } from './app/frameworks/sample/sample.module';
 import { nameListReducer, NameListEffects } from './app/frameworks/sample/index';
 import { timeSheetReducer, TimeSheetService } from './app/shared/services/timesheet.service';
+import { holidayReducer, HolidayService } from './app/shared/index';
 
 // config
 import { Config, WindowService, ConsoleService } from './app/frameworks/core/index';
@@ -49,7 +50,7 @@ import { IfAuthorize } from './app/shared/directives/ifAuthorize.directive';
 
 //RMS
 import { DashboardComponent } from './app/components/dashboard/dashboard.component';
-import { ScheduleModule, DataTableModule,SharedModule,ButtonModule,InputTextareaModule,CalendarModule,DropdownModule} from 'primeng/primeng';
+import { ScheduleModule, DataTableModule,SharedModule,ButtonModule,InputTextareaModule,CalendarModule,DropdownModule,DialogModule} from 'primeng/primeng';
 import { LmsHolidaysComponent } from './app/components/lms/lms-holidays/lms-holidays.component';
 import { LmsLeavesComponent } from './app/components/lms/lms-myleaves/lms-leaves.component';
 import { LmsApproveLeavesComponent } from './app/components/lms/lms-approveleave/lms-approveleave.component';
@@ -69,6 +70,7 @@ import { ConferenceComponent } from './app/components/conferenceBooking/conferen
 import { BookComponent } from './app/components/conferenceBooking/bookConference.component';
 import { MyBookingComponent } from './app/components/conferenceBooking/myBooking.component';
 import { LoginComponent } from './app/components/login/login.component';
+import { UnauthorizedAccessComponent } from './app/components/errorPages/unauthorizedAccess/unauthorizedAccess.component';
 
 import { LoginService } from './app/shared/services/login.service';
 
@@ -108,7 +110,8 @@ export function cons() {
     StoreModule.provideStore({
       i18n: multilingualReducer,
       names: nameListReducer,
-      timesheet: timeSheetReducer
+      timesheet: timeSheetReducer,
+      holidays : holidayReducer
     }),
     EffectsModule.run(MultilingualEffects),
     EffectsModule.run(NameListEffects),
@@ -118,7 +121,8 @@ export function cons() {
     ButtonModule,
     InputTextareaModule,
     CalendarModule,
-    DropdownModule
+    DropdownModule,
+    DialogModule
   ],
   declarations: [
     AppComponent,
@@ -148,7 +152,8 @@ export function cons() {
     ConferenceComponent,
     BookComponent,
     MyBookingComponent,
-    LoginComponent
+    LoginComponent,
+    UnauthorizedAccessComponent
   ],
   providers: [
     {
@@ -156,7 +161,8 @@ export function cons() {
       useValue: '<%= APP_BASE %>'
     },
     TimeSheetService,
-    LoginService
+    LoginService,
+    HolidayService
   ],
   bootstrap: [AppComponent]
 })

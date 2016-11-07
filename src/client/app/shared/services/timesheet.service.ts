@@ -3,7 +3,6 @@ import { Http } from '@angular/http';
 
 // libs
 import { Store, ActionReducer, Action } from '@ngrx/store';
-import { Actions } from '@ngrx/effects';
 
 // app
 import { CustomAnalytics, AnalyticsService } from '../../frameworks/analytics/index';
@@ -33,7 +32,6 @@ export const TIME_SHEET_ACTIONS: ITimeSheetActions = {
 export function timeSheetReducerFn(state: ITimeSheetDay[] = [], action: Action) {
     switch (action.type) {
         case TIME_SHEET_ACTIONS.INITIALIZED:
-            console.log('Initalized TimeSheet');
             return [...action.payload];
         default:
             return state;
@@ -57,26 +55,7 @@ export class TimeSheetService extends CustomAnalytics {
         let store = this.store;
         this.httpGet('getTimesheets', function (data: any) {
             store.dispatch({ type: TIME_SHEET_ACTIONS.INITIALIZED, payload: data });
-            console.log('Data= ', data);
         });
-        // this.http.get(this.toURL('getTimesheets'))
-        //     .toPromise()
-        //     .then(this.extractData)
-        //     .catch(this.handleError);
     }
 }
 
-@Injectable()
-export class TimeSheetEffects {
-    // @Effect() getTimesheets$: Observable<Action> = this.actions$
-    //     .ofType(TIME_SHEET_ACTIONS.INIT)
-    //     .switchMap(action1 => {
-    //         return this.http.get('http://localhost:4000/getTimesheets');
-    //     })
-    //     .map(res => ({ type: TIME_SHEET_ACTIONS.INITIALIZED, payload: res.json() }))
-    //     .catch(() => Observable.of({ type: TIME_SHEET_ACTIONS.INIT_FAILED }));
-
-    constructor(private actions$: Actions, private timeSheets: TimeSheetService, private http: Http) {
-        console.log('init TSF');
-    }
-}

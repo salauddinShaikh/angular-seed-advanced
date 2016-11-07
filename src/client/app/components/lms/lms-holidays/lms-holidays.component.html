@@ -1,7 +1,7 @@
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
-    <div class="page-content">
+    <div class="page-content" [ifAuthorize]="['Holiday.READ']">
         <div class="page-head">
             <!-- BEGIN PAGE TITLE -->
             <!-- END PAGE TITLE -->
@@ -21,8 +21,21 @@
         <div class="row">
             <!-- START HOLIDAY CALENDER COMPONENT BY PRIMENG -->
             <div class="col-lg-6 col-xs-12 col-sm-12">
-                <div class="portlet light bordered">
-                    <p-schedule [events]="events" [editable]="false"></p-schedule>
+                <div class="portlet light bordered h2FontSize">
+                    <p-schedule [events]="events" [editable]="false" (onEventClick)="handleEventClicked($event)"></p-schedule>
+
+                    <p-dialog header="Holiday Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
+                        <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="show">
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-4"><label for="title">Title</label></div>
+                                <div class="ui-grid-col-8"><label id="title" [(ngModel)]="event.title"></label></div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-4"><label for="date">Date</label></div>
+                                <div class="ui-grid-col-8"><label id="title" [(ngModel)]="event.start"></label></div>
+                            </div>
+                        </div>
+                    </p-dialog>
                 </div>
             </div>
             <!-- END HOLIDAY CALENDER COMPONENT BY PRIMENG -->
@@ -30,17 +43,37 @@
             <!-- START HOLIDAY LIST COMPONENT BY PRIMENG -->
             <div class="col-lg-6 col-xs-12 col-sm-12">
                 <div class="portlet light bordered">
-                    <p-dataTable [value]="holidays" selectionMode="single" [paginator]="true" [rows]=(servRows) [responsive]="true">
+                    <p-dataTable [value]="holidays" [paginator]="true" [rows]=(servRows) [responsive]="true" >
                         <p-column field="title" header="{{ 'TITLE' | translate }}" [sortable]="true"></p-column>
                         <p-column field="date" header="{{ 'DATE' | translate }}" [sortable]="true"></p-column>
                         <p-column field="day" header="{{ 'DAY' | translate }}" [sortable]="true"></p-column>
-                        <p-column field="type" header="{{ 'TYPE' | translate }}" [sortable]="true"></p-column>
-                        <p-column styleClass="col-button" field="color">
-                            <template let-car="rowData" pTemplate type="body">
-                                <button type="button" pButton [routerLink]="['/about']" icon="fa-edit"></button>
+                        <p-column field="type" header="{{ 'TYPE' | translate }}" [sortable]="true" >
+                            <template let-holiday="rowData" pTemplate type="body" >
+                                <span> <a (click)="clicked(holiday)" >{{holiday.type}}</a></span> 
                             </template>
                         </p-column>
                     </p-dataTable>
+                    <p-dialog header="Holiday Details" [(visible)]="holidayDetails" [modal]="true" showEffect="fade">
+                        <div class="ui-grid ui-grid-responsive ui-fluid">
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-4"><label for="titleHoliday">Title</label></div>
+                                    <div class="ui-grid-col-8"><label id="titleHoliday"  > {{holidayTitle}} </label></div>
+                                </div>
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-4"><label for="dateHoliday">Date</label></div>
+                                    <div class="ui-grid-col-8"><label id="dateHoliday" > {{holidayDate}} </label></div>
+                                </div>
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-4"><label for="dayHoliday">Day</label></div>
+                                    <div class="ui-grid-col-8"><label id="dayHoliday" > {{holidayDay}} </label></div>
+                                </div>
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-4"><label for="typeHoliday">Type </label></div>
+                                    <div class="ui-grid-col-8"><label id="typeHoliday" > {{holidayType}} </label></div>
+                                </div>
+                        </div>
+                    </p-dialog>
+
                 </div>
             </div>
             <!-- END HOLIDAY LIST COMPONENT BY PRIMENG -->

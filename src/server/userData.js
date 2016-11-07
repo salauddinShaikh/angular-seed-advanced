@@ -6,12 +6,13 @@ var users = [
         Password: 'password',
         Permissions: [
             'Timesheet.READ','Timesheet.CREATE','Timesheet.UPDATE','Timesheet.DELETE',
+            'ConferenceBook.READ','ConferenceBook.CREATE','ConferenceBook.UPDATE','ConferenceBook.DELETE',
             'Leave.READ','Leave.CREATE','Leave.UPDATE','Leave.DELETE',
             'Holiday.READ','Holiday.CREATE','Holiday.UPDATE','Holiday.DELETE',
             'ConferenceBook.READ','ConferenceBook.CREATE','ConferenceBook.UPDATE','ConferenceBook.DELETE',
             'Leave.READ','Leave.CREATE','Leave.UPDATE','Leave.DELETE',
             'ApprovalLeave.READ','ApprovalLeave.CREATE','ApprovalLeave.UPDATE','ApprovalLeave.DELETE',
-            'BulkApprovalLeave.READ','BulkApprovalLeave.CREATE','BulkApprovalLeave.UPDATE','BulkApprovalLeave.DELETE',
+            'BulkApprovalLeave.READ','BulkApprovalLeave.CREATE','BulkApprovalLeave.UPDATE','BulkApprovalLeave.DELETE'
              ]
     },
     {
@@ -37,24 +38,37 @@ var users = [
         Id: 14,
         UserName: 'user4',
         Password: 'password',
-        Permissions: ['Leave.READ','Holiday.READ','Leave.CREATE','ApprovalLeave.READ','BulkApprovalLeave.READ']
+        Permissions: ['Leave.READ','Holiday.READ','Leave.CREATE','LeaveApproval.READ','BulkLeaveApproval.READ']
     },
     {
         Id: 15,
         UserName: 'user5',
         Password: 'password',
-        Permissions: ['Leave.READ','Leave.CREATE',]
+        Permissions: ['Leave.READ','Leave.CREATE']
     },
     {
         Id: 16,
         UserName: 'user6',
         Password: 'password',
-        Permissions: ['Leave.READ','ApprovalLeave.READ','BulkApprovalLeave.READ']
+        Permissions: ['Leave.READ','LeaveApproval.READ','BulkLeaveApproval.READ','BulkLeaveApproval.UPDATE']
     },
     {
         Id: 17,
         UserName: 'user7',
         Password: 'password',
-        Permissions: ['Leave.READ','Holiday.READ','ApprovalLeave.READ']
-    }];
+        Permissions: ['Leave.READ','Holiday.READ','LeaveApproval.READ']
+    },
+    {
+        Id:18,
+        UserName: 'user8',
+        Password: 'password',
+        Permissions: ['Timesheet.READ','Timesheet.CREATE','Timesheet.UPDATE','Timesheet.DELETE']
+    },
+    {
+        Id:19,
+        UserName: 'user9',
+        Password: 'password',
+        Permissions: ['Leave.READ','Leave.CREATE','Timesheet.READ','Timesheet.CREATE']
+    }
+    ];
 module.exports = users;
