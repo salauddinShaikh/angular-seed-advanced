@@ -77,7 +77,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'LEAVE_TYPE' | translate }} </label>
                                     <div>
-                                        <p-dropdown [options]="leaves" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
+                                        <p-dropdown [options]="leaves" (onChange)="leaveTypeChenged($event)" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'START_DATE' | translate }} </label>
                                     <div>
-                                        <p-calendar [(ngModel)]="start" [showIcon]="false" styleClass="styleForm"></p-calendar>
+                                        <p-calendar [(ngModel)]="start" [showIcon]="true" ></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'END_DATE' | translate }} </label>
                                     <div>
-                                        <p-calendar [(ngModel)]="end" [showIcon]="false" styleClass="styleForm"></p-calendar>
+                                        <p-calendar [(ngModel)]="end" [showIcon]="true" ></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -118,8 +118,8 @@
                                         <p-column field="start" header=" {{ 'START_DATE' | translate }} " [sortable]="false"></p-column>
                                         <p-column field="end" header=" {{ 'END_DATE' | translate }} " [sortable]="false"></p-column>
                                         <p-column styleClass="col-button" field="color">
-                                            <template let-car="rowData" pTemplate type="body">
-                                                <button type="button" (click)="delLeaveRec(ID)" pButton icon="fa-edit"></button>
+                                            <template let-day="rowData" pTemplate type="body">
+                                                <button type="button" (click)="delLeaveRec(day)" pButton icon="fa-edit"></button>
                                             </template>
                                         </p-column>
                                     </p-dataTable>
