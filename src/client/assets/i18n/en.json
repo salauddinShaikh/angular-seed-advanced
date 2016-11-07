@@ -115,5 +115,19 @@
   "CONFERENCE_LABEL_TITLE":"Title",
   "MY_BOOKING_TITLE":"My Bookings",
   "MY_BOOKING_CONFERENCE_ROOM":"Conference Room Booking",
-  "MY_BOOKING_ALL_EVENT":"All Events"
-}
+  "MY_BOOKING_ALL_EVENT":"All Events",
+
+  "MY_PROFILE":"My Profile",
+  "CURRENT_ADDRESS":"Current Address",
+  "CONTACT_NO":"Contact No",
+  "EMAIL":"Email",
+  "DATE_OF_BIRTH":"Date of Birth",
+  "ESPL_PF_NO":"ESPL PF No",
+  "PREVIOUS_PF_NO":"Previous PF No",
+  "CAREER_START_DATE":"Career Start Date",
+  "LAST_WORKING_DAY":"Last working day of previous employer",
+  "EMERGENCY_CONTACT_NAME":"Emergency Contact Name",
+  "BLOOD_GROUP":"Blood Group",
+  "EMERGEANCY_CONTACT_NO":"Emergency Contact No",
+  "SKYPE_ID ":"Skype ID"
+  }
