@@ -25,14 +25,14 @@
                     <p-schedule [events]="events" [editable]="false" (onEventClick)="handleEventClicked($event)"></p-schedule>
 
                     <p-dialog header="Holiday Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
-                        <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="show">
+                        <div class="ui-grid ui-grid-responsive ui-fluid">
                             <div class="ui-grid-row">
                                 <div class="ui-grid-col-4"><label for="title">Title</label></div>
-                                <div class="ui-grid-col-8"><label id="title" [(ngModel)]="event.title"></label></div>
+                                <div class="ui-grid-col-8"><label id="title" >{{holidayTitle}}</label></div>
                             </div>
                             <div class="ui-grid-row">
                                 <div class="ui-grid-col-4"><label for="date">Date</label></div>
-                                <div class="ui-grid-col-8"><label id="title" [(ngModel)]="event.start"></label></div>
+                                <div class="ui-grid-col-8"><label id="title" >{{holidayDate}}</label></div>
                             </div>
                         </div>
                     </p-dialog>
