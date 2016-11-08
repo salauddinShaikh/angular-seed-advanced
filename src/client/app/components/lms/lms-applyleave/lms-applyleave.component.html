@@ -137,7 +137,7 @@
                                         <p-column field="end" header=" {{ 'END_DATE' | translate }} " [sortable]="false"></p-column>
                                         <p-column header=" {{ 'DELETE' | translate }} " styleClass="col-button" field="color">
                                             <template let-day="rowData" pTemplate type="body">
-                                                <button type="button" (click)="delLeaveRec(day)" pButton icon="fa-edit"></button>
+                                                <button type="button" (click)="delLeaveRec(day)" pButton icon="fa fa-trash"></button>
                                             </template>
                                         </p-column>
                                     </p-dataTable>

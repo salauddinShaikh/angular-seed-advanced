@@ -86,7 +86,6 @@ export class LmsApplyLeavesComponent {
 
   dayDiffCalc(first, second) {
     var dayCount = Math.round((second - first) / (1000 * 60 * 60 * 24));
-
     return dayCount + 1;
   }
 
