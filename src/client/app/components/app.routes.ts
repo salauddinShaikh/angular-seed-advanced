@@ -9,6 +9,7 @@ import { CorporateRoutes } from './corporate/corporate.routes';
 import { LoginRoutes } from './login/login.routes';
 import { ErrorPagesRoutes } from './errorPages/errorPages.routes';
 import { ProfileRoutes } from './profile/profile.routes';
+import { ChangePasswordRoutes } from './changePassword/change-password.routes';
 
 export const routes: Array<any> = [
   ...HomeRoutes,
@@ -20,5 +21,6 @@ export const routes: Array<any> = [
   ...CorporateRoutes,
   ...LoginRoutes,
   ...ErrorPagesRoutes,
-  ...ProfileRoutes
+  ...ProfileRoutes,
+  ...ChangePasswordRoutes
 ];

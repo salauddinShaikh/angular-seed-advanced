@@ -129,5 +129,15 @@
   "EMERGENCY_CONTACT_NAME":"Emergency Contact Name",
   "BLOOD_GROUP":"Blood Group",
   "EMERGEANCY_CONTACT_NO":"Emergency Contact No",
-  "SKYPE_ID ":"Skype ID"
+  "SKYPE_ID ":"Skype ID",
+
+  "CHANGE_PASSWORD":"Change Password",
+  "PASSWORD_POLICIES":"Password Policies",
+  "PASSWORD_POLICY_1":"1. Password must contain at least 7 characters. ",
+  "PASSWORD_POLICY_2":"2. Passwords must contain characters from three of the following four categories:",
+  "PASSWORD_POLICY_2_1":"-Uppercase characters(A through Z) ",
+  "PASSWORD_POLICY_2_2":"-Lowercase characters(a through z) ",
+  "PASSWORD_POLICY_2_3":"-Digits (0 through 9)",
+  "PASSWORD_POLICY_2_4":"-Nonalphanumeric characters: ~!@#$%^&*_-+=`|(){}[]:;'<>,.?/",
+  "PASSWORD_POLICY_3":"3. Password must not contain your first or last name."
   }

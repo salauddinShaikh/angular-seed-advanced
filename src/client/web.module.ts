@@ -64,6 +64,8 @@ import { ProfileModule } from './app/components/profile/index';
 import { LoginComponent } from './app/components/login/login.component';
 import { UnauthorizedAccessComponent } from './app/components/errorPages/unauthorizedAccess/unauthorizedAccess.component';
 
+import { ChangePasswordComponent } from './app/components/changePassword/change-password.component';
+
 let routerModule = RouterModule.forRoot(routes);
 
 if (String('<%= TARGET_DESKTOP %>') === 'true') {
@@ -122,7 +124,8 @@ export function cons() {
     LmsBulkApproveComponent,
     LmsSingleApprovalComponent,
     LoginComponent,
-    UnauthorizedAccessComponent
+    UnauthorizedAccessComponent,
+    ChangePasswordComponent
   ],
   providers: [
     {
