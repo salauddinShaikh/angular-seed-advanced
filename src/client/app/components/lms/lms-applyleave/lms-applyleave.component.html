@@ -73,11 +73,21 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="portlet light">
                         <div class="row">
+                            <div class="col-md-12">
+                                <h4>Apply Leave</h4>
+                                <div class="pull-right">
+                                    <h5 class="warning">
+                                        <span>{{warning}}</span>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'LEAVE_TYPE' | translate }} </label>
                                     <div>
-                                        <p-dropdown [options]="leaves" (onChange)="leaveTypeChenged($event)" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
+                                        <p-dropdown [options]="leaves" (onChange)="leaveTypeChanged($event)" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +95,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'NUMBER_LEAVES' | translate }} </label>
                                     <div>
-                                        <input type="text" pInputText [(ngModel)]="numberofdays" [disabled]="true" styleClass="styleForm" />
+                                        <input type="text" pInputText [(ngModel)]="showNumDays" [disabled]="true" styleClass="styleForm" />
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +105,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'START_DATE' | translate }} </label>
                                     <div>
-                                        <p-calendar [(ngModel)]="start" [disabled]="calenderDisabled" [showIcon]="true" ></p-calendar>
+                                        <p-calendar dateFormat="dd/mm/yy" (onSelect)="updateEndDate($event)" [(ngModel)]="start" [disabled]="startDateDisabled" [showIcon]="true"></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +113,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'END_DATE' | translate }} </label>
                                     <div>
-                                        <p-calendar [(ngModel)]="end" [disabled]="calenderDisabled" [showIcon]="true" ></p-calendar>
+                                        <p-calendar dateFormat="dd/mm/yy" [minDate]="start" [(ngModel)]="end" [disabled]="endDateDisabled" [showIcon]="true"></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +129,7 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <p-dataTable [value]="finalLeaveData" [responsive]="true" [hidden]="false">
+                                    <p-dataTable [value]="finalLeaveData" [responsive]="true">
                                         <p-column field="leave" header=" {{ 'LEAVE_TYPE' | translate }} " [sortable]="false"></p-column>
                                         <p-column field="numDays" header=" {{ 'NO_LEAVES' | translate }} " [sortable]="false"></p-column>
                                         <p-column field="reason" header=" {{ 'REASON' | translate }} " [sortable]="false"></p-column>
@@ -127,7 +137,7 @@
                                         <p-column field="end" header=" {{ 'END_DATE' | translate }} " [sortable]="false"></p-column>
                                         <p-column header=" {{ 'DELETE' | translate }} " styleClass="col-button" field="color">
                                             <template let-day="rowData" pTemplate type="body">
-                                                <button type="button" (click)="delLeaveRec(day)" pButton icon="fa-edit"></button>
+                                                <button type="button" (click)="delLeaveRec(day)" pButton icon="fa fa-trash"></button>
                                             </template>
                                         </p-column>
                                     </p-dataTable>

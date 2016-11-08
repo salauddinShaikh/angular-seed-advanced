@@ -22,23 +22,13 @@
 		<ul class="user-menu" [hidden]="!isUserMenuOpen">
 			<br/>
 			<li>
-				<a href="page_user_profile_1.html">
-					<i class="icon-user"></i> &nbsp;&nbsp; My Profile </a>
-			</li>
-			<li>
-				<a href="app_calendar.html">
-					<i class="icon-calendar"></i> &nbsp;&nbsp; My Calendar </a>
-			</li>
-			<li>
-				<a href="app_inbox.html">
-					<i class="icon-envelope-open"></i> &nbsp;&nbsp; My Inbox
-					<span class="badge badge-danger"> 3 </span>
+				<a routerLink="/my-profile" routerLinkActive="active">
+					<i class="icon-user"></i>{{ 'MY_PROFILE' | translate }}
 				</a>
 			</li>
 			<li>
-				<a href="app_todo_2.html">
-					<i class="icon-rocket"></i> &nbsp;&nbsp; My Tasks
-					<span class="badge badge-success"> 7 </span>
+				<a routerLink="/change-password" routerLinkActive="active">
+					<i class="icon-wrench"></i> &nbsp;&nbsp; Change Password
 				</a>
 			</li>
 			<li class="divider"> </li>

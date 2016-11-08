@@ -18,14 +18,16 @@ import * as moment from 'moment/moment';
 export class ConferenceComponent implements OnInit {
     events: any[];
     header: any;
-    event: MyEvent;
+    selectedEvent: MyEvent;
     dialogVisible: boolean = false;
     idGen: number = 100;
     headerConfig: any;
     minTime: string;
     maxTime: string;
     conferenceRooms: any[];
-    constructor(private router: Router) { }
+    constructor(private router: Router) {
+        this.selectedEvent = new MyEvent(0, '', '', '', false);
+    }
     ngOnInit() {
         this.minTime = '07:00:00';
         this.maxTime = '20:00:00';
@@ -115,19 +117,22 @@ export class ConferenceComponent implements OnInit {
 
     handleDayClick(event: any) {
         this.router.navigate(['/newBooking']);
-        this.event = new MyEvent();
-        this.event.start = event.date.format();
-        this.dialogVisible = true;
     }
-    handleEventClick(e: any) {
-        //this.router.navigate(['/book']);
+    handleEventClicked(event: any) {
+        this.selectedEvent = event.calEvent;
+        this.selectedEvent.start = moment(this.selectedEvent.start).format('DD/MM/YY hh:MM a');
+        this.selectedEvent.end = moment(this.selectedEvent.end).format('DD/MM/YY hh:MM a');
+        console.log(this.selectedEvent);
+        this.dialogVisible = true;
     }
 
 }
 class MyEvent {
-    id: number;
-    title: string;
-    start: string;
-    end: string;
-    allDay: boolean = true;
+    constructor(
+        public id: number,
+        public title: string,
+        public start: string,
+        public end: string,
+        public allDay: boolean
+    ) { }
 }
