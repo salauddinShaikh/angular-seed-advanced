@@ -19,7 +19,6 @@
 						<a class="buttons"  (click)="newTicket()"  tooltip="New Ticket" href="#"><i class="fa fa-plus-circle fa-4x" aria-hidden="true"></i></a>
 					</nav>
 					<div class="portlet-body">
-						<p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
 						<p-dataTable [value]="ticket" [responsive]="true" [rows]="5" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
 							<p-column header="{{ 'EDIT' | translate }}">
 								<template let-car="rowData" pTemplate>
