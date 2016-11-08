@@ -130,6 +130,13 @@
   "BLOOD_GROUP":"Blood Group",
   "EMERGEANCY_CONTACT_NO":"Emergency Contact No",
   "SKYPE_ID ":"Skype ID",
+  "CLASS":"Class",
+  "DEGREE":"Degree",
+  "GRADE":"Grade",
+  "PERCENTAGE":"Precentage",
+  "YEAR_OF_PASSING":"Year Of Passing",
+  "SCANNED_COPY":"Scanned Copy",
+  "EDUCATION_MESSAGE": "Details of SSC, HSC and Graduation are mandatory",
 
   "CHANGE_PASSWORD":"Change Password",
   "OLD_PASSWORD":"Old Password",

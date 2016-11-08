@@ -1,0 +1,67 @@
+<div class="portlet-body">
+    <div class="alert alert-warning message-align">
+        {{ 'EDUCATION_MESSAGE' | translate }}
+    </div>    
+    <div>
+        <p-dataTable [value]="education" [responsive]="true" emptyMessage="No Records Found!">
+            <p-column field="class"></p-column>
+            <p-column field="degree"></p-column>
+            <p-column field="grade"></p-column>
+            <p-column field="percentage"></p-column>
+            <p-column field="yearOfPassing"></p-column>
+            <p-column field="nonBillableHours"></p-column>
+            <p-column field="totalHours"></p-column>
+            <p-column field="status"></p-column>
+        </p-dataTable>
+    </div>
+    <div>
+        <div class="row row-margin">
+            <div class="col-md-2 col-margin">
+                <span>{{ 'CLASS' | translate }}</span>
+                <span class="education-req-field"> *</span>
+                <div>
+                    <p-dropdown [options]="class" [style]="{'width':'95%'}"></p-dropdown>
+                </div>
+            </div>
+            <div class="col-md-2 col-margin">
+                <span>{{ 'DEGREE' | translate }}</span>
+                <span class="education-req-field"> *</span>
+                <div>
+                    <input type="text" pInputText />
+                </div>
+            </div>
+            <div class="col-md-2 col-margin">
+                <span>{{ 'GRADE' | translate }}</span>
+                <span class="education-req-field"> *</span>
+                <div>
+                    <p-dropdown [options]="grade" [style]="{'width':'95%'}"></p-dropdown>
+                </div>
+            </div>
+            <div class="col-md-2 col-margin">
+                <span>{{ 'PERCENTAGE' | translate }}</span>
+                <span class="education-req-field"> *</span>
+                <div>
+                    <input type="text" pInputText />
+                </div>
+            </div>
+            <div class="col-md-2 col-margin">
+                <span>{{ 'YEAR_OF_PASSING' | translate }}</span>
+                <span class="education-req-field"> *</span>
+                <div>
+                    <input type="text" pInputText />
+                </div>
+            </div>
+            <div class="col-md-2 col-margin">
+                <span>{{ 'SCANNED_COPY' | translate }}</span>
+                <span class="education-req-field"> *</span>
+                <div>
+                    <input type="file">
+                </div>
+            </div>
+        </div>
+        <div class="row row-margin button-margin">
+            <button pButton type="text" label="Submit"></button>
+            <button pButton type="text" label="Cancel" (click)="cancel()"></button>
+        </div>
+    </div>
+</div>

@@ -17,9 +17,9 @@
                 <div class="portlet light bordered">
                     <div class="portlet-title">
                         <div class="row div-margin-bottom">
-                            <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="col-md-4 col-sm-4 col-xs-12 icon-align">
                                 <div class="profile-userpic">
-                                    <img src="../assets/layouts/layout4/img/avatar9.jpg" class="img-responsive" alt="">
+                                     <i class="fa fa-user icon-size"></i>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-12">                               
@@ -41,15 +41,15 @@
                         <ul class="nav nav-tabs">
                             <li class="active">
                                 <a href="#tab_1_1" data-toggle="tab"> Personal Info </a>
-                            </li>
-                            <li>
-                                <a href="#tab_1_2" data-toggle="tab"> Details </a>
-                            </li>
+                            </li>                         
                             <li class="dropdown">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> Dropdown
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="#tab_1_2" data-toggle="tab"> Details </a>
+                                    </li>
                                     <li>
                                         <a href="#tab_1_3" tabindex="-1" data-toggle="tab"> Education </a>
                                     </li>
@@ -74,6 +74,9 @@
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="tab_1_1">
                                <personal-info></personal-info>
+                            </div>
+                            <div class="tab-pane fade" id="tab_1_3">
+                                <education></education>
                             </div>
                         </div>
                     </div>
