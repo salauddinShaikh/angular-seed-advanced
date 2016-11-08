@@ -8,6 +8,7 @@ import { BaseComponent } from '../../views/base-component';
 /** Module Level Dependencies */
 import { Ticket } from '../../../entity/ticket';
 
+import { MenuItem } from 'primeng/primeng';
 /** Component Declaration */
 @BaseComponent({
   moduleId: module.id,
@@ -16,12 +17,31 @@ import { Ticket } from '../../../entity/ticket';
 })
 export class LogTicketComponent implements OnInit {
   ticket: Ticket[];
-
+  private items: MenuItem[];
   constructor(
     private router: Router) {
   }
 
   ngOnInit(): void {
+    this.items = [
+      {
+        label: 'Edit',
+        icon: 'fa-edit',
+      },
+      {
+        label: 'Reply',
+        icon: 'fa-reply',
+      },
+      {
+        label: 'Close',
+        icon: 'fa-times',
+      },
+      {
+        label: 'Reopen',
+        icon: 'fa-retweet',
+      }
+    ];
+
     this.ticket = [{
       id: 1,
       ticket: '',
@@ -104,7 +124,7 @@ export class LogTicketComponent implements OnInit {
     }
     ];
   }
-  
+
   newTicket() {
     this.router.navigate(['/manage-ticket']);
   }

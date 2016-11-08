@@ -1,11 +1,11 @@
 /** Angular Dependencies */
 import { OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 /** Framework Dependencies */
-import {BaseComponent} from '../../views/base-component';
+import { BaseComponent } from '../../views/base-component';
 
 /** Third Party Dependencies */
-import {SelectItem} from 'primeng/primeng';
+import { SelectItem } from 'primeng/primeng';
 
 /** Module Level Dependencies */
 import { Ticket } from '../../../entity/ticket';
@@ -18,9 +18,12 @@ import { Ticket } from '../../../entity/ticket';
 })
 export class ManageTicketComponent implements OnInit {
   departments: SelectItem[];
-  priorities : SelectItem[];
+  priorities: SelectItem[];
   concerns: SelectItem[];
+  constructor(
+    private router: Router) {
 
+  }
   ngOnInit(): void {
 
     this.departments = [];
@@ -40,4 +43,7 @@ export class ManageTicketComponent implements OnInit {
 
   }
 
+  cancel() {
+    this.router.navigate(['/log-ticket']);
+  }
 }

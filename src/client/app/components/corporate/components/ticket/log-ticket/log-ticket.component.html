@@ -14,54 +14,25 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 				<div class="portlet light ">
-					<div class="row">
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="form-body">
-								<label class="control-label"></label>
-								<div>
-									<button pButton type="button" label="{{ 'NEW_TICKET' | translate }}" (click)="newTicket()"></button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<div class="portlet light ">
+					<button pButton type="button" class="pull-right" label="{{ 'NEW_TICKET' | translate }}" (click)="newTicket()" icon="fa fa-plus-circle"></button>
 					<div class="portlet-body">
 						<p-dataTable [value]="ticket" [responsive]="true" [rows]="5" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
-							<p-column field="department" header="{{ 'DEPARTMENT' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="concern" header="{{ 'CONCERN' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="description" header="{{ 'DESCRIPTION' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="status" header="{{ 'STATUS' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="priority" header="{{ 'PRIORITY' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="createdDate" header="{{ 'CREATED_DATE' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="updatedDate" header="{{ 'UPDATED_DATE' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="updatedBy" header="{{ 'UPDATED_BY' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="resolvedBy" header="{{ 'RESOLVED_BY' | translate }}" [sortable]="true" [filter]="true"></p-column>
-							<p-column field="ageDays" header="{{ 'AGE_DAYS' | translate }}" [sortable]="true" [filter]="true"></p-column>
 							<p-column header="{{ 'EDIT' | translate }}">
-								<template let-car="rowData" pTemplate type="body">
-									<button type="button" pButton (click)="selectTicket(ticket)" icon="fa fa-pencil-square-o"></button>
+								<template let-car="rowData" pTemplate>
+									<p-tieredMenu #menu  [model]="items" [popup]="true"></p-tieredMenu>
+									<button #btn type="button" pButton icon="fa fa-list" label="Show" (click)="menu.toggle($event)"></button>
 								</template>
 							</p-column>
-							<p-column header="{{ 'REPLY' | translate }}">
-								<template let-car="rowData" pTemplate type="body">
-									<button type="button" pButton (click)="selectTicket(ticket)" icon="fa  fa-reply"></button>
-								</template>
-							</p-column>
-							<p-column header="{{ 'CLOSE' | translate }}">
-								<template let-car="rowData" pTemplate type="body">
-									<button type="button" pButton (click)="selectTicket(ticket)" icon="fa fa-times"></button>
-								</template>
-							</p-column>
-							<p-column header="{{ 'REOPEN' | translate }}">
-								<template let-car="rowData" pTemplate type="body">
-									<button type="button" pButton (click)="selectTicket(ticket)" icon="fa fa-retweet"></button>
-								</template>
-							</p-column>
+							<p-column field="department" header="{{ 'DEPARTMENT' | translate }}" [sortable]="true"></p-column>
+							<p-column field="concern" header="{{ 'CONCERN' | translate }}" [sortable]="true" ></p-column>
+							<p-column field="description" header="{{ 'DESCRIPTION' | translate }}" [sortable]="true" ></p-column>
+							<p-column field="status" header="{{ 'STATUS' | translate }}" [sortable]="true" ></p-column>
+							<p-column field="priority" header="{{ 'PRIORITY' | translate }}" [sortable]="true" ></p-column>
+							<p-column field="createdDate" header="{{ 'CREATED_DATE' | translate }}" [sortable]="true" ></p-column>
+							<p-column field="updatedDate" header="{{ 'UPDATED_DATE' | translate }}" [sortable]="true" ></p-column>
+							<p-column field="updatedBy" header="{{ 'UPDATED_BY' | translate }}" [sortable]="true"></p-column>
+							<p-column field="resolvedBy" header="{{ 'RESOLVED_BY' | translate }}" [sortable]="true" ></p-column>
+							<p-column field="ageDays" header="{{ 'AGE_DAYS' | translate }}" [sortable]="true" ></p-column>
 						</p-dataTable>
 					</div>
 				</div>
