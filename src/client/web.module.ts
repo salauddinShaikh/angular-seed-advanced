@@ -59,6 +59,7 @@ import { LmsSingleApprovalComponent } from './app/components/lms/lms-singleappro
 import {TimesheetModule} from './app/components/timesheet/index';
 
 import { CorporateModule } from './app/components/corporate/index';
+import { ProfileModule } from './app/components/profile/index';
 
 import { LoginComponent } from './app/components/login/login.component';
 import { UnauthorizedAccessComponent } from './app/components/errorPages/unauthorizedAccess/unauthorizedAccess.component';
@@ -99,7 +100,8 @@ export function cons() {
     EffectsModule.run(MultilingualEffects),
     EffectsModule.run(NameListEffects),
     TimesheetModule,
-    CorporateModule
+    CorporateModule,
+    ProfileModule
   ],
   declarations: [
     AppComponent,

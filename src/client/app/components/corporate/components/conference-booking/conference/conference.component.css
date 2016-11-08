@@ -16,7 +16,7 @@ p{
 }
 .legend li { 
     float: left;
-    margin-right: 10px; 
+    white-space: nowrap;
 }
 .legend span {
     border: 1px solid #ccc;   
