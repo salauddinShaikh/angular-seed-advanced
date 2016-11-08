@@ -22,8 +22,9 @@
 		<ul class="user-menu" [hidden]="!isUserMenuOpen">
 			<br/>
 			<li>
-				<a href="page_user_profile_1.html">
-					<i class="icon-user"></i> &nbsp;&nbsp; My Profile </a>
+				<a routerLink="/my-profile" routerLinkActive="active">
+					<i class="icon-user"></i>{{ 'MY_PROFILE' | translate }}
+				</a>
 			</li>
 			<li>
 				<a routerLink="/change-password" routerLinkActive="active">
