@@ -10,5 +10,27 @@ import { Router } from '@angular/router';
 })
 
 export class ChangePasswordComponent{
+    oldPassword :string;
+    newPassword :string;
+    confirmPassword :string;
 
+    newPasswordWarning :string ='';
+    oldPasswordWarning :string ='';
+
+//enable submit button on isFormClean === true
+    isFormClean :boolean = false;
+
+    confirmPasswordValidation(){
+        if(this.newPassword !== this.confirmPassword){
+            this.newPasswordWarning = 'Passwords donot match';
+            this.isFormClean = false;
+        } else if (this.newPassword === this.confirmPassword){
+            this.newPasswordWarning = '';
+            this.isFormClean = true;
+        }
+    }
+
+    changePassword(){
+        alert("Password : " + this.confirmPassword);
+    }
 }

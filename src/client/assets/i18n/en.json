@@ -132,6 +132,9 @@
   "SKYPE_ID ":"Skype ID",
 
   "CHANGE_PASSWORD":"Change Password",
+  "OLD_PASSWORD":"Old Password",
+  "NEW_PASSWORD":"New Password",
+  "CONFIRM_PASSWORD":"Confirm Password",
   "PASSWORD_POLICIES":"Password Policies",
   "PASSWORD_POLICY_1":"1. Password must contain at least 7 characters. ",
   "PASSWORD_POLICY_2":"2. Passwords must contain characters from three of the following four categories:",
