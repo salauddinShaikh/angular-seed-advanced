@@ -11,6 +11,7 @@ import { PersonalInfoComponent } from './components/personal-info/personal-info.
 import { EducationComponent } from './components/education/education.component';
 import { CertificationComponent } from './components/certification/certification.component';
 import { AchievementComponent } from './components/achievement/achievement.component';
+import { EmploymentHistoryComponent } from './components/employment-history/employment-history.component';
 
 /** Module Import Declarations */
 let imports = [CommonModule, TranslateModule, BrowserModule];
@@ -21,7 +22,8 @@ let declarations = [
          PersonalInfoComponent,
          EducationComponent,
          CertificationComponent,
-         AchievementComponent 
+         AchievementComponent,
+         EmploymentHistoryComponent 
     ];
 
 /** Providers Declarations*/

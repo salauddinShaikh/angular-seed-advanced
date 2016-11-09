@@ -175,5 +175,13 @@
 
   "ACHIEVEMENTS":"Achievement",
   "ACHIEVEMENT":"Achievement",
-  "ADD_NEW_ACHIEVEMENT":"Add New Achievement"
+  "ADD_NEW_ACHIEVEMENT":"Add New Achievement",
+
+  "EMPLOYMENT_HISTORY":"Employment History",
+  "EMPLOYMENT_DETAILS":"Employment Detail",
+  "DESIGNATION":"Designation",
+  "DURATION":"Duration",
+  "ADD_NEW_EMPLOYMENT":"Add New Employment",
+  "REQUIRES_APPROVAL": "Requires Approval",
+  "LAST_EMPLOYER_DETAILS":"Last Employer Details"
   }
