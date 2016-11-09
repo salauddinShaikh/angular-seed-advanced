@@ -7,6 +7,7 @@ import {BaseComponent} from '../../views/base-component';
 
 /** Other Module Dependencies */
 import * as moment from 'moment/moment';
+import * as _ from 'lodash';
 
 /** Component Declaration */
 @BaseComponent({
@@ -17,6 +18,7 @@ import * as moment from 'moment/moment';
 })
 export class ConferenceComponent implements OnInit {
     events: any[];
+    allEvents: any[];
     header: any;
     selectedEvent: MyEvent;
     dialogVisible: boolean = false;
@@ -29,6 +31,7 @@ export class ConferenceComponent implements OnInit {
         this.selectedEvent = new MyEvent(0, '', '', '', false);
     }
     ngOnInit() {
+      
         this.minTime = '07:00:00';
         this.maxTime = '20:00:00';
         this.headerConfig = {
@@ -36,56 +39,68 @@ export class ConferenceComponent implements OnInit {
             center: 'title',
             right: 'agendaWeek,agendaDay'
         };
-        this.events = [
+        this.allEvents = [
             {
                 'title': 'Inteview',
                 'start': moment().add(2, 'hours'),
                 'end': moment().add(4, 'hours'),
-                'color': '#8877A9'
+                'color': '#8877A9',
+                'conference': 'Caribbean'
             },
             {
                 'title': 'Jenzabar Client call',
                 'start': moment(),
                 'end': moment().add(3, 'hours'),
-                'color': '#3FABA4'
+                'color': '#3FABA4',
+                'conference': 'Dubai'
             },
             {
                 'title': 'Product Meeting',
                 'start': moment().subtract(3, 'hours'),
                 'end': moment().subtract(1, 'hours'),
-                'color': '#FF9655'
+                'color': '#FF9655',
+                'conference': 'Hong Kong'
             },
             {
                 'title': 'Tccc client call',
                 'start': moment().subtract(3, 'hours'),
                 'end': moment().subtract(2, 'hours'),
-                'color': '#3FABA4'
+                'color': '#3FABA4',
+                'conference': 'Dubai'
             },
             {
                 'title': 'Standup Meeting',
                 'start': moment().add(1, 'd').subtract(3, 'hours'),
                 'end': moment().add(1, 'd').subtract(1, 'hours'),
-                'color': '#E7C5F5'
+                'color': '#E7C5F5',
+                'conference': 'Bahamas'
             },
             {
                 'title': 'NGO/NPO Meeting',
                 'start': moment().add(1, 'd').subtract(3, 'hours'),
                 'end': moment().add(1, 'd').subtract(2, 'hours'),
-                'color': '#8877A9'
+                'color': '#8877A9',
+                'conference': 'Caribbean'
             },
             {
                 'title': 'Conference',
                 'start': moment().subtract(1, 'd').subtract(3, 'hours'),
                 'end': moment().subtract(1, 'd').subtract(2, 'hours'),
-                'color': '#D05454'
+                'color': '#D05454',
+                'conference': 'Barcelona'
             },
             {
                 'title': 'Interview',
                 'start': moment().subtract(1, 'd'),
                 'end': moment().subtract(1, 'd').add(3, 'hours'),
-                'color': '#DFBA49'
+                'color': '#DFBA49',
+                'conference': 'Trainning Room'
             }
         ];
+        if (localStorage.getItem('conferenceNewBooking') !== null ) {
+            this.allEvents.push(JSON.parse(localStorage.getItem('conferenceNewBooking')));
+        }
+        this.events = this.allEvents;
         this.conferenceRooms = [{
             name: 'Bahamas',
             color: '#E7C5F5'
@@ -118,14 +133,24 @@ export class ConferenceComponent implements OnInit {
     handleDayClick(event: any) {
         this.router.navigate(['/newBooking']);
     }
+
     handleEventClicked(event: any) {
         this.selectedEvent = event.calEvent;
         this.selectedEvent.start = moment(this.selectedEvent.start).format('DD/MM/YY hh:MM a');
         this.selectedEvent.end = moment(this.selectedEvent.end).format('DD/MM/YY hh:MM a');
-        console.log(this.selectedEvent);
         this.dialogVisible = true;
     }
 
+    getEventByRooms(room: string) {
+        if (room === 'AllRooms') {
+            this.events = this.allEvents;
+        } else {
+            this.events = _.filter(this.allEvents, function (item) {
+                return item.conference === room;
+            });
+        }
+
+    }
 }
 class MyEvent {
     constructor(

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component,  trigger, transition, style, animate, state} from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../shared/services/login.service';
 
@@ -19,6 +19,11 @@ export class SidebarComponent  {
     this._router.navigate(['/login']);
   }
   toggleUserMenu() {
+    if(this.isUserMenuOpen) {
+      $('.user-menu').slideUp();
+    }else {
+       $('.user-menu').slideDown();
+    }
     this.isUserMenuOpen = !this.isUserMenuOpen;
   }
 }
