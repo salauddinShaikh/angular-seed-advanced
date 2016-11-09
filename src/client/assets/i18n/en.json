@@ -137,6 +137,10 @@
   "YEAR_OF_PASSING":"Year Of Passing",
   "SCANNED_COPY":"Scanned Copy",
   "EDUCATION_MESSAGE": "Details of SSC, HSC and Graduation are mandatory",
+  "CERTIFICATE":"Certificate",  
+  "HR_COMMENT":"HR Comments",  
+  "NO_RECORDS": "No Records Found!", 
+  "ADD_NEW": "Add New Education Record",
 
   "CHANGE_PASSWORD":"Change Password",
   "OLD_PASSWORD":"Old Password",

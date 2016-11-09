@@ -1,54 +1,59 @@
 <div class="portlet-body">
     <div class="alert alert-warning message-align">
         {{ 'EDUCATION_MESSAGE' | translate }}
-    </div>    
-    <div>
-        <p-dataTable [value]="education" [responsive]="true" emptyMessage="No Records Found!">
-            <p-column field="class"></p-column>
-            <p-column field="degree"></p-column>
-            <p-column field="grade"></p-column>
-            <p-column field="percentage"></p-column>
-            <p-column field="yearOfPassing"></p-column>
-            <p-column field="nonBillableHours"></p-column>
-            <p-column field="totalHours"></p-column>
-            <p-column field="status"></p-column>
+    </div>  
+    <div *ngIf="education.length == 0">
+        <hr>
+        <h5> {{ 'NO_RECORDS' | translate }}</h5>
+    </div>  
+    <div *ngIf="education.length > 0">
+        <p-dataTable [value]="education" [responsive]="true" emptyMessage="{{ 'NO_RECORDS' | translate }}">
+            <p-column header="{{ 'EDIT' | translate }}"></p-column>
+            <p-column header="{{ 'CLASS' | translate }}" field="class"></p-column>
+            <p-column header="{{ 'DEGREE' | translate }}" field="degree"></p-column>
+            <p-column header="{{ 'GRADE' | translate }}" field="grade"></p-column>
+            <p-column header="{{ 'PERCENTAGE' | translate }}" field="percentage"></p-column>
+            <p-column header="{{ 'YEAR_OF_PASSING' | translate }}" field="yearOfPassing"></p-column>
+            <p-column header="{{ 'CERTIFICATE' | translate }}" field="certificate"></p-column>
+            <p-column header="{{ 'STATUS' | translate }}" field="status"></p-column>
+            <p-column header="{{ 'HR_COMMENT' | translate }}" field="hrComment"></p-column>
         </p-dataTable>
     </div>
-    <div>
+    <div *ngIf="!showDiv">
         <div class="row row-margin">
             <div class="col-md-2 col-margin">
                 <span>{{ 'CLASS' | translate }}</span>
                 <span class="education-req-field"> *</span>
                 <div>
-                    <p-dropdown [options]="class" [style]="{'width':'95%'}"></p-dropdown>
+                    <p-dropdown [options]="class" [style]="{'width':'100%'}"></p-dropdown>
                 </div>
             </div>
             <div class="col-md-2 col-margin">
                 <span>{{ 'DEGREE' | translate }}</span>
                 <span class="education-req-field"> *</span>
-                <div>
-                    <input type="text" pInputText />
+                <div class="form-group">                
+                     <input type="text" class="form-control" placeholder=""> 
                 </div>
             </div>
             <div class="col-md-2 col-margin">
                 <span>{{ 'GRADE' | translate }}</span>
                 <span class="education-req-field"> *</span>
                 <div>
-                    <p-dropdown [options]="grade" [style]="{'width':'95%'}"></p-dropdown>
+                    <p-dropdown [options]="grade" [style]="{'width':'100%'}"></p-dropdown>
                 </div>
             </div>
             <div class="col-md-2 col-margin">
                 <span>{{ 'PERCENTAGE' | translate }}</span>
                 <span class="education-req-field"> *</span>
                 <div>
-                    <input type="text" pInputText />
+                    <input type="text" class="form-control" placeholder=""> 
                 </div>
             </div>
             <div class="col-md-2 col-margin">
                 <span>{{ 'YEAR_OF_PASSING' | translate }}</span>
                 <span class="education-req-field"> *</span>
                 <div>
-                    <input type="text" pInputText />
+                    <input type="text" class="form-control" placeholder=""> 
                 </div>
             </div>
             <div class="col-md-2 col-margin">
@@ -60,8 +65,11 @@
             </div>
         </div>
         <div class="row row-margin button-margin">
-            <button pButton type="text" label="Submit"></button>
-            <button pButton type="text" label="Cancel" (click)="cancel()"></button>
+            <button pButton type="text" label="{{ 'SUBMIT' | translate }}" (click)="submit()"></button>
+            <button pButton type="text" label="{{ 'CANCEL' | translate }}" (click)="cancel()"></button>
         </div>
+    </div>
+    <div class="row row-margin button-margin" *ngIf="showDiv">
+        <button pButton type="text" icon="fa fa-plus" (click)="onAddClick()" label="{{ 'ADD_NEW' | translate }}"></button>
     </div>
 </div>

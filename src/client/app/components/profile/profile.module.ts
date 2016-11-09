@@ -1,5 +1,6 @@
 /** Angular Dependencies */
 import { NgModule } from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
 
 /** Other Module Dependencies */
 import {CommonModule, TranslateModule} from '../../shared/index';
@@ -10,7 +11,7 @@ import { PersonalInfoComponent } from './components/personal-info/personal-info.
 import { EducationComponent } from './components/education/education.component';
 
 /** Module Import Declarations */
-let imports = [CommonModule, TranslateModule];
+let imports = [CommonModule, TranslateModule, BrowserModule];
 
 /** Component/Directive Declarations */
 let declarations = [
