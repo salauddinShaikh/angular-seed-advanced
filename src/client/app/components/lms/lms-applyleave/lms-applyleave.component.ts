@@ -1,6 +1,7 @@
 import { BaseComponent } from '../../../frameworks/core/index';
 import { SelectItem } from 'primeng/primeng';
 
+
 class FinalLeaveData {
   ID: number;
   start: Date;
@@ -8,6 +9,8 @@ class FinalLeaveData {
   numDays: number;
   leave: string;
   reason: string;
+  empName: string;
+  status: string;
 }
 
 @BaseComponent({
@@ -53,6 +56,7 @@ export class LmsApplyLeavesComponent {
     let today = new Date();
     this.end = today;
     this.start = today;
+
   }
 
 
@@ -60,28 +64,34 @@ export class LmsApplyLeavesComponent {
     if (!this.isHalfDay) {
       this.numberofdays = this.dayDiffCalc(this.start, this.end);
       this.showNumDays = this.numberofdays + 1;
+      
     } else {
       if (this.isHalfDay) {
-        this.numberofdays = this.showNumDays = 1;
+        this.numberofdays = this.showNumDays = 0.5;
+        
       }
     }
 
     if (this.numberofdays < 0) {
       this.warning = 'Check the Start Date and End Date!';
       this.formIsClean = false;
+      
     } else {
       if (!this.reason) {
         this.warning = 'Reason cannot be left blank!';
         this.formIsClean = false;
+        
       } else {
         if (this.reason) {
           this.warning = '';
           this.formIsClean = true;
+          
         }
       }
     }
 
     this.fillFinalLeaveData();
+    
   }
 
   dayDiffCalc(first, second) {
@@ -91,39 +101,50 @@ export class LmsApplyLeavesComponent {
 
   fillFinalLeaveData() {
     this.finalLeaveData = [];
-    let buffData: any = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
+    let buffData: any = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '', empName:'', status:'' };
     let bufDate: number = this.start.getDate();
-
+    
     if (this.formIsClean) {
+      
       if (!this.isHalfDay) {
         for (var i = 0; i <= this.numberofdays; i++) {
           buffData.ID = i;
           buffData.start = (bufDate + i) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
           buffData.end = (bufDate + i) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
           buffData.numDays = 1;
-          buffData.leave = this.selectedLeave.name;
+          buffData.leave = this.selectedLeave;
           buffData.reason = this.reason;
+          buffData.empName = 'Employee Name';
+          buffData.status = 'Pending';
+
           this.finalLeaveData.push(buffData);
           buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
-        }
+          
+          }
+        this.showNumDays = this.numberofdays = this.finalLeaveData.length;
+        
       } else {
         if (this.isHalfDay) {
-          this.numberofdays = 1;
+          this.numberofdays = 0.5;
 
           buffData.ID = 0;
           buffData.start = (bufDate) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
           buffData.end = (bufDate) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
-          buffData.numDays = 1;
-          buffData.leave = this.selectedLeave.name;
+          buffData.numDays = this.numberofdays;
+          buffData.leave = this.selectedLeave;
           buffData.reason = this.reason;
+          buffData.empName = 'Employee Name';
+          buffData.status = 'Pending';
           this.finalLeaveData.push(buffData);
           buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
+          this.showNumDays = this.numberofdays = 0.5;
+          
         }
       }
     }
-    this.showNumDays = this.numberofdays = this.finalLeaveData.length;
+    
     this.leaveVisible = true;
-    console.log(JSON.stringify(this.finalLeaveData));
+    
   }
 
   delLeaveRec(event) {
@@ -193,8 +214,29 @@ export class LmsApplyLeavesComponent {
 
 
   updateEndDate(event) {
-    if (this.isHalfDay) {
       this.end = this.start;
+  }
+
+
+  cancelPressed(){
+    this.finalLeaveData = [];
+    this.end = this.start = new Date();
+    this.numberofdays = this.showNumDays = 0;
+    this.selectedLeave = { label: 'Select', value: { id: 0, name: 'Select' } };
+    this.warning = '';
+    this.formIsClean = false;
+  }
+
+  submitPressed(event){
+    if (this.formIsClean) {
+      window["localforage"].setItem('appliedLeave', this.finalLeaveData, (err, value) => {
+        console.log("Success! Set values using localforage");
+        this.cancelPressed();
+        this.warning = 'Leave application submitted.';
+      });
+      window["localforage"].getItem('appliedLeave').then((value)=>{
+        console.log("Success! Got values using localforage");
+      });
     }
   }
 }

@@ -80,8 +80,8 @@
                             <h5 class="font-blue">Leave Approved</h5>
                         </div>
                         <p-dataTable [value]="leaves" [responsive]="true">
-                            <p-column field="type" header="Type"></p-column>
-                            <p-column field="numberofleaves" header="No. of Leaves"></p-column>
+                            <p-column field="leave.name" header="Type"></p-column>
+                            <p-column field="numDays" header="No. of Leaves"></p-column>
                             <p-column field="reason" header="Reason"></p-column>
                             <p-column field="start" header="Start Date"></p-column>
                             <p-column field="end" header="End Date"></p-column>
