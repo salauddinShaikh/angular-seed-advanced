@@ -1,5 +1,6 @@
 /** Angular Dependencies */
 import { NgModule } from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
 
 /** Other Module Dependencies */
 import {CommonModule, TranslateModule} from '../../shared/index';
@@ -8,15 +9,19 @@ import {CommonModule, TranslateModule} from '../../shared/index';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 import { EducationComponent } from './components/education/education.component';
+import { CertificationComponent } from './components/certification/certification.component';
+import { AchievementComponent } from './components/achievement/achievement.component';
 
 /** Module Import Declarations */
-let imports = [CommonModule, TranslateModule];
+let imports = [CommonModule, TranslateModule, BrowserModule];
 
 /** Component/Directive Declarations */
 let declarations = [
          MyProfileComponent, 
          PersonalInfoComponent,
-         EducationComponent 
+         EducationComponent,
+         CertificationComponent,
+         AchievementComponent 
     ];
 
 /** Providers Declarations*/

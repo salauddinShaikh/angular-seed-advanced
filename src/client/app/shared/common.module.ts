@@ -6,7 +6,7 @@ import { TranslateLoader } from 'ng2-translate';
 /** Third party Dependencies */
 import { StoreModule } from '@ngrx/store';
 
-import { ScheduleModule, DataTableModule, SharedModule, ButtonModule, InputTextareaModule, CalendarModule, DropdownModule, DialogModule, ConfirmDialogModule, GrowlModule, ConfirmationService, ProgressBarModule } from 'primeng/primeng';
+import { ScheduleModule, DataTableModule, SharedModule, ButtonModule, InputTextareaModule, CalendarModule, DropdownModule, DialogModule, ConfirmDialogModule, GrowlModule, ConfirmationService, ProgressBarModule, CheckboxModule } from 'primeng/primeng';
 
 /** Framework Dependencies */
 import { MultilingualModule, translateFactory } from '../frameworks/i18n/multilingual.module';
@@ -35,7 +35,8 @@ let primeNgComponents = [
     DialogModule,
     ConfirmDialogModule,
     GrowlModule,
-    ProgressBarModule
+    ProgressBarModule,
+    CheckboxModule
 ];
 
 /**
