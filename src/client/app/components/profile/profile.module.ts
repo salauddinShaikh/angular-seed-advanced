@@ -7,6 +7,7 @@ import {CommonModule, TranslateModule} from '../../shared/index';
 /** Module level Dependencies */
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
+import { EducationComponent } from './components/education/education.component';
 
 /** Module Import Declarations */
 let imports = [CommonModule, TranslateModule];
@@ -14,7 +15,8 @@ let imports = [CommonModule, TranslateModule];
 /** Component/Directive Declarations */
 let declarations = [
          MyProfileComponent, 
-         PersonalInfoComponent 
+         PersonalInfoComponent,
+         EducationComponent 
     ];
 
 /** Providers Declarations*/

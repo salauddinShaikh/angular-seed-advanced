@@ -12,7 +12,9 @@
 		<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
 		<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 		<div class="profile hidden-lg hidden-sm hidden-md">
-			<div class="profile-image"></div>
+			<div>
+				<i class="fa fa-user icon-size"></i>
+			</div>
 			<a id="profile-options" (click)="toggleUserMenu()">
 				<span class="profile-name">Jane Williams</span>
 				<i *ngIf="isUserMenuOpen" class="fa fa-chevron-up" aria-hidden="true"></i>
@@ -23,7 +25,7 @@
 			<br/>
 			<li>
 				<a routerLink="/my-profile" routerLinkActive="active">
-					<i class="icon-user"></i>{{ 'MY_PROFILE' | translate }}
+					<i class="icon-user"></i> &nbsp;&nbsp; {{ 'MY_PROFILE' | translate }}
 				</a>
 			</li>
 			<li>

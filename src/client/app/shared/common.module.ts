@@ -5,6 +5,7 @@ import { TranslateLoader } from 'ng2-translate';
 
 /** Third party Dependencies */
 import { StoreModule } from '@ngrx/store';
+
 import { ScheduleModule, DataTableModule, SharedModule, ButtonModule, InputTextareaModule, CalendarModule, DropdownModule, DialogModule, ConfirmDialogModule, GrowlModule, ConfirmationService, ProgressBarModule } from 'primeng/primeng';
 
 /** Framework Dependencies */
