@@ -142,5 +142,11 @@
   "PASSWORD_POLICY_2_2":"-Lowercase characters(a through z) ",
   "PASSWORD_POLICY_2_3":"-Digits (0 through 9)",
   "PASSWORD_POLICY_2_4":"-Nonalphanumeric characters: ~!@#$%^&*_-+=`|(){}[]:;'<>,.?/",
-  "PASSWORD_POLICY_3":"3. Password must not contain your first or last name."
+  "PASSWORD_POLICY_3":"3. Password must not contain your first or last name.",
+
+  "SYSTEM":"System",
+
+  "UNAUTHORIZED_HEADER":"Unauthorized!",
+  "UNAUTHORIZED_MSG_1":"You are not authorized to view this page.",
+  "UNAUTHORIZED_MSG_2":"Please try again with a valid username and password."
   }
