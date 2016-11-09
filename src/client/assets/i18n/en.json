@@ -183,5 +183,14 @@
   "DURATION":"Duration",
   "ADD_NEW_EMPLOYMENT":"Add New Employment",
   "REQUIRES_APPROVAL": "Requires Approval",
-  "LAST_EMPLOYER_DETAILS":"Last Employer Details"
+  "LAST_EMPLOYER_DETAILS":"Last Employer Details",
+  "SKILL_SET_MESSAGE": "Details of Skill Type and Skills are mandatory",
+  "SKILL_TYPE": "Skill Type",
+  "SKILLS": "Skills",
+  "ENVIRONMENT":"Environment",
+  "RESPONSIBILITES":"Responsibilites",
+  "ADD_NEW_EXPERIENCE":"Add New Experience",
+  "EXPERIENCE_MESSAGE": "All field mark * are mandatory",
+  "ROLE":"Role",
+  "CLIENT":"Client"
   }
