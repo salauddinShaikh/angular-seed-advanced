@@ -7,6 +7,7 @@ import { TranslateLoader } from 'ng2-translate';
 import { StoreModule } from '@ngrx/store';
 
 import { ScheduleModule, DataTableModule, SharedModule, ButtonModule, InputTextareaModule, CalendarModule, DropdownModule, DialogModule, ConfirmDialogModule, GrowlModule, ConfirmationService, ProgressBarModule } from 'primeng/primeng';
+import { NotificationComponent } from './components/notification/notification.component';
 
 /** Framework Dependencies */
 import { MultilingualModule, translateFactory } from '../frameworks/i18n/multilingual.module';
@@ -50,6 +51,7 @@ let imports = [StoreModule.provideStore({
 /**  Exported components declaration   */
 let exportComponents = [
     IfAuthorize,
+    NotificationComponent,
     ...primeNgComponents
 ];
 
@@ -57,7 +59,8 @@ let exportComponents = [
  * Components/ Directives declaration
  */
 let declarations = [
-    IfAuthorize
+    IfAuthorize,
+    NotificationComponent,
 ];
 
 /**
