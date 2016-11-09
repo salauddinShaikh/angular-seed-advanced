@@ -118,6 +118,8 @@
   "MY_BOOKING_ALL_EVENT":"All Events",
 
   "MY_PROFILE":"My Profile",
+  "PROFILE_COMPLETENESS":"Profile Completeness",
+  "PERSONAL_INFO":"Personal Info",
   "CURRENT_ADDRESS":"Current Address",
   "CONTACT_NO":"Contact No",
   "EMAIL":"Email",
@@ -141,6 +143,7 @@
   "HR_COMMENT":"HR Comments",  
   "NO_RECORDS": "No Records Found!", 
   "ADD_NEW": "Add New Education Record",
+  "EDUCATION":"Education",
 
   "CHANGE_PASSWORD":"Change Password",
   "OLD_PASSWORD":"Old Password",
@@ -159,5 +162,18 @@
 
   "UNAUTHORIZED_HEADER":"Unauthorized!",
   "UNAUTHORIZED_MSG_1":"You are not authorized to view this page.",
-  "UNAUTHORIZED_MSG_2":"Please try again with a valid username and password."
+  "UNAUTHORIZED_MSG_2":"Please try again with a valid username and password.",
+
+  "CERTIFICATION" :"Certification",
+  "CODE":"Code",
+  "CERTIFICATION_DATE": "Certification Date",
+  "DOCUMENT":"Document",
+  "CERTIFICATION_CODE":"Cerification Code",  
+  "FROM_ESPL":"From Espl",
+  "UPLOAD_CERTIFICATE":"Upload Certificate",
+  "ADD_NEW_CERTIFICATE":"Add New Cerificate",
+
+  "ACHIEVEMENTS":"Achievement",
+  "ACHIEVEMENT":"Achievement",
+  "ADD_NEW_ACHIEVEMENT":"Add New Achievement"
   }
