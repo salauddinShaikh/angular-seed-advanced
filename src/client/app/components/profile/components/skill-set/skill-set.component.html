@@ -1,7 +1,4 @@
 <div class="portlet-body">
-	<div class="alert alert-warning message-align">
-		{{ 'SKILL_SET_MESSAGE' | translate }}
-	</div>
 	<div *ngIf="skillSet.length == 0">
 		<hr>
 		<h5> {{ 'NO_RECORDS' | translate }}</h5>
@@ -17,6 +14,9 @@
 		</p-dataTable>
 	</div>
 	<div class="row row-margin">
+		<div class="alert alert-warning message-align">
+			{{ 'SKILL_SET_MESSAGE' | translate }}
+		</div>
 		<div class="col-md-2 col-margin">
 			<span>{{ 'SKILL_TYPE' | translate }}</span>
 			<span class="skill-set-req-field"> *</span>
@@ -28,7 +28,7 @@
 			<span>{{ 'SKILLS' | translate }}</span>
 			<span class="skill-set-req-field"> *</span>
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" [(ngModel)]="skills" class="form-control" placeholder="">
 			</div>
 		</div>
 	</div>

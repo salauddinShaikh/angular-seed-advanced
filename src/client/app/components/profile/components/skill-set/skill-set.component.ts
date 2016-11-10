@@ -8,8 +8,10 @@ import { BaseComponent } from '../views/base-component';
 /** Third Party Dependencies */
 import { SelectItem } from 'primeng/primeng';
 
-/** Module Level Dependencies */
 
+
+/** Module Level Dependencies */
+import { SkillSet } from '../../entity/skill-set';
 
 /** Component Declaration */
 @BaseComponent({
@@ -19,18 +21,18 @@ import { SelectItem } from 'primeng/primeng';
   styleUrls: ['skill-set.component.css']
 })
 export class SkillSetComponent implements OnInit {
-  skillSet: any[];
+  skillSet: SkillSet[];
   skillTypes: SelectItem[];
   showDiv: boolean;
 
   constructor(
     private router: Router) {
-    this.skillSet = [];
     this.skillTypes = [];
     this.showDiv = true;
   }
 
   ngOnInit(): void {
+    this.skillSet = [];
     this.skillTypes.push({ label: 'Select Skill Type', value: null });
     this.skillTypes.push({ label: 'Language/Technology', value: { id: 1, name: 'Language/Technology' } });
     this.skillTypes.push({ label: 'Database', value: { id: 2, name: 'Database' } });
@@ -45,7 +47,7 @@ export class SkillSetComponent implements OnInit {
       skillType: 'Language / Technology',
       skills: 'C#',
       status: 'status',
-      comments: 'hr Comment',
+      comments: 'Comment',
       approvers: 'Lead'
     }];
     this.showDiv = true;

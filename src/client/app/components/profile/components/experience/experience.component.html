@@ -17,62 +17,62 @@
 		</p-dataTable>
 	</div>
 	<div *ngIf="!showDiv">
-		<div class="alert alert-warning message-align">
-			{{ 'EXPERIENCE_MESSAGE' | translate }}
-		</div>
 		<div class="row row-margin">
+			<div class="alert alert-warning message-align">
+				{{ 'EXPERIENCE_MESSAGE' | translate }}
+			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'PROJECT' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="form-group div-margin">
-					<input type="text" class="form-control" placeholder="">
+					<input type="text" [(ngModel)]="project" class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'CLIENT' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="form-group div-margin">
-					<input type="text" class="form-control" placeholder="">
+					<input type="text" [(ngModel)]="client" class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'START_DATE' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="form-group div-margin">
-					<p-calendar [showIcon]="true"></p-calendar>
+					<p-calendar [(ngModel)]="startDate" [showIcon]="true"></p-calendar>
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'END_DATE' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="div-margin">
-					<p-calendar [showIcon]="true"></p-calendar>
+					<p-calendar  [(ngModel)]="endDate"  [showIcon]="true"></p-calendar>
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'ROLE' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="div-margin">
-					<input type="text" class="form-control" placeholder="">
+					<input type="text"  [(ngModel)]="role"  class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'ENVIRONMENT' | translate }}</span>
 				<div class="div-margin">
-					<input type="text" class="form-control" placeholder="">
+					<input type="text"  [(ngModel)]="environment"  class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'RESPONSIBILITES' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="div-margin">
-					<input type="text" class="form-control" placeholder="">
+					<input type="text"  [(ngModel)]="responsibilites"  class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'DESCRIPTION' | translate }}</span>
 				<div class="div-margin">
-					<input type="text" class="form-control" placeholder="">
+					<input type="text"  [(ngModel)]="description"  class="form-control" placeholder="">
 				</div>
 			</div>
 		</div>

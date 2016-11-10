@@ -1,6 +1,7 @@
 /** Angular Dependencies */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
 
 /** Other Module Dependencies */
 import { CommonModule, TranslateModule } from '../../shared/index';
@@ -16,7 +17,7 @@ import { SkillSetComponent } from './components/skill-set/skill-set.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 
 /** Module Import Declarations */
-let imports = [CommonModule, TranslateModule, BrowserModule];
+let imports = [FormsModule,CommonModule, TranslateModule, BrowserModule];
 
 /** Component/Directive Declarations */
 let declarations = [
