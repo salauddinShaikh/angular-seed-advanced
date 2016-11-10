@@ -13,27 +13,27 @@ export const LmsRoutes: Route[] = [
     component: LmsHolidaysComponent
   },
   {
-    path: 'myleaves',
+    path: 'my-leaves',
     component: LmsLeavesComponent
   },
   {
-    path: 'applyleave',
+    path: 'apply-leave',
     component: LmsApplyLeavesComponent
   },
   {
-    path: 'approveleave',
+    path: 'approve-leave',
     component: LmsApproveLeavesComponent
   },
   {
-    path: 'bulkapproval',
+    path: 'bulk-approval',
     component: LmsBulkApproveComponent
   },
   {
-    path: 'updateleave',
+    path: 'update-leave',
     component: LmsUpdateLeavesComponent
   },
   {
-    path: 'singleapproval',
+    path: 'single-approval',
     component: LmsSingleApprovalComponent
   }
 ];
