@@ -13,9 +13,9 @@ export class LmsLeavesComponent {
 
   ngOnInit() {
     this.leaves = [
-      { employee: 'Person1 LName', startdate: '22-09-2016', enddate: '23-09-2016', numberofleaves: 2, status: 'Approved' },
-      { employee: 'Person1 LName', startdate: '22-08-2016', enddate: '22-08-2016', numberofleaves: 1, status: 'Approved' },
-      { employee: 'Person1 LName', startdate: '02-10-2016', enddate: '03-10-2016', numberofleaves: 2, status: 'Approved' }
+      { empName: 'Person1 LName', start: '22-09-2016', end: '23-09-2016', numDays: 2, status: 'Approved' },
+      { empName: 'Person1 LName', start: '22-08-2016', end: '22-08-2016', numDays: 1, status: 'Approved' },
+      { empName: 'Person1 LName', start: '02-10-2016', end: '03-10-2016', numDays: 2, status: 'Approved' }
     ];
   }
 

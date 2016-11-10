@@ -12,3 +12,16 @@
 .warning{
     color: red;
 }
+
+table{
+    width: 100%;
+    border-color: transparent;
+    padding: 5px;
+    font-size: 12pt;
+}
+
+.empInfo{
+    color: rgb(68,68,68);
+    font-size: 10pt;
+    font-weight: bolder;
+}

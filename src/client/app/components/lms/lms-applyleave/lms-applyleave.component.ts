@@ -39,7 +39,7 @@ export class LmsApplyLeavesComponent {
   startDateDisabled: boolean;
   endDateDisabled: boolean;
   isHalfDay: boolean;
-  leaveVisible = false;
+  leaveVisible :boolean = true;
   formIsClean: boolean = false;
 
   constructor() {
@@ -60,52 +60,19 @@ export class LmsApplyLeavesComponent {
   }
 
 
-  addLeaves(event) {
-    if (!this.isHalfDay) {
-      this.numberofdays = this.dayDiffCalc(this.start, this.end);
-      this.showNumDays = this.numberofdays + 1;
-      
-    } else {
-      if (this.isHalfDay) {
-        this.numberofdays = this.showNumDays = 0.5;
-        
-      }
-    }
-
-    if (this.numberofdays < 0) {
-      this.warning = 'Check the Start Date and End Date!';
-      this.formIsClean = false;
-      
-    } else {
-      if (!this.reason) {
-        this.warning = 'Reason cannot be left blank!';
-        this.formIsClean = false;
-        
-      } else {
-        if (this.reason) {
-          this.warning = '';
-          this.formIsClean = true;
-          
-        }
-      }
-    }
-
-    this.fillFinalLeaveData();
-    
-  }
 
   dayDiffCalc(first, second) {
-    var dayCount = Math.round((second - first) / (1000 * 60 * 60 * 24));
-    return dayCount + 1;
+    this.numberofdays = Math.round((second - first) / (1000 * 60 * 60 * 24));
+    this.showNumDays = this.numberofdays + 1;
   }
 
   fillFinalLeaveData() {
     this.finalLeaveData = [];
-    let buffData: any = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '', empName:'', status:'' };
+    let buffData: any = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '', empName: '', status: '' };
     let bufDate: number = this.start.getDate();
-    
+
     if (this.formIsClean) {
-      
+
       if (!this.isHalfDay) {
         for (var i = 0; i <= this.numberofdays; i++) {
           buffData.ID = i;
@@ -119,14 +86,12 @@ export class LmsApplyLeavesComponent {
 
           this.finalLeaveData.push(buffData);
           buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
-          
-          }
+        }
         this.showNumDays = this.numberofdays = this.finalLeaveData.length;
-        
+
       } else {
         if (this.isHalfDay) {
           this.numberofdays = 0.5;
-
           buffData.ID = 0;
           buffData.start = (bufDate) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
           buffData.end = (bufDate) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
@@ -138,13 +103,14 @@ export class LmsApplyLeavesComponent {
           this.finalLeaveData.push(buffData);
           buffData = { ID: 0, start: '', end: '', numDays: 0, leave: '', reason: '' };
           this.showNumDays = this.numberofdays = 0.5;
-          
+
         }
       }
     }
-    
-    this.leaveVisible = true;
-    
+    if (this.formIsClean && (this.finalLeaveData.length > 0)) {
+      this.leaveVisible = false;
+    }
+
   }
 
   delLeaveRec(event) {
@@ -162,6 +128,9 @@ export class LmsApplyLeavesComponent {
     }
     this.finalLeaveData.pop();
     this.showNumDays = this.numberofdays = this.finalLeaveData.length;
+    if (this.numberofdays > 0) {
+      this.leaveVisible = false;
+    }
   }
 
   leaveTypeChanged(event) {
@@ -213,28 +182,62 @@ export class LmsApplyLeavesComponent {
   }
 
 
-  updateEndDate(event) {
-      this.end = this.start;
+  startSelected(event) {
+    this.end = this.start;
   }
 
+  endSelected(event) {
+    this.dayDiffCalc(this.start, this.end);
+  }
 
-  cancelPressed(){
+  addLeaves(event) {
+    if (!this.isHalfDay) {
+      this.dayDiffCalc(this.start, this.end);
+    } else {
+      if (this.isHalfDay) {
+        this.numberofdays = this.showNumDays = 0.5;
+      }
+    }
+    if (this.numberofdays < 0) {
+      this.warning = 'Check the Start Date and End Date!';
+      this.formIsClean = false;
+    } else {
+      if (!this.reason) {
+        this.warning = 'Reason cannot be left blank!';
+        this.formIsClean = false;
+
+      } else {
+        if (this.reason) {
+          this.warning = '';
+          this.formIsClean = true;
+
+        }
+      }
+    }
+    this.fillFinalLeaveData();
+
+    this.end = this.start = new Date();
+  }
+
+  cancelPressed() {
     this.finalLeaveData = [];
     this.end = this.start = new Date();
     this.numberofdays = this.showNumDays = 0;
     this.selectedLeave = { label: 'Select', value: { id: 0, name: 'Select' } };
     this.warning = '';
+    this.reason = '';
     this.formIsClean = false;
+    this.leaveVisible = true;
   }
 
-  submitPressed(event){
+  submitPressed(event) {
     if (this.formIsClean) {
       window["localforage"].setItem('appliedLeave', this.finalLeaveData, (err, value) => {
         console.log("Success! Set values using localforage");
         this.cancelPressed();
         this.warning = 'Leave application submitted.';
       });
-      window["localforage"].getItem('appliedLeave').then((value)=>{
+      window["localforage"].getItem('appliedLeave').then((value) => {
         console.log("Success! Got values using localforage");
       });
     }

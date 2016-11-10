@@ -25,26 +25,26 @@
                     <div class="portlet-body">
                         <h4> {{ 'REQUESTOR_DETAILS' | translate }} </h4>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table>
                                 <tbody>
                                     <tr>
                                         <td> Employee ID </td>
-                                        <td> 24568 </td>
+                                        <td class="empInfo">24568 </td>
                                     </tr>
                                     <tr>
                                         <td> Employee Name </td>
-                                        <td> Person1 LName </td>
+                                        <td class="empInfo"> PERSON LNAME</td>
                                     </tr>
                                     <tr>
                                         <td> Department </td>
-                                        <td> EBS </td>
+                                        <td class="empInfo"> EBS</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <h4> {{ 'ACTIVE_ON_PROJECTS' | translate }} </h4>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table>
                                 <thead>
                                     <tr>
                                         <th>Project</th>
@@ -54,11 +54,11 @@
                                 <tbody>
                                     <tr>
                                         <td> RMS </td>
-                                        <td> Sagar Shelar </td>
+                                        <td> <span class="empInfo">Sagar Shelar</span> </td>
                                     </tr>
                                     <tr>
                                         <td> PLSV 1 </td>
-                                        <td> Some Person </td>
+                                        <td> <span class="empInfo">Some Person</span> </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -85,7 +85,7 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label"> {{ 'LEAVE_TYPE' | translate }} </label>
+                                    <label class="control-label"> {{ 'LEAVE_TYPE' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span></label>
                                     <div>
                                         <p-dropdown [options]="leaves" (onChange)="leaveTypeChanged($event)" [(ngModel)]="selectedLeave" [autoWidth]="true" [required]="true"></p-dropdown>
                                     </div>
@@ -93,7 +93,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label"> {{ 'NUMBER_LEAVES' | translate }} </label>
+                                    <label class="control-label"> {{ 'NUMBER_LEAVES' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span> </label>
                                     <div>
                                         <input type="text" pInputText [(ngModel)]="showNumDays" [disabled]="true" styleClass="styleForm" />
                                     </div>
@@ -103,23 +103,23 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label"> {{ 'START_DATE' | translate }} </label>
+                                    <label class="control-label"> {{ 'START_DATE' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span> </label>
                                     <div>
-                                        <p-calendar dateFormat="dd/mm/yy" (onSelect)="updateEndDate($event)" [(ngModel)]="start" [disabled]="startDateDisabled" [showIcon]="true"></p-calendar>
+                                        <p-calendar dateFormat="dd/mm/yy" (onSelect)="startSelected($event)" [(ngModel)]="start" [disabled]="startDateDisabled" [showIcon]="true"></p-calendar>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label"> {{ 'END_DATE' | translate }} </label>
+                                    <label class="control-label"> {{ 'END_DATE' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span> </label>
                                     <div>
-                                        <p-calendar dateFormat="dd/mm/yy" [minDate]="start" [(ngModel)]="end" [disabled]="endDateDisabled" [showIcon]="true"></p-calendar>
+                                        <p-calendar dateFormat="dd/mm/yy" (onSelect)="endSelected($event)" [minDate]="start" [(ngModel)]="end" [disabled]="endDateDisabled" [showIcon]="true"></p-calendar>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label"> {{ 'REASON' | translate }} </label>
+                                    <label class="control-label"> {{ 'REASON' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span> </label>
                                     <div>
                                         <textarea [(ngModel)]="reason" class="fullWidth"></textarea>
                                     </div>
@@ -129,7 +129,7 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <p-dataTable [value]="finalLeaveData" [responsive]="true">
+                                    <p-dataTable [value]="finalLeaveData" [responsive]="true" [hidden]="leaveVisible">
                                         <p-column field="leave.name" header=" {{ 'LEAVE_TYPE' | translate }} " [sortable]="false"></p-column>
                                         <p-column field="numDays" header=" {{ 'NO_LEAVES' | translate }} " [sortable]="false"></p-column>
                                         <p-column field="reason" header=" {{ 'REASON' | translate }} " [sortable]="false"></p-column>
