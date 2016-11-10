@@ -211,5 +211,12 @@
   "NOMINEE_1_RELATION_EMP": "Nominee 1 Relationship with Emp",
   "NOMINEE_2_RELATION_EMP": "Nominee 2 Relationship with Emp",
   "NOMINEES":"Nominees",
-  "NOMINEE_INFO": "I hereby Nominate above nominees for all financials related to organization including Provident Fund, Medical, Salary & Full & Final"
+  "NOMINEE_INFO": "I hereby Nominate above nominees for all financials related to organization including Provident Fund, Medical, Salary & Full & Final",
+  "IDENTITY_PROOFS":"Identity Proofs",
+  "IDENTITY_TYPE":"Identity Type",
+  "VALUE":"Value",
+  "ADD_NEW_ID_PROOFS":"Add New ID Proof Details",
+  "ADHAAR_CARD_NUMBER":"Adhaar Card Number",
+  "PAN_CARD": "PAN Card",
+  "VOTER_ID":"Voter ID"
 }

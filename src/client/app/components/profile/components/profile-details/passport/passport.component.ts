@@ -15,7 +15,7 @@ import {BaseComponent} from '../../views/base-component';
   templateUrl: 'passport.component.html',
   styleUrls:['passport.component.css'] 
 })
-export class PassportComponent implements OnInit {
+export class PassportComponent {
 
   employmentHistory: any[];
     passport: any[];

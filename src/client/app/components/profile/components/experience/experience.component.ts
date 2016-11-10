@@ -5,9 +5,6 @@ import { Router } from '@angular/router';
 /** Framework Dependencies */
 import { BaseComponent } from '../views/base-component';
 
-/** Third Party Dependencies */
-import { SelectItem } from 'primeng/primeng';
-
 /** Module Level Dependencies */
 import { Experience } from '../../entity/experience';
 
