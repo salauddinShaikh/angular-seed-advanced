@@ -14,13 +14,14 @@
     margin-top: 5px;
 }
 .div-actions {   
-    font-size: 15px;
+    font-size: 11px;
     font-style: italic;
     color: #5599d4;
     font-weight: bold;
 }
 .title {
     font-weight: bold;
+    font-size: 13px !important;
     color: #525252 !important;    
 }
 .border-color {    
@@ -35,4 +36,10 @@
 .detail-table tr td:first-child {
     background: #F5F5E7 !important;
     font-weight: 600;
+}
+.icon-css {
+    float: right !important;
+    margin-left: 10px !important;
+    font-size: 15px !important;
+    color: #666 !important;
 }

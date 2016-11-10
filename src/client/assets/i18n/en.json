@@ -184,6 +184,12 @@
   "ADD_NEW_EMPLOYMENT":"Add New Employment",
   "REQUIRES_APPROVAL": "Requires Approval",
   "LAST_EMPLOYER_DETAILS":"Last Employer Details",
+  "FIRST_MONTH_SALARY_SLIP":"1st Month Salary Slip",
+  "SECOND_MONTH_SALARY_SLIP":"2st Month Salary Slip",
+  "THIRD_MONTH_SALARY_SLIP":"3st Month Salary Slip",
+  "EXP_LETTER_ONE":"Employer Relieving/Exp Letter One",
+  "EXP_LETTER_TWO":"Employer Relieving/Exp Letter Two",
+  
   "SKILL_SET_MESSAGE": "Details of Skill Type and Skills are mandatory",
   "SKILL_TYPE": "Skill Type",
   "SKILLS": "Skills",
