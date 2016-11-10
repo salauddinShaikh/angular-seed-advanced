@@ -210,6 +210,11 @@
   "CURRENT_ADDRESS_PROOF":"Current Address Proof",
   "PERMANENT_ADDRESS":"Permanent Address",
   "PERMANENT_ADDRESS_PROOF":"Permanent Address Proof",
-  "UAN_NUMBER":"UAN Number"
+  "UAN_NUMBER":"UAN Number",
+
+  "PASSPORT":"Passport",
+  "PASSPORT_NUMBER":"Passport Number",
+  "PASSPORT_EXPIRY_DATE":"Passport Expiry Date",
+  "PASSPORT_NO":"Passport No"
 
   }

@@ -19,6 +19,7 @@ import { ProfileDetailsComponent } from './components/profile-details/profile-de
 import { VisaComponent } from './components/profile-details/visa/visa.component';
 import { ProfileAddressComponent } from './components/profile-details/profile-address/profile-address.component';
 import { UANComponent } from './components/profile-details/uan/uan.component';
+import { PassportComponent } from './components/profile-details/passport/passport.component';
 /** Module Import Declarations */
 let imports = [FormsModule,CommonModule, TranslateModule, BrowserModule];
 
@@ -35,7 +36,8 @@ let declarations = [
     ProfileDetailsComponent,
     VisaComponent,
     ProfileAddressComponent,
-    UANComponent
+    UANComponent,
+    PassportComponent
 ];
 
 /** Providers Declarations*/
