@@ -11,64 +11,58 @@
 		</div>
 	</div>
 	<div class="portlet-body">
-		<div class="row">
-			<div class="col-md-6">
-				<table class="table table-bordered detail-table">
-					<tbody>
-						<tr>
-							<td><b>{{ 'UAN_NUMBER' | translate }}</b></td>
-							<td>
-								{{ uanData.length > 0 ? uanData[0].uanNumber : '' }}
-							</td>
-						</tr>
-						<tr>
-							<td><b>{{ 'FROM_ESPL' | translate }}</b></td>
-							<td>
-								<span> {{ uanData.length > 0 ? uanData[0].fromESPL : '' }}</span>
-							</td>
-						</tr>
-						<tr>
-							<td><b>{{ 'STATUS' | translate }}</b></td>
-							<td>
-								<span> {{ uanData.length > 0 ? uanData[0].status : '' }}</span>
-							</td>
-						</tr>
-						<tr>
-							<td><b>{{ 'HR_COMMENT' | translate }}</b></td>
-							<td>
-								<span> {{ uanData.length > 0 ? uanData[0].hrComments : '' }} </span>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+		<table class="table table-bordered detail-table">
+			<tbody>
+				<tr>
+					<td><b>{{ 'UAN_NUMBER' | translate }}</b></td>
+					<td>
+						{{ uanData.length > 0 ? uanData[0].uanNumber : '' }}
+					</td>
+				</tr>
+				<tr>
+					<td><b>{{ 'FROM_ESPL' | translate }}</b></td>
+					<td>
+						<span> {{ uanData.length > 0 ? uanData[0].fromESPL : '' }}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>{{ 'STATUS' | translate }}</b></td>
+					<td>
+						<span> {{ uanData.length > 0 ? uanData[0].status : '' }}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><b>{{ 'HR_COMMENT' | translate }}</b></td>
+					<td>
+						<span> {{ uanData.length > 0 ? uanData[0].hrComments : '' }} </span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 
-			<div class="col-md-6">
-				<div *ngIf="!showDiv">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>{{ 'UAN_NUMBER' | translate }} </label>
-								<div class="div-margin">
-									<input type="text" [(ngModel)]="uanNumber" class="form-control" placeholder="">
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>{{ 'FROM_ESPL' | translate }} </label>
-								<div class="div-margin">
-									<input type="radio" [(ngModel)]="fromESPL" name="espl" value="true" checked> Male<br>
-									<input type="radio" [(ngModel)]="fromESPL" name="espl" value="false"> Female<br>
-								</div>
-							</div>
+		<div *ngIf="!showDiv">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>{{ 'UAN_NUMBER' | translate }} </label>
+						<div class="div-margin">
+							<input type="text" [(ngModel)]="uanNumber" class="form-control" placeholder="">
 						</div>
 					</div>
-					<button pButton type="text" label="{{ 'SUBMIT' | translate }}" (click)="submit()"></button>
-					<button pButton type="text" label="{{ 'CANCEL' | translate }}" (click)="cancel()"></button>
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>{{ 'FROM_ESPL' | translate }} </label>
+						<div class="div-margin">
+							<input type="radio" [(ngModel)]="fromESPL" name="espl" value="true" checked> True
+							<input type="radio" [(ngModel)]="fromESPL" name="espl" value="false"> False
+						</div>
+					</div>
 				</div>
 			</div>
+			<button pButton type="text" label="{{ 'SUBMIT' | translate }}" (click)="submit()"></button>
+			<button pButton type="text" label="{{ 'CANCEL' | translate }}" (click)="cancel()"></button>
 		</div>
 	</div>
 </div>
