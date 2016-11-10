@@ -24,7 +24,7 @@
           <div class="col-sm-7">
             <ul class="legend">
               <li *ngFor="let item of conferenceRooms" class="col-xs-6 col-md-4 col-sm-4">
-                <a (click)="getEventByRooms(item.name)"><span class="color-list" [style.backgroundColor]="item.color"></span> {{item.name}}</a>
+                <a (click)="getEventByRooms(item.name)" [class.selected-room]="item.name==selectedRoom"><span class="color-list" [style.backgroundColor]="item.color"></span> {{item.name}}</a>
               </li>
             </ul>
           </div>

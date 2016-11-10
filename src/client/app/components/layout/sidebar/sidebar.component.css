@@ -5,7 +5,7 @@
 .profile{
     box-sizing: border-box;
     padding-top: 30px;
-    height: 145px;
+    height: 90px;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px;
     background: url("../images/profile-bg.png") left top / 250px 145px no-repeat;

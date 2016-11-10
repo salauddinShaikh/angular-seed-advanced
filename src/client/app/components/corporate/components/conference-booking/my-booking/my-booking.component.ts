@@ -10,6 +10,7 @@ import {BaseComponent} from '../../views/base-component';
     moduleId: module.id,
     selector: 'my-booking',
     templateUrl: 'my-booking.component.html',
+    styleUrls: ['my-booking.component.css']
 })
 
 export class MyBookingComponent {

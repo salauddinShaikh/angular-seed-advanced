@@ -27,18 +27,28 @@ export class ConferenceComponent implements OnInit {
     minTime: string;
     maxTime: string;
     conferenceRooms: any[];
+    selectedRoom: string;
     constructor(private router: Router) {
         this.selectedEvent = new MyEvent(0, '', '', '', false);
     }
     ngOnInit() {
-      
+
         this.minTime = '07:00:00';
         this.maxTime = '20:00:00';
-        this.headerConfig = {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'agendaWeek,agendaDay'
-        };
+        if (window.screen.width < 768) {
+            this.headerConfig = {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'agendaWeek,agendaDay'
+            };
+        } else {
+            this.headerConfig = {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            };
+        }
+
         this.allEvents = [
             {
                 'title': 'Inteview',
@@ -97,7 +107,7 @@ export class ConferenceComponent implements OnInit {
                 'conference': 'Trainning Room'
             }
         ];
-        if (localStorage.getItem('conferenceNewBooking') !== null ) {
+        if (localStorage.getItem('conferenceNewBooking') !== null) {
             this.allEvents.push(JSON.parse(localStorage.getItem('conferenceNewBooking')));
         }
         this.events = this.allEvents;
@@ -142,6 +152,7 @@ export class ConferenceComponent implements OnInit {
     }
 
     getEventByRooms(room: string) {
+        this.selectedRoom = room;
         if (room === 'AllRooms') {
             this.events = this.allEvents;
         } else {
