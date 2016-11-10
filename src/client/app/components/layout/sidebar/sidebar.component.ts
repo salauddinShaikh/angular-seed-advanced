@@ -1,6 +1,7 @@
 import {Component,  trigger, transition, style, animate, state} from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../shared/services/login.service';
+declare var $:any;
 
 @Component({
   moduleId: module.id,
