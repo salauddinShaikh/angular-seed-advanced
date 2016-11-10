@@ -199,5 +199,10 @@
   "ADD_NEW_EXPERIENCE":"Add New Experience",
   "EXPERIENCE_MESSAGE": "All field mark * are mandatory",
   "ROLE":"Role",
-  "CLIENT":"Client"
+  "CLIENT":"Client",
+  "VISA_NUMBER":"Visa number",
+  "VISA_EXPIRY_DATE":"Visa Expiry date",
+  "VISA_TYPE":"Visa Type",
+  "ADD_NEW_VISA":"Add New Visa Record"
+
   }
