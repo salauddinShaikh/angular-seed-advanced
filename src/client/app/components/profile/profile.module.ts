@@ -15,7 +15,7 @@ import { AchievementComponent } from './components/achievement/achievement.compo
 import { EmploymentHistoryComponent } from './components/employment-history/employment-history.component';
 import { SkillSetComponent } from './components/skill-set/skill-set.component';
 import { ExperienceComponent } from './components/experience/experience.component';
-
+import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 /** Module Import Declarations */
 let imports = [FormsModule,CommonModule, TranslateModule, BrowserModule];
 
@@ -28,7 +28,8 @@ let declarations = [
     AchievementComponent,
     EmploymentHistoryComponent,
     SkillSetComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    ProfileDetailsComponent
 ];
 
 /** Providers Declarations*/
