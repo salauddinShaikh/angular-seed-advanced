@@ -17,6 +17,7 @@ import { SkillSetComponent } from './components/skill-set/skill-set.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { VisaComponent } from './components/profile-details/visa/visa.component';
+import { ProfileAddressComponent } from './components/profile-details/profile-address/profile-address.component';
 /** Module Import Declarations */
 let imports = [FormsModule,CommonModule, TranslateModule, BrowserModule];
 
@@ -31,7 +32,8 @@ let declarations = [
     SkillSetComponent,
     ExperienceComponent,
     ProfileDetailsComponent,
-    VisaComponent
+    VisaComponent,
+    ProfileAddressComponent
 ];
 
 /** Providers Declarations*/

@@ -15,13 +15,13 @@ import {BaseComponent} from '../views/base-component';
 })
 export class EmploymentHistoryComponent {
     employmentHistory: any[];
-    LastEmployerDetails: any[];
+    lastEmployerDetails: any[];
     showDiv: boolean;
     showEmployerDiv: boolean;
 
     constructor() {
         this.employmentHistory = [];
-        this.LastEmployerDetails = [];
+        this.lastEmployerDetails = [];
         this.showDiv = true;
         this.showEmployerDiv = true;
     }
@@ -51,7 +51,7 @@ export class EmploymentHistoryComponent {
     }
 
     submitLastEmployer () {
-        this.LastEmployerDetails = [{
+        this.lastEmployerDetails = [{
             id: 1,
             firstMonth: '',
             secondMonth: '',

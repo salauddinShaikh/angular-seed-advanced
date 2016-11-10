@@ -203,6 +203,12 @@
   "VISA_NUMBER":"Visa number",
   "VISA_EXPIRY_DATE":"Visa Expiry date",
   "VISA_TYPE":"Visa Type",
-  "ADD_NEW_VISA":"Add New Visa Record"
+  "ADD_NEW_VISA":"Add New Visa Record",
+
+  "ADDRESS" :"Address",
+  "TYPE": "Type",
+  "CURRENT_ADDRESS_PROOF":"Current Address Proof",
+  "PERMANENT_ADDRESS":"Permanent Address",
+  "PERMANENT_ADDRESS_PROOF":"Permanent Address Proof"
 
   }
