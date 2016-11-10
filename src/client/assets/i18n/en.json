@@ -209,6 +209,7 @@
   "TYPE": "Type",
   "CURRENT_ADDRESS_PROOF":"Current Address Proof",
   "PERMANENT_ADDRESS":"Permanent Address",
-  "PERMANENT_ADDRESS_PROOF":"Permanent Address Proof"
+  "PERMANENT_ADDRESS_PROOF":"Permanent Address Proof",
+  "UAN_NUMBER":"UAN Number"
 
   }

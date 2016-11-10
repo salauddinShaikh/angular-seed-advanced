@@ -18,6 +18,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { VisaComponent } from './components/profile-details/visa/visa.component';
 import { ProfileAddressComponent } from './components/profile-details/profile-address/profile-address.component';
+import { UANComponent } from './components/profile-details/uan/uan.component';
 /** Module Import Declarations */
 let imports = [FormsModule,CommonModule, TranslateModule, BrowserModule];
 
@@ -33,7 +34,8 @@ let declarations = [
     ExperienceComponent,
     ProfileDetailsComponent,
     VisaComponent,
-    ProfileAddressComponent
+    ProfileAddressComponent,
+    UANComponent
 ];
 
 /** Providers Declarations*/
