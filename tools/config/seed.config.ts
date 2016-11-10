@@ -494,6 +494,9 @@ export class SeedConfig {
         map: 'moment.js',
         type: 'cjs',
         defaultExtension: 'js'
+      },
+      'primeng': { 
+        defaultExtension: 'js' 
       }
     }
   };

@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 /** Other Module Dependencies */
 import {CommonModule, TranslateModule} from '../../shared/index';
@@ -14,7 +15,7 @@ import { LogTicketComponent } from './components/ticket/log-ticket/log-ticket.co
 import { ManageTicketComponent } from './components/ticket/manage-ticket/manage-ticket.component';
 
 /** Module Import Declarations */
-let imports = [FormsModule,BrowserModule,CommonModule, TranslateModule];
+let imports = [RouterModule,FormsModule,BrowserModule,CommonModule, TranslateModule];
 
 /** Component/Directive Declarations */
 let declarations = [ConferenceComponent,
