@@ -1,6 +1,6 @@
 /** Angular Dependencies */
 import { OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import {ActivatedRoute, Router,Params} from '@angular/router';
 
 /** Framework Dependencies */
 import {BaseComponent} from '../../views/base-component';
@@ -28,8 +28,9 @@ export class ConferenceComponent implements OnInit {
     maxTime: string;
     conferenceRooms: any[];
     selectedRoom: string;
-    constructor(private router: Router) {
+    constructor(private router: Router,private route: ActivatedRoute) {
         this.selectedEvent = new MyEvent(0, '', '', '', false);
+        this.events = []
     }
     ngOnInit() {
 
@@ -107,9 +108,12 @@ export class ConferenceComponent implements OnInit {
                 'conference': 'Trainning Room'
             }
         ];
-        if (localStorage.getItem('conferenceNewBooking') !== null) {
-            this.allEvents.push(JSON.parse(localStorage.getItem('conferenceNewBooking')));
-        }
+        window['localforage'].getItem('conferenceEvent').then((value) => {
+            if (value !== null) {
+                this.allEvents.push(value);
+            }
+            this.events = this.allEvents;
+        });
         this.events = this.allEvents;
         this.conferenceRooms = [{
             name: 'Bahamas',
@@ -138,8 +142,13 @@ export class ConferenceComponent implements OnInit {
                 color: '#DFBA49'
             },
         ];
+        this.route.params.forEach((params: Params) => {
+            let room = params['room']; 
+            if(room){
+               this.getEventByRooms(room); 
+            }
+        });
     };
-
     handleDayClick(event: any) {
         this.router.navigate(['/newBooking']);
     }

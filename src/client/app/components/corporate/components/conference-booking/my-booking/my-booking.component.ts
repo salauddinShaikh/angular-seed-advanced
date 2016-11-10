@@ -16,7 +16,7 @@ import {BaseComponent} from '../../views/base-component';
 export class MyBookingComponent {
     bookings: Array<Object>;
     msgs: Message[] = [];
-
+    conferenceRooms:any[];
     constructor(private confirmationService: ConfirmationService) {
         this.bookings = [{
             'title': 'Inteview',
@@ -67,6 +67,33 @@ export class MyBookingComponent {
             'attendees': 'xyz',
             'room': 'Houston',
         }
+        ];
+         this.conferenceRooms = [{
+            name: 'Bahamas',
+            color: '#E7C5F5'
+        },
+            {
+                name: 'Dubai',
+                color: '#3FABA4'
+            }, {
+                name: 'Cape Town',
+                color: '#35AA47'
+            }, {
+                name: 'Hong Kong',
+                color: '#FF9655'
+            }, {
+                name: 'Caribbean',
+                color: '#8877A9'
+            }, {
+                name: 'Houston	',
+                color: '#428BCA'
+            }, {
+                name: 'Barcelona',
+                color: '#D05454'
+            }, {
+                name: 'Trainning Room',
+                color: '#DFBA49'
+            },
         ];
     }
 

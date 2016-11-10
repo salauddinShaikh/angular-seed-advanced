@@ -23,11 +23,11 @@ export class BookComponent {
     startTime: Date;
     endTime: Date;
     msgs: Message[] = [];
-    conferenceModel:ConferenceBooking;
+    conferenceModel: ConferenceBooking;
 
     constructor(private router: Router) {
 
-        this.conferenceModel = new ConferenceBooking(0, '', new Date(), new Date(), false,'','');
+        this.conferenceModel = new ConferenceBooking(0, '', new Date(), new Date(), false, '', '');
 
         this.conferenceRooms = [];
         this.conferenceRooms.push({ label: 'Select Room', value: null });
@@ -41,12 +41,14 @@ export class BookComponent {
         this.conferenceRooms.push({ label: 'Trainning Room', value: { id: 5, name: 'Trainning Room', color: '#DFBA49' } });
     }
     save() {
-        this.conferenceModel.conference=this.selectedRoom.name;
-        this.conferenceModel.color=this.selectedRoom.color;
-        localStorage.setItem('conferenceNewBooking',JSON.stringify(this.conferenceModel));
-        this.msgs = [];
-        this.msgs.push({ severity: 'success', summary: 'Confirmed', detail: 'Record saved' });
-        this.router.navigate(['/conferenceBooking']);
+        this.conferenceModel.conference = this.selectedRoom.name;
+        this.conferenceModel.color = this.selectedRoom.color;
+        window['localforage'].setItem('conferenceEvent', this.conferenceModel, (err, value) => {
+            console.log("Success! Set values using localforage");
+            this.msgs = [];
+            this.msgs.push({ severity: 'success', summary: 'Confirmed', detail: 'Record saved' });
+            this.router.navigate(['/conferenceBooking']);
+        });
     }
 }
 class ConferenceBooking {
@@ -56,7 +58,7 @@ class ConferenceBooking {
         public start: Date,
         public end: Date,
         public allDay: boolean,
-        public color:string,
-        public conference:string
+        public color: string,
+        public conference: string
     ) { }
 }

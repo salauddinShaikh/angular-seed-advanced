@@ -21,6 +21,13 @@ export const CorporateRoutes: Route[] = [
     }
   },
   {
+    path: 'conferenceBooking/:room',
+    component: ConferenceComponent,
+    data: {
+      permissions: ['ConferenceBook.READ']
+    }
+  },
+  {
     path: 'conferenceBooking',
     component: ConferenceComponent,
     data: {
