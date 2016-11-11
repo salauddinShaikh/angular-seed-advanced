@@ -5,7 +5,7 @@ import { TestBed } from '@angular/core/testing';
 // app
 import { t } from '../../../frameworks/test/index';
 import { LmsApplyLeavesComponent } from './lms-applyleave.component';
-
+ console.log('test check');
 // test module configuration for each test
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
@@ -32,6 +32,7 @@ const testModuleConfig = () => {
                 //let instance = fixture.debugElement.children[0].componentInstance;
                 t.it('should do math',()=>{
                     t.e(1+1).toBe(2);
+                    console.log('control did the math');
                 });
             });
         }));
