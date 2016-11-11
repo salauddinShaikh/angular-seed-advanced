@@ -7,7 +7,7 @@ import { Store, ActionReducer, Action } from '@ngrx/store';
 // app
 import { AnalyticsService, CustomAnalytics } from '../../frameworks/analytics/index';
 
-import { IHoliday, Holiday } from '../../domain/holiday/IHoliday';
+import { Holiday } from '../../domain/holiday/IHoliday';
 import { AppState } from '../../domain/appState';
 import { Observable } from 'rxjs/Rx';
 

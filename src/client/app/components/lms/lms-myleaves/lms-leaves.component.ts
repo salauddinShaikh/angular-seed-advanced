@@ -20,12 +20,12 @@ export class LmsLeavesComponent {
   }
 
   constructor() {
-    window["localforage"].getItem('appliedLeave').then((value) => {
+    window['localforage'].getItem('appliedLeave').then((value) => {
       if (value) {
         this.leaves = value;
-        console.log("getting from localforage in myLeaves");
+        console.log('getting from localforage in myLeaves');
       }
-      else{
+      else {
         this.leaves = [];
       }
     });

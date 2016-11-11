@@ -1,29 +1,27 @@
 /** Angular Dependencies */
-import { OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 /** Framework Dependencies */
-import {BaseComponent} from '../../views/base-component';
+import { BaseComponent } from '../../views/base-component';
 
 /** Module Level Dependencies */
 
 
 /** Component Declaration */
 @BaseComponent({
-  moduleId: module.id,
-  selector: 'passport',
-  templateUrl: 'passport.component.html',
-  styleUrls:['passport.component.css'] 
+    moduleId: module.id,
+    selector: 'passport',
+    templateUrl: 'passport.component.html',
+    styleUrls: ['passport.component.css']
 })
 export class PassportComponent {
 
-  employmentHistory: any[];
+    employmentHistory: any[];
     passport: any[];
-    showDiv: boolean;   
+    showDiv: boolean;
 
-    constructor() {     
+    constructor() {
         this.passport = [];
-        this.showDiv = true;      
+        this.showDiv = true;
     }
 
     addClick() {
@@ -34,7 +32,7 @@ export class PassportComponent {
             id: 1,
             passportNumber: '1111',
             passportExpiryDate: '02/02/2020',
-            document: '',           
+            document: '',
             status: 'pending for approval',
             hrComment: ''
         }];

@@ -1,6 +1,5 @@
 /** Angular Dependencies */
 import { OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 /** Framework Dependencies */
 import {BaseComponent} from '../../views/base-component';

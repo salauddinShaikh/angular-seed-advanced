@@ -22,5 +22,6 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //
   }
 }
