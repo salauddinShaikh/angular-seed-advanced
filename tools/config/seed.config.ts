@@ -410,6 +410,7 @@ export class SeedConfig {
       'fullcalender': `${this.APP_BASE}node_modules/fullcalender`,
       'moment': `${this.APP_BASE}node_modules/moment`,
       'font-awesome': `${this.APP_BASE}node_modules/font-awesome`,
+      'localforage': `${this.APP_BASE}node_modules/localforage/dist/localforage.min.js`,
       // For test config
       'dist/dev/*': '/base/dist/dev/*',
       '*': 'node_modules/*'
@@ -497,6 +498,10 @@ export class SeedConfig {
       },
       'primeng': { 
         defaultExtension: 'js' 
+      },
+      'localforage':{
+          main: 'localforage.js',
+         defaultExtension: 'js' 
       }
     }
   };

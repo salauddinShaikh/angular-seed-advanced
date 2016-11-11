@@ -29,6 +29,9 @@
     height: 15px;
     margin: 2px; 
 }
+.selected-link{
+    background-color: #e6e6e6;
+}
 @media only screen and (max-width: 920px) {
     .legends-portlet {
         height:90px

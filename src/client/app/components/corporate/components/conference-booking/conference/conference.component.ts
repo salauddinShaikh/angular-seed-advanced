@@ -1,7 +1,7 @@
 /** Angular Dependencies */
-import { OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
-
+import { OnInit, Inject, ElementRef } from '@angular/core';
+import {ActivatedRoute, Router, Params} from '@angular/router';
+import * as localForage from "localforage";
 /** Framework Dependencies */
 import { BaseComponent } from '../../views/base-component';
 
@@ -17,6 +17,8 @@ import * as _ from 'lodash';
     styleUrls: ['conference.component.css']
 })
 export class ConferenceComponent implements OnInit {
+    elementRef: ElementRef;
+
     events: any[];
     allEvents: any[];
     header: any;
@@ -28,9 +30,34 @@ export class ConferenceComponent implements OnInit {
     maxTime: string;
     conferenceRooms: any[];
     selectedRoom: string;
-    constructor(private router: Router, private route: ActivatedRoute) {
+    constructor(private router: Router, private route: ActivatedRoute, @Inject(ElementRef) elementRef: ElementRef) {
         this.selectedEvent = new MyEvent(0, '', '', '', false);
+        this.elementRef = elementRef;
         this.events = [];
+    }
+    ngAfterViewInit() {
+        let component = this;
+        var el: HTMLElement = this.elementRef.nativeElement;
+        var slots = el.querySelectorAll('.ui-widget-content')
+        _.forEach(slots, function (elem, key) {
+            if (key !== 0) {
+                elem.addEventListener('mouseover', function (event) {
+                    if (!this.innerHTML && !this.className.includes('fc-axis')) {
+                      this.innerHTML='<div class="btn calender-btn-add"  style="float:right">+Add</div>';
+                    //    this.querySelector('.calender-btn-add').addEventListener('click', () => {
+                            
+                    //         console.log("Clicked");
+                    //         component.handleDayClick();
+                    //     });
+                    }
+                });
+                elem.addEventListener('mouseout', function (event) {
+                    if (!this.className.includes('fc-axis')) {
+                         this.innerHTML='';
+                    }
+                });
+            }
+        });
     }
     ngOnInit() {
 
@@ -108,7 +135,7 @@ export class ConferenceComponent implements OnInit {
                 'conference': 'Trainning Room'
             }
         ];
-        window['localforage'].getItem('conferenceEvent').then((value) => {
+       localForage.getItem('conferenceEvent').then((value) => {
             if (value !== null) {
                 this.allEvents.push(value);
             }
@@ -146,10 +173,12 @@ export class ConferenceComponent implements OnInit {
             let room = params['room'];
             if (room) {
                 this.getEventByRooms(room);
+            } else {
+                this.getEventByRooms('AllRooms');
             }
         });
     };
-    handleDayClick(event: any) {
+    handleDayClick() {
         this.router.navigate(['/newBooking']);
     }
 
@@ -169,7 +198,11 @@ export class ConferenceComponent implements OnInit {
                 return item.conference === room;
             });
         }
+    }
 
+    dayRender(date, cell) {
+        debugger
+        cell.css("background-color", "red");
     }
 }
 class MyEvent {
