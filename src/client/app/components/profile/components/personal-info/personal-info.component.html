@@ -1,78 +1,237 @@
 <div class="portlet-body">
     <div class="row">
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'EMPLOYEE_ID' | translate }} :</span>
-            <span>10000</span>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'EMPLOYEE_ID' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <span> {{ profileInfo.employeeID }} </span>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'EMPLOYEE_NAME' | translate }} :</span>
-            <span>Nick</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'CURRENT_ADDRESS' | translate }} :</span>
-            <span>current Address1</span>
-        </div>
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'CONTACT_NO' | translate }} :</span>
-            <span>1054325345</span>
-            <i class="fa fa-pencil icon-size"></i>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'EMAIL' | translate }} :</span>
-            <span>abc@abc.com</span>
-        </div>
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'DATE_OF_BIRTH' | translate }} :</span>
-            <span>01/01/0001</span>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'EMPLOYEE_NAME' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <span> {{ profileInfo.employeeName }} </span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'ESPL_PF_NO' | translate }} :</span>
-            <i class="fa fa-plus-circle icon-size"></i>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'CURRENT_ADDRESS' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <span> {{ profileInfo.currentAddress }} </span>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'PREVIOUS_PF_NO' | translate }} :</span>
-            <i class="fa fa-plus-circle icon-size"></i>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'CAREER_START_DATE' | translate }} :</span>
-            <span>02/02/2000</span>
-            <i class="fa fa-pencil icon-size"></i>
-        </div>
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'LAST_WORKING_DAY' | translate }} :</span>
-            <i class="fa fa-plus-circle icon-size"></i>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'EMERGENCY_CONTACT_NAME' | translate }} :</span>
-            <span>23432455</span>
-            <i class="fa fa-pencil icon-size"></i>
-        </div>
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'BLOOD_GROUP' | translate }} :</span>
-            <span>B+</span>
-            <i class="fa fa-pencil icon-size"></i>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'CONTACT_NO' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.contactNo && !isAddContactNo" (click)="addContactNo()"></i>
+                    <div *ngIf="profileInfo.contactNo && !isEditContactNo">
+                        <span> {{ profileInfo.contactNo }} </span>
+                        <i class="fa fa-pencil icon-size" (click)="editContactNo()"></i>
+                    </div>
+                    <div *ngIf="isEditContactNo">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.contactNo" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="saveContactNo()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelContactNo()"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'EMERGEANCY_CONTACT_NO' | translate }} :</span>
-            <span>5345345</span>
-            <i class="fa fa-pencil icon-size"></i>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'EMAIL' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <span> {{ profileInfo.email }} </span>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <span class="personal-info-label">{{ 'SKYPE_ID' | translate }} :</span>
-            <span>ewrwer</span>
-            <i class="fa fa-pencil icon-size"></i>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'DATE_OF_BIRTH' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <span> {{ profileInfo.dateOfBirth }} </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'ESPL_PF_NO' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.esplPfNo && !isAddEsplPfNo" (click)="addEsplPfNo()"></i>
+                    <div *ngIf="profileInfo.esplPfNo && !isEditEsplPfNo">
+                        {{ profileInfo.esplPfNo }}
+                        <i class="fa fa-pencil icon-size" (click)="editEsplPfNo()"></i>
+                    </div>
+                    <div *ngIf="isEditEsplPfNo">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.esplPfNo" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="saveEsplPfNo()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelEsplPfNo()"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'PREVIOUS_PF_NO' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.previousPfNo && !isAddPreviousPfNo" (click)="addPreviousPfNo()"></i>
+                    <div *ngIf="profileInfo.previousPfNo && !isEditPreviousPfNo">
+                        {{ profileInfo.previousPfNo }}
+                        <i class="fa fa-pencil icon-size" (click)="editPreviousPfNo()"></i>
+                    </div>
+                    <div *ngIf="isEditPreviousPfNo">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.previousPfNo" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="savePreviousPfNo()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelPreviousPfNo()"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'CAREER_START_DATE' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.careerStartDate && !isAddCareerStartDate" (click)="addCareerStartDate()"></i>
+                    <div *ngIf="profileInfo.careerStartDate && !isEditCareerStartDate">
+                        {{ profileInfo.careerStartDate }}
+                        <i class="fa fa-pencil icon-size" (click)="editCareerStartDate()"></i>
+                    </div>
+                    <div *ngIf="isEditCareerStartDate">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.careerStartDate" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="saveCareerStartDate()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelCareerStartDate()"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'LAST_WORKING_DAY' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.lastWorkingDay && !isAddLastWorkingDay" (click)="addLastWorkingDay()"></i>
+                    <div *ngIf="profileInfo.lastWorkingDay && !isEditLastWorkingDay">
+                        {{ profileInfo.lastWorkingDay }}
+                        <i class="fa fa-pencil icon-size" (click)="editLastWorkingDay()"></i>
+                    </div>
+                    <div *ngIf="isEditLastWorkingDay">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.lastWorkingDay" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="saveLastWorkingDay()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelLastWorkingDay()"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'EMERGENCY_CONTACT_NAME' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.emergencyContactName && !isAddEmergencyContactName" (click)="addEmergencyContactName()"></i>
+                    <div *ngIf="profileInfo.emergencyContactName && !isEditEmergencyContactName">
+                        {{ profileInfo.emergencyContactName }}
+                        <i class="fa fa-pencil icon-size" (click)="editEmergencyContactName()"></i>
+                    </div>
+                    <div *ngIf="isEditEmergencyContactName">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.emergencyContactName" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="saveEmergencyContactName()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelEmergencyContactName()"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'BLOOD_GROUP' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.bloodGroup && !isAddBloodGroup" (click)="addBloodGroup()"></i>
+                    <div *ngIf="profileInfo.bloodGroup && !isEditBloodGroup">
+                        {{ profileInfo.bloodGroup }}
+                        <i class="fa fa-pencil icon-size" (click)="editBloodGroup()"></i>
+                    </div>
+                    <div *ngIf="isEditBloodGroup">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.bloodGroup" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="saveBloodGroup()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelBloodGroup()"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'EMERGEANCY_CONTACT_NO' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.emergencyContactNo && !isAddEmergencyContact" (click)="addEmergencyContactNo()"></i>
+                    <div *ngIf="profileInfo.emergencyContactNo && !isEditEmergencyContact">
+                        {{ profileInfo.emergencyContactNo }}
+                        <i class="fa fa-pencil icon-size" (click)="editEmergencyContactNo()"></i>
+                    </div>
+                    <div *ngIf="isEditEmergencyContact">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.emergencyContactNo" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="saveEmergencyContactNo()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelEmergencyContactNo()"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-margin">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="personal-info-label">{{ 'SKYPE_ID' | translate }} : </span>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.skypeID && !isAddSkypeID" (click)="addSkypeID()"></i>
+                    <div *ngIf="profileInfo.skypeID && !isEditSkypeID">
+                        {{ profileInfo.skypeID }}
+                        <i class="fa fa-pencil icon-size" (click)="editSkypeID()"></i>
+                    </div>
+                    <div *ngIf="isEditSkypeID">
+                        <input type="text" placeholder="" [(ngModel)]="profileInfo.skypeID" class="input-border">
+                        <i class="fa fa-floppy-o icon-size" (click)="saveSkypeID()"></i>
+                        <i class="fa fa-times icon-size" (click)="cancelSkypeID()"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

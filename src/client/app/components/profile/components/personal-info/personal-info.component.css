@@ -1,12 +1,16 @@
 .personal-info-label{   
     font-weight: 700;   
-    display: inline-block;
-    width: 40%;
-    line-height: 1.8em; 
-    margin-bottom: 5px
-}
 
+    line-height: 1.8em; 
+}
 .icon-size{
-    font-size: 15px;
-    margin-left: 5px;   
+    font-size: 20px;
+    margin-left: 5px; 
+    color:#3D79A2;  
+}
+.col-margin {
+    margin-top :10px;
+}
+.input-border {
+    border: 1px solid gray;
 }
