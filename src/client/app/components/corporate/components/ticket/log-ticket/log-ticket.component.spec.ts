@@ -1,6 +1,6 @@
 import { async, TestBed } from '@angular/core/testing';
-import { LogTicketComponent } from '../log-ticket.component';
-import { CorporateModule } from '../../../../corporate.module';
+import { LogTicketComponent } from './log-ticket.component';
+import { CorporateModule } from '../../../corporate.module';
 // class MockLoginService extends LoginService {
 //   login(pin: number) {
 //     return Promise.resolve(true);
