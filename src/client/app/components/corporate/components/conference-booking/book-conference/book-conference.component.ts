@@ -44,7 +44,7 @@ export class BookComponent {
         this.conferenceModel.conference = this.selectedRoom.name;
         this.conferenceModel.color = this.selectedRoom.color;
         window['localforage'].setItem('conferenceEvent', this.conferenceModel, (err, value) => {
-            console.log("Success! Set values using localforage");
+            console.log('Success! Set values using localforage');
             this.msgs = [];
             this.msgs.push({ severity: 'success', summary: 'Confirmed', detail: 'Record saved' });
             this.router.navigate(['/conferenceBooking']);

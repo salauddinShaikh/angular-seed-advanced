@@ -1,5 +1,4 @@
 /** Angular Dependencies */
-import { OnInit } from '@angular/core';
 
 /** Framework Dependencies */
 import {BaseComponent} from '../views/base-component';

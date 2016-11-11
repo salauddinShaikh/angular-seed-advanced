@@ -1,9 +1,9 @@
 /** Angular Dependencies */
 import { OnInit } from '@angular/core';
-import {ActivatedRoute, Router,Params} from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 /** Framework Dependencies */
-import {BaseComponent} from '../../views/base-component';
+import { BaseComponent } from '../../views/base-component';
 
 /** Other Module Dependencies */
 import * as moment from 'moment/moment';
@@ -28,9 +28,9 @@ export class ConferenceComponent implements OnInit {
     maxTime: string;
     conferenceRooms: any[];
     selectedRoom: string;
-    constructor(private router: Router,private route: ActivatedRoute) {
+    constructor(private router: Router, private route: ActivatedRoute) {
         this.selectedEvent = new MyEvent(0, '', '', '', false);
-        this.events = []
+        this.events = [];
     }
     ngOnInit() {
 
@@ -119,33 +119,33 @@ export class ConferenceComponent implements OnInit {
             name: 'Bahamas',
             color: '#E7C5F5'
         },
-            {
-                name: 'Dubai',
-                color: '#3FABA4'
-            }, {
-                name: 'Cape Town',
-                color: '#35AA47'
-            }, {
-                name: 'Hong Kong',
-                color: '#FF9655'
-            }, {
-                name: 'Caribbean',
-                color: '#8877A9'
-            }, {
-                name: 'Houston	',
-                color: '#428BCA'
-            }, {
-                name: 'Barcelona',
-                color: '#D05454'
-            }, {
-                name: 'Trainning Room',
-                color: '#DFBA49'
-            },
+        {
+            name: 'Dubai',
+            color: '#3FABA4'
+        }, {
+            name: 'Cape Town',
+            color: '#35AA47'
+        }, {
+            name: 'Hong Kong',
+            color: '#FF9655'
+        }, {
+            name: 'Caribbean',
+            color: '#8877A9'
+        }, {
+            name: 'Houston	',
+            color: '#428BCA'
+        }, {
+            name: 'Barcelona',
+            color: '#D05454'
+        }, {
+            name: 'Trainning Room',
+            color: '#DFBA49'
+        },
         ];
         this.route.params.forEach((params: Params) => {
-            let room = params['room']; 
-            if(room){
-               this.getEventByRooms(room); 
+            let room = params['room'];
+            if (room) {
+                this.getEventByRooms(room);
             }
         });
     };

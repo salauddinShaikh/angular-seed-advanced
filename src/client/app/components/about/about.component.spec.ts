@@ -1,17 +1,35 @@
-// angular
-import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+
+import { t } from '../../frameworks/test/index';
+import { TEST_CORE_PROVIDERS, TEST_HTTP_PROVIDERS } from '../../frameworks/core/testing/index';
+import { NameListService } from '../../frameworks/sample/index';
+import { MultilingualModule } from '../../frameworks/i18n/multilingual.module';
 
 // app
-import { t } from '../../frameworks/test/index';
 import { AboutComponent } from './about.component';
 
 // test module configuration for each test
 const testModuleConfig = () => {
   TestBed.configureTestingModule({
-    declarations: [AboutComponent, TestComponent]
+    imports: [
+      FormsModule,
+      MultilingualModule,
+      StoreModule.provideStore({})
+    ],
+    declarations: [
+      TestComponent,  AboutComponent,
+    ],
+    providers: [
+      TEST_CORE_PROVIDERS(),
+      TEST_HTTP_PROVIDERS(),
+      NameListService
+    ]
   });
 };
+
 
 export function main() {
   t.describe('@Component: AboutComponent', () => {

@@ -28,7 +28,12 @@ export class LmsUpdateLeavesComponent {
       if (value) {
         this.leaves = value;
         console.log('getting from localforage in myLeaves');
+<<<<<<< HEAD
       } else {
+=======
+      }
+      else {
+>>>>>>> d6dbc7d16441fe03851884dbd58b0ef70418f0a1
         this.leaves = [];
       }
     });

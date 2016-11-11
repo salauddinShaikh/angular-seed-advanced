@@ -134,23 +134,4 @@ export class LogTicketComponent implements OnInit {
     this.router.navigate(['/manage-ticket']);
   }
 
-  showAction($event, target) {
-    target.toggle($event)
-
-    setTimeout(function () {
-      target.container.style.top = '100 !important';
-      target.container.style.left = '100 !important';
-      target.container.attributes.textContent = 'display: block; top: 100px; left: 100px; opacity: 1.004;';
-      target.container.attributes.value = 'display: block; top: 100px; left: 100px; opacity: 1.004;';
-      target.container.attributes.nodeValue = 'display: block; top: 100px; left:100px; opacity: 1.004;';
-      console.log("*****&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&******************************************************");
-      target.top = '100';
-      target.left = '100';
-      target.style = 'display: block; top: 100px; left:100px; opacity: 1.004;';
-       target.container.style= 'display: block; top: 100px; left:100px; opacity: 1.004;';
-    }, 3000);
-
-    console.log("***********************************************************");
-  }
-
 }

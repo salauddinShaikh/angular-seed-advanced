@@ -8,7 +8,6 @@ import { BaseComponent } from '../../views/base-component';
 import { SelectItem } from 'primeng/primeng';
 
 /** Module Level Dependencies */
-import { Ticket } from '../../../entity/ticket';
 
 /** Component Declaration */
 @BaseComponent({
