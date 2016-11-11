@@ -232,13 +232,13 @@ export class LmsApplyLeavesComponent {
 
   submitPressed(event) {
     if (this.formIsClean) {
-      window["localforage"].setItem('appliedLeave', this.finalLeaveData, (err, value) => {
-        console.log("Success! Set values using localforage");
+      window['localforage'].setItem('appliedLeave', this.finalLeaveData, (err, value) => {
+        console.log('Success! Set values using localforage');
         this.cancelPressed();
         this.warning = 'Leave application submitted.';
       });
-      window["localforage"].getItem('appliedLeave').then((value) => {
-        console.log("Success! Got values using localforage");
+      window['localforage'].getItem('appliedLeave').then((value) => {
+        console.log('Success! Got values using localforage');
       });
     }
   }

@@ -41,7 +41,6 @@ export class LmsHolidaysComponent {
   holidayType: string;
 
   private holidayRecords;
-  private subscription;
 
   constructor(private store: Store<AppState>, private holidayService: HolidayService) {
     //let holidayRecords = this.holidayRecords;
@@ -81,7 +80,6 @@ export class LmsHolidaysComponent {
     // this.subscription.unsubscribe();
   }
   handleEventClicked(event) {
-    let show = true;
     let start = event.calEvent.start;
     start.stripTime();
     this.holidayTitle = event.calEvent.title;

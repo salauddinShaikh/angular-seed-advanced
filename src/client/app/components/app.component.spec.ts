@@ -12,6 +12,7 @@ import { MultilingualModule } from '../frameworks/i18n/multilingual.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { LmsApplyLeavesComponent } from './lms/lms-applyleave/lms-applyleave.component';
 
 const config:Route[] = [
   {path: '', component: HomeComponent},
@@ -31,6 +32,7 @@ const testModuleConfig = () => {
       TestComponent, AppComponent,
       HomeComponent, AboutComponent,
       NavbarComponent, ToolbarComponent
+      ,LmsApplyLeavesComponent
     ],
     providers: [
       TEST_CORE_PROVIDERS(),
