@@ -36,13 +36,22 @@
 
                     <div class="form-group">
                         <label class="control-label">{{ 'COMMENTS' | translate }}</label>
-                        <textarea autoresize="autoResize" cols="30" rows="3" class="form-control"></textarea>
+                        <textarea [(ngModel)]="comments" autoresize="autoResize" cols="30" rows="3" class="form-control"></textarea>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pull-right">
-                                <button class="btn green btn-outline"> {{ 'APPROVE' | translate }} </button>
-                                <button class="btn red btn-outline"> {{ 'REJECT' | translate }} </button>
+                                <h5 class = "warning">
+                                    <span>{{validationMessage}}</span>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <button (click)="approvePressed()" class="btn green btn-outline"> {{ 'APPROVE' | translate }} </button>
+                                <button (click)="rejectPressed($event)" class="btn red btn-outline"> {{ 'REJECT' | translate }} </button>
                             </div>
                         </div>
                     </div>
