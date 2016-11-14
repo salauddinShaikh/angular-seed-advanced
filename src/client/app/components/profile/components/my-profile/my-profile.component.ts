@@ -16,12 +16,24 @@ import {BaseComponent} from '../views/base-component';
   styleUrls: ['my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
+  isEdit: boolean;
 
   constructor(
     private router: Router) {
+    this.isEdit = false;
   }
 
   ngOnInit(): void {
     //
+  }
+
+  edit () {
+    this.isEdit = true;
+  }
+  upload () {
+    this.isEdit = false;
+  }
+  cancel () {
+    this.isEdit = false;
   }
 }
