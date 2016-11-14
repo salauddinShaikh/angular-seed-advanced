@@ -1,5 +1,6 @@
 import { BaseComponent } from '../../../frameworks/core/index';
 import { SelectItem } from 'primeng/primeng';
+import * as localForage from "localforage";
 
 
 class FinalLeaveData {
@@ -232,11 +233,11 @@ export class LmsApplyLeavesComponent {
 
   submitPressed(event) {
     if (this.formIsClean) {
-      window['localforage'].setItem('appliedLeave', this.finalLeaveData, (err, value) => {
+      localforage.setItem('appliedLeave', this.finalLeaveData, (err, value) => {
         this.cancelPressed();
         this.warning = 'Leave application submitted.';
       });
-      window['localforage'].getItem('appliedLeave').then((value) => {
+      localforage.getItem('appliedLeave').then((value) => {
       });
     }
   }
