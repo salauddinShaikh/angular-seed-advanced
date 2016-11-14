@@ -1,5 +1,16 @@
 import { BaseComponent } from '../../../frameworks/core/index';
+import { OnInit } from '@angular/core';
 
+class showLeaveReq {
+  eid: number;
+  employee: string;
+  numberofleaves: number;
+  status: string;
+  start: string;
+  end: string;
+  approvers: string;
+  pending: string;
+}
 
 @BaseComponent({
   moduleId: module.id,
@@ -8,5 +19,12 @@ import { BaseComponent } from '../../../frameworks/core/index';
 })
 export class LmsApproveLeavesComponent {
 
+  approveleaves: showLeaveReq[] = []
 
+  ngOnInit() {
+    this.approveleaves = [
+      { eid: 23123, employee: 'Employee', numberofleaves: 4, status: 'Approved', start: '01-10-2016', end: '10-10-2016', approvers: 'Manager, Manager, Manager, Manager', pending: '' },
+      { eid: 23124, employee: 'Employee', numberofleaves: 4, status: 'Approved', start: '01-10-2016', end: '10-10-2016', approvers: 'Manager, Manager, Manager, Manager', pending: '' }]
+
+  }
 }

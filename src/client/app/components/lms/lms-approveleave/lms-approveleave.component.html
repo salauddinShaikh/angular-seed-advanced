@@ -20,16 +20,16 @@
                     <div class="portlet-body">
                         <p-dataTable [value]="approveleaves" selectionMode="single" [paginator]="true" [rows]=(servRows) [responsive]="true">
                             <p-column field="employee" header="{{ 'EMPLOYEE' | translate }}" [sortable]="true"></p-column>
-                            <p-column field="dateemployeeid" header="{{ 'EMPLOYEE_ID' | translate }}" [sortable]="true"></p-column>
+                            <p-column field="eid" header="{{ 'EMPLOYEE_ID' | translate }}" [sortable]="true"></p-column>
                             <p-column field="numberofleaves" header="{{ 'NO_LEAVES' | translate }}" [sortable]="true"></p-column>
                             <p-column field="status" header="{{ 'STATUS' | translate }}" [sortable]="true"></p-column>
-                            <p-column field="startdate" header=" {{ 'START_DATE' | translate }}" [sortable]="true"></p-column>
-                            <p-column field="enddate" header="{{ 'END_DATE' | translate }}" [sortable]="true"></p-column>
+                            <p-column field="start" header=" {{ 'START_DATE' | translate }}" [sortable]="true"></p-column>
+                            <p-column field="end" header="{{ 'END_DATE' | translate }}" [sortable]="true"></p-column>
                             <p-column field="approvers" header="{{ 'APPROVERS' | translate }}" [sortable]="true"></p-column>
-                            <p-column field="pendingapprovers" header="{{ 'PENDING_APPROVERS' | translate }}" [sortable]="true"></p-column>
+                            <p-column field="pending" header="{{ 'PENDING_APPROVERS' | translate }}" [sortable]="true"></p-column>
                             <p-column styleClass="col-button" field="color">
                                 <template let-car="rowData" pTemplate type="body">
-                                    <button type="button" pButton [routerLink]="['/about']" icon="fa-edit"></button>
+                                    <button type="button" pButton [routerLink]="['/single-approval']" icon="fa-edit"></button>
                                 </template>
                             </p-column>
                         </p-dataTable>
