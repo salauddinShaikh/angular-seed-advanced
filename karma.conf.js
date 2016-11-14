@@ -50,6 +50,9 @@ module.exports = function (config) {
       { pattern: 'node_modules/ng2-translate/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/@ngrx/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/angulartics2/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/localforage/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/primeng/**/*.js', included: false, watched: false },
+
 
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },
       { pattern: 'dist/dev/**/*.html', included: false, watched: true, served: true },
