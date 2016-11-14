@@ -53,3 +53,9 @@
     display: inline-block !important;
     width: 200px;
 }
+
+@media (max-width: 767px) {
+  .page-content-wrapper .page-content { 
+    overflow: inherit;
+  }
+}
