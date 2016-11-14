@@ -4,7 +4,12 @@
      border-top: 1px solid #ddd !important;
      font-weight: bold;
  } 
-
+.fc-axis.fc-time.ui-widget-content{ height: 30px!important; }
+.calender-btn-add{
+  color: blue;
+  float: right; 
+  z-index: 10000000;
+}
 .page-header.navbar .page-logo .logo-default {
     margin: 17px 0px 0 !important;
 }

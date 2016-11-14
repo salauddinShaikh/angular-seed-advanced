@@ -20,13 +20,25 @@
 							<div class="col-md-4 col-sm-4 col-xs-12 icon-align">
 								<div class="profile-userpic">
 									<i class="fa fa-user icon-size"></i>
+									<div class="div-margin">										
+										<a (click)="edit()" *ngIf="!isEdit"><i class="fa fa-pencil"></i>Edit</a>										
+											<div *ngIf="isEdit">
+												<div>
+													<input type="file" class="file-align">
+												</div>
+												<div class="choose-file-div">
+													<button pButton type="text" label="{{ 'UPLOAD' | translate }}" (click)="upload()"></button>
+													<button pButton type="text" label="{{ 'CANCEL' | translate }}" (click)="cancel()"></button>
+												</div>
+											</div>
+									</div>
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-4 col-xs-12">
 								<h2 class="user-profile-name">Nick</h2>
 								<h4 class="user-profile-emp-id">{{ 'MY_PROFILE' | translate }} : 10000</h4>
 								<div>
-									<button pButton type="button" label="Download Profile"></button>
+									<button pButton type="button" label="{{ 'DOWNLOAD_PROFILE' | translate }}"></button>
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-4 col-xs-12 div-margin">
