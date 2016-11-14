@@ -1,6 +1,7 @@
 // angular
-import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { Component, DebugElement } from '@angular/core';
+import { TestBed,ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 // app
 import { t } from '../../../frameworks/test/index';
@@ -13,6 +14,11 @@ const testModuleConfig = () => {
   });
 };
 
+let componentInstance:    LmsBulkApproveComponent;
+let fixture: ComponentFixture<LmsBulkApproveComponent>;
+let de : DebugElement;
+let el : HTMLElement;
+
  export function main(){
      console.log('test check');
     t.describe('@Component:LmsBulkApproveComponent',()=>{
@@ -20,18 +26,19 @@ const testModuleConfig = () => {
 
         t.it('should work',t.async(()=>{
             TestBed.compileComponents().then(()=>{
-                
-                let fixture = TestBed.createComponent(TestComponent);
+
+                fixture = TestBed.createComponent(LmsBulkApproveComponent);
                 fixture.detectChanges();
                 let compiled = fixture.debugElement.nativeElement;
 
-                let componentInstance = fixture.debugElement.children[0].componentInstance;
+                componentInstance = fixture.componentInstance;
 
                 t.it('should find page content',()=>{
                     t.e(compiled.querySelectorAll()[0]).toBeTruthy();
                 });
 
                 t.it('checks page-load component status',()=>{
+                    fixture.detectChanges();
                     t.e(compiled.querySelector('span')[1]).toBe('Bulk Approval');
                     t.e(compiled.querySelector('h5')).toBe('');
                     t.e(componentInstance.validationMessage).toBe('');
@@ -40,10 +47,12 @@ const testModuleConfig = () => {
                 });
 
                 t.it('checks validation after loading',()=>{
+                    fixture.detectChanges();
                     t.e(compiled.querySelector('button')['Approve']).click();
                     t.e(compiled.querySelector('h5')).toBeTruthy();
 
                     componentInstance.validationMessage = '';
+                    fixture.detectChanges();
 
                     t.e(compiled.querySelector('button')['Reject']).click();
                     t.e(compiled.querySelector('h5')).toBeTruthy();
@@ -51,6 +60,7 @@ const testModuleConfig = () => {
 
                 t.it('should clear the form validation variables ',()=>{
                     componentInstance.clearForm();
+                    fixture.detectChanges();
                     t.e(componentInstance.selectedEmployees.length).toBe(0);
                     t.e(componentInstance.comments).toBeFalsy();
                     t.e(componentInstance.formIsClean).toBeTruthy()
@@ -58,18 +68,25 @@ const testModuleConfig = () => {
 
                 t.it('checks if approvePressed() works',()=>{
                     componentInstance.approvePressed();
-                    t.e(componentInstance.this.formIsClean).toBeTrthy();
+                    fixture.detectChanges();
+                    t.e(componentInstance.formIsClean).toBeTruthy();
                     t.e(componentInstance.validationMessage).toBe('Approved');
                     t.e(componentInstance.formIsClean).toBeTruthy();
                     t.e(componentInstance.selectedEmployees.length).toBe(0);
                 });
 
                 t.it('checks if rejectPressed() works',()=>{
-                    componentInstance.approvePressed();
-                    t.e(componentInstance.this.formIsClean).toBeTrthy();
+                    componentInstance.rejectPressed();
+                    fixture.detectChanges();
+                    t.e(componentInstance.formIsClean).toBeTruthy();
                     t.e(componentInstance.validationMessage).toBe('Rejected');
                     t.e(componentInstance.formIsClean).toBeTruthy();
                     t.e(componentInstance.selectedEmployees.length).toBe(0);
+                });
+
+                t.it('check the checkbox',()=>{
+                    de = fixture.debugElement.query(By.css('.ui-chkbox-icon'));
+                    el = de.nativeElement();
                 });
 
             });

@@ -182,15 +182,15 @@ export class LmsApplyLeavesComponent {
   }
 
 
-  startSelected(event) {
+  startSelected() {
     this.end = this.start;
   }
 
-  endSelected(event) {
+  endSelected() {
     this.dayDiffCalc(this.start, this.end);
   }
 
-  addLeaves(event) {
+  addLeaves() {
     if (!this.isHalfDay) {
       this.dayDiffCalc(this.start, this.end);
     } else {
@@ -233,12 +233,10 @@ export class LmsApplyLeavesComponent {
   submitPressed(event) {
     if (this.formIsClean) {
       window['localforage'].setItem('appliedLeave', this.finalLeaveData, (err, value) => {
-        console.log('Success! Set values using localforage');
         this.cancelPressed();
         this.warning = 'Leave application submitted.';
       });
       window['localforage'].getItem('appliedLeave').then((value) => {
-        console.log('Success! Got values using localforage');
       });
     }
   }

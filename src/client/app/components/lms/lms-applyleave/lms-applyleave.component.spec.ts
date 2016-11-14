@@ -1,6 +1,7 @@
 // angular
-import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { Component, DebugElement } from '@angular/core';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 // app
 import { t } from '../../../frameworks/test/index';
@@ -13,6 +14,11 @@ const testModuleConfig = () => {
     });
 };
 
+let componentInstance:    LmsApplyLeavesComponent;
+let fixture: ComponentFixture<LmsApplyLeavesComponent>;
+let de : DebugElement;
+let el : HTMLElement;
+
 export function main() {
     console.log('test check');
     t.describe('@Component:LmsApplyLeavesComponent', () => {
@@ -21,14 +27,14 @@ export function main() {
         t.it('should work', t.async(() => {
             TestBed.compileComponents().then(() => {
 
-                let fixture = TestBed.createComponent(TestComponent);
+                fixture = TestBed.createComponent(LmsApplyLeavesComponent);
                 fixture.detectChanges();
                 let compiled = fixture.debugElement.nativeElement;
 
-                let componentInstance = fixture.debugElement.children[0].componentInstance;
+                componentInstance = fixture.componentInstance;
 
                 t.it('should find page content', () => {
-                    t.e(compiled.querySelectorAll()[0]).toBeTruthy();
+                    t.e(compiled).toBeDefined();
                 });
 
                 t.it('checks page-load component status',()=>{
@@ -44,22 +50,60 @@ export function main() {
                     t.e(compiled.querySelectorAll('input')[3].getAttribute('value')).toBe(date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear());
                     t.e(componentInstance.end).toBeFalsy(date);
                     t.e(compiled.querySelector('textarea').getAttribute('value')).toBe('');
-                    t.e(componentInstance.comments).toBe('');
+                    //t.e(componentInstance.comments).toBe('');
                 });
 
                 t.it('check blank values validation for Add Leave',()=>{
+                    fixture.detectChanges();
                     t.e(compiled.querySelector('button')['Add Leave']).click();
                     t.e(compiled.querySelector('h5')).toBeTruthy();
 
                     componentInstance.cancelPressed();
+                    fixture.detectChanges();
 
                     t.e(compiled.querySelector('h5')).toBeFalsy();
 
                 });
 
                 t.it('check blank values validation for Cancel',()=>{
+                    fixture.detectChanges();
                     t.e(compiled.querySelector('button')['Cancel']).click();
                     t.e(compiled.querySelector('h5')).toBeFalsy();
+                });
+
+                t.it('test the dayDiffCalc() method',()=>{
+                    var today = new Date();
+                    var tomorrow = new Date(today.getFullYear()+"-"+today.getMonth()+"-"+today.getDate()+1);
+                    fixture.detectChanges();
+                    t.e(componentInstance.dayDiffCalc(today, tomorrow)).toBe(1);
+                });
+
+                t.it('test the startSelected() method',()=>{
+                    componentInstance.start = new Date();
+                    fixture.detectChanges();
+                    componentInstance.startSelected();
+                    fixture.detectChanges();
+                    t.e(componentInstance.end).toBe(new Date());
+                });
+
+                t.it('test the endSelected() method',()=>{
+                    var today = componentInstance.start = new Date();
+                    componentInstance.end = new Date(today.getFullYear()+"-"+today.getMonth()+"-"+today.getDate()+2);
+                    fixture.detectChanges();
+
+                    t.e(componentInstance.numberofdays).toBe(1);
+                    t.e(componentInstance.showNumDays).toBe(2);
+                });
+
+                t.it('test the addLeaves() method for adding half-day',()=>{
+                    componentInstance.isHalfDay = true;
+                    componentInstance.start = componentInstance.end = new Date();
+                    componentInstance.reason = 'get notes exchanged';
+                    componentInstance.formIsClean = true;
+                    componentInstance.addLeaves();
+                    fixture.detectChanges();
+
+                    t.e(componentInstance.finalLeaveData.length).toBe(1);
                 });
 
             });
@@ -75,19 +119,3 @@ export function main() {
 })
 class TestComponent { }
 
-
-//                 let compiled = fixture.debugElement.nativeElement;
-//                 t.expect(compiled.querySelectorAll('h4')[0]).toHaveText('Requestor Details');
-//                 t.expect(compiled.querySelectorAll('h4')[1]).toHaveText('Active on Projects');
-//                 t.expect(compiled.querySelectorAll('h4')[2]).toHaveText('Apply Leave');
-
-//                 compiled.querySelectorAll('button')[0].toHaveText('Add Leave').click();
-//                 t.expect(compiled.querySelectorAll('h5')[0]).toBeTruthy();
-//                 t.expect(compiled.querySelectorAll('h5')[0]).toHaveText('Reason cannot be left blank!');
-
-//                 compiled.querySelectorAll('button')[0].toHaveText('Cancel').click();
-//                 t.expect(compiled.querySelectorAll('h5')[0]).toBeFalsy();
-
-//                 t.expect(compiled.querySelectorAll('input')[1]).toBeFalsy();
-
-//                 t.expect(this.selectedLeave.label).toBe('Select');

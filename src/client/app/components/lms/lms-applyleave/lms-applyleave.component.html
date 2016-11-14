@@ -105,7 +105,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'START_DATE' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span> </label>
                                     <div>
-                                        <p-calendar dateFormat="dd/mm/yy" (onSelect)="startSelected($event)" [(ngModel)]="start" [disabled]="startDateDisabled" [showIcon]="true"></p-calendar>
+                                        <p-calendar dateFormat="dd/mm/yy" (onSelect)="startSelected()" [(ngModel)]="start" [disabled]="startDateDisabled" [showIcon]="true"></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                 <div class="form-group">
                                     <label class="control-label"> {{ 'END_DATE' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span> </label>
                                     <div>
-                                        <p-calendar dateFormat="dd/mm/yy" (onSelect)="endSelected($event)" [minDate]="start" [(ngModel)]="end" [disabled]="endDateDisabled" [showIcon]="true"></p-calendar>
+                                        <p-calendar dateFormat="dd/mm/yy" (onSelect)="endSelected()" [minDate]="start" [(ngModel)]="end" [disabled]="endDateDisabled" [showIcon]="true"></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pull-right">
-                                    <button class="btn btn-outline" (click)="addLeaves($event)"> {{ 'ADD_LEAVE' | translate }} </button>
+                                    <button class="btn btn-outline" (click)="addLeaves()"> {{ 'ADD_LEAVE' | translate }} </button>
                                     <button (click)="submitPressed($event)" class="btn btn-outline"> {{ 'SUBMIT' | translate }} </button>
                                     <button (click)="cancelPressed($event)" class="btn btn-outline"> {{ 'CANCEL' | translate }} </button>
                                 </div>

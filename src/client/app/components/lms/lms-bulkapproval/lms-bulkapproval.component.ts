@@ -79,7 +79,7 @@ export class LmsBulkApproveComponent {
     }
   }
 
-  rejectPressed(event) {
+  rejectPressed() {
     this.validate();
     if (this.formIsClean) {
       this.validationMessage = 'Rejected';
