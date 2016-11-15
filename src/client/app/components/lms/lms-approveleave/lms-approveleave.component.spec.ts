@@ -1,52 +1,45 @@
 // angular
-import { Component, DebugElement } from '@angular/core';
-import { TestBed,ComponentFixture } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { t } from '../../../frameworks/test/index';
+import { CoreModule } from '../../../frameworks/core/core.module';
 
 // app
-import { t } from '../../../frameworks/test/index';
 import { LmsApproveLeavesComponent } from './lms-approveleave.component';
- console.log('test check');
-// test module configuration for each test
-const testModuleConfig = () => {
-  TestBed.configureTestingModule({
-    declarations: [LmsApproveLeavesComponent, TestComponent]
-  });
-};
+import * as localForage from "localforage";
 
-let componentInstance:    LmsApproveLeavesComponent;
-let fixture: ComponentFixture<LmsApproveLeavesComponent>;
-let de : DebugElement;
-let el : HTMLElement;
+export function main() {
 
-
- export function main(){
-     console.log('test check');
-    t.describe('@Component:LmsBulkApproveComponent',()=>{
-        t.be(testModuleConfig);
-
-        t.it('should work',t.async(()=>{
-            TestBed.compileComponents().then(()=>{
-                
-                fixture = TestBed.createComponent(LmsApproveLeavesComponent);
-                fixture.detectChanges();
-                let compiled = fixture.debugElement.nativeElement;
-
-                componentInstance = fixture.componentInstance;
-
-                t.it('should find page content',()=>{
-                    t.e(compiled.querySelectorAll()[0]).toBeTruthy();
-                });
-
+    t.describe('Component: SingleApproval', () => {
+        t.beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [CoreModule],
+                declarations: [LmsApproveLeavesComponent, TestComponent],
+                schemas: [NO_ERRORS_SCHEMA]
             });
-        }));
+        });
     });
-  }
+
+
+    t.describe('should contain all tables', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    
+                });
+        });
+    });
+}
 
 
 
 @Component({
-  selector: 'approve-leave',
-  template: '<sd-approveleave></sd-approveleave>'
+  selector: 'test-cmp',
+  template: '<approve-leave></approve-leave>'
 })
 class TestComponent{}
