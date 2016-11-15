@@ -46,7 +46,7 @@ let el : HTMLElement;
 
 
 @Component({
-  selector: 'test-cmp',
-  template: '<sd-applyleave></sd-applyleave>'
+  selector: 'approve-leave',
+  template: '<sd-approveleave></sd-approveleave>'
 })
 class TestComponent{}

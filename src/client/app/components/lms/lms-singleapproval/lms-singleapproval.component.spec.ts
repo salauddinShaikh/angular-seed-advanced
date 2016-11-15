@@ -84,7 +84,7 @@ let el : HTMLElement;
 
 
 @Component({
-  selector: 'test-cmp',
-  template: '<sd-applyleave></sd-applyleave>'
+  selector: 'singleapproval',
+  template: '<sd-singleapproval></sd-singleapproval>'
 })
 class TestComponent{}

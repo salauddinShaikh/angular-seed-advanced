@@ -50,7 +50,7 @@ export function main() {
                     t.e(compiled.querySelectorAll('input')[3].getAttribute('value')).toBe(date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear());
                     t.e(componentInstance.end).toBeFalsy(date);
                     t.e(compiled.querySelector('textarea').getAttribute('value')).toBe('');
-                    //t.e(componentInstance.comments).toBe('');
+                    t.e(componentInstance.reason).toBe('');
                 });
 
                 t.it('check blank values validation for Add Leave',()=>{
@@ -58,7 +58,7 @@ export function main() {
                     t.e(compiled.querySelector('button')['Add Leave']).click();
                     t.e(compiled.querySelector('h5')).toBeTruthy();
 
-                    componentInstance.cancelPressed();
+                    t.e(compiled.querySelector('button')['Cancel']).click();
                     fixture.detectChanges();
 
                     t.e(compiled.querySelector('h5')).toBeFalsy();
@@ -114,7 +114,7 @@ export function main() {
 
 
 @Component({
-    selector: 'test-cmp',
+    selector: 'apply-leave',
     template: '<sd-applyleave></sd-applyleave>'
 })
 class TestComponent { }

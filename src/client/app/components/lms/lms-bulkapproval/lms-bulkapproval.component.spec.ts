@@ -34,7 +34,7 @@ let el : HTMLElement;
                 componentInstance = fixture.componentInstance;
 
                 t.it('should find page content',()=>{
-                    t.e(compiled.querySelectorAll()[0]).toBeTruthy();
+                    t.e(compiled).toBeDefined();
                 });
 
                 t.it('checks page-load component status',()=>{
@@ -97,7 +97,7 @@ let el : HTMLElement;
 
 
 @Component({
-  selector: 'test-cmp',
-  template: '<sd-applyleave></sd-applyleave>'
+  selector: 'bulkapproval',
+  template: '<sd-bulkapproval></sd-bulkapproval>'
 })
 class TestComponent{}
