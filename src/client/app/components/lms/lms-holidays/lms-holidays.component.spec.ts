@@ -102,7 +102,7 @@ export function main() {
 }
 
 @Component({
-    selector: 'view-holidays',
+    selector: 'test-cmp',
     template: '<sd-viewholidays></sd-viewholidays>'
 })
 class TestComponent { }
