@@ -29,83 +29,86 @@ export function main() {
                         t.e(fixture.nativeElement).toBeTruthy();
                         t.e(TestComponent).toBeDefined();
                     });
-            }));
+            })
+        );
 
-            t.it('on page load page status',()=>{
-                t.async(()=>{
-                    TestBed.compileComponents()
-                        .then(()=>{
-                            let fixture = TestBed.createComponent(TestComponent);
-                            fixture.detectChanges();
+        t.it('on page load page status', () => {
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
 
-                            t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
-                            t.e(fixture.nativeElement.querySelectorAll('button')[1].innerHTML).toBe('Approve');
-                            t.e(fixture.nativeElement.querySelectorAll('button')[2].innerHTML).toBe('Reject');
-                            t.e(fixture.nativeElement.querySelectorAll('button')[3].innerHTML).toBe('Close');
-                            t.e(fixture.nativeElement.querySelectorAll('h4')[2].innerHTML).toBe('Requestor Details');
-                        });
-                });
+                        t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
+                        t.e(fixture.nativeElement.querySelectorAll('button')[1].innerHTML).toBe('Approve');
+                        t.e(fixture.nativeElement.querySelectorAll('button')[2].innerHTML).toBe('Reject');
+                        t.e(fixture.nativeElement.querySelectorAll('button')[3].innerHTML).toBe('Close');
+                        t.e(fixture.nativeElement.querySelectorAll('h4')[2].innerHTML).toBe('Requestor Details');
+                    });
             });
+        });
 
-            t.it('validation click APPROVE with blank comments field',()=>{
-                t.async(()=>{
-                    TestBed.compileComponents()
-                        .then(()=>{
-                            let fixture = TestBed.createComponent(TestComponent);
-                            fixture.detectChanges();
+        t.it('validation click APPROVE with blank comments field', () => {
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
 
-                            t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
-                            t.e(fixture.nativeElement.querySelectorAll('button')[1].innerHTML).toBe('Approve');
-                            t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Comments cannot be left blank');
-                        });
-                });
+                        t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
+                        t.e(fixture.nativeElement.querySelectorAll('button')[1].innerHTML).toBe('Approve');
+                        t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Comments cannot be left blank');
+                    });
             });
+        });
 
-            t.it('validation click APPROVE with comments not blank',()=>{
-                t.async(()=>{
-                    TestBed.compileComponents()
-                        .then(()=>{
-                            let fixture = TestBed.createComponent(TestComponent);
-                            fixture.detectChanges();
+        t.it('validation click APPROVE with comments not blank', () => {
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
 
-                            fixture.nativeElement.querySelector('textarea').innerHTML = 'Approved';
-                            fixture.detectChanges();
-                            fixture.nativeElement.querySelectorAll('button')[1].click();
-                            fixture.detectChanges();
-                            t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Approved');
-                        });
-                });
+                        fixture.nativeElement.querySelector('textarea').innerHTML = 'Approved';
+                        fixture.detectChanges();
+                        fixture.nativeElement.querySelectorAll('button')[1].click();
+                        fixture.detectChanges();
+                        t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Approved');
+                    });
             });
+        });
 
-            t.it('validation click REJECT with blank comments field',()=>{
-                t.async(()=>{
-                    TestBed.compileComponents()
-                        .then(()=>{
-                            let fixture = TestBed.createComponent(TestComponent);
-                            fixture.detectChanges();
+        t.it('validation click REJECT with blank comments field', () => {
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
 
-                            t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
-                            t.e(fixture.nativeElement.querySelectorAll('button')[2].innerHTML).toBe('Reject');
-                            t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Comments cannot be left blank');
-                        });
-                });
+                        t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
+                        t.e(fixture.nativeElement.querySelectorAll('button')[2].innerHTML).toBe('Reject');
+                        t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Comments cannot be left blank');
+                    });
             });
+        });
 
-            t.it('validation click REJECT with comments not blank',()=>{
-                t.async(()=>{
-                    TestBed.compileComponents()
-                        .then(()=>{
-                            let fixture = TestBed.createComponent(TestComponent);
-                            fixture.detectChanges();
+        t.it('validation click REJECT with comments not blank', () => {
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
 
-                            fixture.nativeElement.querySelector('textarea').innerHTML = 'Approved';
-                            fixture.detectChanges();
-                            fixture.nativeElement.querySelectorAll('button')[1].click();
-                            fixture.detectChanges();
-                            t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Approved');
-                        });
-                });
+                        fixture.nativeElement.querySelector('textarea').innerHTML = 'Approved';
+                        fixture.detectChanges();
+                        fixture.nativeElement.querySelectorAll('button')[2].click();
+                        fixture.detectChanges();
+                        t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Approved');
+                    });
             });
+        });
+
+        //CLOSE BUTTON CLICK FOR REDIRECTION TEST CASE TO BE ADDED
 
     })
 }
