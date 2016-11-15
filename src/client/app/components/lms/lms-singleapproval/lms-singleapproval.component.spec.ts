@@ -1,90 +1,118 @@
 // angular
-import { Component,DebugElement } from '@angular/core';
+import { Component } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { t } from '../../../frameworks/test/index';
+import { CoreModule } from '../../../frameworks/core/core.module';
 
 // app
-import { t } from '../../../frameworks/test/index';
 import { LmsSingleApprovalComponent } from './lms-singleapproval.component';
- console.log('test check');
-// test module configuration for each test
-const testModuleConfig = () => {
-  TestBed.configureTestingModule({
-    declarations: [LmsSingleApprovalComponent, TestComponent]
-  });
-};
 
-let componentInstance:    LmsSingleApprovalComponent;
-let fixture: ComponentFixture<LmsSingleApprovalComponent>;
-let de : DebugElement;
-let el : HTMLElement;
+export function main() {
 
- export function main(){
-     console.log('test check');
-    t.describe('@Component:LmsBulkApproveComponent',()=>{
-        t.be(testModuleConfig);
+    t.describe('Component: SingleApproval', () => {
+        t.beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [CoreModule],
+                declarations: [LmsSingleApprovalComponent, TestComponent],
+                schemas: [NO_ERRORS_SCHEMA]
+            });
+        });
 
-        t.it('should work',t.async(()=>{
-            TestBed.compileComponents().then(()=>{
-                
-                fixture = TestBed.createComponent(LmsSingleApprovalComponent);
-                fixture.detectChanges();
-                let compiled = fixture.debugElement.nativeElement;
+        t.it('should have defined singleapproval component',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
+                        t.e(fixture.nativeElement).toBeTruthy();
+                        t.e(TestComponent).toBeDefined();
+                    });
+            }));
 
-                componentInstance = fixture.componentInstance;
+            t.it('on page load page status',()=>{
+                t.async(()=>{
+                    TestBed.compileComponents()
+                        .then(()=>{
+                            let fixture = TestBed.createComponent(TestComponent);
+                            fixture.detectChanges();
 
-                t.it('should find page content',()=>{
-                    t.e(compiled).toBeDefined();
-                });
-
-                t.it('checks page-load component status',()=>{
-                    fixture.detectChanges();
-                    t.e(compiled.querySelector('span')[1]).toBe('Approve Leaves');
-                    t.e(compiled.querySelector('h5')).toBe('');
-                    t.e(componentInstance.validationMessage).toBe('');
-                    t.e(compiled.querySelector('textarea').getAttribute('value')).toBe('');
-                    t.e(componentInstance.comments).toBe('');
-                });
-
-                t.it('checks validation after loading',()=>{
-                    fixture.detectChanges();
-                    t.e(compiled.querySelector('button')['Approve']).click();
-                    t.e(compiled.querySelector('h5')).toBeTruthy();
-
-                    componentInstance.validationMessage = '';
-                    fixture.detectChanges();
-                    t.e(compiled.querySelector('button')['Reject']).click();
-                    t.e(compiled.querySelector('h5')).toBeTruthy();
-                });
-
-                t.it('should clear the form validation variables ',()=>{
-                    componentInstance.clearForm();
-                    t.e(componentInstance.comments).toBeFalsy();
-                    t.e(componentInstance.formIsClean).toBeTruthy()
-                });
-
-                t.it('checks if approvePressed() works',()=>{
-                    componentInstance.approvePressed();
-                    t.e(componentInstance.formIsClean).toBeTruthy();
-                    t.e(componentInstance.validationMessage).toBe('Approved');
-                    t.e(componentInstance.formIsClean).toBeTruthy();
-                });
-
-                t.it('checks if rejectPressed() works',()=>{
-                    componentInstance.approvePressed();
-                    t.e(componentInstance.formIsClean).toBeTruthy();
-                    t.e(componentInstance.validationMessage).toBe('Rejected');
-                    t.e(componentInstance.formIsClean).toBeTruthy();
+                            t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
+                            t.e(fixture.nativeElement.querySelectorAll('button')[1].innerHTML).toBe('Approve');
+                            t.e(fixture.nativeElement.querySelectorAll('button')[2].innerHTML).toBe('Reject');
+                            t.e(fixture.nativeElement.querySelectorAll('button')[3].innerHTML).toBe('Close');
+                            t.e(fixture.nativeElement.querySelectorAll('h4')[2].innerHTML).toBe('Requestor Details');
+                        });
                 });
             });
-        }));
-    });
-  }
 
+            t.it('validation click APPROVE with blank comments field',()=>{
+                t.async(()=>{
+                    TestBed.compileComponents()
+                        .then(()=>{
+                            let fixture = TestBed.createComponent(TestComponent);
+                            fixture.detectChanges();
+
+                            t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
+                            t.e(fixture.nativeElement.querySelectorAll('button')[1].innerHTML).toBe('Approve');
+                            t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Comments cannot be left blank');
+                        });
+                });
+            });
+
+            t.it('validation click APPROVE with comments not blank',()=>{
+                t.async(()=>{
+                    TestBed.compileComponents()
+                        .then(()=>{
+                            let fixture = TestBed.createComponent(TestComponent);
+                            fixture.detectChanges();
+
+                            fixture.nativeElement.querySelector('textarea').innerHTML = 'Approved';
+                            fixture.detectChanges();
+                            fixture.nativeElement.querySelectorAll('button')[1].click();
+                            fixture.detectChanges();
+                            t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Approved');
+                        });
+                });
+            });
+
+            t.it('validation click REJECT with blank comments field',()=>{
+                t.async(()=>{
+                    TestBed.compileComponents()
+                        .then(()=>{
+                            let fixture = TestBed.createComponent(TestComponent);
+                            fixture.detectChanges();
+
+                            t.e(fixture.nativeElement.querySelector('textarea').getAttributes('text')).toBe('');
+                            t.e(fixture.nativeElement.querySelectorAll('button')[2].innerHTML).toBe('Reject');
+                            t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Comments cannot be left blank');
+                        });
+                });
+            });
+
+            t.it('validation click REJECT with comments not blank',()=>{
+                t.async(()=>{
+                    TestBed.compileComponents()
+                        .then(()=>{
+                            let fixture = TestBed.createComponent(TestComponent);
+                            fixture.detectChanges();
+
+                            fixture.nativeElement.querySelector('textarea').innerHTML = 'Approved';
+                            fixture.detectChanges();
+                            fixture.nativeElement.querySelectorAll('button')[1].click();
+                            fixture.detectChanges();
+                            t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Approved');
+                        });
+                });
+            });
+
+    })
+}
 
 
 @Component({
-  selector: 'singleapproval',
-  template: '<sd-singleapproval></sd-singleapproval>'
+    selector: 'test-cmp',
+    template: '<singleapproval></singleapproval>'
 })
-class TestComponent{}
+class TestComponent { }
