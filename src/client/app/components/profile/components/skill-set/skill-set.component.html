@@ -13,27 +13,29 @@
 			<p-column header="{{ 'APPROVERS' | translate }}" field="approvers"></p-column>
 		</p-dataTable>
 	</div>
-	<div class="row row-margin">
-		<div class="alert alert-warning message-align">
-			{{ 'SKILL_SET_MESSAGE' | translate }}
-		</div>
-		<div class="col-md-2 col-margin">
-			<span>{{ 'SKILL_TYPE' | translate }}</span>
-			<span class="skill-set-req-field"> *</span>
-			<div>
-				<p-dropdown [options]="skillTypes" [style]="{'width':'100%'}"></p-dropdown>
+	<div *ngIf="!showDiv">
+		<div class="row row-margin">
+			<div class="col-md-2 col-margin">
+				<span>{{ 'SKILL_TYPE' | translate }}</span>
+				<span class="skill-set-req-field"> *</span>
+				<div>
+					<p-dropdown [options]="skillTypes" [style]="{'width':'100%'}"></p-dropdown>
+				</div>
+			</div>
+			<div class="col-md-2 col-margin">
+				<span>{{ 'SKILLS' | translate }}</span>
+				<span class="skill-set-req-field"> *</span>
+				<div class="form-group">
+					<input type="text" [(ngModel)]="skills" class="form-control" placeholder="">
+				</div>
 			</div>
 		</div>
-		<div class="col-md-2 col-margin">
-			<span>{{ 'SKILLS' | translate }}</span>
-			<span class="skill-set-req-field"> *</span>
-			<div class="form-group">
-				<input type="text" [(ngModel)]="skills" class="form-control" placeholder="">
-			</div>
+		<div class="row row-margin button-margin">
+			<button pButton type="text" label="{{ 'SUBMIT' | translate }}" (click)="submit()"></button>
+			<button pButton type="text" label="{{ 'CANCEL' | translate }}" (click)="cancel()"></button>
 		</div>
 	</div>
-	<div class="row row-margin button-margin">
-		<button pButton type="text" label="{{ 'SUBMIT' | translate }}" (click)="submit()"></button>
-		<button pButton type="text" label="{{ 'CANCEL' | translate }}" (click)="cancel()"></button>
+	<div class="row row-margin button-margin" *ngIf="showDiv">
+		<button pButton type="text" icon="fa fa-plus" (click)="onAddClick()" label="{{ 'ADD_NEW_SKILLSET' | translate }}"></button>
 	</div>
 </div>
