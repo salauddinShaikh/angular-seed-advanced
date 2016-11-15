@@ -103,7 +103,7 @@ export function main() {
                         fixture.detectChanges();
                         fixture.nativeElement.querySelectorAll('button')[2].click();
                         fixture.detectChanges();
-                        t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Approved');
+                        t.e(fixture.nativeElement.querySelector('h5').innerHTML).toBe('Rejected');
                     });
             });
         });
