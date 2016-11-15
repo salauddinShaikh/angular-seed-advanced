@@ -1,20 +1,20 @@
 
 import { TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { FooterComponent } from './footer.component';
+import { By } from '@angular/platform-browser';
+import { QuickSidebarComponent } from './quick-sidebar.component';
 import { Component } from '@angular/core';
 import { t } from '../../../frameworks/test/index';
 
 
 export function main() {
 
-    t.describe('Component: FooterComponent', () => {
+    t.describe('Component: QuickSidebarComponent', () => {
         t.beforeEach(() => {
             TestBed.configureTestingModule({
-                declarations: [FooterComponent, TestComponent],
-                schemas: [NO_ERRORS_SCHEMA]
+                declarations: [QuickSidebarComponent, TestComponent]
             });
-        })
+        });
         t.it('should have a defined component',
             t.async(() => {
                 TestBed.compileComponents()
@@ -24,31 +24,22 @@ export function main() {
                         t.e(fixture.nativeElement).toBeTruthy();
                         t.e(TestComponent).toBeDefined();
                     });
-            }))
-        t.it('should have a page-Footer class',
+            }));
+        t.it('should have a page-quick-sidebar-toggler class',
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
                         let fixture = TestBed.createComponent(TestComponent);
                         fixture.detectChanges();
-                        t.expect(fixture.nativeElement.querySelectorAll('.page-footer').length).toBe(1);
+                        t.expect(fixture.nativeElement.querySelectorAll('.page-quick-sidebar-toggler').length).toBe(1);
                     });
-            }))
-        t.it('should have 3 div element',
-            t.async(() => {
-                TestBed.compileComponents()
-                    .then(() => {
-                        let fixture = TestBed.createComponent(TestComponent);
-                        fixture.detectChanges();
-                        t.expect(fixture.nativeElement.querySelectorAll('div').length).toBe(3);
-                    });
-            }))
+            }));
     })
 };
 
 
 @Component({
     selector: 'test-cmp',
-    template: '<layout-footer></layout-footer>'
+    template: '<quick-sidebar></quick-sidebar>'
 })
 class TestComponent { }

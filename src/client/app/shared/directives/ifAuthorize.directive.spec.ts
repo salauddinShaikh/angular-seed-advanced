@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 
 import { IfAuthorize } from './ifAuthorize.directive';
 import { LoginService } from '../services/login.service';
+import { t } from '../../frameworks/test/index';
 
 const testModuleConfig = () => {
     TestBed.configureTestingModule({
@@ -14,45 +15,45 @@ const testModuleConfig = () => {
     viewProviders: [
         { provide: LoginService, useClass: LoginMock }
     ],
-    selector: 'testss-cmp',
-    template: `<div [ifAuthorize]="['Timesheets.READ']"></div>`
+    selector: 'test-cmp',
+    template: `<div class="directive"><div [ifAuthorize]="['Timesheets.READ']"><span>hii</span></div>`
 })
 class TestComponent { }
 
 export function main() {
-    describe('Shared: ifAuthorizeDirective', () => {
-        console.log('IfAuthorize Directive-----------------------');
-        it('should add platform class', () => {
-            console.log('IfAuthorize Directive-----------------------');
+    t.describe('Shared: ifAuthorizeDirective', () => {
+        t.be(testModuleConfig);
+        t.beforeEach(() => {
+            var store = {loggedInUserPermission:"['Timesheets.READ']"};
+
+            t.spyOn(localStorage, 'getItem').andCallFake((key) => {
+                return store[key];
+            });
+            t.spyOn(localStorage, 'setItem').andCallFake((key, value) => {
+                return store[key] = value + '';
+            });
         });
+        t.it('should have directive class', t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+                    t.expect(fixture.nativeElement.querySelectorAll('.directive').length).toBe(1);
+                });
+        }));
+        t.it('should have span tag present', t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+                    t.expect(fixture.nativeElement.querySelectorAll('.span').length).toBe(1);
+                });
+        }));
     });
 }
 
 class LoginMock {
-    public onAuthStatusChange: any 
-    public location: any = {};
-    public authenticate(credentials: any) {
+    public getAuthEmitter() {
         return;
     }
-    public getLoggedInUserPermission(): void {
-        return;
-    }
-    public getAuthEmitter(): void {
-        return;
-    }
-    public emitAuthEvent(): void {
-        return;
-    }
-    public logout(): void {
-        return;
-    }
-    public setLoggedInUserPermission(): void {
-        return;
-    }
-    public handleError(): void {
-        return;
-    }
-    public isAuthenticated(): void {
-        return;
-    }
-}
+};
