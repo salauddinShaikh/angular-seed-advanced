@@ -8,6 +8,7 @@ import { CoreModule } from '../../../frameworks/core/core.module';
 
 // app
 import { LmsUpdateLeavesComponent } from './lms-updateleave.component';
+import * as localForage from "localforage";
 
 export function main() {
 
