@@ -40,6 +40,10 @@ let el : HTMLElement;
                 t.it('checks page-load component status',()=>{
                     de = fixture.debugElement.query(By.css('.fc-toolbar'));
                     el = de.nativeElement();
+                    var calTitle = el.getAttribute('text');
+                    var cal = calTitle.split(' ');
+                    var dateTemp = new Date();
+                    t.e(cal[1]).toContain(dateTemp.getFullYear());
                     t.e(el).toBeDefined();
 
                     fixture.detectChanges();
