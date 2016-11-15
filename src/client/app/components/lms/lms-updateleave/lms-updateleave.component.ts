@@ -24,7 +24,7 @@ export class LmsUpdateLeavesComponent {
   }
 
   constructor() {
-    localforage.getItem('appliedLeave').then((value) => {
+    localForage.getItem('appliedLeave').then((value) => {
       if (value) {
         this.leaves = value;
         console.log('getting from localforage in myLeaves');
