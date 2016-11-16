@@ -1,21 +1,25 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { NO_ERRORS_SCHEMA, Component } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component } from '@angular/core';
+import { By } from '@angular/platform-browser';
 import { Router} from '@angular/router';
+import { RouterTestingModule} from '@angular/router/testing';
+import { LoginComponent } from './login.component';
+import { t } from '../../frameworks/test/index';
+import { LoginService } from '../../shared/services/login.service';
 
-import { MyBookingComponent } from './my-booking.component';
-import { t } from '../../../../../frameworks/test/index';
-import { CoreModule } from '../../../../../frameworks/core/core.module';
-import { SharedModule, ConfirmDialogModule, ConfirmationService} from 'primeng/primeng';
 export function main() {
 
-    t.describe('Component: MyBookingComponent', () => {
+    t.describe('Component: TopNavigationBarComponent', () => {
         t.beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [CoreModule, RouterTestingModule, SharedModule, ConfirmDialogModule],
-                declarations: [MyBookingComponent, TestComponent],
+                imports: [RouterTestingModule],
+                declarations: [LoginComponent, TestComponent],
                 schemas: [NO_ERRORS_SCHEMA],
-                providers: [{ provide: Router, useClass: RouterStub }, ConfirmationService]
+                providers: [
+                    { provide: LoginService, useValue: MockLoginService },
+                    { provide: Router, useClass: RouterStub }
+                ]
             });
         });
         t.it('should have a defined component',
@@ -28,26 +32,7 @@ export function main() {
                         t.e(TestComponent).toBeDefined();
                     });
             }));
-        t.it('should have a bookings property initialize',
-            t.async(() => {
-                TestBed.compileComponents()
-                    .then(() => {
-                        let fixture = TestBed.createComponent(TestComponent);
-                        fixture.detectChanges();
-                        let componentInstance = fixture.debugElement.children[0].componentInstance;
-                        t.expect(componentInstance.bookings.length).toBe(7);
-                    });
-            }));
-        t.it('TC_09:To check what are the contents on the Page after clicking on Manage my Bookings',
-            t.async(() => {
-                TestBed.compileComponents()
-                    .then(() => {
-                        let fixture = TestBed.createComponent(TestComponent);
-                        fixture.detectChanges();
-                        t.expect(fixture.nativeElement.querySelectorAll('.btn green hidden-xs').length).toBe(1);
-                    });
-            }));
-        t.it('TC_10:To check what are the contents of the Table provided',
+        t.it('TC_01: Employee should enter Correct url to get the login page.',
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
@@ -56,7 +41,7 @@ export function main() {
                         t.expect(false).toBe(true);
                     });
             }));
-        t.it('TC_11:To check where delete is clickable When no records are available',
+        t.it('TC_02: Employee should enter Valid user name and Password.',
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
@@ -65,16 +50,7 @@ export function main() {
                         t.expect(false).toBe(true);
                     });
             }));
-        t.it('TC_12:To check whether “New Event” option is Clickable or not',
-            t.async(() => {
-                TestBed.compileComponents()
-                    .then(() => {
-                        let fixture = TestBed.createComponent(TestComponent);
-                        fixture.detectChanges();
-                        t.expect(fixture.nativeElement.querySelectorAll('.btn green hidden-xs').length).toBe(1);
-                    });
-            }));
-        t.it('TC_13:To check whether page gets Redirected when clicked on “New Event”',
+        t.it('TC_03: The validation should be Provided if entered invalid User name and password.',
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
@@ -83,19 +59,7 @@ export function main() {
                         t.expect(false).toBe(true);
                     });
             }));
-
-        t.it('TC_104:To check whether available record Can be deleted',
-            t.async(() => {
-                TestBed.compileComponents()
-                    .then(() => {
-                        let fixture = TestBed.createComponent(TestComponent);
-                        fixture.detectChanges();
-                        let componentInstance = fixture.debugElement.children[0].componentInstance;
-                        componentInstance.confirm();
-                        t.expect(componentInstance.msgs.length).toBe(1);
-                    });
-            }));
-        t.it('TC_105: To check whether warning is displayed Before deleting the record',
+        t.it('TC_04: If entered invalid user name and Password then log in should get Refreshed.',
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
@@ -104,7 +68,7 @@ export function main() {
                         t.expect(false).toBe(true);
                     });
             }));
-        t.it('TC_106: To check whether All Conference Rooms Link is provided or not',
+        t.it('TC_05: If click on Log In Button or clicked On Enter key then the user Should get logged in.',
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
@@ -113,7 +77,7 @@ export function main() {
                         t.expect(false).toBe(true);
                     });
             }));
-        t.it('TC_107: To check whether All Conference Rooms Link is redirected to main page properly Or not',
+        t.it('TC_06: If clicked on cancel, the page Should through an error.',
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
@@ -122,17 +86,33 @@ export function main() {
                         t.expect(false).toBe(true);
                     });
             }));
-       
+        t.it('TC_07: After successful Log in , the user Should be able to see home page.',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
+                        t.expect(false).toBe(true);
+                    });
+            }));
     });
 };
 
 
 @Component({
     selector: 'test-cmp',
-    template: '<my-booking></my-booking>'
+    template: '<login-component></login-component>'
 })
 class TestComponent { }
 
+class MockLoginService {
+    public authenticate() {
+        return;
+    }
+    public getLoggedInUserPermission() {
+        return;
+    }
+}
 class RouterStub {
     navigate(url: any) { return url; }
 }
