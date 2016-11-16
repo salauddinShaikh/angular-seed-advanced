@@ -20,19 +20,19 @@ export function main() {
                 schemas: [NO_ERRORS_SCHEMA]
             });
         });
-    });
 
+        t.it('TC_04: To check whether changed password is getting saved or not', () => {
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
 
-    t.describe('on load status of component variables', () => {
-        t.async(() => {
-            TestBed.compileComponents()
-                .then(() => {
-                    let fixture = TestBed.createComponent(TestComponent);
-                    fixture.detectChanges();
-
-                    let homeInstance = fixture.debugElement.children[0].componentInstance;
-                });
+                        t.e(false).toBe(true);
+                    });
+            });
         });
+
     });
 }
 
