@@ -19,16 +19,26 @@ export class ChangePasswordComponent {
     isFormClean: boolean = false;
 
     confirmPasswordValidation() {
-        if (this.newPassword !== this.confirmPassword) {
-            this.newPasswordWarning = 'Passwords donot match';
+        if (this.newPassword.trim() && this.confirmPassword.trim()) {
+            if (this.newPassword.trim() !== this.confirmPassword.trim()) {
+                this.newPasswordWarning = 'Passwords donot match';
+                this.isFormClean = false;
+            } else if (this.newPassword.trim() === this.confirmPassword.trim()) {
+                this.newPasswordWarning = '';
+                this.isFormClean = true;
+            }
+        } else if(!this.oldPassword.trim()){
+            this.oldPasswordWarning = 'Cannot be left blank!';
             this.isFormClean = false;
-        } else if (this.newPassword === this.confirmPassword) {
-            this.newPasswordWarning = '';
-            this.isFormClean = true;
+        } else if(!this.newPassword.trim()){
+            this.newPasswordWarning = 'Cannot be left blank!';
+            this.isFormClean = false;
         }
     }
 
     changePassword() {
-        alert('Password : ' + this.confirmPassword);
+        if(this.isFormClean){
+            alert('Password : ' + this.confirmPassword);
+        }
     }
 }
