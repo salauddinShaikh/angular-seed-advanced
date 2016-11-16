@@ -1,45 +1,229 @@
 // angular
-import { Component, DebugElement } from '@angular/core';
+import { Component } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { t } from '../../../frameworks/test/index';
+import { CoreModule } from '../../../frameworks/core/core.module';
 
 // app
-import { t } from '../../../frameworks/test/index';
-import { LmsApplyLeavesComponent } from './lms-applyleave.component';
-console.log('test check');
-// test module configuration for each test
-const testModuleConfig = () => {
-    TestBed.configureTestingModule({
-        declarations: [LmsApplyLeavesComponent, TestComponent]
-    });
-};
-
-let componentInstance:    LmsApplyLeavesComponent;
-let fixture: ComponentFixture<LmsApplyLeavesComponent>;
-let de : DebugElement;
-let el : HTMLElement;
+import { LmsApproveLeavesComponent } from './lms-approveleave.component';
+import * as localForage from "localforage";
 
 export function main() {
-    console.log('test check');
-    t.describe('@Component:LmsApplyLeavesComponent', () => {
-        t.be(testModuleConfig);
 
-        t.it('should work', t.async(() => {
-            TestBed.compileComponents().then(() => {
-
-                fixture = TestBed.createComponent(LmsApplyLeavesComponent);
-                fixture.detectChanges();
-                let compiled = fixture.debugElement.nativeElement;
-
-                componentInstance = fixture.componentInstance;
-
-                t.it('should find page content', () => {
-                    t.e(compiled).toBeDefined();
-                });
-
+    t.describe('Component: SingleApproval', () => {
+        t.beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [CoreModule],
+                declarations: [LmsApproveLeavesComponent, TestComponent],
+                schemas: [NO_ERRORS_SCHEMA]
             });
-        }));
+        });
     });
+
+
+    t.describe('on load status of component variables', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    let homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    t.e(homeInstance.leaves.length).toBe(5);
+                    t.e(homeInstance.startDateDisabled).toBeTruthy();
+                    t.e(homeInstance.endDateDisabled).toBeTruthy();
+                    t.e(homeInstance.start).toBe(new Date());
+                    t.e(homeInstance.end).toBe(new Date());
+                    t.e(homeInstance.formIsClean).not.toBeTruthy();
+                    t.e(homeInstance.isHalfDay).not.toBeTruthy();
+                    t.e(homeInstance.showWarning).not.toBeTruthy();
+                    t.e(homeInstance.warning).toBe('');
+
+                });
+        });
+    });
+
+    t.describe('changing "type of leave" to LEAVE call to "leaveTypeChanged()"', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    let homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    let event = { value: { id: 1 } };
+                    homeInstance.leaveTypeChanged(event);
+                    fixture.detectChanges();
+                    t.e(homeInstance.showNumDays).toBe(1);
+                    t.e(homeInstance.numberofdays).toBe(1);
+                    t.e(homeInstance.startdateDisabled).not.toBeTruthy();
+                    t.e(homeInstance.enddateDisabled).not.toBeTruthy();
+                    t.e(homeInstance.isHalfDay).not.toBeTruthy();
+                    t.e(homeInstance.start).toBe(new Date());
+                    t.e(homeInstance.end).toBe(new Date());
+                    t.e(homeInstance.warning).toBe('');
+
+                });
+        });
+    });
+
+    t.describe('changing "type of leave" to HALF DAY LEAVE call to "leaveTypeChanged()"', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    let homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    let event = { value: { id: 1 } };
+                    homeInstance.leaveTypeChanged(event);
+                    fixture.detectChanges();
+                    t.e(homeInstance.showNumDays).toBe(0.5);
+                    t.e(homeInstance.numberofdays).toBe(0.5);
+                    t.e(homeInstance.startdateDisabled).not.toBeTruthy();
+                    t.e(homeInstance.enddateDisabled).toBeTruthy();
+                    t.e(homeInstance.isHalfDay).toBeTruthy();
+                    t.e(homeInstance.start).toBe(new Date());
+                    t.e(homeInstance.end).toBe(new Date());
+                    t.e(homeInstance.warning).toBe('');
+
+                });
+        });
+    });
+
+    t.it('test the startSelected() method', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    let homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    homeInstance.start = new Date();
+                    fixture.detectChanges();
+                    homeInstance.startSelected();
+                    fixture.detectChanges();
+                    t.e(homeInstance.end).toBe(new Date());
+
+                });
+        });
+    });
+
+    t.it('test the dayDiffCalc() method by calling endSelected()', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    let homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    homeInstance.start = new Date();
+                    homeInstance.end = new Date(homeInstance.start.getFullYear() + "-" + homeInstance.start.getMonth() + "-" + homeInstance.start.getDate() + 1);
+                    fixture.detectChanges();
+
+                    homeInstance.endSelected();
+                    t.e(homeInstance.showNumDays).toBe(2);
+                    t.e(homeInstance.numberofdays).toBe(2);
+                });
+        });
+    });
+
+    t.it('test the dayDiffCalc() method by calling endSelected()', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    let homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    homeInstance.cancelPressed();
+                    t.e(homeInstance.finalLeaveData.length).toBe(0);
+                    t.e(homeInstance.end).toBe(new Date());
+                    t.e(homeInstance.start).toBe(new Date());
+                    t.e(homeInstance.numberofdays).toBe(0);
+                    t.e(homeInstance.showNumDays).toBe(0);
+                    t.e(homeInstance.selectedLeave).toBe({ label: 'Select', value: { id: 0, name: 'Select' } });
+                    t.e(homeInstance.reason).toBe('');
+                    t.e(homeInstance.warning).toBe('');
+                    t.e(homeInstance.formIsClean).toBe(false);
+                    t.e(homeInstance.leaveVisible).toBe(true);
+                });
+        });
+    });
+
+    t.it('test the fillFinalLeaveData() method by calling addLeaves() for "Half-day Leave"', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    let homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    homeInstance.isHalfDay = true;
+                    homeInstance.addLeaves();
+                    t.e(homeInstance.warning).toBe('Reason cannot be left blank!');
+                    t.e(homeInstance.formIsClean).toBe(false);
+                    t.e(homeInstance.numberofdays).toBe(0.5);
+                    t.e(homeInstance.showNumDays).toBe(0.5);
+                    
+                    fixture.detectChanges();
+                    homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    homeInstance.isHalfDay = true;
+                    homeInstance.reason = 'Personal';
+                    homeInstance.addLeaves();
+                    t.e(homeInstance.warning).toBe('');
+                    t.e(homeInstance.formIsClean).toBe(true);
+                    t.e(homeInstance.numberofdays).toBe(0.5);
+                    t.e(homeInstance.showNumDays).toBe(0.5);
+                });
+        });
+    });
+
+    t.it('test the fillFinalLeaveData() method by calling addLeaves() for "Leave"', () => {
+        t.async(() => {
+            TestBed.compileComponents()
+                .then(() => {
+                    let fixture = TestBed.createComponent(TestComponent);
+                    fixture.detectChanges();
+
+                    let homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    homeInstance.isHalfDay = false;
+                    homeInstance.start = new Date();
+                    homeInstance.end = new Date(homeInstance.start.getFullYear() + "-" + homeInstance.start.getMonth() + "-" + homeInstance.start.getDate() + 1);
+                    homeInstance.addLeaves();
+                    t.e(homeInstance.warning).toBe('Reason cannot be left blank!');
+                    t.e(homeInstance.formIsClean).toBe(false);
+                    t.e(homeInstance.numberofdays).toBe(2);
+                    t.e(homeInstance.showNumDays).toBe(2);
+                    
+                    fixture.detectChanges();
+                    homeInstance = fixture.debugElement.children[0].componentInstance;
+
+                    homeInstance.isHalfDay = true;
+                    homeInstance.reason = 'Personal';
+                    homeInstance.start = new Date();
+                    homeInstance.end = new Date(homeInstance.start.getFullYear() + "-" + homeInstance.start.getMonth() + "-" + homeInstance.start.getDate() + 1);
+                    homeInstance.addLeaves();
+                    t.e(homeInstance.warning).toBe('');
+                    t.e(homeInstance.formIsClean).toBe(true);
+                    t.e(homeInstance.numberofdays).toBe(2);
+                    t.e(homeInstance.showNumDays).toBe(2);
+                });
+        });
+    });
+
+
 }
 
 
@@ -88,12 +272,6 @@ class TestComponent { }
 //                     t.e(compiled.querySelector('h5')).toBeFalsy();
 //                 });
 
-//                 t.it('test the dayDiffCalc() method',()=>{
-//                     var today = new Date();
-//                     var tomorrow = new Date(today.getFullYear()+"-"+today.getMonth()+"-"+today.getDate()+1);
-//                     fixture.detectChanges();
-//                     t.e(componentInstance.dayDiffCalc(today, tomorrow)).toBe(1);
-//                 });
 
 //                 t.it('test the startSelected() method',()=>{
 //                     componentInstance.start = new Date();
