@@ -167,6 +167,220 @@ export function main() {
                         t.e(educationDOMEl.getElementsByTagName('label')[0]).toBeUndefined();
                     });
             }));
+
+        t.it('TC_167 : To check what are the contents Under Employment History',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_168 : To check whether link button is Clickable',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_169 : To check what happens after clicking On Add new employment link',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_170 : To check whether Employment details Are mandatory or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_171 : To check whether if Employment Details if left blank while submitting; it Will display validation or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_172 : To check whether Designation Are mandatory or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_173 : To check whether if Designation if left blank while submitting; it  Will display  Validation or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_174 : to check whether start date is mandatory To fill or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_175 : To check whether start date should Be selected from the calender provided',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_176 : To check whether start date is not future That end date',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_177 : To check if start date Is not filled but End date is entered; is there any Validation provided',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_178 : to check whether end date is mandatory To fill or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_179 : To check whether end date should Be selected from the calender provided',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_180 : To check whether end date is not past That start date',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_181 :To check if end date Is not filled but Start date is entered; is there any Validation provided',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_182 :To check whether Save button Works or not when  clicked',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_183 :To check whether what happens when Clicked on Save Button ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_184 :To check whether Cancel Button is Clickable or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_185 :To check what happens when clicked On Cancel button',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_186 :To check what is status before Editing the address column',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_187 :To check what is the status after Editing the address and clicking On Save button',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+
+        t.it('TC_188 :To check whether Edit Option is Working or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+
+        t.it('TC_189 :To check what Is displayed on the Screen after clicking edit icon',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_190 :To check whether file can be uploaded For each field or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_191 :To check whether Submit button Works or not when  clicked',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_192 :To check whether what happens when Clicked on Submit Button ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_193 :To check whether Close Button is Clickable or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_194 :To check what happens when clicked On Close button',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_195 :To check what is status before Editing the address column',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_196 :To check what is the status after Editing the address and clicking On submit button',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+
     });
 };
 

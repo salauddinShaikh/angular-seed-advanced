@@ -188,9 +188,11 @@
   "SKILL_SET_MESSAGE": "Details of Skill Type and Skills are mandatory",
   "SKILL_TYPE": "Skill Type",
   "SKILLS": "Skills",
+  "SKILL_SET": " Skill Set",
   "ADD_NEW_SKILLSET":"Add New SkillSet",
   "ENVIRONMENT": "Environment",
   "RESPONSIBILITES": "Responsibilites",
+  "EXPERIENCE":"Experience",
   "ADD_NEW_EXPERIENCE": "Add New Experience",
   "EXPERIENCE_MESSAGE": "All field mark * are mandatory",
   "ROLE": "Role",
@@ -221,5 +223,6 @@
   "ADD_NEW_ID_PROOFS":"Add New ID Proof Details",
   "ADHAAR_CARD_NUMBER":"Adhaar Card Number",
   "PAN_CARD": "PAN Card",
-  "VOTER_ID":"Voter ID"
+  "VOTER_ID":"Voter ID",
+  "DETAILS":"Details"
 }

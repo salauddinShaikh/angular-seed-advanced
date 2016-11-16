@@ -98,6 +98,196 @@ export function main() {
                         t.e(experienceDOMEl.querySelectorAll('button')[0].textContent).toContain('Add New Experience');
                     });
             }));
+
+        t.it('TC_197 :To check what are the contents Under Experience',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_198 :To check whether link button is Clickable',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_199 :To check what happens after clicking On Add new employment link',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_200 :To check whether Project is mandatory Field or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_201 :To check whether if Project if left blank  while submitting; it Will display Validation or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_202 :To check whether Client is mandatory Field or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_203 :To check whether if Client if left blank while submitting; it Will display Validation or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_204 :to check whether start date is mandatory To fill or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_205 :To check whether start date should Be selected from the calender provided',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_206 :To check whether start date is not future That end date',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_207 :To check if start date Is not filled but End date is entered; is there any Validation provided',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_208 :to check whether end date is mandatory To fill or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_209 :To check whether end date should Be selected from the calender provided',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_210 :To check whether end date is not past That start date',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_211 :To check if end date Is not filled but Start date is entered; is there any Validation provided',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_212:To check whether role is mandatory Field or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_213 :To check whether if role if left blank while submitting; it Will display Validation or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_214 :To check whether Environment is mandatory Field or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_215 :To check whether if Environment if left blank while submitting; it Will display Validation or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_216 :To check whether Responsibilities is Mandatory Field or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_217 :To check whether if Responsibilities if left blank while submitting; it Will display Validation or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_218 :To check whether Description is mandatory Field or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_219 :To check whether if Description if left blank  while submitting; it Will display Validation or not  ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_220 :To check whether Save button Works or not when  clicked ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_221 :To check whether what happens when Clicked on Save Button ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_222 :To check whether Cancel Button is Clickable or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_223 :To check what happens when clicked On Cancel button ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
     });
 };
 

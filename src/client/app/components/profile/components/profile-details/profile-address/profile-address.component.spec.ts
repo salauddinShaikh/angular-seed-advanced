@@ -103,6 +103,92 @@ export function main() {
                         t.e(addressDOMEl.querySelectorAll('button')[1]).toBeUndefined();
                     });
             }));
+        t.it('TC_81 : To check what are the contents under Address details',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_82 : To check whether edit icon is clickable Or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_83 : To check what is displayed on the Screen after clicking edit icon',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_84 : To check whether Submit button Works or not when  clicked',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_85 : To check whether what happens when Clicked on Submit Button ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_86 : To check whether Cancel Button is Clickable or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_86 : To check whether Cancel Button is Clickable or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_87 : To check what happens when clicked On Cancel button',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_88 : To check what is status before Editing the address column',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_89 : To check what is the status after Editing the address and clicking On submit button',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_90 : To check whether HR comments field Is mandatory to be filled or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+
+        t.it('TC_91 : To check whether the changed address Reflects on Personal Info Page or not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+
     });
 };
 
