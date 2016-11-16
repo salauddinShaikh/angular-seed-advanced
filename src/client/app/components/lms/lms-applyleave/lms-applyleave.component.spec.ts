@@ -7,7 +7,7 @@ import { t } from '../../../frameworks/test/index';
 import { CoreModule } from '../../../frameworks/core/core.module';
 
 // app
-import { LmsApproveLeavesComponent } from './lms-approveleave.component';
+import { LmsApplyLeavesComponent } from './lms-applyleave.component';
 import * as localForage from "localforage";
 
 export function main() {
@@ -16,7 +16,7 @@ export function main() {
         t.beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [CoreModule],
-                declarations: [LmsApproveLeavesComponent, TestComponent],
+                declarations: [LmsApplyLeavesComponent, TestComponent],
                 schemas: [NO_ERRORS_SCHEMA]
             });
         });
@@ -229,7 +229,7 @@ export function main() {
 
 
 @Component({
-    selector: 'apply-leave',
+    selector: 'test-cmp',
     template: '<sd-applyleave></sd-applyleave>'
 })
 class TestComponent { }
