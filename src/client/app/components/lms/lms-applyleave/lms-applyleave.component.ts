@@ -51,7 +51,7 @@ export class LmsApplyLeavesComponent {
     this.leaves.push({ label: 'Absent(LWP)', value: { id: 3, name: 'Absent' } });
     this.leaves.push({ label: 'Half Day Absent(LWP)', value: { id: 4, name: 'Half Day Absent' } });
 
-    this.isHalfDay = true;
+    this.isHalfDay = false;
     this.startDateDisabled = true;
     this.endDateDisabled = true;
     let today = new Date();
@@ -64,7 +64,7 @@ export class LmsApplyLeavesComponent {
 
   dayDiffCalc(first, second) {
     this.numberofdays = Math.round((second - first) / (1000 * 60 * 60 * 24));
-    this.showNumDays = this.numberofdays + 1;
+    this.showNumDays = this.numberofdays += 2;
   }
 
   fillFinalLeaveData() {
@@ -75,7 +75,7 @@ export class LmsApplyLeavesComponent {
     if (this.formIsClean) {
 
       if (!this.isHalfDay) {
-        for (var i = 0; i <= this.numberofdays; i++) {
+        for (var i = 0; i < this.numberofdays; i++) {
           buffData.ID = i;
           buffData.start = (bufDate + i) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
           buffData.end = (bufDate + i) + '/' + this.start.getMonth() + '/' + this.start.getFullYear();
@@ -132,6 +132,10 @@ export class LmsApplyLeavesComponent {
     if (this.numberofdays > 0) {
       this.leaveVisible = false;
     }
+    else{
+      this.leaveVisible = true;
+    }
+    this.showNumDays = this.numberofdays = this.finalLeaveData.length;
   }
 
   leaveTypeChanged(event) {
