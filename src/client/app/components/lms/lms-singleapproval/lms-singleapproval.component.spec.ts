@@ -11,13 +11,25 @@ import { LmsSingleApprovalComponent } from './lms-singleapproval.component';
 
 export function main() {
 
-    t.describe('Component: SingleApproval', () => {
+    t.describe('Component: LmsSingleApprovalComponent', () => {
         t.beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [CoreModule],
                 declarations: [LmsSingleApprovalComponent, TestComponent],
                 schemas: [NO_ERRORS_SCHEMA]
             });
+        });
+
+        t.it('should have a defined component', () => {
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
+                        t.e(fixture.nativeElement).toBeTruthy();
+                        t.e(TestComponent).toBeDefined();
+                    });
+            })
         });
 
         t.it('should have defined singleapproval component',
@@ -110,7 +122,7 @@ export function main() {
 
         //CLOSE BUTTON CLICK FOR REDIRECTION TEST CASE TO BE ADDED
 
-    })
+    });
 }
 
 

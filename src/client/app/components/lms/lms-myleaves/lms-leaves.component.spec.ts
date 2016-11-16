@@ -12,7 +12,7 @@ import * as localForage from "localforage";
 
 export function main() {
 
-    t.describe('Component: SingleApproval', () => {
+    t.describe('Component: LmsLeavesComponent', () => {
         t.beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [CoreModule],
@@ -20,6 +20,7 @@ export function main() {
                 schemas: [NO_ERRORS_SCHEMA]
             });
         });
+
 
         t.it('should have defined leaves component',
             t.async(() => {
@@ -71,7 +72,7 @@ export function main() {
 
         //REDIRECTION (BY EDIT BUTTON ON DATATABLE) TO 'APPLY LEAVE' TEST CASE TO BE ADDED
 
-    })
+    });
 }
 
 

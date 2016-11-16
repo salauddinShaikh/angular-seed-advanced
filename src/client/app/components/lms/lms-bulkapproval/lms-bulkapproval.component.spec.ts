@@ -11,7 +11,7 @@ import { LmsBulkApproveComponent } from './lms-bulkapproval.component';
 
 export function main() {
 
-    t.describe('Component: SingleApproval', () => {
+    t.describe('Component: LmsBulkApproveComponent', () => {
         t.beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [CoreModule],
@@ -19,9 +19,20 @@ export function main() {
                 schemas: [NO_ERRORS_SCHEMA]
             });
         });
-    });
 
-    t.it('should have defined bulkapproval component',
+        t.it('should have a defined component',()=>{
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
+                        t.e(fixture.nativeElement).toBeTruthy();
+                        t.e(TestComponent).toBeDefined();
+                    });
+            })
+        });
+
+        t.it('should have defined bulkapproval component',
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
@@ -106,13 +117,14 @@ export function main() {
                     });
             });
         });
+    });
 }
 
 
 
 @Component({
-  selector: 'test-cmp',
-  template: '<bulkapproval></bulkapproval>'
+    selector: 'test-cmp',
+    template: '<bulkapproval></bulkapproval>'
 })
-class TestComponent{}
+class TestComponent { }
 
