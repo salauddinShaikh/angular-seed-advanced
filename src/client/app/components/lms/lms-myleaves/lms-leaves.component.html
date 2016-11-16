@@ -75,7 +75,7 @@
                         <p-column field="end" header="{{ 'END_DATE' | translate }}" [sortable]="true"></p-column>
                         <p-column field="numDays" header="{{ 'NO_LEAVES' | translate }}" [sortable]="true"></p-column>
                         <p-column field="status" header="{{ 'STATUS' | translate }} " [sortable]="true"></p-column>
-                        <p-column styleClass="col-button" field="color">
+                        <p-column styleClass="col-button" header="{{ 'ACTION' | translate }}" field="color">
                             <template let-car="rowData" pTemplate type="body">
                                 <button type="button" pButton [routerLink]="['/update-leave']" icon="fa-edit"></button>
                             </template>

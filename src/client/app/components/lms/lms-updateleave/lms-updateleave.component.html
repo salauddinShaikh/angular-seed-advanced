@@ -80,22 +80,22 @@
                             <h5 class="font-blue">Leave Approved</h5>
                         </div>
                         <p-dataTable [value]="leaves" [responsive]="true">
-                            <p-column field="leave.name" header="Type"></p-column>
-                            <p-column field="numDays" header="No. of Leaves"></p-column>
-                            <p-column field="reason" header="Reason"></p-column>
-                            <p-column field="start" header="Start Date"></p-column>
-                            <p-column field="end" header="End Date"></p-column>
-                            <p-column field="action" header="Action"></p-column>
+                            <p-column field="leave.name" header="{{ 'LEAVE_TYPE' | translate }}"></p-column>
+                            <p-column field="numDays" header="{{ 'NO_LEAVES' | translate }}"></p-column>
+                            <p-column field="reason" header="{{ 'REASON' | translate }}"></p-column>
+                            <p-column field="start" header="{{ 'START_DATE' | translate }}"></p-column>
+                            <p-column field="end" header="{{ 'END_DATE' | translate }}"></p-column>
+                            <p-column field="action" header="{{ 'ACTION' | translate }}"></p-column>
                         </p-dataTable>
                     </div>
                 </div>
                 <div class="portlet light bordered">
                     <div class="row">
                         <p-dataTable [value]="managers" [responsive]="true">
-                            <p-column field="project" header="Project"></p-column>
-                            <p-column field="manager" header="Manager"></p-column>
-                            <p-column field="status" header="Status"></p-column>
-                            <p-column field="comments" header="Comments"></p-column>
+                            <p-column field="project" header="{{ 'PROJECT' | translate }}"></p-column>
+                            <p-column field="manager" header="{{ 'MANAGER' | translate }}"></p-column>
+                            <p-column field="status" header="{{ 'STATUS' | translate }}"></p-column>
+                            <p-column field="comments" header="{{ 'COMMENTS' | translate }}"></p-column>
                         </p-dataTable>
                     </div>
                     <a class="btn blue btn-outline" [routerLink]="['/my-leaves']"> Close </a>

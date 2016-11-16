@@ -32,6 +32,7 @@
   "PROJECTS": "Projects",
   "FROM": "From",
   "TO": "To",
+  "ACTION":"Action",
   "DELETE": "Delete",
   "TIMESHEET": "Timesheet",
   "NEW_ITEMS": "New Items",
