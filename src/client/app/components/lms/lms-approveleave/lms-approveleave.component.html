@@ -18,7 +18,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="portlet light ">
                     <div class="portlet-body">
-                        <p-dataTable [value]="approveleaves" selectionMode="single" [paginator]="true" [rows]=(servRows) [responsive]="true">
+                        <p-dataTable [value]="approvalRecords" [paginator]="true" [rows]=(servRows) [responsive]="true">
                             <p-column field="employee" header="{{ 'EMPLOYEE' | translate }}" [sortable]="true"></p-column>
                             <p-column field="eid" header="{{ 'EMPLOYEE_ID' | translate }}" [sortable]="true"></p-column>
                             <p-column field="numberofleaves" header="{{ 'NO_LEAVES' | translate }}" [sortable]="true"></p-column>

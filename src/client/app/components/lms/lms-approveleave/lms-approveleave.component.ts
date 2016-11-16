@@ -1,7 +1,7 @@
 import { BaseComponent } from '../../../frameworks/core/index';
 import { OnInit } from '@angular/core';
 
-class showLeaveReq {
+export class showLeaveReq {
   eid: number;
   employee: string;
   numberofleaves: number;
@@ -17,14 +17,16 @@ class showLeaveReq {
   selector: 'approve-leave',
   templateUrl: 'lms-approveleave.component.html'
 })
-export class LmsApproveLeavesComponent {
+export class LmsApproveLeavesComponent implements OnInit{
 
-  approveleaves: showLeaveReq[] = []
+  approvalRecords: showLeaveReq[];
+  servRows = 10;
 
   ngOnInit() {
-    this.approveleaves = [
+    this.approvalRecords = [
       { eid: 23123, employee: 'Employee', numberofleaves: 4, status: 'Approved', start: '01-10-2016', end: '10-10-2016', approvers: 'Manager, Manager, Manager, Manager', pending: '' },
-      { eid: 23124, employee: 'Employee', numberofleaves: 4, status: 'Approved', start: '01-10-2016', end: '10-10-2016', approvers: 'Manager, Manager, Manager, Manager', pending: '' }]
+      { eid: 23124, employee: 'Employee', numberofleaves: 4, status: 'Approved', start: '01-10-2016', end: '10-10-2016', approvers: 'Manager, Manager, Manager, Manager', pending: '' }
+    ];
 
   }
 }
