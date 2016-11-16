@@ -45,6 +45,7 @@ export function main() {
                     t.e(tr.nativeElement.querySelectorAll('th')[6].innerHTML).toBe('Approvers');
                     t.e(tr.nativeElement.querySelectorAll('th')[7].innerHTML).toBe('Pending Approvers');
                     t.e(tr.nativeElement.querySelectorAll('th')[8].innerHTML).toBe('Approvers');
+                    t.e(tr.nativeElement.querySelectorAll('th')[9].innerHTML).toBe('Action');
                 });
         });
     });
