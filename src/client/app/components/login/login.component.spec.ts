@@ -8,6 +8,8 @@ import { LoginComponent } from './login.component';
 import { t } from '../../frameworks/test/index';
 import { LoginService } from '../../shared/services/login.service';
 
+var isLogin = false;
+
 export function main() {
 
     t.describe('Component: TopNavigationBarComponent', () => {
@@ -74,7 +76,21 @@ export function main() {
                     .then(() => {
                         let fixture = TestBed.createComponent(TestComponent);
                         fixture.detectChanges();
-                        t.expect(false).toBe(true);
+                        let componentInstance = fixture.debugElement.children[0].componentInstance;
+                        componentInstance.doLogin();
+                        t.expect(isLogin).toBe(true);
+                    });
+            }));
+        t.it('should call getLoggedInUserPermission',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        isLogin=false;
+                        let fixture = TestBed.createComponent(TestComponent);
+                        fixture.detectChanges();
+                        let componentInstance = fixture.debugElement.children[0].componentInstance;
+                        componentInstance.getLoggedInUserPermission();
+                        t.expect(isLogin).toBe(true);
                     });
             }));
         t.it('TC_06: If clicked on cancel, the page Should through an error.',
@@ -104,13 +120,12 @@ export function main() {
     template: '<login-component></login-component>'
 })
 class TestComponent { }
-
 class MockLoginService {
     public authenticate() {
-        return;
+        isLogin = true;
     }
     public getLoggedInUserPermission() {
-        return;
+       isLogin = true;
     }
 }
 class RouterStub {

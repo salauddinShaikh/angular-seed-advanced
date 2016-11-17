@@ -30,6 +30,41 @@ export function main() {
                         t.e(TestComponent).toBeDefined();
                     });
             }));
+        t.it('should have initialize component',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        let componentInstance = fixture.debugElement.children[0].componentInstance;
+                        fixture.detectChanges();
+                        t.e(componentInstance.allEvents.length).toBe(8);
+                        t.e(componentInstance.conferenceRooms.length).toBe(8);
+                        t.e(TestComponent).toBeDefined();
+                    });
+            }));
+        t.it('should call handleEventClicked method',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        let componentInstance = fixture.debugElement.children[0].componentInstance;
+                        fixture.detectChanges();
+                        componentInstance.handleEventClicked({calEvent:{start:'start', end:'end'}});
+                        t.e(componentInstance.selectedEvent.start).toBe('start');
+                        t.e(componentInstance.selectedEvent.end).toBe('end');
+                    });
+            }));
+        t.it('should call getEventByRooms method',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        let fixture = TestBed.createComponent(TestComponent);
+                        let componentInstance = fixture.debugElement.children[0].componentInstance;
+                        fixture.detectChanges();
+                        componentInstance.getEventByRooms('Bahamas');
+                        t.e(componentInstance.selectedEvent.selectedRoom).toBe('Bahamas');
+                    });
+            }));
         t.it('TC_01: To check what is displayed on the Screen when conference booking is Selected',
             t.async(() => {
                 TestBed.compileComponents()
@@ -38,6 +73,7 @@ export function main() {
                         fixture.detectChanges();
                         let componentInstance = fixture.debugElement.children[0].componentInstance;
                         t.expect(componentInstance.bookings.length).toBe(7);
+                        t.expect(fixture.nativeElement.querySelectorAll('.fc-agendaDay-view').length).toBe(1);
                     });
             }));
         t.it('TC_02: To check what are the contents on the Page Conference booking',
@@ -50,6 +86,9 @@ export function main() {
                         t.expect(fixture.nativeElement.querySelectorAll('.fc-agendaDay-view').length).toBe(1);
                         t.expect(fixture.nativeElement.querySelectorAll('.color-list').length).toBe(8);
                         t.expect(fixture.nativeElement.querySelector('button.btn.btn-default').innerHTML).toBe('Manage My Booking');
+                        t.expect(fixture.nativeElement.querySelectorAll('button.fc-month-button').length).toBe(1);
+                        t.expect(fixture.nativeElement.querySelectorAll('button.fc-agendaWeek-button').length).toBe(1);
+                        t.expect(fixture.nativeElement.querySelectorAll('button.fc-agendaDay-button').length).toBe(1);
                     });
             }));
         t.it('TC_03: To check whether different conference Rooms are displayed or not',
