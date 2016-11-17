@@ -199,11 +199,6 @@ export class ConferenceComponent implements OnInit {
             });
         }
     }
-
-    dayRender(date, cell) {
-        debugger
-        cell.css("background-color", "red");
-    }
 }
 class MyEvent {
     constructor(

@@ -45,6 +45,7 @@ export function main() {
                         let fixture = TestBed.createComponent(TestComponent);
                         fixture.detectChanges();
                         t.expect(fixture.nativeElement.querySelectorAll('.btn green hidden-xs').length).toBe(1);
+                        t.expect(fixture.nativeElement.querySelectorAll('p-datatable').length).toBe(1);
                     });
             }));
         t.it('TC_10:To check what are the contents of the Table provided',
@@ -53,6 +54,12 @@ export function main() {
                     .then(() => {
                         let fixture = TestBed.createComponent(TestComponent);
                         fixture.detectChanges();
+                        t.expect(fixture.nativeElement.querySelector('p-datatable').innerHTML.search('Title')).not.toBe(-1);
+                        t.expect(fixture.nativeElement.querySelector('p-datatable').innerHTML.search('Start Time')).not.toBe(-1);
+                        t.expect(fixture.nativeElement.querySelector('p-datatable').innerHTML.search('End Time')).not.toBe(-1);
+                        t.expect(fixture.nativeElement.querySelector('p-datatable').innerHTML.search('Attendees')).not.toBe(-1);
+                        t.expect(fixture.nativeElement.querySelector('p-datatable').innerHTML.search('Conference Rooms')).not.toBe(-1);
+                        t.expect(fixture.nativeElement.querySelector('p-datatable').innerHTML.search('Delete')).not.toBe(-1);
                         t.expect(false).toBe(true);
                     });
             }));
