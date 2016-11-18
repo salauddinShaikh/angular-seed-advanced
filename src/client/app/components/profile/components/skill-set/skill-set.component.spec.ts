@@ -100,6 +100,69 @@ export function main() {
                         t.e(skillSetDOMEl.querySelectorAll('button')[0].textContent).toContain('Add New SkillSet');
                     });
             }));
+        t.it('TC_237 :To check what are the contents Under Skill Set ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_238 :To check what are the contents underSkill type',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_239 :To check whether these values when Selected from drop down gets Selected for further use or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_240 :To check whether skill Type drop Down field is mandatory or not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_241 :To check Skills field is provided or Not',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_242 :To check Skills field is mandatory or Not ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_243 :To check whether Save button Works or not when  clicked',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_244 :To check whether what happens when Clicked on Save Button ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
+        t.it('TC_246 :To check what happens when clicked On Cancel button ',
+            t.async(() => {
+                TestBed.compileComponents()
+                    .then(() => {
+                        t.e(true).toBe(false);
+                    });
+            }));
     });
 };
 

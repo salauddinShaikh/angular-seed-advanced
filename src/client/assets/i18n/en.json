@@ -110,6 +110,8 @@
   "NEW_BOOKING_LABEL_ATTENDEES": "Attendees",
   "NEW_BOOKING_LABEL_END_TIME": "End Time",
   "NEW_BOOKING_LABEL_START_TIME": "Start Time",
+  "NEW_BOOKING_LABEL_DOUBLE_BOOKING":"Double Booking",
+  "NEW_BOOKING_BTN_CHECK_DOUBLE_BOOKING":"Check",
   "CONFERENCE_BTN_MANAGE_BOOKING": "Manage My Booking",
   "CONFERENCE_BTN_ALL_ROOMS": "All Conference Rooms",
   "CONFERENCE_LABEL_START": "Start",
@@ -189,9 +191,11 @@
   "SKILL_SET_MESSAGE": "Details of Skill Type and Skills are mandatory",
   "SKILL_TYPE": "Skill Type",
   "SKILLS": "Skills",
+  "SKILL_SET": " Skill Set",
   "ADD_NEW_SKILLSET":"Add New SkillSet",
   "ENVIRONMENT": "Environment",
   "RESPONSIBILITES": "Responsibilites",
+  "EXPERIENCE":"Experience",
   "ADD_NEW_EXPERIENCE": "Add New Experience",
   "EXPERIENCE_MESSAGE": "All field mark * are mandatory",
   "ROLE": "Role",
@@ -222,5 +226,6 @@
   "ADD_NEW_ID_PROOFS":"Add New ID Proof Details",
   "ADHAAR_CARD_NUMBER":"Adhaar Card Number",
   "PAN_CARD": "PAN Card",
-  "VOTER_ID":"Voter ID"
+  "VOTER_ID":"Voter ID",
+  "DETAILS":"Details"
 }

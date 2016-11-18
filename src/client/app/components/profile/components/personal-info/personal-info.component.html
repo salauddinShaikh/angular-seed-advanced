@@ -3,7 +3,7 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'EMPLOYEE_ID' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_employeeID">{{ 'EMPLOYEE_ID' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <span> {{ profileInfo.employeeID }} </span>
@@ -13,7 +13,7 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'EMPLOYEE_NAME' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_employeeName">{{ 'EMPLOYEE_NAME' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <span> {{ profileInfo.employeeName }} </span>
@@ -25,7 +25,7 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'CURRENT_ADDRESS' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_currentAddress">{{ 'CURRENT_ADDRESS' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <span> {{ profileInfo.currentAddress }} </span>
@@ -35,7 +35,7 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'CONTACT_NO' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_contactNo">{{ 'CONTACT_NO' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.contactNo && !isAddContactNo" (click)="addContactNo()"></i>
@@ -56,7 +56,7 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'EMAIL' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_employeeEmail">{{ 'EMAIL' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <span> {{ profileInfo.email }} </span>
@@ -66,7 +66,7 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'DATE_OF_BIRTH' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_dateOfBirth">{{ 'DATE_OF_BIRTH' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <span> {{ profileInfo.dateOfBirth }} </span>
@@ -78,12 +78,12 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'ESPL_PF_NO' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_esplPFNo">{{ 'ESPL_PF_NO' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.esplPfNo && !isAddEsplPfNo" (click)="addEsplPfNo()"></i>
                     <div *ngIf="profileInfo.esplPfNo && !isEditEsplPfNo">
-                        {{ profileInfo.esplPfNo }}
+                       <span>{{ profileInfo.esplPfNo }} </span>
                         <i class="fa fa-pencil icon-size" (click)="editEsplPfNo()"></i>
                     </div>
                     <div *ngIf="isEditEsplPfNo">
@@ -97,12 +97,12 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'PREVIOUS_PF_NO' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_previousPFNo">{{ 'PREVIOUS_PF_NO' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.previousPfNo && !isAddPreviousPfNo" (click)="addPreviousPfNo()"></i>
                     <div *ngIf="profileInfo.previousPfNo && !isEditPreviousPfNo">
-                        {{ profileInfo.previousPfNo }}
+                       <span> {{ profileInfo.previousPfNo }} </span>
                         <i class="fa fa-pencil icon-size" (click)="editPreviousPfNo()"></i>
                     </div>
                     <div *ngIf="isEditPreviousPfNo">
@@ -118,12 +118,12 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'CAREER_START_DATE' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_careerStartDate">{{ 'CAREER_START_DATE' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.careerStartDate && !isAddCareerStartDate" (click)="addCareerStartDate()"></i>
                     <div *ngIf="profileInfo.careerStartDate && !isEditCareerStartDate">
-                        {{ profileInfo.careerStartDate }}
+                       <span> {{ profileInfo.careerStartDate }} </span>
                         <i class="fa fa-pencil icon-size" (click)="editCareerStartDate()"></i>
                     </div>
                     <div *ngIf="isEditCareerStartDate">
@@ -137,12 +137,12 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'LAST_WORKING_DAY' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_lastWorkingDay">{{ 'LAST_WORKING_DAY' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.lastWorkingDay && !isAddLastWorkingDay" (click)="addLastWorkingDay()"></i>
                     <div *ngIf="profileInfo.lastWorkingDay && !isEditLastWorkingDay">
-                        {{ profileInfo.lastWorkingDay }}
+                       <span> {{ profileInfo.lastWorkingDay }} </span>
                         <i class="fa fa-pencil icon-size" (click)="editLastWorkingDay()"></i>
                     </div>
                     <div *ngIf="isEditLastWorkingDay">
@@ -158,12 +158,12 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'EMERGENCY_CONTACT_NAME' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_emergencyContactName">{{ 'EMERGENCY_CONTACT_NAME' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.emergencyContactName && !isAddEmergencyContactName" (click)="addEmergencyContactName()"></i>
                     <div *ngIf="profileInfo.emergencyContactName && !isEditEmergencyContactName">
-                        {{ profileInfo.emergencyContactName }}
+                       <span> {{ profileInfo.emergencyContactName }} </span>
                         <i class="fa fa-pencil icon-size" (click)="editEmergencyContactName()"></i>
                     </div>
                     <div *ngIf="isEditEmergencyContactName">
@@ -177,12 +177,12 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'BLOOD_GROUP' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_bloodGroup">{{ 'BLOOD_GROUP' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.bloodGroup && !isAddBloodGroup" (click)="addBloodGroup()"></i>
                     <div *ngIf="profileInfo.bloodGroup && !isEditBloodGroup">
-                        {{ profileInfo.bloodGroup }}
+                        <span>{{ profileInfo.bloodGroup }} </span>
                         <i class="fa fa-pencil icon-size" (click)="editBloodGroup()"></i>
                     </div>
                     <div *ngIf="isEditBloodGroup">
@@ -198,12 +198,12 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'EMERGEANCY_CONTACT_NO' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_emergencyContactNo">{{ 'EMERGEANCY_CONTACT_NO' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.emergencyContactNo && !isAddEmergencyContact" (click)="addEmergencyContactNo()"></i>
                     <div *ngIf="profileInfo.emergencyContactNo && !isEditEmergencyContact">
-                        {{ profileInfo.emergencyContactNo }}
+                      <span> {{ profileInfo.emergencyContactNo }} </span>
                         <i class="fa fa-pencil icon-size" (click)="editEmergencyContactNo()"></i>
                     </div>
                     <div *ngIf="isEditEmergencyContact">
@@ -217,12 +217,12 @@
         <div class="col-md-6 col-margin">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="personal-info-label">{{ 'SKYPE_ID' | translate }} : </span>
+                    <span class="personal-info-label" id="personalInfo_skypeID">{{ 'SKYPE_ID' | translate }} : </span>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <i class="fa fa-plus-circle icon-size" *ngIf="!profileInfo.skypeID && !isAddSkypeID" (click)="addSkypeID()"></i>
                     <div *ngIf="profileInfo.skypeID && !isEditSkypeID">
-                        {{ profileInfo.skypeID }}
+                       <span> {{ profileInfo.skypeID }} </span>
                         <i class="fa fa-pencil icon-size" (click)="editSkypeID()"></i>
                     </div>
                     <div *ngIf="isEditSkypeID">
