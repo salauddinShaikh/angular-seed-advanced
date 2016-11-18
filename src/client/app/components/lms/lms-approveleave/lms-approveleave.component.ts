@@ -1,7 +1,7 @@
 import { BaseComponent } from '../../../frameworks/core/index';
 import { OnInit } from '@angular/core';
 
-export class showLeaveReq {
+export class ShowLeaveReq {
   eid: number;
   employee: string;
   numberofleaves: number;
@@ -17,9 +17,9 @@ export class showLeaveReq {
   selector: 'approve-leave',
   templateUrl: 'lms-approveleave.component.html'
 })
-export class LmsApproveLeavesComponent implements OnInit{
+export class LmsApproveLeavesComponent implements OnInit {
 
-  approvalRecords: showLeaveReq[];
+  approvalRecords: ShowLeaveReq[];
   servRows = 10;
 
   ngOnInit() {

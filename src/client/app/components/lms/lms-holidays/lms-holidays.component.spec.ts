@@ -1,14 +1,12 @@
 // angular
 import { Component } from '@angular/core';
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { t } from '../../../frameworks/test/index';
 import { CoreModule } from '../../../frameworks/core/core.module';
 
 // app
 import { LmsHolidaysComponent } from './lms-holidays.component';
-import * as localForage from "localforage";
 
 export function main() {
 
@@ -30,7 +28,7 @@ export function main() {
                         t.e(fixture.nativeElement).toBeTruthy();
                         t.e(TestComponent).toBeDefined();
                     });
-            })
+            });
         });
 
         t.it('should contain all tables', () => {
@@ -117,28 +115,3 @@ export function main() {
     template: '<sd-viewholidays></sd-viewholidays>'
 })
 class TestComponent { }
-
-
-
-
-// t.it('should find page content',()=>{
-//                     t.e(compiled).toBeDefined();
-//                 });
-
-//                 t.it('checks page-load component status',()=>{
-//                     de = fixture.debugElement.query(By.css('.fc-toolbar'));
-//                     el = de.nativeElement();
-
-//                     var calTitle = el.getAttribute('text');
-//                     var cal = calTitle.split(' ');
-//                     var dateTemp = new Date();
-//                     t.e(cal[1]).toContain(dateTemp.getFullYear());
-//                     t.e(el).toBeDefined();
-
-//                     fixture.detectChanges();
-
-//                     de = fixture.debugElement.query(By.css('.ui-datatable-tablewrapper'));
-//                     el = de.nativeElement();
-//                     el.getElementsByTagName('THEAD');
-//                     t.e(el).not.toBeNull();
-//                 });

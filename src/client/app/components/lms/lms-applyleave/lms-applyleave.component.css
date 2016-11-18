@@ -29,3 +29,12 @@ table{
 .validationClass{
     border-left: 5px solid red;
 }
+
+.charsLeft{
+    margin: 0px 0px -5px;
+    background-color: #F8F3C9;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-left: 1px dotted #ababab;
+    border-top: 1px dotted #ababab;
+}

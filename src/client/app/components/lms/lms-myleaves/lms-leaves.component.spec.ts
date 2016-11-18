@@ -1,14 +1,12 @@
 // angular
 import { Component } from '@angular/core';
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { t } from '../../../frameworks/test/index';
 import { CoreModule } from '../../../frameworks/core/core.module';
 
 // app
 import { LmsLeavesComponent } from './lms-leaves.component';
-import * as localForage from "localforage";
 
 export function main() {
 
@@ -45,9 +43,9 @@ export function main() {
                         var tHead = table.nativeElement.querySelectorAll('thead')[0];
                         var tr = tHead.nativeElement.querySelectorAll('tr')[0];
 
-                        t.e(tHead.nativeElement.querySelectorAll('th')[0]).toBe('Leave Type');
-                        t.e(tHead.nativeElement.querySelectorAll('th')[1]).toBe('Taken');
-                        t.e(tHead.nativeElement.querySelectorAll('th')[2]).toBe('Balance');
+                        t.e(tr.nativeElement.querySelectorAll('th')[0]).toBe('Leave Type');
+                        t.e(tr.nativeElement.querySelectorAll('th')[1]).toBe('Taken');
+                        t.e(tr.nativeElement.querySelectorAll('th')[2]).toBe('Balance');
 
                         t.e(fixture.nativeElement.querySelectorAll('.btn-outline')[0].innerHTML).toBe('Apply Leave');
 

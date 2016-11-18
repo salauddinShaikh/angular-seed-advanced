@@ -1,5 +1,10 @@
 import { BaseComponent } from '../../../frameworks/core/index';
 
+class FormFieldClass {
+  constructor(
+    public comments: string
+  ) { }
+}
 
 @BaseComponent({
   moduleId: module.id,
@@ -9,54 +14,42 @@ import { BaseComponent } from '../../../frameworks/core/index';
 })
 export class LmsSingleApprovalComponent {
 
-  requests :any[];
+  requests: any[];
   servRows = 6;
 
-  comments: string = '';
+  model: FormFieldClass;
+
   validationMessage: string = '';
-  formIsClean: boolean = false;
+  approved: boolean = false;
+  rejected: boolean = false;
 
-  ngOnInit() {
+  constructor() {
     this.requests = [
-      {project:'RMS', manager:'Sagar Shelar', status: 'Pending', comments:'Comment1 here...'},
-      {project:'PLSV 2', manager:'Manager Name', status: 'Approved', comments:'Comment2 here...'},
+      { project: 'RMS', manager: 'Sagar Shelar', status: 'Pending', comments: 'Comment1 here...' },
+      { project: 'PLSV 2', manager: 'Manager Name', status: 'Approved', comments: 'Comment2 here...' }
     ];
+    this.model = new FormFieldClass('');
+
   }
 
-  validate() {
-    if ((this.comments.trim())) {
-      this.formIsClean = true;
-      this.validationMessage = '';
-    } else {
-      if (!this.comments.trim()) {
-          this.validationMessage = 'Comments cannot be left blank';
-          this.formIsClean = false;
-      }
-    }
+  approveClicked() {
+    this.rejected = false;
+    this.approved = true;
+    alert('approved!');
+    //    BACKEND CALL HERE
+    return;
   }
 
-  clearForm() {
-    this.comments = '';
-    this.formIsClean = true;
+  rejectClicked() {
+    this.rejected = true;
+    this.approved = false;
+    alert('rejected!');
+    //    BACKEND CALL HERE
+    return;
   }
 
-  approvePressed() {
-    this.validate();
-    if (this.formIsClean) {
-      this.validationMessage = 'Approved';
-      this.formIsClean = true;
-//    APPROVE BACKEND CALL HERE
-      this.clearForm();
-    }
+  closeClicked() {
+    this.model.comments = '';
   }
 
-  rejectPressed(event) {
-    this.validate();
-    if (this.formIsClean) {
-      this.validationMessage = 'Rejected';
-      this.formIsClean = true;
-//    REJECT BACKEND CALL HERE
-      this.clearForm();
-    }
-  }
 }

@@ -33,28 +33,29 @@
                         <p-column field="approvers" header="{{ 'APPROVERS' | translate }} "></p-column>
                         <p-column field="pending" header="{{ 'PENDING_APPROVERS' | translate }} "></p-column>
                     </p-dataTable>
-
-                    <div class="form-group">
-                        <label class="control-label">{{ 'COMMENTS' | translate }}</label>
-                        <textarea [(ngModel)]="comments" autoresize="autoResize" cols="30" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="pull-right">
-                                <h5 class = "warning">
-                                    <span>{{validationMessage}}</span>
-                                </h5>
+                    <form #form="ngForm" novalidate>
+                        <div class="form-group">
+                            <label class="control-label">{{ 'COMMENTS' | translate }}</label>
+                            <textarea autoresize="autoResize" cols="30" rows="3" class="form-control" [(ngModel)]="model.comments" name="comments" pattern="...+" #comments="ngModel" required [class.validationClass]="comments.invalid && comments.touched"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-right">
+                                    <h5 class="warning">
+                                        <span>{{validationMessage}}</span>
+                                    </h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="pull-right">
-                                <button (click)="approvePressed()" class="btn green btn-outline"> {{ 'APPROVE' | translate }} </button>
-                                <button (click)="rejectPressed($event)" class="btn red btn-outline"> {{ 'REJECT' | translate }} </button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-right">
+                                    <button [disabled]="form.invalid" (click)="approveClicked()" class="btn "> {{ 'APPROVE' | translate }} </button>
+                                    <button [disabled]="form.invalid" (click)="rejectClicked()" class="btn "> {{ 'REJECT' | translate }} </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <!-- END BULK APPROVAL LIST COMPONENT BY PRIMENG -->

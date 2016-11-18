@@ -1,7 +1,6 @@
 // angular
 import { Component } from '@angular/core';
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { t } from '../../../frameworks/test/index';
 import { CoreModule } from '../../../frameworks/core/core.module';
@@ -20,7 +19,7 @@ export function main() {
             });
         });
 
-        t.it('should have a defined component',()=>{
+        t.it('should have a defined component', ()=> {
             t.async(() => {
                 TestBed.compileComponents()
                     .then(() => {
@@ -29,7 +28,7 @@ export function main() {
                         t.e(fixture.nativeElement).toBeTruthy();
                         t.e(TestComponent).toBeDefined();
                     });
-            })
+            });
         });
 
         t.it('should have defined bulkapproval component',

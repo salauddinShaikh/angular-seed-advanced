@@ -1,5 +1,5 @@
 import { BaseComponent } from '../../../frameworks/core/index';
-import * as localForage from "localforage";
+import * as localForage from 'localforage';
 
 @BaseComponent({
   moduleId: module.id,
@@ -23,15 +23,4 @@ export class LmsUpdateLeavesComponent {
     ];
   }
 
-  constructor() {
-    localForage.getItem('appliedLeave').then((value) => {
-      if (value) {
-        this.leaves = value;
-        console.log('getting from localforage in myLeaves');
-      } else {
-        this.leaves = [];
-      }
-    });
-
-  }
 }

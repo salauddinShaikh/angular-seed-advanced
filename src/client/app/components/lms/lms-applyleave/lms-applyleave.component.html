@@ -111,23 +111,16 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <label class="control-label"> {{ 'START_DATE' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span> </label>
-                                        <!--<div>
-                                            <p-calendar dateFormat="dd/mm/yy" (onSelect)="startSelected()" [(ngModel)]="start" [disabled]="startDateDisabled" [showIcon]="true"></p-calendar>
-                                        </div>-->
                                         <div>
-                                            <p-calendar required dateFormat="dd/mm/yy" [showIcon]="true" [(ngModel)]="model.start" name="start" #start="ngModel"></p-calendar>
+                                            <p-calendar required dateFormat="dd/mm/yy" [showIcon]="true" (onSelect)="startChanged()" [(ngModel)]="model.start" name="start" #start="ngModel"></p-calendar>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <label class="control-label"> {{ 'END_DATE' | translate }} <span class="warning">{{ 'ASTERISK' | translate }}</span> </label>
-                                        <!--<div>
-                                            <p-calendar dateFormat="dd/mm/yy" (onSelect)="endSelected()" [minDate]="start" [(ngModel)]="end" [disabled]="endDateDisabled"
-                                                [showIcon]="true"></p-calendar>
-                                        </div>-->
                                         <div>
-                                            <p-calendar  required dateFormat="dd/mm/yy" [minDate]="model.start" [showIcon]="true" [(ngModel)]="model.end" name="end" #end="ngModel"></p-calendar>
+                                            <p-calendar  required dateFormat="dd/mm/yy" [(minDate)]="minDate" [showIcon]="true" (onSelect)="endChanged()" [(ngModel)]="model.end" name="end" #end="ngModel"></p-calendar>
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +130,8 @@
                                             <span class="warning">{{ 'ASTERISK' | translate }}</span> 
                                         </label>
                                         <div>
-                                            <textarea required name="reason" pattern="...+" #reason="ngModel" maxlength="600" [(ngModel)]="model.reason" class="fullWidth" [class.validationClass]="reason.invalid && reason.touched"></textarea>
+                                            <textarea required name="reason" pattern="...+" #reason="ngModel" (keyup)="reasonTextChanged()" maxlength="600" [(ngModel)]="model.reason" class="fullWidth" [class.validationClass]="reason.invalid && reason.touched"></textarea>
+                                            <div class="charsLeft pull-right">{{charsLeft}} characters left</div>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +139,7 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <p-dataTable [value]="finalLeaveData" [responsive]="true" [hidden]="leaveVisible">
+                                        <p-dataTable [value]="finalLeaveData" [responsive]="true" [hidden]="leavesHidden">
                                             <p-column field="leave.name" header=" {{ 'LEAVE_TYPE' | translate }} " [sortable]="false"></p-column>
                                             <p-column field="numDays" header=" {{ 'NO_LEAVES' | translate }} " [sortable]="false"></p-column>
                                             <p-column field="reason" header=" {{ 'REASON' | translate }} " [sortable]="false"></p-column>
@@ -159,18 +153,14 @@
                                         </p-dataTable>
                                     </div>
                                 </div>
-                            </div>addLeaves
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="pull-right">
                                         <button  class="btn btn-outline" (click)="addLeaves()"> {{ 'ADD_LEAVE' | translate }} </button>
                                         <button [disabled]="form.invalid" type="submit" class="btn btn-outline"> {{ 'SUBMIT' | translate }} </button>
-                                        <button type="reset" class="btn btn-outline"> {{ 'CANCEL' | translate }} </button>
+                                        <button type="reset" [routerLink]="['/my-leaves']" class="btn btn-outline"> {{ 'CANCEL' | translate }} </button>
                                     </div>
-                                </div>
-                                <div class="row red">
-                                    Model: {{ model | json }}<br>
-                                    Form Valid: {{ form.valid | json }}
                                 </div>
                             </div>
                         </form>

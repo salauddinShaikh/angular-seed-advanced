@@ -1,14 +1,12 @@
 // angular
 import { Component } from '@angular/core';
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { t } from '../../../frameworks/test/index';
 import { CoreModule } from '../../../frameworks/core/core.module';
 
 // app
 import { LmsUpdateLeavesComponent } from './lms-updateleave.component';
-import * as localForage from "localforage";
 
 export function main() {
 
@@ -30,7 +28,7 @@ export function main() {
                         t.e(fixture.nativeElement).toBeTruthy();
                         t.e(TestComponent).toBeDefined();
                     });
-            })
+            });
         });
 
         t.it('should contain all tables', () => {
