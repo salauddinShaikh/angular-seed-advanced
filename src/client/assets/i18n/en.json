@@ -227,5 +227,7 @@
   "ADHAAR_CARD_NUMBER":"Adhaar Card Number",
   "PAN_CARD": "PAN Card",
   "VOTER_ID":"Voter ID",
-  "DETAILS":"Details"
+  "DETAILS":"Details",
+  "ADMIN_TITLE":"Admin",
+  "FEATURE_TITLE":"Feature"
 }

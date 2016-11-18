@@ -60,6 +60,7 @@ import {TimesheetModule} from './app/components/timesheet/index';
 
 import { CorporateModule } from './app/components/corporate/index';
 import { ProfileModule } from './app/components/profile/index';
+import { AdminModule } from './app/components/admin/index';
 
 import { LoginComponent } from './app/components/login/login.component';
 import { UnauthorizedAccessComponent } from './app/components/errorPages/unauthorizedAccess/unauthorizedAccess.component';
@@ -103,7 +104,8 @@ export function cons() {
     EffectsModule.run(NameListEffects),
     TimesheetModule,
     CorporateModule,
-    ProfileModule
+    ProfileModule,
+    AdminModule
   ],
   declarations: [
     AppComponent,

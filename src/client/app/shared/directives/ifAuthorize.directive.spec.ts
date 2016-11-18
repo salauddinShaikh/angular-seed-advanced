@@ -24,7 +24,7 @@ export function main() {
     t.describe('Shared: ifAuthorizeDirective', () => {
         t.be(testModuleConfig);
         t.beforeEach(() => {
-            var store = {loggedInUserPermission:"['Timesheets.READ']"};
+            var store = {loggedInUserPermission:'["Timesheets.READ"]'};
 
             t.spyOn(localStorage, 'getItem').andCallFake((key) => {
                 return store[key];
