@@ -23,6 +23,7 @@ export class EducationComponent implements OnInit {
   class: SelectItem[];
   grade: SelectItem[];
   showDiv: boolean;
+  educationObj: any;
 
   constructor(
     private router: Router) {
@@ -30,6 +31,7 @@ export class EducationComponent implements OnInit {
     this.class = [];
     this.grade = [];
     this.showDiv = true;
+    this.educationObj = {};
   }
 
   ngOnInit(): void {
@@ -49,6 +51,7 @@ export class EducationComponent implements OnInit {
 
   onAddClick() {
     this.showDiv = false;
+    this.educationObj = {};
   }
   submit() {
     this.education = [{
@@ -66,5 +69,16 @@ export class EducationComponent implements OnInit {
   }
   cancel() {
     this.showDiv = true;
+  }
+  editEducation (educationData) {
+    this.showDiv = false;
+    this.educationObj = {
+      class:this.class[1].value,
+      degree: educationData.degree,
+      grade:this.grade[1].value,
+      percentage: educationData.percentage,
+      yearOfPassing: educationData.yearOfPassing,
+      certificate: educationData.certificate
+    };
   }
 }

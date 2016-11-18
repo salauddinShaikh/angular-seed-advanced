@@ -21,12 +21,14 @@ export class CertificationComponent implements OnInit {
     certificationOptions: SelectItem[];
     certificationCodes: SelectItem[];
     showDiv: boolean;
+    certification: any;
 
     constructor() {
         this.certifications = [];
         this.certificationOptions = [];
         this.certificationCodes = [];
         this.showDiv = true;
+        this.certification = {};
     }
 
     ngOnInit(): void {
@@ -49,6 +51,7 @@ export class CertificationComponent implements OnInit {
 
     onAddClick() {
         this.showDiv = false;
+        this.certification = {};
     }
     submit() {
         this.certifications = [{
@@ -65,4 +68,13 @@ export class CertificationComponent implements OnInit {
     cancel() {
         this.showDiv = true;
     }
+
+    selectCertification(certificationData) {
+        this.showDiv = false;
+        this.certification = {
+            option: this.certificationOptions[1].value,
+            code: this.certificationCodes[1].value,
+            date: certificationData.certificateDate
+        };
+    }  
 }

@@ -24,11 +24,13 @@ export class SkillSetComponent implements OnInit {
   skillSet: SkillSet[];
   skillTypes: SelectItem[];
   showDiv: boolean;
+  skillSetObj:any;
 
   constructor(
     private router: Router) {
     this.skillTypes = [];
     this.showDiv = true;
+    this.skillSetObj = {};
   }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class SkillSetComponent implements OnInit {
 
   onAddClick() {
     this.showDiv = false;
+    this.skillSetObj = {};
   }
   submit() {
     this.skillSet = [{
@@ -54,5 +57,12 @@ export class SkillSetComponent implements OnInit {
   }
   cancel() {
     this.showDiv = true;
+  }
+  editSkillSetData (skillSetData) {
+    this.showDiv = false;
+    this.skillSetObj = {
+      type: this.skillTypes[1].value,
+      skill: skillSetData.skills
+    };
   }
 }

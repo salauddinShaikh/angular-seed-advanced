@@ -5,7 +5,11 @@
     </div>
     <div *ngIf="certifications.length > 0">
         <p-dataTable [value]="certifications" [responsive]="true" emptyMessage="{{ 'NO_RECORDS' | translate }}">
-            <p-column header="{{ 'EDIT' | translate }}"></p-column>
+            <p-column header="{{ 'EDIT' | translate }}">
+                <template let-certificationData="rowData" pTemplate type="body">
+                    <i class="fa fa-pencil icon-color" (click)="selectCertification(certificationData)"></i>
+                </template>
+            </p-column>
             <p-column header="{{ 'CERTIFICATION' | translate }}" field="certificate"></p-column>
             <p-column header="{{ 'CODE' | translate }}" field="code"></p-column>
             <p-column header="{{ 'CERTIFICATION_DATE' | translate }}" field="certificateDate"></p-column>
@@ -20,35 +24,35 @@
                 <span>{{ 'CERTIFICATION' | translate }}</span>
                 <span class="req-field"> *</span>
                 <div class="div-margin">
-                    <p-dropdown [options]="certificationOptions" [style]="{'width':'100%'}"></p-dropdown>
+                    <p-dropdown [options]="certificationOptions" [(ngModel)]="certification.option" [style]="{'width':'100%'}"></p-dropdown>
                 </div>
             </div>
             <div class="col-md-2 col-margin">
                 <span>{{ 'CERTIFICATION_CODE' | translate }}</span>
                 <span class="req-field"> *</span>
                 <div class="div-margin">
-                    <p-dropdown [options]="certificationCodes" disabled="true" [style]="{'width':'100%'}"></p-dropdown>
+                    <p-dropdown [options]="certificationCodes" [(ngModel)]="certification.code" disabled="true" [style]="{'width':'100%'}"></p-dropdown>
                 </div>
             </div>
             <div class="col-md-2 col-margin">
                 <span>{{ 'FROM_ESPL' | translate }}</span>
                 <span class="req-field"> *</span>
                 <div class="div-margin">
-                    <p-checkbox binary="true"></p-checkbox>
+                    <p-checkbox binary="true" [(ngModel)]="certification.fromEspl"></p-checkbox>
                 </div>
             </div>
             <div class="col-md-2 col-margin">
                 <span>{{ 'CERTIFICATION_DATE' | translate }}</span>
                 <span class="req-field"> *</span>
                 <div class="div-margin">
-                    <p-calendar [showIcon]="true"></p-calendar>
+                    <p-calendar [showIcon]="true" [(ngModel)]="certification.date"></p-calendar>
                 </div>
             </div>
             <div class="col-md-2 col-margin">
                 <span>{{ 'UPLOAD_CERTIFICATE' | translate }}</span>
                 <span class="req-field"> *</span>
                 <div class="div-margin">
-                    <input type="file">
+                    <input type="file" [(ngModel)]="certification.file">
                 </div>
             </div>
         </div>

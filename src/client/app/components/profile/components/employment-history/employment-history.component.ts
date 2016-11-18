@@ -17,16 +17,19 @@ export class EmploymentHistoryComponent {
     lastEmployerDetails: any[];
     showDiv: boolean;
     showEmployerDiv: boolean;
+    employmentHistoryObj: any;
 
     constructor() {
         this.employmentHistory = [];
         this.lastEmployerDetails = [];
         this.showDiv = true;
         this.showEmployerDiv = true;
+        this.employmentHistoryObj = {};
     }
 
     onAddClick() {
         this.showDiv = false;
+        this.employmentHistoryObj = {};
     }
     submit() {
         this.employmentHistory = [{
@@ -35,7 +38,7 @@ export class EmploymentHistoryComponent {
             designation: 'Developer',
             startDate: '10/11/2013',
             endDate: '10/11/2017',
-            duration:'11 Months',
+            duration: '11 Months',
             status: 'pending for approval',
             comment: ''
         }];
@@ -45,11 +48,11 @@ export class EmploymentHistoryComponent {
         this.showDiv = true;
     }
 
-    addLastEmployer () {
+    addLastEmployer() {
         this.showEmployerDiv = false;
     }
 
-    submitLastEmployer () {
+    submitLastEmployer() {
         this.lastEmployerDetails = [{
             id: 1,
             firstMonth: '',
@@ -62,7 +65,16 @@ export class EmploymentHistoryComponent {
         }];
         this.showEmployerDiv = true;
     }
-    cancelLastEmployer () {
+    cancelLastEmployer() {
         this.showEmployerDiv = true;
+    }
+    editEmploymentHistory(employmentHistoryData) {
+        this.showDiv = false;
+        this.employmentHistoryObj = {
+            employementDetails: employmentHistoryData.employementDetails,
+            designation: employmentHistoryData.designation,
+            startDate: employmentHistoryData.startDate,
+            endDate: employmentHistoryData.endDate
+        };
     }
 }

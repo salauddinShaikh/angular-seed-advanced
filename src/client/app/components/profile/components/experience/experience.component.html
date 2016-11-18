@@ -5,7 +5,11 @@
 	</div>
 	<div *ngIf="experience.length > 0">
 		<p-dataTable [value]="experience" [responsive]="true" emptyMessage="{{ 'NO_RECORDS' | translate }}">
-			<p-column header="{{ 'EDIT' | translate }}"></p-column>
+			<p-column header="{{ 'EDIT' | translate }}">
+				<template let-experienceData="rowData" pTemplate type="body">
+					<i class="fa fa-pencil icon-color" (click)="editExperienceData(experienceData)"></i>
+				</template>
+			</p-column>
 			<p-column header="{{ 'PROJECT' | translate }}" field="project"></p-column>
 			<p-column header="{{ 'CLIENT' | translate }}" field="client"></p-column>
 			<p-column header="{{ 'START_DATE' | translate }}" field="startDate"></p-column>
@@ -25,54 +29,54 @@
 				<span>{{ 'PROJECT' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="form-group div-margin">
-					<input type="text" [(ngModel)]="project" class="form-control" placeholder="">
+					<input type="text" [(ngModel)]="experienceObj.project" class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'CLIENT' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="form-group div-margin">
-					<input type="text" [(ngModel)]="client" class="form-control" placeholder="">
+					<input type="text" [(ngModel)]="experienceObj.client" class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'START_DATE' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="form-group div-margin">
-					<p-calendar [(ngModel)]="startDate" [showIcon]="true"></p-calendar>
+					<p-calendar [(ngModel)]="experienceObj.startDate" [showIcon]="true"></p-calendar>
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'END_DATE' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="div-margin">
-					<p-calendar  [(ngModel)]="endDate"  [showIcon]="true"></p-calendar>
+					<p-calendar  [(ngModel)]="experienceObj.endDate"  [showIcon]="true"></p-calendar>
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'ROLE' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="div-margin">
-					<input type="text"  [(ngModel)]="role"  class="form-control" placeholder="">
+					<input type="text"  [(ngModel)]="experienceObj.role"  class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'ENVIRONMENT' | translate }}</span>
 				<div class="div-margin">
-					<input type="text"  [(ngModel)]="environment"  class="form-control" placeholder="">
+					<input type="text"  [(ngModel)]="experienceObj.environment"  class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'RESPONSIBILITES' | translate }}</span>
 				<span class="req-field"> *</span>
 				<div class="div-margin">
-					<input type="text"  [(ngModel)]="responsibilites"  class="form-control" placeholder="">
+					<input type="text"  [(ngModel)]="experienceObj.responsibilites"  class="form-control" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-2 col-margin">
 				<span>{{ 'DESCRIPTION' | translate }}</span>
 				<div class="div-margin">
-					<input type="text"  [(ngModel)]="description"  class="form-control" placeholder="">
+					<input type="text"  [(ngModel)]="experienceObj.description"  class="form-control" placeholder="">
 				</div>
 			</div>
 		</div>
