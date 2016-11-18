@@ -1,11 +1,7 @@
-
 import { TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { By } from '@angular/platform-browser';
 import { QuickSidebarComponent } from './quick-sidebar.component';
 import { Component } from '@angular/core';
 import { t } from '../../../frameworks/test/index';
-
 
 export function main() {
 
@@ -34,7 +30,7 @@ export function main() {
                         t.expect(fixture.nativeElement.querySelectorAll('.page-quick-sidebar-toggler').length).toBe(1);
                     });
             }));
-    })
+    });
 };
 
 

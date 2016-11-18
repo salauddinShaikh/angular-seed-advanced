@@ -10,6 +10,7 @@ import { LoginRoutes } from './login/login.routes';
 import { ErrorPagesRoutes } from './errorPages/errorPages.routes';
 import { ProfileRoutes } from './profile/profile.routes';
 import { ChangePasswordRoutes } from './changePassword/change-password.routes';
+import { AdminRoutes } from './admin/admin.routes';
 
 export const routes: Array<any> = [
   ...HomeRoutes,
@@ -22,5 +23,6 @@ export const routes: Array<any> = [
   ...LoginRoutes,
   ...ErrorPagesRoutes,
   ...ProfileRoutes,
-  ...ChangePasswordRoutes
+  ...ChangePasswordRoutes,
+  ...AdminRoutes
 ];

@@ -15,14 +15,17 @@ import {BaseComponent} from '../views/base-component';
 export class AchievementComponent {
     achievements: any[];
     showDiv: boolean;
+    achivement: any;
 
     constructor() {
         this.achievements = [];
+        this.achivement = {};
         this.showDiv = true;
     }
 
     onAddClick() {
         this.showDiv = false;
+        this.achivement = {};
     }
     submit() {
         this.achievements = [{
@@ -35,5 +38,9 @@ export class AchievementComponent {
     }
     cancel() {
         this.showDiv = true;
+    }
+    selectAchievement(achievementData) {       
+        this.achivement.description = achievementData.achievement;
+        this.showDiv = false;
     }
 }

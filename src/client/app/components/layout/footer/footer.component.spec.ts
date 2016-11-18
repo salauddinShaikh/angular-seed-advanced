@@ -14,7 +14,7 @@ export function main() {
                 declarations: [FooterComponent, TestComponent],
                 schemas: [NO_ERRORS_SCHEMA]
             });
-        })
+        });
         t.it('should have a defined component',
             t.async(() => {
                 TestBed.compileComponents()
@@ -24,7 +24,7 @@ export function main() {
                         t.e(fixture.nativeElement).toBeTruthy();
                         t.e(TestComponent).toBeDefined();
                     });
-            }))
+            }));
         t.it('should have a page-Footer class',
             t.async(() => {
                 TestBed.compileComponents()
@@ -33,7 +33,7 @@ export function main() {
                         fixture.detectChanges();
                         t.expect(fixture.nativeElement.querySelectorAll('.page-footer').length).toBe(1);
                     });
-            }))
+            }));
         t.it('should have 3 div element',
             t.async(() => {
                 TestBed.compileComponents()
@@ -42,8 +42,8 @@ export function main() {
                         fixture.detectChanges();
                         t.expect(fixture.nativeElement.querySelectorAll('div').length).toBe(3);
                     });
-            }))
-    })
+            }));
+    });
 };
 
 

@@ -82,7 +82,6 @@ export function main() {
                     .then(() => {
                         let fixture = TestBed.createComponent(TestComponent);
                         fixture.detectChanges();
-                        let componentInstance = fixture.debugElement.children[0].componentInstance;
                         t.expect(fixture.nativeElement.querySelectorAll('.fc-agendaDay-view').length).toBe(1);
                         t.expect(fixture.nativeElement.querySelectorAll('.color-list').length).toBe(8);
                         t.expect(fixture.nativeElement.querySelector('button.btn.btn-default').innerHTML).toBe('Manage My Booking');
@@ -106,7 +105,6 @@ export function main() {
                     .then(() => {
                         let fixture = TestBed.createComponent(TestComponent);
                         fixture.detectChanges();
-                        let componentInstance = fixture.debugElement.children[0].componentInstance;
                         t.expect(fixture.nativeElement.querySelectorAll('.color-list').length).toBe(8);
                     });
             }));

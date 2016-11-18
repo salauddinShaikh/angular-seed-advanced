@@ -3,7 +3,7 @@ import { LoginService } from './login.service';
 import { CustomAnalytics, AnalyticsService } from '../../frameworks/analytics/index';
 //import { Response, Http, Headers, RequestOptions } from '@angular/http';
 import {
-    Response, Headers, ResponseOptions,
+    Response,  ResponseOptions,
     BaseRequestOptions,
     ConnectionBackend,
     Http
@@ -38,7 +38,7 @@ export function main() {
                     body: JSON.stringify({ success: true })
                 });
                 connection.mockRespond(new Response(options));
-            })
+            });
             service.authenticate({ username: 'admin', password: 'secret' })
                 .subscribe((response:any) => {
                     t.e(response.json()).toEqual({ success: true });
