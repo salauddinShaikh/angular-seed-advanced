@@ -25,3 +25,7 @@ table{
     font-size: 10pt;
     font-weight: bolder;
 }
+
+.validationClass{
+    border-left: 5px solid red;
+}
